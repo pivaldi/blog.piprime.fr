@@ -1,0 +1,14 @@
+---
+fr:
+  menu:
+    home: Home
+    search: Search
+    posts: Posts
+    about: About
+
+  widget:
+    github: Code source du site
+
+en:
+  widget:
+    github: Website Source Code

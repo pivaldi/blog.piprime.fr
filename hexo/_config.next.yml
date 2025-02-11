@@ -24,7 +24,6 @@ custom_file_path:
   #mixin: source/_data/mixins.styl
   style: source/_asset/styles.css
 
-
 # ---------------------------------------------------------------
 # Site Information Settings
 # See: https://theme-next.org/docs/getting-started/
@@ -90,6 +89,10 @@ creative_commons:
 open_graph:
   enable: true
   options:
+    # title: PIPRIME.FR -- BLOG --
+    # type: article
+    # url: https://blog.piprime.fr
+    image: https://blog.piprime.fr/media/sun-wukong-calligraphie.png
     #twitter_card: <twitter:card>
     #twitter_id: <twitter:creator>
     #twitter_site: <twitter:site>
@@ -111,7 +114,6 @@ scheme: Gemini
 # Dark Mode
 darkmode: false
 
-
 # ---------------------------------------------------------------
 # Menu Settings
 # ---------------------------------------------------------------
@@ -122,14 +124,13 @@ darkmode: false
 # When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  Home: / || fa fa-home
-  Posts: /posts/ || fa fa-th-list
-  About: /about/ || fa fa-user
+  home: / || fa fa-home
+  posts: /posts/ || fa fa-th-list
+  about: /about/ || fa fa-user
   Asymptote: /asymptote/ || fa fa-asterisk
-  #about: /about/ || user
   #tags: /tags/ || tags
   #categories: /categories/ || th
-  Archives: /archives/ || fa fa-archive
+  archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -138,7 +139,6 @@ menu:
 menu_settings:
   icons: true
   badges: true
-
 
 # ---------------------------------------------------------------
 # Sidebar Settings
@@ -187,9 +187,9 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/pivaldi || github
-  E-Mail: mailto:p17+fromsite@ivaldi.xyz || envelope
-  Linkedin: https://fr.linkedin.com/in/philippe-ivaldi-32432018 || linkedin
-  Twitter: https://twitter.com/piprime || twitter
+  E-Mail: mailto:fromblog1@piprime.fr || envelope
+  # Linkedin: https://fr.linkedin.com/in/philippe-ivaldi-32432018 || linkedin
+  # Twitter: https://twitter.com/piprime || twitter
   # FB Page: https://www.facebook.com/philippe.ivaldi.1 || facebook
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
   #YouTube: https://youtube.com/yourname || youtube
@@ -232,7 +232,6 @@ chat:
   #service: tidio
   icon: comment # Icon name in Font Awesome, set false to disable icon.
   text: Chat # Button text, change it as you wish.
-
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -290,7 +289,7 @@ follow_me:
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
 related_posts:
-  enable: false
+  enable: true
   title: # Custom header, leave empty to use the default one
   display_in_home: false
   params:
@@ -311,22 +310,21 @@ post_edit:
 # Available values: left | right | false
 post_navigation: left
 
-
 # ---------------------------------------------------------------
 # Custom Page Settings
 # See: https://theme-next.org/docs/theme-settings/custom-pages
 # ---------------------------------------------------------------
 
 # # TagCloud settings for tags page.
-# tagcloud:
-#   # All values below are same as default, change them by yourself.
-#   min: 12 # Minimun font size in px
-#   max: 34 # Maxium font size in px
-#   start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
-#   end: "#111" # End color (hex, rgba, hsla or color keywords)
-#   amount: 200 # Amount of tags, change it if you have more than 200 tags
+tagcloud:
+  # All values below are same as default, change them by yourself.
+  min: 12 # Minimun font size in px
+  max: 34 # Maxium font size in px
+  start: "#ccc" # Start color (hex, rgba, hsla or color keywords)
+  end: "#111" # End color (hex, rgba, hsla or color keywords)
+  amount: 200 # Amount of tags, change it if you have more than 200 tags
 
-# Google Calendar
+  # Google Calendar
 # Share your recent schedule to others via calendar page.
 calendar:
   calendar_id: <required> # Your Google account E-Mail
@@ -337,7 +335,6 @@ calendar:
   showDeleted: false
   singleEvents: true
   maxResults: 250
-
 
 # ---------------------------------------------------------------
 # Misc Theme Settings
@@ -360,6 +357,9 @@ custom_logo: #/uploads/custom-logo.jpg
 
 codeblock:
   # Code Highlight theme
+  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+  # See: https://github.com/chriskempson/tomorrow-theme
+  highlight_theme: normal
   # All available themes: https://theme-next.js.org/highlight/
   theme:
     light: default
@@ -400,8 +400,8 @@ bookmark:
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
   enable: true
-  permalink: https://github.com/pivaldi/piprime.git
-  title: Fork me on GitHub
+  permalink: https://github.com/pivaldi/blog.piprime.fr
+  title: This Website on GitHub
 
 # ---------------------------------------------------------------
 # Font Settings
@@ -454,7 +454,6 @@ font:
   codes:
     external: true
     family:
-
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -595,11 +594,17 @@ utterances:
 # For more information: https://isso-comments.de
 isso: # <data_isso>
 
-
 # ---------------------------------------------------------------
 # Post Widgets & Content Sharing Services
 # See: https://theme-next.js.org/docs/third-party-services/post-widgets
 # ---------------------------------------------------------------
+
+# Star rating support to each article.
+# To get your ID visit https://widgetpack.com
+rating:
+  enable: false
+  id: # <app_id>
+  color: fc6423
 
 # AddToAny Share. See: https://www.addtoany.com
 addtoany:
@@ -607,7 +612,6 @@ addtoany:
   buttons:
     - facebook
     - twitter
-
 
 # ---------------------------------------------------------------
 # Statistics and Analytics
@@ -665,7 +669,6 @@ busuanzi_count:
   post_views: true
   post_views_icon: eye
 
-
 # ---------------------------------------------------------------
 # Search Services
 # See: https://theme-next.org/docs/third-party-services/search-services
@@ -703,7 +706,6 @@ local_search:
 # Swiftype Search API Key
 swiftype_key:
 
-
 # ---------------------------------------------------------------
 # Chat Services
 # See: https://theme-next.org/docs/third-party-services/chat-services
@@ -724,7 +726,6 @@ chatra:
 tidio:
   enable: false
   key: # Public Key, get it from dashboard. See: https://www.tidiochat.com/panel/settings/developer
-
 
 # ---------------------------------------------------------------
 # Tags Settings
@@ -778,31 +779,50 @@ wavedrom:
 # See: https://theme-next.js.org/docs/third-party-services/external-libraries
 # ---------------------------------------------------------------
 
+# Math Formulas Render Support
+math:
+  # Default (true) will load mathjax / katex script on demand.
+  # That is it only render those page which has `mathjax: true` in Front-matter.
+  # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
+  per_page: true
+
+  # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
+  mathjax:
+    enable: false
+    # See: https://mhchem.github.io/MathJax-mhchem/
+    mhchem: false
+
+  # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.
+  katex:
+    enable: false
+    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+    copy_tex: false
+
 # Easily enable fast Ajax navigation on your website.
-# For more information: https://github.com/next-theme/pjax
-pjax: false
+# Dependencies: https://github.com/theme-next/theme-next-pjax
+pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
-# For more information: https://fancyapps.com/fancybox/
-fancybox: false
+# For more information: https://fancyapps.com/fancybox
+fancybox: true
 
-# Medium Zoom is a JavaScript library for zooming images like Medium.
-# Warning: Do not enable both `fancybox` and `mediumzoom`.
-# For more information: https://medium-zoom.francoischalifour.com
+# A JavaScript library for zooming images like Medium.
+# Do not enable both `fancybox` and `mediumzoom`.
+# For more information: https://github.com/francoischalifour/medium-zoom
 mediumzoom: false
 
 # Vanilla JavaScript plugin for lazyloading images.
-# For more information: https://apoorv.pro/lozad.js/demo/
-lazyload: false
+# For more information: https://github.com/ApoorvSaxena/lozad.js
+lazyload: true
 
-# Automatically insert whitespace between CJK and half-width characters.
+# Pangu Support
 # For more information: https://github.com/vinta/pangu.js
-# Server-side plugin: https://github.com/next-theme/hexo-pangu
 pangu: false
 
-# Prefetch links based on what is in the user's viewport.
-# For more information: https://getquick.link
-# Front-matter variable (nonsupport home archive).
+# Quicklink Support
+# Do not enable both `pjax` and `quicklink`.
+# For more information: https://github.com/GoogleChromeLabs/quicklink
+# Front-matter (unsupport home archive).
 quicklink:
   enable: false
 
@@ -815,9 +835,13 @@ quicklink:
   delay: true
   # Custom a time in milliseconds by which the browser must execute prefetching.
   timeout: 3000
-  # Default (true) will attempt to use the fetch() API if supported (rather than link[rel=prefetch]).
+  # Default (true) will enable fetch() or falls back to XHR.
   priority: true
-  
+
+  # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores.
+  # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
+  ignores:
+
 # ---------------------------------------------------------------
 # Animation Settings
 # ---------------------------------------------------------------
@@ -854,6 +878,14 @@ pace:
   # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
   theme: minimal
 
+# JavaScript 3D library.
+# Dependencies: https://github.com/theme-next/theme-next-three
+three:
+  enable: false
+  three_waves: false
+  canvas_lines: false
+  canvas_sphere: false
+
 # Canvas-ribbon
 # Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon
 # For more information: https://github.com/zproo/canvas-ribbon
@@ -862,7 +894,6 @@ canvas_ribbon:
   size: 300 # The width of the ribbon
   alpha: 0.6 # The transparency of the ribbon
   zIndex: -1 # The display level of the ribbon
-
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING SETTINGS
@@ -904,12 +935,9 @@ vendors:
   pjax:
 
   # FancyBox
-  # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
-  # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
-  # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
-  jquery:
-  fancybox:
-  fancybox_css:
+  jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
+  fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
+  fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
 
   # Medium-zoom
   # mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
