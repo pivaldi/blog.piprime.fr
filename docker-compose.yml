@@ -1,0 +1,19 @@
+services:
+  hexo:
+    build:
+      context: hexo
+      target: builder
+
+  dev:
+    image: wwwpiprimefr_hexo:latest
+    depends_on:
+      - hexo
+    ports:
+      - "127.0.0.1:${SERVER_PORT}:${SERVER_PORT}"
+    profiles:
+      - dev
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+    command: "make dev"
+    volumes:
+      - ./hexo:/hexo:rw

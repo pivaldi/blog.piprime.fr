@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.log
+*/node_modules/
+public/
+.deploy*/
+hexo/source/_posts/en/asymptote
+hexo/source/media/asymptote
+hexo/db.json
+hexo/source/_drafts/*
