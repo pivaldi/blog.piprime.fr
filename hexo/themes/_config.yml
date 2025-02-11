@@ -386,7 +386,7 @@ bookmark:
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
   enable: true
-  permalink: https://github.com/pivaldi/piprime.git
+  permalink: https://github.com/pivaldi/blog.piprime.fr.git
   title: Fork me on GitHub
 
 # ---------------------------------------------------------------
@@ -505,7 +505,7 @@ math:
 
 # Easily enable fast Ajax navigation on your website.
 # Dependencies: https://github.com/theme-next/theme-next-pjax
-pjax: false
+pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox

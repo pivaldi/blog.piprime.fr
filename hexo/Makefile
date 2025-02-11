@@ -1,5 +1,6 @@
 SHELL := /bin/bash
 .DEFAULT_GOAL := all
+HEXO = node --trace-deprecation node_modules/hexo-cli/bin/hexo
 
 # SERVER_PORT=4280 #See ../.envrc
 
@@ -8,15 +9,15 @@ all: install clean deploy
 
 .PHONY: production
 production: clean
-	hexo generate && hexo serve --static --debug -p $(SERVER_PORT)
+	$(HEXO) generate && $(HEXO) serve --static --debug -p $(SERVER_PORT)
 
 .PHONY: deploy
 deploy: clean
-	hexo generate --deploy
+	$(HEXO) generate --deploy
 
 .PHONY: dev
 dev: clean
-	hexo serve --draft --debug -p $(SERVER_PORT)
+	$(HEXO) serve --draft --debug -p $(SERVER_PORT)
 
 .PHONY: asy
 asy: clean
@@ -24,7 +25,7 @@ asy: clean
 
 .PHONY: clean
 clean:
-	hexo clean
+	$(HEXO) clean
 
 .PHONY: install
 install:
@@ -32,5 +33,5 @@ install:
 	npm install
 
 .PHONY: update
-update: docker
+update:
 	npx npm-check-updates -u && npm install
