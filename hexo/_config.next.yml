@@ -127,7 +127,25 @@ menu:
   home: / || fa fa-home
   posts: /posts/ || fa fa-th-list
   about: /about/ || fa fa-user
-  Asymptote: /asymptote/ || fa fa-asterisk
+  Asymptote:
+    default: /asymptote/ || fa fa-images
+    Generalities: generalities
+    Opacity: opacity
+    Animations: animations
+    Graph: graph
+    Geometry: geometry
+    Three: three
+    Graph3D: graph3
+    Solids: solids
+    Tube: tube
+    Fractales: fractales
+    Lsystem: lsystem
+    Trembling: trembling
+    Tiling: tiling
+    Ccw: ccw
+    Randomwalk: randomwalk
+    Various: various
+
   #tags: /tags/ || tags
   #categories: /categories/ || th
   archives: /archives/ || fa fa-archive
@@ -185,9 +203,10 @@ site_state: true
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
+## List of icons here : https://fontawesome.com/v4/icons/
 social:
-  GitHub: https://github.com/pivaldi || github
-  E-Mail: mailto:fromblog1@piprime.fr || envelope
+  GitHub: https://github.com/pivaldi || fab fa-github
+  E-Mail: mailto:fromblog1@piprime.fr || fa fa-envelope
   # Linkedin: https://fr.linkedin.com/in/philippe-ivaldi-32432018 || linkedin
   # Twitter: https://twitter.com/piprime || twitter
   # FB Page: https://www.facebook.com/philippe.ivaldi.1 || facebook
@@ -195,6 +214,7 @@ social:
   #YouTube: https://youtube.com/yourname || youtube
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
+  "Buymeacoffee": https://buymeacoffee.com/pivaldi || fa fa-coffee
 
 social_icons:
   enable: true
@@ -346,7 +366,7 @@ text_align:
   mobile: justify
 
 # Reduce padding / margin indents on devices with narrow width.
-mobile_layout_economy: false
+mobile_layout_economy: true
 
 # Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
 android_chrome_color: "#222"
@@ -368,9 +388,9 @@ codeblock:
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
-    style:
+    style: default
 
 back2top:
   enable: true
@@ -904,117 +924,23 @@ canvas_ribbon:
 # Be aware that you would better use the same version as internal ones to avoid potential problems.
 # Remember to use the https protocol of CDN files when you enable https on your site.
 vendors:
-  # Internal path prefix.
-  _internal: lib
-
-  # Internal version: 3.1.0
-  # anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
-  anime:
-
-  # Internal version: 4.7.0
-  # fontawesome: //cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css
-  # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
-  fontawesome:
-
-  # MathJax
-  # mathjax: //cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  mathjax:
-
-  # KaTeX
-  # katex: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css
-  # katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css
-  # copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js
-  # copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css
-  katex:
-  copy_tex_js:
-  copy_tex_css:
-
-  # Internal version: 0.2.8
-  # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
-  pjax:
-
-  # FancyBox
-  jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
-  fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
-  fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
-
-  # Medium-zoom
-  # mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
-  mediumzoom:
-
-  # Lazyload
-  # lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js
-  # lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.14.0/lozad.min.js
-  lazyload:
-
-  # Pangu
-  # pangu: //cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js
-  # pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js
-  pangu:
-
-  # Quicklink
-  # quicklink: //cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js
-  quicklink:
-
-  # DisqusJS
-  # disqusjs_js: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
-  # disqusjs_css: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
-  disqusjs_js:
-  disqusjs_css:
-
-  # Valine
-  # valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js
-  # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.10/Valine.min.js
-  valine:
-
-  # Gitalk
-  # gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
-  # gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css
-  gitalk_js:
-  gitalk_css:
-
-  # Algolia Search
-  # algolia_search: //cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js
-  # instant_search: //cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js
-  algolia_search:
-  instant_search:
-
-  # Mermaid
-  # mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
-  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js
-  mermaid:
-
-  # Internal version: 1.2.1
-  # velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
-  # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js
-  # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
-  # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js
-  velocity:
-  velocity_ui:
-
-  # Internal version: 1.0.2
-  # pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
-  # pace: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js
-  # pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css
-  # pace_css: //cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css
-  pace:
-  pace_css:
-
-  # Internal version: 1.0.0
-  # three: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js
-  # three_waves: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js
-  # canvas_lines: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_lines.min.js
-  # canvas_sphere: //cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js
-  three:
-  three_waves:
-  canvas_lines:
-  canvas_sphere:
-
-  # Internal version: 1.0.0
-  # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
-  canvas_ribbon:
+  # The CDN provider of NexT internal scripts.
+  # Available values: local | jsdelivr | unpkg | cdnjs | custom
+  # Warning: If you are using the latest master branch of NexT, please set `internal: local`
+  internal: local
+  # The default CDN provider of third-party plugins.
+  # Available values: local | jsdelivr | unpkg | cdnjs | custom
+  # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
+  plugins: cdnjs
+  # Custom CDN URL
+  # For example:
+  # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}
+  # custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${cdnjs_file}
+  custom_cdn_url:
 
 # Assets
+# Accelerate delivery of static files using a CDN
+# The js option is only valid when vendors.internal is local.
 css: css
 js: js
 images: images

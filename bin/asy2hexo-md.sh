@@ -19,10 +19,10 @@
 
 ## Convert all the asy directory tree to hexo markdown directory tree
 
-SRC_DIR=~/code/pi/asymptote/exemples/src
-DEST_DIR=~/code/pi/hexo-blog/source/_posts/en/asymptote
+SRC_DIR=~/code/pi/asymptote/asymptote-exemples/
+DEST_DIR=~/code/pi/piprime-blog/source/_posts/en/asymptote
 DEST_MEDIA_BASE_URL=/media/asymptote
-DEST_MEDIA_DIR=~/code/pi/hexo-blog/source$DEST_MEDIA_BASE_URL
+DEST_MEDIA_DIR=~/code/pi/piprime-blog/source$DEST_MEDIA_BASE_URL
 
 rm -rf $DEST_DIR && rm -rf $DEST_MEDIA_DIR
 
@@ -72,8 +72,6 @@ while true; do
   esac
   shift
 done
-
-ASYCOM=/usr/local/bin/asy
 
 while true; do
   case $1 in
@@ -138,7 +136,7 @@ for dir in $(get_asy_directories); do
     srcFilePath="${fic%/*}"
     srcFileDirName=$(basename "$srcFilePath")
     currentDestDir="${DEST_DIR}/${srcFileDirName}"
-    category=$(echo ${srcFileDirName} | awk 'sub(/./,toupper(substr($1,1,1)),$1)')
+    category=$(echo "${srcFileDirName}" | awk 'sub(/./,toupper(substr($1,1,1)),$1)')
     destFileNoExt="${DEST_DIR}/${srcFileDirName}/${category}"
     destFileMd="${destFileNoExt}.md"
     destAssetPath="${DEST_MEDIA_DIR}/${srcFileDirName}"

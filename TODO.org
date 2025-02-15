@@ -1,0 +1,10 @@
+#+title: Todo
+
+- See [[https://hexo.io/docs/tag-plugins][Tag Plugin]]
+  #+begin_exemple
+  {% blockquote David Levithan, Wide Awake %}
+   Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.
+  {% endblockquote %}
+  #+end_exemple
+- See [[https://hexo.io/docs/helpers][Helpers]]
+- utiliser https://github.com/ottobonn/hexo-image-sizes pour redimensionner les images
