@@ -129,22 +129,54 @@ menu:
   about: /about/ || fa fa-user
   Asymptote:
     default: /asymptote/ || fa fa-images
-    Generalities: generalities
-    Opacity: opacity
-    Animations: animations
-    Graph: graph
-    Geometry: geometry
-    Three: three
-    Graph3D: graph3
-    Solids: solids
-    Tube: tube
-    Fractales: fractales
-    Lsystem: lsystem
-    Trembling: trembling
-    Tiling: tiling
-    Ccw: ccw
-    Randomwalk: randomwalk
-    Various: various
+
+    Generalities:
+      default: /generalities/
+
+    Opacity:
+      default: /opacity/
+
+    Animations:
+      default: /animations/
+
+    Graph:
+      default: /graph/
+
+    Geometry:
+      default: /geometry/
+
+    Three:
+      default: /three/
+
+    Graph3D:
+      default: /graph3/
+
+    Solids:
+      default: /solids/
+
+    Tube:
+      default: /tube/
+
+    Fractales:
+      default: /fractales/
+
+    Lsystem:
+      default: /lsystem/
+
+    Trembling:
+      default: /trembling/
+
+    Tiling:
+      default: /tiling/
+
+    Ccw:
+      default: /ccw/
+
+    Randomwalk:
+      default: /randomwalk/
+
+    Various:
+      default: /various/
 
   #tags: /tags/ || tags
   #categories: /categories/ || th
