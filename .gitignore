@@ -9,5 +9,4 @@ public/
 hexo/db.json
 hexo/source/_drafts/*
 hexo/source/asymptote/**
-!hexo/source/asymptote/index.md
 hexo/source/media/asymptote/**
