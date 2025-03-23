@@ -508,22 +508,17 @@ pre.asymptote .il {
   color: #666666;
 } /* Literal.Number.Integer.Long */
 
-div.footer {
-    background-color: #dddddd;
-    font-size: 10pt;
-    padding: 5px 20px 0 20px;
-    margin: 0;
-    clear: left;
-    height: 35px;
+div.inner-footer {
+   display: flex;
+   height: 100px;
+   background-color: #eeeeee;
+   font-size: 10pt;
+   width: 100%;
 }
 
-div.footer {
-    padding-right: 10% !important;
-    text-align: right;
-    height: 45px;
-}
-
-div.footer p {
-    text-align: left;
-    display: inline-block;
+div.inner-footer p {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 5%;
 }

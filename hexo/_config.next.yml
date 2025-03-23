@@ -8,7 +8,7 @@ cache:
   enable: false
 
 # Remove unnecessary files after hexo generate.
-minify: false
+minify: true
 
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
@@ -30,10 +30,10 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /media/sun-wukong-calligraphie_16.png
+  medium: /media/sun-wukong-calligraphie_32.png
+  apple_touch_icon: /media/sun-wukong-calligraphie_180.png
+  safari_pinned_tab: /media/sun-wukong-calligraphie.svg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -131,52 +131,52 @@ menu:
     default: /asymptote/ || fa fa-images
 
     Generalities:
-      default: /generalities/
+      default: /generalities.html
 
     Opacity:
-      default: /opacity/
+      default: /opacity
 
     Animations:
-      default: /animations/
+      default: /animations
 
     Graph:
-      default: /graph/
+      default: /graph
 
     Geometry:
-      default: /geometry/
+      default: /geometry
 
     Three:
-      default: /three/
+      default: /three
 
     Graph3D:
-      default: /graph3/
+      default: /graph3
 
     Solids:
-      default: /solids/
+      default: /solids
 
     Tube:
-      default: /tube/
+      default: /tube
 
     Fractales:
-      default: /fractales/
+      default: /fractales
 
     Lsystem:
-      default: /lsystem/
+      default: /lsystem
 
     Trembling:
-      default: /trembling/
+      default: /trembling
 
     Tiling:
-      default: /tiling/
+      default: /tiling
 
     Ccw:
-      default: /ccw/
+      default: /ccw
 
     Randomwalk:
-      default: /randomwalk/
+      default: /randomwalk
 
     Various:
-      default: /various/
+      default: /various
 
   #tags: /tags/ || tags
   #categories: /categories/ || th
