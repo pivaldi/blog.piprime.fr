@@ -27,7 +27,8 @@ markdown:
 
 # Site
 title: PIPRIME.FR BLOG
-subtitle: The heart has its reasons that reason ignores
+# subtitle: The heart has its reasons that reason ignores
+subtitle: Live fully to honor life
 description: Another earthly blog about computer science and various thoughts
 # description: <span style="font-size:100px;color:#ddd;background-color:#222;padding:43px;">௹</span>
 keywords: computer, science, blog, thoughts, asymptote, linux, debian, french, golang, sql, javascript

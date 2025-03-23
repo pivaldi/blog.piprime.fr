@@ -134,49 +134,49 @@ menu:
       default: /generalities.html
 
     Opacity:
-      default: /opacity
+      default: /opacity.html
 
     Animations:
-      default: /animations
+      default: /animations.html
 
     Graph:
-      default: /graph
+      default: /graph.html
 
     Geometry:
-      default: /geometry
+      default: /geometry.html
 
     Three:
-      default: /three
+      default: /three.html
 
     Graph3D:
-      default: /graph3
+      default: /graph3.html
 
     Solids:
-      default: /solids
+      default: /solids.html
 
     Tube:
-      default: /tube
+      default: /tube.html
 
     Fractales:
-      default: /fractales
+      default: /fractales.html
 
     Lsystem:
-      default: /lsystem
+      default: /lsystem.html
 
     Trembling:
-      default: /trembling
+      default: /trembling.html
 
     Tiling:
-      default: /tiling
+      default: /tiling.html
 
     Ccw:
-      default: /ccw
+      default: /ccw.html
 
     Randomwalk:
-      default: /randomwalk
+      default: /randomwa.htmllk
 
     Various:
-      default: /various
+      default: /various.html
 
   #tags: /tags/ || tags
   #categories: /categories/ || th
@@ -270,7 +270,7 @@ toc:
   # Automatically add list number to toc.
   number: true
   # If true, all words will placed on next lines if header width longer then sidebar width.
-  wrap: false
+  wrap: true
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
   expand_all: false
   # Maximum heading depth of generated toc.
@@ -515,10 +515,10 @@ disable_baidu_transformation: false
 
 # If true, site-subtitle will be added to index page.
 # Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)
-index_with_subtitle: false
+index_with_subtitle: true
 
 # Automatically add external URL with Base64 encrypt & decrypt.
-exturl: false
+exturl: true
 
 # Google Webmaster tools verification.
 # See: https://www.google.com/webmasters
@@ -791,17 +791,17 @@ note:
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
   style: simple
-  icons: false
+  icons: true
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
-  light_bg_offset: 0
+  light_bg_offset: -3
 
 # Tabs tag
 tabs:
   # Make the nav bar of tabs with long content stick to the top.
   sticky: false
   transition:
-    tabs: false
+    tabs: true
     labels: true
 
 # PDF tag
@@ -815,7 +815,7 @@ pdf:
 
 # Mermaid tag
 mermaid:
-  enable: false
+  enable: true
   # Available themes: default | dark | forest | neutral
   theme:
     light: default
@@ -823,7 +823,7 @@ mermaid:
 
 # WaveDrom tag
 wavedrom:
-  enable: false
+  enable: true
 
 # ---------------------------------------------------------------
 # External Libraries
