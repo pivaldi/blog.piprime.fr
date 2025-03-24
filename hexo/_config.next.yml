@@ -42,7 +42,7 @@ language_switcher: true
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  #since: 2015
+  since: 2011
 
   # Icon between year and copyright info.
   icon:
@@ -80,7 +80,7 @@ creative_commons:
   license: by-nc-sa
   # Available values: big | small
   size: small
-  sidebar: false
+  sidebar: true
   post: false
   language:
 
@@ -131,55 +131,57 @@ menu:
     default: /asymptote/ || fa fa-images
 
     Generalities:
-      default: /generalities.html
+      default: generalities.html
+      " Animation":
+        default: ../category-1.html
 
     Opacity:
-      default: /opacity.html
+      default: opacity.html
 
     Animations:
-      default: /animations.html
+      default: animations.html
 
     Graph:
-      default: /graph.html
+      default: graph.html
 
     Geometry:
-      default: /geometry.html
+      default: geometry.html
 
     Three:
-      default: /three.html
+      default: three.html
 
     Graph3D:
-      default: /graph3.html
+      default: graph3.html
 
     Solids:
-      default: /solids.html
+      default: solids.html
 
     Tube:
-      default: /tube.html
+      default: tube.html
 
     Fractales:
-      default: /fractales.html
+      default: fractales.html
 
     Lsystem:
-      default: /lsystem.html
+      default: lsystem.html
 
     Trembling:
-      default: /trembling.html
+      default: trembling.html
 
     Tiling:
-      default: /tiling.html
+      default: tiling.html
 
     Ccw:
-      default: /ccw.html
+      default: ccw.html
 
     Randomwalk:
-      default: /randomwa.htmllk
+      default: randomwa.html
 
     Various:
-      default: /various.html
+      default: various.html
 
   #tags: /tags/ || tags
-  #categories: /categories/ || th
+  categories: /categories/ || th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -429,7 +431,7 @@ back2top:
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
@@ -468,7 +470,10 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
+  codes:
+    external: true
+    family: Inconsolata
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
@@ -498,11 +503,6 @@ font:
 
   # Font settings for posts (.post-body).
   posts:
-    external: true
-    family:
-
-  # Font settings for <code> and code blocks.
-  codes:
     external: true
     family:
 
@@ -855,12 +855,12 @@ pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
-fancybox: true
+fancybox: false
 
 # A JavaScript library for zooming images like Medium.
 # Do not enable both `fancybox` and `mediumzoom`.
 # For more information: https://github.com/francoischalifour/medium-zoom
-mediumzoom: false
+mediumzoom: true
 
 # Vanilla JavaScript plugin for lazyloading images.
 # For more information: https://github.com/ApoorvSaxena/lozad.js
@@ -901,7 +901,7 @@ quicklink:
 # For more information: http://velocityjs.org
 motion:
   enable: true
-  async: false
+  async: true
   transition:
     # Transition variants:
     # fadeIn | flipXIn | flipYIn | flipBounceXIn | flipBounceYIn
