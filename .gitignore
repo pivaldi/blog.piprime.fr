@@ -9,4 +9,5 @@ public/
 hexo/db.json
 hexo/source/_drafts/*
 hexo/source/asymptote/**
+hexo/source/_posts/en/asymptote/**
 hexo/source/media/asymptote/**

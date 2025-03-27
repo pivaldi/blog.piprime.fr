@@ -180,7 +180,7 @@ menu:
     Various:
       default: various.html
 
-  #tags: /tags/ || tags
+  tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || calendar
