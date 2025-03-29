@@ -38,6 +38,8 @@ language:
   - en
 timezone:
 
+archive: false
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://blog.piprime.fr
@@ -45,7 +47,7 @@ root: /
 # permalink: :year/:month/:day/:title/
 permalink_defaults:
   lang: fr
-permalink: :lang/:id/:title/
+permalink: :lang/:id/
 
 pretty_urls:
   trailing_html: false

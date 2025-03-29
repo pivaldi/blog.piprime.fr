@@ -6,7 +6,7 @@ date: 2020-06-06 00:00:00
 
 Sur le blog de [Philippe Ivaldi](/about/), une réécriture complète de [l'ancien www.piprime.fr](https://web.archive.org/web/20210127161709/http://www.piprime.fr/),
 on trouvera des notes ou des articles de fond (ou pas) sur ce qui m'intrigue, me passionne ou m'horripile ;
-bref tout ce qui me nourrit, me fait vibrer, me fait vivre, simplement.  
+bref tout ce qui me nourrit, me fait vibrer, me fait vivre, simplement.
 
 Les thèmes abordées sont classés par [catégories](/categories/) et sous-catégories avec deux grands
 thèmes bien différenciés :
@@ -19,7 +19,7 @@ thèmes bien différenciés :
   livres** ou **des tranches de vie** plus personnelles.
 
 Chaque article possède un ou plusieurs libellé (tag) qui permet de les classer plus finement,
-d'augmenter la granularité du classement par catégories ; la liste des libellés est accessible à [cette page](/tags/).
+d'augmenter la granularité du classement par catégories et le croisement des sujets ; la liste des libellés est accessible à [cette page](/tags/).
 
 Tous les liens pour la navigation dans ce site se trouve dans la colonne de gauche : 
 
