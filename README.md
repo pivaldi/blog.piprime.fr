@@ -36,3 +36,5 @@ The scripts & files' configuration are MIT licensed.
 The Markdown files & website content are NOT and the copyright belongs
 to Philippe IVALDI.  
 This means normal copyright law applies to that I.e. **don't republish my website without my permission**.
+
+If you appreciate this project, [☕ Buy Me a Coffee](https://buymeacoffee.com/pivaldi)

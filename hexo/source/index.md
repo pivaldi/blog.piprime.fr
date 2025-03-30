@@ -10,7 +10,6 @@ bref tout ce qui me nourrit, me fait vibrer, me fait vivre, simplement.
 
 Les thèmes abordées sont classés par [catégories](/categories/) et sous-catégories avec deux grands
 thèmes bien différenciés :
-
 - [Ce qui est technique](/categories/tech/) : considérations **purement techniques**
   en particulier en **informatique**, un de mes domaines de prédilection ;
 - [Ce qui n'est pas techniques](/categories/non-tech/) : publications qui ne sont pas dans la technique

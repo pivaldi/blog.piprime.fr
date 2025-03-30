@@ -8,7 +8,7 @@ Passionné d'informatique depuis l'âge de 14 ans, j'ai écrit mes premiers prog
 ainsi que sur [Micral 80/22](https://www.micral.fr/micral/bull-micral.html) de chez
 [Bull](https://fr.wikipedia.org/wiki/Bull_(entreprise)).  
 Maintenant je suis un inconditionnel des [Thinkpad](https://www.lenovo.com/fr/fr/c/laptops/thinkpad/) de chez [Lenovo](https://fr.wikipedia.org/wiki/Lenovo)
-qui permettent de faire tourner un [Linux](https://www.thinkwiki.org/wiki/ThinkWiki) « out of the box ».
+qui permettent de faire tourner un [Linux](https://www.thinkwiki.org/wiki/ThinkWiki) avec généralement une très bonne compatibilité matériel.
 
 Après des études de mathématiques j'ai enseigné 17 ans dans l'éducation nationale en tant que
 [professeur certifié](https://fr.wikipedia.org/wiki/Professeur_certifi%C3%A9) puis j'ai décidé de
@@ -28,7 +28,7 @@ des utilisateurs et des [standards](http://fr.wikipedia.org/wiki/Format_ouvert).
 Au-delà de l'aspect économique et techniques des solutions open source, je suis particulièrement
 sensible au respect de la vie privée et je crois en l'avenir d'un développement de l'humanité par
 l'humanité et pour l'humanité, non par les visions purement
-mercantiles de grandes multinationales qui ne travaillent que pour leurs propres intérêts (et celui
-de leurs actionnaires) dans le seul but de s'enrichir sans fin au mépris des utilisateurs, des droits
+mercantiles de grandes multinationales qui ne travaillent que pour leurs propres intérêts et celui
+de leurs actionnaires dans le seul but de s'enrichir sans fin au mépris des utilisateurs, des droits
 fondamentaux et de l'environnement.
 

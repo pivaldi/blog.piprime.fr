@@ -3,24 +3,25 @@ title: About
 date: 2020-06-04 00:00:00
 ---
 
-Hi, my name is Philippe IVALDI and I live near
-[Carcassonne](https://en.wikipedia.org/wiki/Carcassonne) in the south of France.
+Passionate about computers since the age of 14, I wrote my first programs on a personal computer
+[TI 99](https://en.wikipedia.org/wiki/TI-99/4A), then in high school on [SIL'Z](silz.jpg) from
+[LEANORD](http://www.ti99.com/exelvision/website/index.php?page=leanord-sil-z-16) and on a
+[Micral 80/22](https://www.micral.fr/micral/bull-micral.html) from [Bull](https://en.wikipedia.org/wiki/Groupe_Bull).  
+Now I'm a die-hard fan of [Lenovo](https://en.wikipedia.org/wiki/Lenovo) [Thinkpads](https://www.lenovo.com/us/en/c/laptops/thinkpad/),
+which allow you to [run Linux out of the box](https://www.thinkwiki.org/wiki/ThinkWiki).
 
-Passionate about computer science since the age of 14, I still studied mathematics fourth year of
-university and then obtained the diploma of certified teacher in mathematics…
+After studying mathematics, I taught for 17 years in the national education system as a [certified teacher](https://fr.wikipedia.org/wiki/Professeur_certifi%C3%A9).
+Then I decided to turn my passion into my career and am currently the technical director of the IT system for an SME.
 
-After teaching for 15 years in French national education I decided to make my passion my job.  
-In 2007, I converted to IT and quickly became technical director of the IT system for the Renée
-Costes group, one of the main activities of which is [the sale of property en life annuity](https://www.costes-viager.com/).
-The entire IT system was taken over from scratch as well as the development of a tailor-made business solution for
-the group with a team of 3 engineers and two technicians.
+Paradoxically, I live far from everything, surrounded by nature, on an old farm that I restored with the idea of ​​moving towards food and even energy self-sufficiency.
 
-Particularly attached to the spirit of sharing instilled by [Richard Stallman](https://en.wikipedia.org/wiki/Richard_Stallman), instigator of the
-concept of [free software](https://en.wikipedia.org/wiki/Free_software), all the solutions that I
-use, whether for personal or professional use, are based on [open soure](https://en.wikipedia.org/wiki/Open-source_model)
-solutions that offer the both quality, respect for users and [standards](https://en.wikipedia.org/wiki/Open_format).
+Particularly attached to the spirit of sharing inspired by [Richard Stallman](https://en.wikipedia.org/wiki/Richard_Stallman),
+the instigator of the concept of [free software](https://en.wikipedia.org/wiki/Free_software),
+all the IT solutions I use, whether for personal or professional use, are based on open source
+solutions that offer quality, respect for users, and [open standards](https://en.wikipedia.org/wiki/Open_file_format).
 
-Beyond the purely economic aspect of free solutions I believe in the future of a development of
-humanity by humanity and for humanity, not by the purely mercantile visions of large multinationals
-which work only for their own interests in order to enrich themselves endlessly sometimes with the
-contempt of the users.
+Beyond the economic and technical aspects of open source solutions, I am particularly sensitive to
+privacy and I believe in the future of human development by humanity and for humanity, not through
+the purely commercial visions of large multinationals that work only for their own interests and
+those of their shareholders with the sole aim of endless enrichment with disregard for users,
+fundamental rights, and the environment.
