@@ -1,21 +1,23 @@
-# Work in progress !
+# The PIPRIME.FR Blog Source Code
 
-**DO NOT USE THIS REPOSITORY, IT WILL BE COMPLETELY REBASED.**
+## Dependency
 
-# Usage
+You need to install and configure [direnv](https://direnv.net/) on the host machine.
 
-## With Docker
+## Usage
 
-If you have [https://www.docker.com/](Docker) installed on your computer/server, it's the simpler
+### With Docker
+
+If you have [https://www.docker.com/](Docker) installed on your host machine, it's the simpler
 method to run this blog.
 
 1. Build the Docker image and install dependencies with the command `make install`.
 1. Launch :
    - `make dev` : serves with the drafts **or**
    - `make production` : serves without the drafts **or**
-   - `make deploy` : generates the static web site in `./hexo/public`
+   - `make deploy` : generates the static web site in `./hexo/public` and serve on port `$SERVER_PORT` using a [Caddy Server](https://caddyserver.com/) docker image.
 
-## Without Docker
+### Without Docker
 
 1. [Install Node.js](https://nodejs.org/en/download) yourself
 1. [Install Hexo](https://hexo.io/docs/#Install-Hexo) yourself executing for example `npm install -g hexo-cli`.
@@ -25,12 +27,7 @@ method to run this blog.
    - `make production` : serves without the drafts **or**
    - `make deploy` : generates the static web site in `./hexo/public`
 
-# NGinx
-
-To use NGinx, insall the Ngnix docker image with `docker pull nginx` then
-1. 
-
-# License
+## License
 
 The scripts & files' configuration are MIT licensed.  
 The Markdown files & website content are NOT and the copyright belongs

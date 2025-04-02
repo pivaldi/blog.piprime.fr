@@ -1,35 +1,33 @@
-title: - Bienvenu sur le <a style="text-decoration:none;border:none" href="//blog.piprime.fr"><span style="font-size:150%;">π’</span> BLOG</a> -
+title: - Welcome to the <a style="text-decoration:none;border:none" href="//blog.piprime.fr"><span style="font-size:150%;">π’</span> BLOG</a> -
 date: 2020-06-06 00:00:00
 ---
 
-[Salut](https://youtu.be/qcCuFLbWznY),
+[Hello](https://youtu.be/qcCuFLbWznY),
 
-Sur le blog de [Philippe Ivaldi](/about/), une réécriture complète de [l'ancien www.piprime.fr](https://web.archive.org/web/20210127161709/http://www.piprime.fr/),
-on trouvera des notes ou des articles de fond (ou pas) sur ce qui m'intrigue, me passionne ou m'horripile ;
-bref tout ce qui me nourrit, me fait vibrer, me fait vivre, simplement.
+On [Philippe Ivaldi](/about/)'s blog, a complete rewrite of the [old www.piprime.fr](https://web.archive.org/web/20210127161709/http://www.piprime.fr/),
+you'll find posts or in-depth articles (or not) on what intrigues me, fascinates me, or horrifies me; in short,
+everything that nourishes me, excites me, and simply makes me live.
 
-Les thèmes abordées sont classés par [catégories](/categories/) et sous-catégories avec deux grands
-thèmes bien différenciés :
-- [Ce qui est technique](/categories/tech/) : considérations **purement techniques**
-  en particulier en **informatique**, un de mes domaines de prédilection ;
-- [Ce qui n'est pas techniques](/categories/non-tech/) : publications qui ne sont pas dans la technique
-  pure ; cela peut aussi bien être **des réflexions** (politiques, philosophiques, spirituelles, etc)
-  que des recettes de cuisine, **des notes** de trucs à lire/voir/écouter, des **critiques de
-  livres** ou **des tranches de vie** plus personnelles.
+The topics covered are classified by [categories](/categories/) and subcategories, with two clearly differentiated
+main themes:
+- [Technical](/categories/tech/): **purely technical** considerations, particularly in **IT**, one of my favorite fields;
+- [Non-technical](/categories/non-tech/): publications that are not purely technical; these can be **reflections** (political,
+  philosophical, spiritual, etc.) as well as cooking recipes, **notes** on things to
+  read/watch/listen, **book reviews**, or more personal **slices of life**.
 
-Chaque article possède un ou plusieurs libellé (tag) qui permet de les classer plus finement,
-d'augmenter la granularité du classement par catégories et le croisement des sujets ; la liste des libellés est accessible à [cette page](/tags/).
+Each article has one or more tags that allow for more precise classification and increase the
+granularity of the categorization with crossing subject. The list of tags is accessible on [this page](/tags/).
 
-Tous les liens pour la navigation dans ce site se trouve dans la colonne de gauche : 
+All the links for navigating this site are in the left column:
 
-- dans l'encart du haut il y a les liens vers des pages particulières comme
-  [la liste paginée de tous les articles](/posts/) ou la page dédié au [logiciel Asymptote](/asymptote/)
-  pour lequel j'ai beaucoup travaillé à une époque. Il y a aussi un accès à un moteur de recherche interne.
-- dans l'encart du bas, on trouve soit les liens vers les réseaux sociaux et les pages de
-  posts/catégories/libellés soit le sommaire de la page en cours suivant qu'il y a ou pas
-  des titres et sous-titres dans la page.
+- In the top box, there are links to specific pages, such as the paginated [list of all articles](/posts/) or
+  the page dedicated to the [Asymptote software](/asymptote/), for which I once worked extensively. There is also
+  access to an internal search engine.
+- In the bottom box, you will find either links to social networks and the posts/categories/labels
+  pages, or the table of contents for the current page, depending on whether or not there are titles
+  and subtitles on the page.
 
-Pour terminer, ce site est censé être bilingue Français/Anglais mais j'avoue que j'ai parfois vraiment
-la flemme de traduire un article que j'ai écrit en Français dans une autre langue (ou le
-contraire) ; d'autant plus que je ne suis pas doué en Anglais…  
-Ne pas hésiter à me contacter pour me proposer une traduction, un correctif ou autre chose que qu'on jugera important.
+Finally, this site is supposed to be bilingual (French/English), but I admit that I sometimes feel
+really lazy about translating an article I wrote in French into another language (or vice versa);
+especially since I'm not very good at English...  
+Don't hesitate to contact me to suggest a translation, a correction, or anything else you deem important.

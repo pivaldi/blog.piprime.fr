@@ -34,8 +34,8 @@ description: Another earthly blog about computer science and various thoughts
 keywords: computer, science, blog, thoughts, asymptote, linux, debian, french, golang, sql, javascript
 author: Philippe Ivaldi
 language:
-  - fr
   - en
+  - fr
 timezone:
 
 archive: false
@@ -46,7 +46,7 @@ url: https://blog.piprime.fr
 root: /
 # permalink: :year/:month/:day/:title/
 permalink_defaults:
-  lang: fr
+  lang: en
 permalink: :lang/:id/
 
 pretty_urls:

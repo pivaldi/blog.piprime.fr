@@ -1,10 +1,10 @@
 ---
 fr:
   menu:
-    home: Home
-    search: Search
+    home: Accueil
+    search: Chercher
     posts: Posts
-    about: About
+    about: À Propos
 
   widget:
     github: Code source du site
