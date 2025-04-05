@@ -1,0 +1,46 @@
+services:
+  hexo:
+    image: blog-piprime-fr_hexo
+    container_name: blog-piprime-fr_hexo
+    build:
+      context: ./hexo
+      target: builder
+    command: "make deploy"
+    volumes:
+      - ./hexo:/hexo:rw
+  caddy:
+    image: blog-piprime-fr_caddy
+    container_name: blog-piprime-fr_caddy
+    build: ./caddy
+    depends_on:
+      - hexo
+    volumes:
+      - ./hexo/public:/srv:ro
+    ports:
+      - "127.0.0.1:${SERVER_PORT}:${SERVER_PORT}"
+
+  dev:
+    image: blog-piprime-fr_hexo
+    depends_on:
+      - hexo
+    ports:
+      - "127.0.0.1:${SERVER_PORT}:${SERVER_PORT}"
+    profiles:
+      - dev
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+    command: "make dev"
+    volumes:
+      - ./hexo:/hexo:rw
+
+  clean:
+    image: blog-piprime-fr_hexo
+    depends_on:
+      - hexo
+    command: "make clean"
+    volumes:
+      - ./hexo:/hexo:rw
+
+volumes:
+  caddy_data:
+  caddy_config:

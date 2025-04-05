@@ -1,5 +1,5 @@
 ## TODO: make it dynamic value from direnv
-4280: {
+:4280 {
 	# Set this path to your site's directory.
 	root * /srv/
 

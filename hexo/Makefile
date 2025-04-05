@@ -3,10 +3,10 @@ SHELL := /bin/bash
 HEXO = node --trace-deprecation node_modules/hexo-cli/bin/hexo
 
 .PHONY: all
-all: install clean deploy
+all: deploy
 
 .PHONY: deploy
-deploy: clean
+deploy: install
 	$(HEXO) generate --deploy
 
 .PHONY: dev
