@@ -19,6 +19,20 @@ services:
     ports:
       - "127.0.0.1:${SERVER_PORT}:${SERVER_PORT}"
 
+  caddy-4-caddy-docker-proxy:
+    image: blog-piprime-fr_caddy-docker-proxy
+    container_name: blog-piprime-fr_caddy-docker-proxy
+    build: ./caddy
+    volumes:
+      - ./hexo/public:/srv:ro
+    networks:
+      - caddy
+    labels:
+      caddy: blog.piprime.fr
+      caddy.reverse_proxy: "{{upstreams 80}}"
+    ports:
+      - "127.0.0.1:${SERVER_PORT}:${SERVER_PORT}"
+
   dev:
     image: blog-piprime-fr_hexo
     depends_on:
@@ -52,3 +66,6 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+networks:
+  caddy:
+    external: true
