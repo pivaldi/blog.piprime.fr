@@ -12,8 +12,8 @@ services:
     image: blog-piprime-fr_caddy
     container_name: blog-piprime-fr_caddy
     build: ./caddy
-    depends_on:
-      - hexo
+    # depends_on:
+    #   - hexo
     volumes:
       - ./hexo/public:/srv:ro
     ports:
@@ -38,6 +38,14 @@ services:
     depends_on:
       - hexo
     command: "make clean"
+    volumes:
+      - ./hexo:/hexo:rw
+
+  update:
+    image: blog-piprime-fr_hexo
+    depends_on:
+      - hexo
+    command: "make update"
     volumes:
       - ./hexo:/hexo:rw
 

@@ -1,12 +1,14 @@
 SHELL := /bin/bash
 .DEFAULT_GOAL := all
 
-# SERVER_PORT=4280 # See .envrc
-# DOCKER_NAME=$(COMPOSE_PROJECT_NAME):latest
-# DOCKER_HEXO_RUN=docker run -p 127.0.0.1:$(SERVER_PORT):$(SERVER_PORT) -v $(shell pwd)/hexo:/hexo -t $(DOCKER_NAME)
+DOCKER_CADDY_IMAGE_NAME=blog-piprime-fr_caddy
 
 .PHONY: all
 all: install clean deploy
+
+.PHONY: install
+install:
+	git submodule update --init
 
 .PHONY: docker
 docker:
@@ -19,11 +21,11 @@ docker-no-cache:
 
 .PHONY: deploy
 deploy:
-	docker compose up hexo caddy
+	docker compose up hexo && make serve
 
 .PHONY: serve
 serve:
-	docker compose up caddy
+	@docker ps --filter name=$(DOCKER_CADDY_IMAGE_NAME) | grep -q $(DOCKER_CADDY_IMAGE_NAME) || docker compose up caddy -d
 
 .PHONY: dev
 dev: docker
@@ -33,10 +35,6 @@ dev: docker
 clean: docker
 	docker compose run clean
 
-.PHONY: install
-install:
-	git submodule update --init
-
-# .PHONY: update
-# update: docker
-# 	$(DOCKER_HEXO_RUN) make update
+.PHONY: update
+update: docker
+	docker compose run update
