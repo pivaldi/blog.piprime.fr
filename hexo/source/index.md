@@ -1,4 +1,4 @@
-title: - Welcome to the <a style="text-decoration:none;border:none" href="//blog.piprime.fr"><span style="font-size:150%;">π’</span> BLOG</a> -
+title: - Welcome to the π’ BLOG -
 date: 2020-06-06 00:00:00
 ---
 
