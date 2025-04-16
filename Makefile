@@ -22,7 +22,7 @@ docker-no-cache:
 
 .PHONY: generate
 generate:
-	docker compose up hexo
+	docker compose up hexo --build
 
 .PHONY: deploy
 deploy: generate
@@ -34,11 +34,17 @@ deploy-caddy-docker-proxy: generate
 
 .PHONY: serve
 serve:
-	@docker ps --filter name=$(DOCKER_CADDY_IMAGE_NAME) | grep -q $(DOCKER_CADDY_IMAGE_NAME) || docker compose up caddy -d
+	@docker ps --filter name=$(DOCKER_CADDY_IMAGE_NAME) | \
+	grep -q $(DOCKER_CADDY_IMAGE_NAME) && \
+	docker compose restart caddy -d --build || \
+	docker compose up caddy -d --build
 
 .PHONY: serve-caddy-docker-proxy
 serve-caddy-docker-proxy:
-	@docker ps --filter name=$(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) | grep -q $(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) || docker compose up caddy-4-caddy-docker-proxy -d
+	@docker ps --filter name=$(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) | \
+		grep -q $(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) && \
+		docker compose restart caddy-4-caddy-docker-proxy -d --build || \
+		docker compose up caddy-4-caddy-docker-proxy -d --build
 
 .PHONY: dev
 dev: docker
