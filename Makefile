@@ -1,9 +1,10 @@
 SHELL := /bin/bash
 .DEFAULT_GOAL := all
 
-DOCKER_CADDY_IMAGE_NAME=blog-piprime-fr_caddy
-DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME=blog-piprime-fr_caddy-docker-proxy
+DOCKER_CADDY_IMAGE_NAME := blog-piprime-fr_caddy
+DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME := blog-piprime-fr_caddy-docker-proxy
 CURRENT_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+DOCKER_COMPOSE := docker compose --env-file=.envrc
 
 .PHONY: all
 all: install clean deploy
@@ -14,16 +15,16 @@ install:
 
 .PHONY: docker
 docker:
-	docker-compose down --remove-orphans
-	docker compose build
+	$(DOCKER_COMPOSE) down --remove-orphans
+	$(DOCKER_COMPOSE) build
 
 .PHONY: docker-no-cache
 docker-no-cache:
-	docker compose build --no-cache
+	$(DOCKER_COMPOSE) build --no-cache
 
 .PHONY: generate
 generate:
-	docker compose up hexo --build
+	$(DOCKER_COMPOSE) up hexo --build
 
 .PHONY: deploy
 deploy: generate
@@ -37,27 +38,27 @@ deploy-caddy-docker-proxy: generate
 serve:
 	@docker ps --filter name=$(DOCKER_CADDY_IMAGE_NAME) | \
 	grep -q $(DOCKER_CADDY_IMAGE_NAME) && \
-	docker compose restart caddy || \
-	docker compose up caddy -d --build
+	$(DOCKER_COMPOSE) restart caddy || \
+	$(DOCKER_COMPOSE) up caddy -d --build
 
 .PHONY: serve-caddy-docker-proxy
 serve-caddy-docker-proxy:
 	@docker ps --filter name=$(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) | \
 		grep -q $(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) && \
-		docker compose restart caddy-4-caddy-docker-proxy || \
-		docker compose up caddy-4-caddy-docker-proxy -d --build
+		$(DOCKER_COMPOSE) restart caddy-4-caddy-docker-proxy || \
+		$(DOCKER_COMPOSE) up caddy-4-caddy-docker-proxy -d --build
 
 .PHONY: dev
 dev: docker
-	docker compose run dev
+	$(DOCKER_COMPOSE) run dev
 
 .PHONY: clean
 clean: docker
-	docker compose run clean
+	$(DOCKER_COMPOSE) run clean
 
 .PHONY: update
 update: docker
-	docker compose run update
+	$(DOCKER_COMPOSE) run update
 
 asy-local-sync:
 	bin/asy-sync.sh $(CURRENT_DIR)../asymptote/asymptote-exemples-builder/build/md/hexo/ $(CURRENT_DIR)hexo/source/

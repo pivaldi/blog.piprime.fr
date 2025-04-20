@@ -27,8 +27,6 @@ services:
       - ./hexo/public:/srv:ro
     networks:
       - caddy
-    environment:
-      DOMAIN: piprime.fr
     labels:
       caddy_0: blog.{$DOMAIN}
       caddy_0.reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
