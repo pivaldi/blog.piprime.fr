@@ -28,7 +28,7 @@ services:
     networks:
       - caddy
     labels:
-      caddy: blog.piprime.fr
+      caddy: "blog.piprime.fr, www.piprime.fr"
       caddy.reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
 
   dev:

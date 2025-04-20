@@ -31,20 +31,20 @@ deploy: generate
 
 .PHONY: deploy-caddy-docker-proxy
 deploy-caddy-docker-proxy: generate
-	make serve
+	make serve-caddy-docker-proxy
 
 .PHONY: serve
 serve:
 	@docker ps --filter name=$(DOCKER_CADDY_IMAGE_NAME) | \
 	grep -q $(DOCKER_CADDY_IMAGE_NAME) && \
-	docker compose restart caddy -d --build || \
+	docker compose restart caddy || \
 	docker compose up caddy -d --build
 
 .PHONY: serve-caddy-docker-proxy
 serve-caddy-docker-proxy:
 	@docker ps --filter name=$(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) | \
 		grep -q $(DOCKER_CADDY_DOCKER_PROXY_IMAGE_NAME) && \
-		docker compose restart caddy-4-caddy-docker-proxy -d --build || \
+		docker compose restart caddy-4-caddy-docker-proxy || \
 		docker compose up caddy-4-caddy-docker-proxy -d --build
 
 .PHONY: dev
