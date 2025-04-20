@@ -30,7 +30,7 @@ services:
     labels:
       caddy_0: blog.piprime.fr
       caddy_0.reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
-      caddy_1: www..piprime.fr
+      caddy_1: www.piprime.fr
       caddy_1.redir: "https://blog.piprime.fr{uri} temporary"
 
   dev:
