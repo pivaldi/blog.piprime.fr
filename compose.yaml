@@ -29,9 +29,9 @@ services:
       - caddy
     labels:
       caddy.0: blog.{$DOMAIN}
-      caddy.0.reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
+      caddy.0_reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
       caddy.1: www.{$DOMAIN}
-      caddy.1.redir: "https://blog.{$DOMAIN}{uri} temporary"
+      caddy.1_redir: "https://blog.{$DOMAIN}{uri} temporary"
 
   dev:
     image: blog-piprime-fr_hexo
