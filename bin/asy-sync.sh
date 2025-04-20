@@ -2,8 +2,11 @@
 
 function usage() {
   echo "Usage : $0 ASY_BUILD_MD_DIR HEXO_SOURCE_DIR"
-  echo 'Synchronize the Asymptote build directory ASY_BUILD_MD_DIR to Hexo source directory HEXO_SOURCE_DIR'
-  echo 'The parameters are passed to the rsync command, so you can all syntax supported by rsync.'
+  echo 'Synchronize the local Asymptote build directory ASY_BUILD_MD_DIR to the Hexo source directory HEXO_SOURCE_DIR'
+  echo 'The parameters are passed to the rsync command, so you can use all syntaxes supported by rsync.'
+  echo 'Nevertheless ASY_BUILD_MD_DIR is supposed to be a local directory for now.'
+  echo 'IMPORTANT NOTE:'
+  echo -e "\t rsync is called with the options '-auv --delete'"
 }
 
 if [ "$#" -ne 2 ]; then
@@ -12,8 +15,8 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-ASY_MD_DIR=$1%/ # Remove trailing slash if present
-HEXO_SOURCE_DIR=$2%/
+ASY_MD_DIR="${1%/}" # Remove trailing slash if present
+HEXO_SOURCE_DIR="${2%/}"
 ASY_MD_DIR="${ASY_MD_DIR}/"           # Be sure it ends by slash
 HEXO_SOURCE_DIR="${HEXO_SOURCE_DIR}/" # Be sure it ends by slash
 
@@ -33,4 +36,6 @@ for dir in "$ASY_MD_DIR" "$ASY_MEDIA_DIR" "$ASY_PAGE_DIR" "$ASY_POST_DIR"; do
   }
 done
 
-rsync -auv --delete "$ASY_MEDIA_DIR" "$HEXO_MEDIA_DIR"
+rsync -auv --delete "$ASY_MEDIA_DIR" "$HEXO_MEDIA_DIR" || exit 1
+rsync -auv --delete "$ASY_PAGE_DIR" "$HEXO_PAGE_DIR" || exit 1
+rsync -auv --delete "$ASY_POST_DIR" "$HEXO_POST_DIR" || exit 1
