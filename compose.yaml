@@ -28,10 +28,10 @@ services:
     networks:
       - caddy
     labels:
-      caddy.0: blog.{$DOMAIN}
-      caddy.0_reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
-      caddy.1: www.{$DOMAIN}
-      caddy.1_redir: "https://blog.{$DOMAIN}{uri} temporary"
+      caddy_0: blog.piprime.fr
+      caddy_0.reverse_proxy: "{{upstreams ${SERVER_PORT}}}"
+      caddy_1: www..piprime.fr
+      caddy_1.redir: "https://blog.piprime.fr{uri} temporary"
 
   dev:
     image: blog-piprime-fr_hexo
