@@ -1,9 +1,5 @@
 # The PIPRIME.FR Blog Source Code
 
-## Dependency
-
-You need to install and configure [direnv](https://direnv.net/) on the host machine.
-
 ## Usage
 
 ### With Docker
