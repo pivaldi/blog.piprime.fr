@@ -15,10 +15,11 @@ method to run this blog.
 
 ### Without Docker
 
+1. [Install direnv](https://direnv.net/) yourself.
 1. [Install Node.js](https://nodejs.org/en/download) yourself
 1. [Install Hexo](https://hexo.io/docs/#Install-Hexo) yourself executing for example `npm install -g hexo-cli`.
 1. Goto the directory `hexo` with `cd hexo` and install the dependencies with `make install`.
-2. You can run **in the directory `hexo`** :
+1. You can run **in the directory `hexo`** :
    - `make dev` : serves with the drafts **or**
    - `make production` : serves without the drafts **or**
    - `make deploy` : generates the static web site in `./hexo/public`
