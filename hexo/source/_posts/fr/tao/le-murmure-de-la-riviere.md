@@ -34,15 +34,17 @@ Dans le bouddhisme, l'attachement aux choses impermanentes est considéré comme
 causes de la souffrance, car ce qui est impermanent ne peut pas être satisfaisant.
 
 L'impermanence est une réalité universelle qui s'applique à tout, y compris aux relations, aux
-ensations physiques, à la personne que nous sommes et à nos objectifs de vie.
+sensations physiques, à la personne que nous sommes, à nos objectifs de vie, etc.
  
 Accepter cette réalité peut être difficile, car elle implique de lâcher prise et de ne pas chercher
-à contrôler tout ce qui est hors de notre contrôle.  
-Cependant, cette acceptation peut également ouvrir la voie à un changement et à un progrès
-spirituel, car notre état actuel est impermanent et peut donc évoluer.
+à tout contrôler et en particulier ce qui est hors de notre contrôle.  
+Pourtant, cette acceptation permet d'ouvrir la voie à un changement et à un progrès
+spirituel, car la prise de conscience et l'acceptation de l'impermanence de notre état actuel permet
+d'évoluer et de s'ouvrir à des niveaux de conscience plus profonds comme l'interdépendance de toute
+chose, la vacuité au sens spirituel du terme.
 
 La compréhension de l'impermanence peut également nous aider à apprécier le moment présent et à
-vivre de manière plus détachée, en réduisant notre souffrance et en augmentant notre bien-être.
+vivre de manière plus détachée, en réduisant notre souffrance et donc en augmentant notre bien-être.
 
 ## Impermanence et attachement ?
 
@@ -105,3 +107,15 @@ l'**avidité**, l'**illusion de permanence**, et le besoin de tout contrôler.
 - **L'introspection** : se demander quel besoin cet attachement essaie de combler.
 - **La compassion** : pour soi et pour les autres, en traversant la complexité de l'humain.
 - **Le lâcher-prise** : non pas fuir l'amour ou la connexion, mais relâcher la crispation, accepter le changement.
+
+## Attachement et vacuité
+
+La vacuité spirituelle, dans le contexte du bouddhisme et d'autres spiritualités orientales, est
+l'absence d'existence propre ou indépendante des choses. Elle n'implique pas une absence de sens ou
+de valeur, mais plutôt une reconnaissance que **rien n'existe de manière autonome et permanente**.
+
+Cette notion met en lumière l'interdépendance de toutes choses et des individus, soulignant que
+tout est lié et évolue constamment.  
+La vacuité spirituelle est aussi un état qui peut être atteint par la méditation, permettant de
+dissiper les concepts erronés sur la nature des phénomènes et de **libérer l'esprit des attachements**.
+
