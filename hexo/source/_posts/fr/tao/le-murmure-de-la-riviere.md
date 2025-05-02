@@ -4,12 +4,9 @@ date: 20025-04-20 19:00:00
 id: le-murumure-de-la-riviere
 lang: fr
 description: La joie se trouve dans le continuel devenir, le changement.
-sitemap: false
 categories:
   - [Non Tech, Pensée, Spiritualité]
-author: Julie & PI
-toc:
-  enable: false
+coauthor: Julie
 ---
 
 {% admonition info « Zen, graine de sagesse » de Shundô Aoyama %}
