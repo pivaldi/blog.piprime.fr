@@ -37,6 +37,7 @@ language:
   - en
   - fr
 timezone:
+  "Europe/Paris"
 
   # archive: false
 archive_generator:
@@ -51,9 +52,9 @@ archive_generator:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://blog.piprime.fr
 root: /
-# permalink: :year/:month/:day/:title/
 permalink_defaults:
   lang: en
+# permalink: :year/:month/:day/:title/
 permalink: :lang/:id/
 
 pretty_urls:
@@ -71,7 +72,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md
+new_post_name: :lang/:title.md
 default_layout: post
 titlecase: false # Transform title into titlecase
 

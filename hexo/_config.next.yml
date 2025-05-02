@@ -976,3 +976,13 @@ vendors:
 css: css
 js: js
 images: images
+
+# Add some descriptions to your co-authors
+coauthors:
+  [Julie]:
+    # It will display nick
+    nick: Julie
+    # When your co-authors is click, will jump to there
+    link: https://fr.wikipedia.org/wiki/Julie_(pr%C3%A9nom)
+  # It defines the order of precedence in post meta
+  #post_meta_order: 0
