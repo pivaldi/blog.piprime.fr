@@ -8,7 +8,9 @@ categories:
   - [Tech, Configuring, Ansible]
 ---
 
-[Cet article est disponible en Francais](/fr/how-this-hexo-website-is-build-and-deployed/)
+![Ansible deploying Hexo blog with Docker](/media/how-this-hexo-website-is-build-and-deployed/deploying-hexo-docker-ansible.webp)
+
+[This article is available in French](/fr/how-this-hexo-website-is-build-and-deployed/)
 
 This website is built with the [blog framework Hexo](https://hexo.io/)
 and [the elegant theme NexT](https://theme-next.js.org/).  

@@ -30,6 +30,10 @@ figcaption span.src {
   background: white;
 }
 
+.post-body figure.image-caption figcaption {
+  margin: auto
+}
+
 div.lg-backdrop.in {
 background-color: #efefef; !important
 }

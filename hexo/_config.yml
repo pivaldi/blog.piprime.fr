@@ -148,6 +148,11 @@ deploy:
 ## See https://theme-next.js.org/docs/getting-started/configuration.html
 theme_config:
 
+## Used by my hook after_post_render scripts/hooks.js
+image_caption:
+  enable: true
+  class_name: "image-caption"
+
 vendors:
   sitemap:
     path:

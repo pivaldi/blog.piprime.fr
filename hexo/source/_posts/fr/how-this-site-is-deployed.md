@@ -8,6 +8,8 @@ categories:
   - [Tech, Configuring, Ansible]
 ---
 
+![Ansible déployant le blog Hexo avec Docker](/media/how-this-hexo-website-is-build-and-deployed/deploying-hexo-docker-ansible.webp)
+
 [This article is available in English](/en/how-this-hexo-website-is-build-and-deployed/)
 
 Ce site web est construit avec le [framework de blog Hexo](https://hexo.io/)
