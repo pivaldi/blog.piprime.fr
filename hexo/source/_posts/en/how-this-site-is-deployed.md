@@ -6,6 +6,12 @@ description: How this Hexo website is deployed using Docker, Caddy, docker-caddy
 categories:
   - [Tech, Configuring, Docker]
   - [Tech, Configuring, Ansible]
+tags:
+  - Docker
+  - Ansible
+  - Hexo
+  - Makefile
+  - Caddy
 ---
 
 ![Ansible deploying Hexo blog with Docker](/media/how-this-hexo-website-is-build-and-deployed/deploying-hexo-docker-ansible.webp)
