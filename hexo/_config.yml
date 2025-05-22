@@ -126,18 +126,19 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: next
 
-# lightgallery:
-#   # if you don't specify the css or js source, the default cdn will be used.
-#   # css: # css source url
-#   # js: #js source url
-#   # sorry that I can not find any cdn hosting following plugins,
-#   # please self-host the plugin js and add url here
-#   plugins:
-#     lg-thumbnail:
-#     # lg-zoom:
-#     # lg-autoplay:
-#     # lg-fullscreen:
-#     lg-pager:
+lightgallery:
+  enabled: false
+  # if you don't specify the css or js source, the default cdn will be used.
+  # css: # css source url
+  # js: #js source url
+  # sorry that I can not find any cdn hosting following plugins,
+  # please self-host the plugin js and add url here
+  plugins:
+    lg-thumbnail:
+    # lg-zoom:
+    # lg-autoplay:
+    # lg-fullscreen:
+    lg-pager:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -194,9 +195,9 @@ vendors:
   pjax:
 
   # FancyBox
-  jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
-  fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
-  fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
+  # jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
+  # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
+  # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
 
   # Medium-zoom
   # mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
@@ -273,3 +274,35 @@ vendors:
   # Internal version: 1.0.0
   # canvas_ribbon: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js
   canvas_ribbon:
+
+## See https://github.com/hexojs/hexo-renderer-marked
+marked:
+  gfm: true
+  pedantic: false
+  breaks: true
+  smartLists: true
+  smartypants: true
+  quotes: "“”‘’"
+  modifyAnchors: 0
+  anchorAlias: false
+  autolink: true
+  mangle: true
+  sanitizeUrl: false
+  dompurify: false
+  headerIds: true
+  lazyload: true
+  figcaption: true
+  prependRoot: true
+  postAsset: false
+  external_link:
+    enable: false
+    exclude: []
+    nofollow: false
+  disableNunjucks: false
+  descriptionLists: true
+
+## https://github.com/hexojs/hexo-renderer-pandoc
+pandoc:
+  pandocPath: "/usr/bin/pandoc"
+  timeout: 10000
+  args: []
