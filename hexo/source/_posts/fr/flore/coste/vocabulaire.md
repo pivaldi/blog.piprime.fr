@@ -1,11 +1,15 @@
-title: Vocabulaire des mots techniques employés dans la flore
+---
+title: Vocabulaire des mots techniques employés dans la flore de l'Abbé Coste
 date: 2018-05-12
-id: gxinhpw2bvwpzig
+id: vocabulaire-des-mots-techniques-employes-dans-la-flore-de-l-abbe-coste
+description: Vocabulaire des mots techniques employés dans la flore de l'Abbé Coste.
+lang: fr
 categories:
 - [Non Tech, Botanique]
 tags:
-    - "Flore de l'Abbé Coste"
+- "Flore de l'Abbé Coste"
 ---
+
 {% admonition info Copyright %}
 Extrait du livre « [Flore descriptive et illustrée de la France de la Corse et des contrées limitrophes](http://www.tela-botanica.org/page:flore_de_coste) »
 par l'abbé [Hippolyte COSTE](https://fr.wikipedia.org/wiki/Hippolyte_Coste).
@@ -28,12 +32,11 @@ Organe continuant à végéter et à s'accroître après la floraison :
 - Styles de la Benoîte (fig. 2).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig1-2.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig1-2.jpg" data-caption="Calice accrescent du Physalis (1) et styles de la Benoîte (2)">
 <img src="/media/flore/coste/vocabulaire/fig1-2_w200.jpg" title="Cliquer pour agrandir" alt="Calice du Physalis et Styles de la Benoîte" />
 </a>
 <figcaption>
 <span>Calice accrescent du Physalis (1) et styles de la Benoîte (2)</span>
-<span class="src">Source gallica.bnf.fr / BnF</span>
 </figcaption>
 </figure>
 
@@ -46,7 +49,7 @@ Fruit sec, indéhiscent, à une seule graine libre, c'est-à-dire n'adhérant pa
 <figure>
 <img src="/media/flore/coste/vocabulaire/fig3.jpg" alt="Graine de Soleil" />
 <figcaption>
-<span>Graine achène de Soleil</span> <span class="src">Source gallica.bnf.fr / BnF</span>
+<span>Graine achène de Soleil</span>
 </figcaption>
 </figure>
 
@@ -56,12 +59,10 @@ Fruit sec, indéhiscent, à une seule graine libre, c'est-à-dire n'adhérant pa
 Feuilles linaires, raides et aiguës comme des aiguilles : Feuilles du Pin maritime (fig. 4).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig4.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig4.jpg" data-caption="Feuilles aciculaires du Pin maritime">
 <img src="/media/flore/coste/vocabulaire/fig4_w200.jpg" title="Cliquer pour agrandir" alt="Feuilles du Pin maritime" />
 </a>
-<figcaption>
-<span>Feuilles aciculaires du Pin maritime</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Feuilles aciculaires du Pin maritime</span></figcaption>
 </figure>
 
 ## Acicules
@@ -72,12 +73,10 @@ Petits aiguillons délicats, ordinairement droits, qui recouvrent certains organ
 - Rosa pim pinellifolia (fig. 6).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig5-6.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig5-6.jpg">
 <img src="/media/flore/coste/vocabulaire/fig5-6_h200.jpg" title="Cliquer pour agrandir" alt="Feuilles du Pin maritime" />
 </a>
-<figcaption>
-<span>Acicules de Gallica (5) et de Rosa pim pinellifolia (6)</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Acicules de Gallica (5) et de Rosa pim pinellifolia (6)</span></figcaption>
 </figure>
 
 ## Acotylédones ou Cryptogames
@@ -90,12 +89,10 @@ Organe dont le sommet se termine brusquement en acumen, c'est-à-dire en pointe 
 feuilles du Bouleau (fig. 7), du tilleul.
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig7.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig7.jpg">
 <img src="/media/flore/coste/vocabulaire/fig7_w200.jpg" title="Cliquer pour agrandir" alt="Feuille du Bouleau" />
 </a>
-<figcaption>
-<span>Feuille acuminée du Bouleau</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Feuille acuminée du Bouleau</span></figcaption>
 </figure>
 
 ## Adhérent
@@ -103,12 +100,10 @@ feuilles du Bouleau (fig. 7), du tilleul.
 Organe attaché à un autre et faisant corps avec lui : ovaire et calice du Saxifraga granulata (fig. 8).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig8.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig8.jpg">
 <img src="/media/flore/coste/vocabulaire/fig8_w200.jpg" title="Cliquer pour agrandir" alt="Ovaire et calice adhérents du Saxifraga granulata" />
 </a>
-<figcaption>
-<span>Ovaire et calice adhérents du Saxifraga granulata</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Ovaire et calice adhérents du Saxifraga granulata</span></figcaption>
 </figure>
 
 ## Adventice
@@ -120,12 +115,10 @@ Plante qui vient d'un pays étranger, plus ou moins éloigné, et qui n'a pas é
 Racines qui prennent naissance directement sur la tige : Lierre, Fraisier, Violette odorante (fig. 9).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig9.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig9.jpg">
 <img src="/media/flore/coste/vocabulaire/fig9_w200.jpg" title="Cliquer pour agrandir" alt="Racine adventives de la Violette odorante" />
 </a>
-<figcaption>
-<span>Racine adventives de la Violette odorante</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Racine adventives de la Violette odorante</span></figcaption>
 </figure>
 
 
@@ -135,12 +128,10 @@ Faisceau ou couronne de poils ou de soies terminant certains fruits : les akèn
 [Crepis albida](http://www.tela-botanica.org/bdtfx-nn-121154) (fig. 10).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig10.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig10.jpg">
 <img src="/media/flore/coste/vocabulaire/fig10_h200.jpg" title="Cliquer pour agrandir" alt="Les akènes du Crepis albida forment une aigrette" />
 </a>
-<figcaption>
-<span>Aigrette du Crepis albida</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Aigrette du Crepis albida</span></figcaption>
 </figure>
 
 ## Aigu
@@ -149,12 +140,10 @@ Dont le sommet se rétrécit insensiblement en pointe : feuilles de
 l'[Arenaria trinervia](http://www.tela-botanica.org/bdtfx-nn-42780) (fig. 11).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig11.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig11.jpg">
 <img src="/media/flore/coste/vocabulaire/fig11_w200.jpg" title="Cliquer pour agrandir" alt="Feuilles aiguës de l'Arenarla trinervia" />
 </a>
-<figcaption>
-<span>Feuilles aiguës de l'<a href="http://www.tela-botanica.org/bdtfx-nn-42780">Arenaria trinervia</a></span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Feuilles aiguës de l'<a href="http://www.tela-botanica.org/bdtfx-nn-42780">Arenaria trinervia</a></span></figcaption>
 </figure>
 
 ## Aiguillon
@@ -162,12 +151,10 @@ l'[Arenaria trinervia](http://www.tela-botanica.org/bdtfx-nn-42780) (fig. 11).
 Piquant naissant de l'écorce et se détachant sans déchirer le bois : Rosier (fig. 12).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig12.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig12.jpg">
 <img src="/media/flore/coste/vocabulaire/fig12_w200.jpg" title="Cliquer pour agrandir" alt="Aiguillon de rosier" />
 </a>
-<figcaption>
-<span>Aiguillon de rosier</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Aiguillon de rosier</span></figcaption>
 </figure>
 
 ## Aile
@@ -180,12 +167,10 @@ Membrane mince ou foliacée accompagnant certains organes :
 - les tiges du [Génista sagittalis](http://www.tela-botanica.org/bdtfx-nn-29597) (fig. 15).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig13-14-15.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig13-14-15.jpg">
 <img src="/media/flore/coste/vocabulaire/fig13-14-15_w200.jpg" title="Cliquer pour agrandir" alt="Différentes ailes" />
 </a>
-<figcaption>
-<span>Ailes de Lepidium (13), Polygala (14) et Génista (15)</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Ailes de Lepidium (13), Polygala (14) et Génista (15)</span></figcaption>
 </figure>
 
 ## Ailé
@@ -202,12 +187,10 @@ Feuilles, parfois bractées ou fleurs, insérées une à une à des hauteurs dif
 les rameaux : Tilleul (fig. 16).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig16.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig16.jpg">
 <img src="/media/flore/coste/vocabulaire/fig16_w200.jpg" title="Cliquer pour agrandir" alt="Feuilles alternes du Tilleul" />
 </a>
-<figcaption>
-<span>Feuilles alternes du Tilleul</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Feuilles alternes du Tilleul</span></figcaption>
 </figure>
 
 ## Alvéolé
@@ -216,12 +199,10 @@ Marqué de petites fossettes anguleuses nommées alvéoles : réceptacle de plus
 de la Pimprenelle (fig. 17).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig17.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig17.jpg">
 <img src="/media/flore/coste/vocabulaire/fig17_w200.jpg" title="Cliquer pour agrandir" alt="Fruit agrandi de la Pimprenelle" />
 </a>
-<figcaption>
-<span>Fruit agrandi de la Pimprenelle</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Fruit agrandi de la Pimprenelle</span></figcaption>
 </figure>
 
 ## Amplexicaule
@@ -230,12 +211,10 @@ Feuille ou bractée à base élargie embrassant plus ou moins la tige ou le rame
 (fig. 18).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig18.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig18.jpg">
 <img src="/media/flore/coste/vocabulaire/fig18_h200.jpg" title="Cliquer pour agrandir" alt="Feuille amplexicaule du Pavot" />
 </a>
-<figcaption>
-<span>Feuille amplexicaule du Pavot</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Feuille amplexicaule du Pavot</span></figcaption>
 </figure>
 
 ## Anastomosées
@@ -244,12 +223,10 @@ Nervures ramifiées, saillantes, se réunissant entre elles en réseau par leur 
 Tilleul (fig. 19) ; calice du [Silene inflata](http://www.tela-botanica.org/bdtfx-nn-64434) (fig. 20).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig20.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig20.jpg">
 <img src="/media/flore/coste/vocabulaire/fig20_w200.jpg" title="Cliquer pour agrandir" alt="feuille de Tilleul (19), calice du Silene (20)" />
 </a>
-<figcaption>
-<span>Feuille de Tilleul (19), calice du Silene inflata (20)</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Feuille de Tilleul (19), calice du Silene inflata (20)</span></figcaption>
 </figure>
 
 ## Ancipité
@@ -257,24 +234,20 @@ Tilleul (fig. 19) ; calice du [Silene inflata](http://www.tela-botanica.org/bdtf
 Comprimé et à bords plus ou moins tranchants, comme un glaive à 2 tranchants : tige du Poa compressa (fig. 21).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig21.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig21.jpg">
 <img src="/media/flore/coste/vocabulaire/fig21_h200.jpg" title="Cliquer pour agrandir" alt="Tige du Poa compressa" />
 </a>
-<figcaption>
-<span>Tige du <a href="http://www.tela-botanica.org/bdtfx-nn-50413-synthese">Poa compressa</a></span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Tige du <a href="http://www.tela-botanica.org/bdtfx-nn-50413-synthese">Poa compressa</a></span></figcaption>
 </figure>
 
 ## Androgyne
 
 Épi formé de fleurs mâles et de fleurs femelles groupées sur le même pédoncule (fig. 22).
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig22.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig22.jpg">
 <img src="/media/flore/coste/vocabulaire/fig22_h200.jpg" title="Cliquer pour agrandir" alt="Épi de Carex vulpina" />
 </a>
-<figcaption>
-<span>Épi de <a href="http://www.tela-botanica.org/bdtfx-nn-14515-synthese">Carex vulpina</a></span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Épi de <a href="http://www.tela-botanica.org/bdtfx-nn-14515-synthese">Carex vulpina</a></span></figcaption>
 </figure>
 
 ## Angiosperme
@@ -304,12 +277,10 @@ Synonyme de capitule : inflorescence des Composées.
 Fleur dépourvue de pétales : Frène (fig. 23).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig23.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig23.jpg">
 <img src="/media/flore/coste/vocabulaire/fig23_h200.jpg" title="Cliquer pour agrandir" alt="Fleur de frène, dépourvue de pétale" />
 </a>
-<figcaption>
-<span>Fleur de frène, dépourvue de pétale</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Fleur de frène, dépourvue de pétale</span></figcaption>
 </figure>
 
 ## Aphylle
@@ -322,12 +293,10 @@ Organe dont le sommet se rétrécit brusquement en pointe courte, aiguë, peu co
 Draba verna ; gousse de la Lentille (fig. 24).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig24.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig24.jpg">
 <img src="/media/flore/coste/vocabulaire/fig24_w200.jpg" alt="gousse de lentille" />
 </a>
-<figcaption>
-<span>Gousse de lentille</span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span>Gousse de lentille</span></figcaption>
 </figure>
 
 ## Appendice
@@ -335,12 +304,10 @@ Draba verna ; gousse de la Lentille (fig. 24).
 Partie accessoire à quelque organe : calice du Campanula speciosa (fig. 25).
 
 <figure>
-<a class="fancybox" href="/media/flore/coste/vocabulaire/fig25.jpg">
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig25.jpg">
 <img src="/media/flore/coste/vocabulaire/fig25_h200.jpg" alt="calice du Campanula speciosa" />
 </a>
-<figcaption>
-<span>Calice du <a href="http://www.tela-botanica.org/bdtfx-nn-75454-synthese">Campanula speciosa</a></span> <span class="src">Source gallica.bnf.fr / BnF</span>
-</figcaption>
+<figcaption><span><a href="http://www.tela-botanica.org/bdtfx-nn-75454-synthese">Campanula speciosa</a></span></figcaption>
 </figure>
 
 ## Appendiculé
@@ -349,8 +316,15 @@ Muni d'appendices.
 
 ## Apprimé
 
-Organe appliqué sur un autre, mais sans y adhérer : poils de la Renoncule bulbeuse (fig. 24) et du
+Organe appliqué sur un autre, mais sans y adhérer : poils de la Renoncule bulbeuse (fig. 26) et du
 Potentilla verna.
+
+<figure>
+<a data-fancybox data-src="/media/flore/coste/vocabulaire/fig26.webp">
+<img src="/media/flore/coste/vocabulaire/fig26_w200.webp" alt="Poils de la renoncule bulbeuse" />
+</a>
+<figcaption><span><a href="https://www.tela-botanica.org/bdtfx-nn-54838-synthese">Ranunculus bulbosus</a></span></figcaption>
+</figure>
 
 ## Aranéeux
 
