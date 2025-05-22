@@ -74,7 +74,7 @@ and, in order to temporarily redirect `www.piprime.fr` to the blog, the next lin
 ```
 
 Although the command `make deploy-caddy-docker-proxy` archive all the deployment process of this
-blog I don't want to remember where to clone the project, how update it, and what are the software
+blog, I don't want to remember where to clone the project, how update it, and what are the software
 to be installed on the host (`git`, `make`, `Docker` globally on the host machine).
 
 ## Deploying/Maintaining With Ansible
@@ -86,7 +86,7 @@ command to launch and ensure all was done correctly without missing a magic comm
 bundles.
 
 In order to automatize all the server installation, update and maintenance, I've chosen the [Ansible software](https://www.redhat.com/en/ansible-collaborative).  
-My [Ansible configuration](https://github.com/pivaldi/ansible) it is so secure that I'm confidant to share it !
+My [Ansible configuration](https://github.com/pivaldi/ansible) is so secure that I'm confidant to share it !
 
 About this blog, the only thing to do and remember is to launch the command `make piprimefr-blog` ;
 this will ensure that most needed software are installed, properly configured and this will clone
