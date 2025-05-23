@@ -13,6 +13,8 @@ tags:
 - Finance
 ---
 
+![Le bitcoin est un objet numérique](/media/btc-en-5-mots/btc.webp)
+
 Cet article est largement basé sur les propos de
 [Yves Choueifaty](https://fr.linkedin.com/in/yves-choueifaty-849b1b13) dans l'interview
 [Est-ce trop tard pour acheter du bitcoin ?](https://youtu.be/prgRUFtmaY4) de la chaîne Youtube [Finary](https://www.youtube.com/@Finary).
