@@ -1,6 +1,6 @@
 ---
 title: Bitcoin en 5 mots et trois concepts
-date: 20025-05-25 19:00:00
+date: 20025-05-22 19:00:00
 id: bitcoin-en-5-mots
 lang: fr
 description: Définition non technique du Bitcoin et réflexion autour de cette innovation disruptive.
@@ -15,9 +15,10 @@ tags:
 
 ![Le bitcoin est un objet numérique](/media/btc-en-5-mots/btc.webp)
 
-Cet article est largement basé sur les propos de
-[Yves Choueifaty](https://fr.linkedin.com/in/yves-choueifaty-849b1b13) dans l'interview
-[Est-ce trop tard pour acheter du bitcoin ?](https://youtu.be/prgRUFtmaY4) de la chaîne Youtube [Finary](https://www.youtube.com/@Finary).
+[Cet article est disponible en Anglais](/en/bitcoin-in-5-words/)
+
+Cet article est basé sur les propos de
+[Yves Choueifaty](https://fr.linkedin.com/in/yves-choueifaty-849b1b13) dans [cet interview](https://youtu.be/prgRUFtmaY4).
 
 ## Caractérisations du Bitcoin en 5 mots
 
