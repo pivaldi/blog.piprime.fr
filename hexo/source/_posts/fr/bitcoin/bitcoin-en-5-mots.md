@@ -27,34 +27,34 @@ Trois mots qui définissent le Bitcoin et qui sont communs aux monnaies fiduciai
   y avoir d'écriture de dette en Bitcoin.
 - **Infalsifiable**  
   Il est difficile de fabriquer de faux Euros et encore **plus difficile de fabriquer des faux Bitcoin**.  
-  À ce jour aucune fraction de faux Bitcoin n'a pu être générée malgré les efforts de nombreux
+  À ce jour aucune fraction de faux Bitcoins n'a pu être générée malgré les efforts de nombreux
   chercheurs.
 - **Échangeable** de pair à pair  
   Comme l'Euros, **on peut donner des Bitcoins à son pair sans passer par un intermédiaire**.
 
-Les deux autres mots qui caractérisent le Bitcoin ne sont pas applicable aux monnaies fiduciaires
+Les deux autres mots qui caractérisent le Bitcoin ne sont pas applicables aux monnaies fiduciaires
 comme l'Euro ou le Dollar.
 
 - **Décentralisé**  
   **La gouvernance du Bitcoin est décentralisée** contrairement à l'Euro qui n'existe que grace à la
-  banque centrale Européen dont le conseil d'administration constitué d'un petit nombre de personnes
+  banque centrale Européenne dont le conseil d'administration constitué d'un petit nombre de personnes
   possède le monopole de l'émission monétaire en Europe.
   Tot ou tard ce genre de monopole abuse de sa puissance pour s'octroyer des rôles (moraux par exemple) qu'il ne
   devrait pas avoir alors qu'il devrait avoir la stabilité des prix pour seule et unique mission.  
   À l'opposé, la gouvernance du Bitcoin est décentralisée. Cela signifie que les
   status du Bicoin sont contrôlable par tous.
   Le fonctionnement du Bitcoin est strictement défini par son algorithme et cet algorithme est
-  ouvert (lisible pas tous), librement distribuable et utilisable par tout le monde (nœuds du
+  ouvert (lisible par tous), librement distribuable et utilisable par tout le monde (nœuds du
   réseau).
   L'algorithme du Bitcoin ne peut changer que s'il est validé par tous les nœuds qui font
-  tourner l'algorithme ; si on seul nœud refuse, le changement est refusé. Cela garanti qu'il y a
+  tourner l'algorithme ; si un seul nœud refuse, le changement est refusé. Cela garanti qu'il y a
   très peu de chance que quelque chose de fondamental change dans l'algorithme du Bitcoin.
   Pour prendre le parallèle avec l'Euro, "l'algorithme du l'Euro" change à
   partir du moment où le conseil d'administration de la banque centrale
   Européenne le décide, c'est une gouvernance centralisée.
 - **Rare**  
   **Il n'y aura que 21 millions de Bitcoin**, impossible qu'il y en ait plus
-  à moins de changer l'algorithme ce qui, comme à l'a vu, est très peu probable et impossible sans
+  à moins de changer l'algorithme ce qui, comme on l'a vu, est très peu probable et impossible sans
   l'unanimité.
   Il y a une très grande différence avec l'Euro ou le Dollar qui ont une masse monétaire illimitée, ce
   sont des monnaies dettes inflationnistes.
@@ -100,7 +100,7 @@ Vient ensuite une réaction de colère dont les trois moteurs sont
 petit de se disqualifier car au lieu de regarder cette fantastique innovation sous le regard
 de la morale on commence à le regarder en terme d'utilité, d'efficacité et de légitimité.
 Car se demander si le Bitcoin est bien ou mal, c'est comme se demandez si un couteau
-est bien ou mal… C'est n'est pas la bonne question !  
+est bien ou mal… Ce n'est pas la bonne question !  
 La bonne question à se poser pour une innovation technologique serait de savoir
 s'il fonctionne, s'il remplit efficacement les rôles pour lesquels il a été conçu et, si c'est
 le cas, d'essayer d'en tirer un avantage, une utilité.
