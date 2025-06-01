@@ -20,10 +20,7 @@ tags:
 
 ## Chapitre IV — Le planisme « inéluctable »
 
-> Nous avons été les premiers à affirmer  
-> que plus les formes de civilisation sont  
-> compliquées, plus la liberté individuelle  
-> doit être restreinte.  
+> Nous avons été les premiers à affirmer que plus les formes de civilisation sont compliquées, plus la liberté individuelle doit être restreinte.  
 > — B. Mussolini
 
 Il y a une chose révélatrice : c’est que peu de planistes se contentent de dire que le planisme centralisé est désirable. La plupart d’entre eux affirment que nous ne pouvons plus choisir, et que nous sommes contraints par des circonstances échappant à notre volonté de substituer le planisme à la concurrence. On cultive délibérément le mythe suivant lequel nous nous engageons sur la route nouvelle, non point de par notre volonté, mais parce que la concurrence se trouve spontanément éliminée par des transformations techniques sur lesquelles nous ne pouvons revenir, et que nous ne saurions souhaiter empêcher. Cet argument fait rarement l’objet d’un long développement. C’est une affirmation que les auteurs se repassent jusqu’à ce qu’elle ait pris la force d’un fait accompli, par simple répétition. Il est néanmoins dépourvu de fondement. La tendance vers le monopole et le planisme n’est pas le résultat de « faits objectifs ». C’est le produit d’opinions nourries et propagées pendant un demi-siècle qui ont fini par dominer toute notre politique.

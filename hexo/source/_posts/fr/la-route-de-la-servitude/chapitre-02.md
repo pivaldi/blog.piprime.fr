@@ -20,8 +20,7 @@ tags:
 
 # Chapitre II — La grande utopie
 
-> Ce qui fait de l’État un enfer, c’est que  
-> l’homme essaie d’en faire un paradis.  
+> Ce qui fait de l’État un enfer, c’est que l’homme essaie d’en faire un paradis.  
 > — F. Hölderlin
 
 Le fait que le socialisme ait supplanté le libéralisme dans l’esprit de la majorité des gens épris de progrès ne signifie pas simplement qu’on avait oublié les avertissements des grands penseurs libéraux du passé sur les conséquences du collectivisme. Cela est arrivé parce qu’ils ont acquis des convictions exactement contraires aux prédictions de ces penseurs. Ce qu’il y a d’extraordinaire, c’est que ce même socialisme, en qui non seulement on avait de bonne heure reconnu le plus grave danger pour la liberté mais encore qui avait débuté tout à fait ouvertement comme une réaction contre le libéralisme de la Révolution française, ce même socialisme se fit adopter par tous sous le drapeau de la liberté. On se souvient rarement aujourd’hui que le socialisme à ses débuts était franchement autoritaire. Les écrivains français qui posèrent les fondations du socialisme moderne étaient convaincus que leurs idées ne pouvaient être mises en pratique que par un gouvernement dictatorial. À leurs yeux, le socialisme signifiait une tentative pour « achever la révolution » par une réorganisation délibérée de la société sur un plan hiérarchique et l’exercice d’un « pouvoir spirituel » de coercition. Les fondateurs du socialisme ne faisaient pas mystère de leurs intentions à l’égard de la liberté. Ils considéraient la liberté de pensée comme la source de tous les maux du XIXe siècle et le premier des planistes modernes, Saint-Simon, prédisait même que ceux qui n’obéiraient pas à ses plans seraient « traités comme du bétail ».

@@ -20,9 +20,7 @@ tags:
 
 ## Chapitre III — Individualisme et collectivisme
 
-> Les socialistes croient à deux choses qui  
-> sont absolument différentes et peut-être  
-> contradictoires : la liberté et l’organisation.  
+> Les socialistes croient à deux choses qui sont absolument différentes et peut-être contradictoires : la liberté et l’organisation.  
 > — Élie Halévy
 
 Avant de faire avancer notre problème principal, nous avons encore un obstacle à surmonter. Il nous faut éclaircir une confusion qui est en grande partie responsable de la façon dont nous dérivons vers un état de choses que personne ne souhaite.
