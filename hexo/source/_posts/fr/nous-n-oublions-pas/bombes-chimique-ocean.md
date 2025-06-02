@@ -25,15 +25,17 @@ tags:
   de trois milliards de tonnes d’armes chimiques et conventionnelles, produites lors de la Première
   et de la Seconde Guerre mondiale. Les fuselages métalliques qui confinent ces substances chimiques
   se corrodent. Les scientifiques prédisent une catastrophe sans précédent.
-- [Épaves de guerre en mer du Nord](https://youtu.be/XZoJ1h5pbWM?si=vPHm24bKc4Pyd_ps)  
-  Quelque 10 000 épaves de navires de guerre gisent au fond de la mer du Nord. Entre menaces d'explosion et pollution à haut risque, un documentaire glaçant sur ce redoutable héritage que l'Europe commence tout juste à affronter.  
+- [Épaves de guerre en mer du Nord](https://youtu.be/XZoJ1h5pbWM?si=vPHm24bKc4Pyd_ps) sur ARTE :  
+  Quelque 10 000 épaves de navires de guerre gisent au fond de la mer du Nord. Entre menaces
+  d'explosion et pollution à haut risque, un documentaire glaçant sur ce redoutable héritage que
+  l'Europe commence tout juste à affronter.  
   C'est une véritable bombe à retardement que l'Europe a jusque-là préféré ignorer. La mer du Nord
   ressemble à un gigantesque cimetière de navires et d'avions : dans ses fonds gisent quelque 10 000
   épaves, dont 700 vestiges des deux guerres mondiales encore chargés de munitions rouillées. Des
-  substances hautement toxiques s'en échappent parfois – particulièrement le trinitrotoluène (TNT)
-  –, qui contaminent l'environnement et la faune marine dans des rayons étendus, pouvant aussi
+  substances hautement toxiques s'en échappent parfois – particulièrement le trinitrotoluène (TNT),
+  qui contaminent l'environnement et la faune marine dans des rayons étendus, pouvant aussi
   empoisonner les hommes. À seulement quelques encablures de la cité de Sheerness, à l'est de
-  Londres, le cargo américain SS Richard-Montgomery, qui a coulé le 20 août 1944 et dont les mâts
+  Londres, le cargo américain SS Richard-Montgomery, qui a coulé le 20 août 1944 et dont les mâts
   émergent à l'horizon, renferme encore 1 400 tonnes d'explosifs. Si personne n'ose s'en approcher,
   c'est parce que ses bombes sont susceptibles de créer une déflagration telle qu'elle pourrait
   provoquer un tsunami et menacer la capitale britannique. Alors que le recensement de ces
@@ -43,11 +45,12 @@ tags:
 - Depuis la fin de la Première Guerre mondiale, plusieurs pays ont jeté au moins 1,6 million de
   tonnes d'agents et de munitions d'armes chimiques capturées, endommagées, obsolètes ou
   indésirables (CW) dans les océans du monde.  
-  Le James Martin Center for Non-Prolifération Studies a développé [cette carte](https://www.google.com/maps/d/viewer?ll=38.90257929606752%2C9.843749999999943&z=2&mid=1ALnyOrN5JQ8H50znwJqI_Sj8IwE) afin de stimuler et
-  de soutenir les efforts pour traiter les menaces graves posées par ce matériel CW.
+  Le [James Martin Center for Non-Prolifération Studies](https://nonproliferation.org/)
+  a développé [cette carte](https://www.google.com/maps/d/viewer?ll=38.90257929606752%2C9.843749999999943&z=2&mid=1ALnyOrN5JQ8H50znwJqI_Sj8IwE)
+  afin de stimuler et de soutenir les efforts pour traiter les menaces graves posées par ce matériel CW.
 - Question écrite n°11314 - 15e législature au Sénat : [Oxydation des armes chimiques en mer du Nord](https://www.senat.fr/questions/base/2019/qSEQ190711314.html)
   On notera la tournure « ont été déversées par les belligérants… » pour masquer la réalité du « les dirigeants de l'époque ont pris la décision de déverser volontairement… ».  
-  [Télécharger la sauvegarde en pdf](/media/nous-n-oublions-pas/oxydation-des-armes-chimiques-en-mer-du-nord.pdf)
+  [Télécharger la Question écrite n°11314 en pdf](/media/nous-n-oublions-pas/oxydation-des-armes-chimiques-en-mer-du-nord.pdf)
 - [Des décharges de bombes chimiques menacent la Vie de notre océan](https://blogs.mediapart.fr/candice-vacle/blog/200719/des-decharges-de-bombes-chimiquesmenacent-la-vie-de-notre-ocean).
   [Télécharger la sauvegarde en pdf](/media/nous-n-oublions-pas/des-decharges-de-bombes-chimiques-menacent-la-vie-de-notre-ocean.pdf)  
 - Bizarrement dans [l'article de Wikipedia sur les bombes immergées](https://fr.m.wikipedia.org/wiki/Munition_immerg%C3%A9e),
@@ -63,15 +66,15 @@ tags:
 - Ce sont bien les alliés qui ont volontairement immergé toutes les bombes chimiques dans la mer du Nord, on retrouve la mention
   « [Toutes les armes, munitions et tout le matériel de guerre, ainsi que tous les moyens spécialement affectés à leur production, seront mis à la disposition des Alliés ou détruits](https://mjp.univ-perp.fr/traites/1945potsdam.htm) » 
   dans la Conférence de Potsdam.  
-  [Télécharger l'archive en pdf](/media/nous-n-oublions-pas/accords-de-potsdam-2-aout-1945.pdf)
+  [Télécharger la Conférence de Potsdam en pdf](/media/nous-n-oublions-pas/accords-de-potsdam-2-aout-1945.pdf)
 - À la question avec demande de réponse écrite E-002235-14 à la Commission parlementaire Européenne sur la [pollution des mers et des océans par les armes chimiques](https://www.europarl.europa.eu/doceo/document/E-7-2014-002235_FR.html), [la réponse](https://www.europarl.europa.eu/doceo/document/E-7-2014-002235-ASW_FR.html) est très rassurante : on a maintenant « vue d'ensemble des pratiques d'immersion en mer d'armes chimiques et de munitions dans la zone maritime OSPAR » et « l'interdiction de ces armes figure en bonne place dans la stratégie de l'Union sur les armes de destruction massive ».  
   Décidément, nous sommes entre de bonnes mains !!  
-  [Télécharger l'archive de la question en pdf](/media/nous-n-oublions-pas/question-E-002235_2014.pdf)  
-  [Télécharger l'archive de la réponse en pdf](/media/nous-n-oublions-pas/reponse-E-002235_2014.pdf).
+  [Télécharger l'archive de la question E-002235-14 en pdf](/media/nous-n-oublions-pas/question-E-002235_2014.pdf)  
+  [Télécharger l'archive de la réponse E-7-2014-002235-ASW_FR en pdf](/media/nous-n-oublions-pas/reponse-E-002235_2014.pdf).
 - Le rapport OSPAR [Dumped Chemical & Conventional Munitions](https://www.ospar.org/work-areas/eiha/munitions).  
   [Télécharger l'archive du rapport OSPAR en pdf](/media/nous-n-oublions-pas/dumped-chemical-conventional-munitions-OSPAR.pdf).
 
 Le plus beau, c'est que même après la guerre, ils continue à empoisonner impunément les océans !!
 
 > Paradoxalement, de 1996 à 2003, la Marine a continué à immerger volontairement et régulièrement des munitions périmées dont elle ne savait que faire à terre. « On a immergé les parties explosives des munitions, désolidarisées des détonateurs, conditionnées dans du métal et du béton », détaille Éric Lavault. D’abord dans la fosse d’Ouessant, puis dans le golfe de Gascogne. En 2003, la Marine a mis fin « définitivement » à cette pratique. Elle aurait le loisir de faire machine arrière, puisque l’article L. 218-58 du code de l’environnement (!) l’y autorise toujours, à titre exceptionnel.  
-> - [Source](https://basta.media/pollutions-sous-marines-bombes-a-retardement-epaves-seconde-guerre-mondiale-decharges-de-munitions-Marine-nationale-Ifremer)
+> [Source](https://basta.media/pollutions-sous-marines-bombes-a-retardement-epaves-seconde-guerre-mondiale-decharges-de-munitions-Marine-nationale-Ifremer)
