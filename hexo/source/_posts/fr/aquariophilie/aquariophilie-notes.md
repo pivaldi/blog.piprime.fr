@@ -68,7 +68,7 @@ paramètres physico-chimiques de l'eau et aller à l'encontre de ceux nécessair
 des poissons.
 
 
-#### Choix de la granulométrie :
+#### Choix de la granulométrie
 
 Il est recommandé d'avoir une granulométrie ni trop fine pour permettre les échanges entre le sol et
 l'eau et ne pas créer de zones anoxiques (zones sans oxygène) dans l'aquarium, ni trop grossière
@@ -78,7 +78,7 @@ Des quantités trop importantes de matière organique en décomposition pourraie
 déséquilibre des paramètres physico-chimiques de l'eau de l'aquarium. L'idéal est donc d'avoir un
 sable d'une granulométrie moyenne de 0,5-1 mm ou 1-2 mm.
 
-#### Choix de la texture du sable :
+#### Choix de la texture du sable
 
 En fonction des espèces de poissons que vous souhaitez maintenir vous devrez choisir une texture de
 sable différente.
@@ -91,7 +91,7 @@ fond. Les sables de rivière de type « sable de Loire » sont réputés pour av
 aquariums plantés.
 
 
-#### Choix de la couleur du sable :
+#### Choix de la couleur du sable
 
 Le choix de la couleur du sable a une grande importance, d'une part pour le côté esthétique et
 d'autre part pour le bien être des habitants de votre aquarium.
@@ -103,7 +103,7 @@ déposent sont plus visibles.
 Sur les sables noirs, certaines espèces de poissons peuvent faire du mimétisme et ainsi voir leurs
 couleurs s'assombrir.
 
-#### Choix du sable en fonction de sa composition :
+#### Choix du sable en fonction de sa composition
 
 Certains sables pourront modifier la qualité de l'eau de votre aquarium en fonction de leur
 composition.
