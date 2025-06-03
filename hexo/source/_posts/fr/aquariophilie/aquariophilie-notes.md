@@ -144,12 +144,14 @@ les eaux sont majoritairement acides.
 
 ### Engrais et CO2
 
-https://tropica.com/fr/guide/r%C3%A9ussir-son-aquarium/engrais-et-co2/
+Article intéressant [Engrais et CO2](https://tropica.com/fr/guide/r%C3%A9ussir-son-aquarium/engrais-et-co2/) sur *tropica.com*.
 
 -   Pour les grands bacs, privilégiez le diffuseur en ligne (sur le tuyau de refoulement du filtre).
 -   Diffuser toujours le CO2 en journée, environ 6 à 8h / jour maximum.
 -   Pensez à vous équipé d'un indicateur de CO2 afin de ne pas surdoser.
 -   Commencez au départ avec 1 bulle toutes les 4 secondes, voir 1 bulle toutes les 2 secondes.
+
+Je suis en train de tester le [CO2-Easy Kit](https://aquarift.fr/produit/generateur-reacteur-producteur-de-co2-aquarium-autonome) sélectionné par *aquarift.fr*.
 
 ### Les pierres
 
@@ -160,7 +162,17 @@ La Seiryu Stone est une des pierres décoratives les plus utilisées en décorat
 
 <https://materiel-aquatique.com/produit/seiryu-stone-pierre-decorative/>
 
+### Matériels et produits de base
 
+- [Traitement de l'eau, Engrais, Fertilisants, Filtres liquides](https://www.aquaplante.fr/7_easy-life?id_manufacturer=7&n=60)
+  Il semblerait que la marque [Easy-Life](https://www.easylifeaquarium.fr/) propose des produits
+  pour aquarium et bassin de jardin de qualité supérieur aux concurrents dans ce domaine.
+  - Pour un entretient mensuel : [Easy-Life Filtre Liquide - Conditionneur d'eau naturel](https://www.aquaplante.fr/conditionneurs-d-eau/easy-life/85122-conditionneur-d-eau-naturel-aquarium-easy-life-filtre-liquide-500-ml.html)
+  - Lors du changement d'eau : [Easy-Life AQUAMAKER - Conditionneur d'eau aquarium](https://www.aquaplante.fr/conditionneur-d-eau-easy-life/easy-life/85157-conditionneur-d-eau-aquarium-easy-life-aquamaker-250-ml.html)
+  - [Fertilisants Easy-Life](https://www.aquaplante.fr/38-fertilisants-easy-life)
+    En cours de test en alternance, une semaine sur deux :
+    - [Engrais liquide pour aquarium](https://www.aquaplante.fr/fertilisants-easy-life/easy-life/85102-engrais-liquide-pour-aquarium-easy-life-profito-500ml.html)
+    - [L'engrais liquide ferreux Easy-Life Ferro](https://www.aquaplante.fr/fertilisants-easy-life/easy-life/85110-engrais-liquide-ferreux-aquarium-easy-life-ferro-250ml.html)
 ## Aquarium Tanganyika
 
 D'après les articles « [Les petites espèces du lac Tanganyika](https://www.destin-tanganyika.com/les-petites-especes-du-lac-tanganyika/) » et « [Introduction aux cichlidés du lac Tanganyika et maintenances dans de petits volumes](https://www.aquariophilie.org/articles/introduction-cichlides-lac-tanganyika-maintenances-petits-volumes-201.html) ».
