@@ -166,7 +166,7 @@ La Seiryu Stone est une des pierres décoratives les plus utilisées en décorat
 
 - [Traitement de l'eau, Engrais, Fertilisants, Filtres liquides](https://www.aquaplante.fr/7_easy-life?id_manufacturer=7&n=60)
   Il semblerait que la marque [Easy-Life](https://www.easylifeaquarium.fr/) propose des produits
-  pour aquarium et bassin de jardin de qualité supérieur aux concurrents dans ce domaine.
+  pour aquarium et bassin de jardin de qualité supérieure aux concurrents dans ce domaine.
   - Pour un entretient mensuel : [Easy-Life Filtre Liquide - Conditionneur d'eau naturel](https://www.aquaplante.fr/conditionneurs-d-eau/easy-life/85122-conditionneur-d-eau-naturel-aquarium-easy-life-filtre-liquide-500-ml.html)
   - Lors du changement d'eau : [Easy-Life AQUAMAKER - Conditionneur d'eau aquarium](https://www.aquaplante.fr/conditionneur-d-eau-easy-life/easy-life/85157-conditionneur-d-eau-aquarium-easy-life-aquamaker-250-ml.html)
   - [Fertilisants Easy-Life](https://www.aquaplante.fr/38-fertilisants-easy-life)
