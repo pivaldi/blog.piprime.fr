@@ -142,9 +142,9 @@ Roussel’s biography of Monnet reveals how he worked hand in glove with success
 It is odd that this [magisterial 1000-page study](https://www.fayard.fr/livre/jean-monnet-9782213031538/)
 has never been translated into English since it is the best work ever written about the origins of the EU.
 
-Nor are many aware of declassified documents from the State Department archives showing that US
-intelligence funded the European movement secretly for decades, and worked aggressively behind the
-scenes to push Britain into the project.
+Nor are many aware of declassified documents from the State Department archives showing that
+[US intelligence funded the European movement secretly for decades](/en/cia-finances-european-construction/),
+and worked aggressively behind the scenes to push Britain into the project.
 
 As this newspaper [first reported](/en/euro-federalists-financed-by-us-spy-chiefs/) when the treasure became available,
 one memorandum dated July 26, 1950, reveals a campaign to promote a full-fledged European
