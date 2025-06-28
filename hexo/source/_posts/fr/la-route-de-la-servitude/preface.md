@@ -4,10 +4,7 @@ date: 20025-05-25 23:57:00
 id: la-route-de-la-servitude-preface
 lang: fr
 description: Préface du livre "La route de la servitude" de Friedrich Hayek
-categories:
-  - [Non Tech, Livre, Politique]
-  - [Non Tech, Livre, Économie]
-  - [Non Tech, Philosophie]
+categories: [FR, Non Tech, Livre, Politique, Économie, Philosophie]
 tags:
 - politique
 - économie

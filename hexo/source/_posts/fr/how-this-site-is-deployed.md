@@ -4,8 +4,7 @@ date: 20025-04-29 20:00:00
 id: how-this-hexo-website-is-build-and-deployed
 description: Comment ce site Web hexo est déployé à l'aide de Docker, Caddy, docker-caddy-proxy grâce à Ansible.
 categories:
-  - [Tech, Configuring, Docker]
-  - [Tech, Configuring, Ansible]
+  - [FR, Tech, Configuring, Docker, Ansible]
 tags:
   - Docker
   - Ansible
