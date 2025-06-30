@@ -16,7 +16,7 @@ Traduction française de [Untouchable par Human Right Foundation](https://substa
 
 ## Intouchable
 
-Pourquoi le Bitcoin est-il devenu si populaire auprès des dissidents vivant dans des dictatures ?
+Pourquoi le Bitcoin est-il devenu si populaire auprès des dissidents vivant dans des dictatures ?  
 Farida Nabourema explique ce que cette technologie émergente a en commun avec une vieille valise
 remplie d'argent liquide.
 
