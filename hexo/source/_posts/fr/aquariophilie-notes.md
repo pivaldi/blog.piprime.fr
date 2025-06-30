@@ -5,7 +5,7 @@ id: notes-sur-l-aquariophilie
 lang: fr
 description: Mes prises de notes sur l'aquariophilie.
 categories:
-  - [FR, Non Tech, aquariophilie, note]
+- [FR, Non Tech, aquariophilie, note]
 tags:
 - aquariophilie
 - note

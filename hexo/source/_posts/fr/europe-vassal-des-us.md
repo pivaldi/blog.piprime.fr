@@ -5,7 +5,7 @@ id: europe-vassal-des-us
 lang: fr
 description: Le message du secrétaire général de l'OTAN à Donald Trump montre que l'Europe est un vassal des USA.
 categories:
-  - [FR, Non Tech, Politique]
+- [FR, Non Tech, Politique]
 tags:
 - politique
 - USA

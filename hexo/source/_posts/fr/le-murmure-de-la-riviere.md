@@ -5,7 +5,8 @@ id: le-murumure-de-la-riviere
 lang: fr
 description: La joie se trouve dans le continuel devenir, le changement.
 categories:
-  - [FR, Non Tech, Pensée, Spiritualité]
+- [FR, Non Tech, Pensée]
+- [FR, Non Tech, Spiritualité]
 coauthor: Julie
 ---
 

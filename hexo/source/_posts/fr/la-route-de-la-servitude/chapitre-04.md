@@ -4,15 +4,18 @@ date: 20025-05-25 23:51:00
 id: la-route-de-la-servitude-chapitre-4
 lang: fr
 description: Chapitre IV du livre "La route de la servitude" de Friedrich Hayek
-categories: [FR, Non Tech, Livre, Politique, Économie, Philosophie]
+categories:
+- [FR, Non Tech, Livre, Politique]
+- [FR, Non Tech, Livre, Économie]
+- [FR, Non Tech, Livre, Philosophie]
 tags:
 - politique
 - économie
 - Pensée
-- Livre
+- livre
 - "La route de la servitude"
 - "Friedrich Hayek"
-- L'état
+- l'état
 ---
 
 ## Chapitre IV — Le planisme « inéluctable »

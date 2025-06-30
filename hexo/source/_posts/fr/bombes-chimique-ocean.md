@@ -5,7 +5,7 @@ id: des-decharges-de-bombes-chimiques-dans-les-oceans
 lang: fr
 description: Des millions de tonnes d’armes chimiques ont été coulées volontairement, le long de nos côtes Atlantiques, près de Toulon et de St Rafaël
 categories:
-  - [FR, Non Tech, Écologie]
+- [FR, Non Tech, Écologie]
 tags:
 - "Nous n'oublions pas"
 ---

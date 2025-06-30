@@ -4,15 +4,18 @@ date: 20025-05-25 23:46:00
 id: la-route-de-la-servitude-chapitre-9
 lang: fr
 description: Chapitre IX du livre "La route de la servitude" de Friedrich Hayek
-categories: [FR, Non Tech, Livre, Politique, Économie, Philosophie]
+categories:
+- [FR, Non Tech, Livre, Politique]
+- [FR, Non Tech, Livre, Économie]
+- [FR, Non Tech, Livre, Philosophie]
 tags:
 - politique
 - économie
 - Pensée
-- Livre
+- livre
 - "La route de la servitude"
 - "Friedrich Hayek"
-- L'état
+- l'état
 ---
 
 ## Chapitre IX — Sécurité et liberté

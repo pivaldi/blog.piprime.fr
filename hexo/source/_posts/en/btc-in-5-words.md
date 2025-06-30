@@ -5,12 +5,12 @@ id: bitcoin-in-5-words
 lang: en
 description: Non-technical definition of bitcoin and reflection around this disruptive innovation.
 categories:
-  - [Non Tech, Bitcoin]
+- [EN, Non Tech, Bitcoin]
 tags:
-- Cryptocurrency
-- Bitcoin
-- Economy
-- Finance
+- cryptocurrency
+- bitcoin
+- economy
+- finance
 ---
 
 ![Bitcoin is a digital object](/media/btc-en-5-mots/btc.webp)

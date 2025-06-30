@@ -4,7 +4,8 @@ date: 20025-06-25 21:31:00
 id: cia-finances-european-construction
 lang: en
 description: From 1949 to 1959, in the midst of the Cold War, the Americans, through their secret services and the Committee for United Europe, paid the equivalent of current $ 50 million to all pro-European movements.
-categories: EN, Non Tech, Politics
+categories:
+- [EN, Non Tech, Politics]
 tags:
 - politics
 - USA

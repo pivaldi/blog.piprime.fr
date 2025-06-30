@@ -5,7 +5,7 @@ id: l-ue-a-ete-cree-par-la-cia
 lang: fr
 description: Des documents du gouvernement américain déclassifié montrent que la communauté du renseignement américain a mené une campagne dans les années cinquante et 60 pour prendre un élan pour une Europe unie.
 categories:
-  - [FR, Non Tech, Politique]
+- [FR, Non Tech, Politique]
 tags:
 - politique
 - USA

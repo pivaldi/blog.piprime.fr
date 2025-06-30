@@ -4,7 +4,9 @@ date: 20025-06-29 17:00:00
 id: pourquoi-bitcoin-devient-populaire-dans les-dictature
 lang: fr
 description: Pourquoi le bitcoin est-il devenu si populaire auprès des dissidents vivant dans les dictatures ?
-categories: [FR, Non Tech, Économie, Bitcoin]
+categories:
+- [FR, Non Tech, Économie]
+- [FR, Non Tech, Bitcoin]
 tags:
 - bitcoin
 - économie

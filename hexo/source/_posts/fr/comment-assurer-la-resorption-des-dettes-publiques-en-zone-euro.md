@@ -5,7 +5,7 @@ id: comment-assurer-la-resorption-des-dettes-publiques-en-zone-euro
 lang: fr
 description: Comment assurer la résorption des dettes publiques en zone euro afin d’assurer la pérennité de la monnaie commune.
 categories:
-  - [FR, Non Tech, Politique]
+- [FR, Non Tech, Politique]
 tags:
 - politique
 - Europe
