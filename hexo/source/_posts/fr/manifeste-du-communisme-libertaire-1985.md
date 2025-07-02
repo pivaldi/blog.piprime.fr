@@ -6,6 +6,7 @@ lang: fr
 description: Essai politique de Georges Fontenis, qui intègre la théorie politique et les pratiques de la Fédération Communiste Libertaire (FCL)
 categories:
 - [FR, Non Tech, Livre, Politique]
+- [FR, Non Tech, Livre, Politique, Anarchie]
 - [FR, Non Tech, Livre, Économie]
 - [FR, Non Tech, Livre, Philosophie]
 tags:
