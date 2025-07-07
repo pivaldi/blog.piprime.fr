@@ -14,6 +14,10 @@ tags:
 
 [This article is available in French](/fr/portrait-psychologique-des-utilisateurs-d-emacs).
 
+Question asked in Chatgpt "draws up a psychological portrait of Emacs users". Here is his answer.
+
+---
+
 # Psychological Portrait of Emacs Users
 
 Emacs users form a distinct community, often perceived as a particular group within the world of

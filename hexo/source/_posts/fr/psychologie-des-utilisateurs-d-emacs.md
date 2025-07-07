@@ -14,6 +14,10 @@ tags:
 
 [This article is available in English](/en/psychological-portrait-of-emacs-users/).
 
+Question posée à ChatGPT « Dresse un portrait psychologique des utilisateurs d'Emacs » ; voici sa réponse.
+
+---
+
 Les utilisateurs du logiciel **Emacs** forment une communauté distincte, souvent perçue comme un
 groupe particulier dans l'univers de la programmation. Voici un portrait détaillé de ces
 utilisateurs, avec les traits psychologiques qui les caractérisent.
