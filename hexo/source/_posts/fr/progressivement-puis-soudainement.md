@@ -180,7 +180,102 @@ ouverte et évolutive lui permet non seulement de survivre aux crises, mais d’
 Plus les attaques et les obstacles se multiplient, plus Bitcoin consolide sa position et prouve son
 utilité comme système monétaire durable et indépendant.
 
-# Bitcoin est la grande définanciarisation
+### Bitcoin est la grande définanciarisation
+
+<figure>
+<a data-fancybox data-src="/media/progressivement-puis-soudainement/hyper-finance-prive-liberte.webp" data-caption="Dans un labyrinthe financier opaque, l'humain est prisonnier de l’emprise complexe et étouffante de la finance sur sa vie et son épanouissement.">
+<img src="/media/progressivement-puis-soudainement/hyper-finance-prive-liberte-thumb.webp" alt="Dans un labyrinthe financier opaque, l'humain est prisonnier de l’emprise complexe et étouffante de la finance sur sa vie et son épanouissement." />
+</a>
+<figcaption style="margin-top: 0px">
+<span>Dans un labyrinthe financier opaque, l'humain est prisonnier de l’emprise complexe et étouffante de la finance sur sa vie et son épanouissement.</span>
+</figcaption>
+</figure>
+
+#### Décadence programmée
+
+Dans notre société, il semble naturel de devoir “faire travailler son argent” : investir pour
+espérer préserver ou augmenter sa valeur. Mais cette obsession n’est pas anodine : elle résulte d’un
+système où la monnaie, par construction, perd chaque année un peu de sa valeur, sous l’action
+délibérée des banques centrales. Pour ne pas voir ses économies fondre, chacun est poussé à placer
+son argent, même sans réelle envie ni compétence, s’exposant ainsi à des risques constants.
+
+Cette financiarisation à outrance a brouillé la distinction entre épargner (protéger sa valeur) et
+investir (prendre des risques). Désormais, tout le monde est contraint d’agir en investisseur, non
+par choix, mais par nécessité, simplement pour ne pas s’appauvrir. Le système monétaire actuel
+transforme ainsi l’épargne en course sans fin, forçant chacun à courir des risques, juste pour ne
+pas reculer. C’est une mécanique absurde, mais devenue la norme : la perte programmée de valeur
+monétaire rend la prise de risque inévitable pour tous.
+
+#### Épargne vs Risque
+
+Créer de l’épargne suppose d’abord de prendre des risques : travailler, se former, produire de la
+valeur. L’argent gagné devrait permettre de préserver le fruit de ses efforts pour l’avenir. Mais
+aujourd’hui, la monnaie perdant constamment de la valeur à cause des politiques des banques
+centrales, il devient impossible de simplement épargner : chacun est obligé de réinvestir, donc de
+prendre de nouveaux risques, juste pour ne pas s’appauvrir.  
+
+Cette confusion entre épargne et prise de risque est artificielle : elle n’existe que parce que la
+monnaie est délibérément dévaluée. On ne “fait pas travailler son argent” pour s’enrichir, mais pour
+éviter qu’il fonde. Ce système contraint tout le monde à jouer un jeu risqué, alors qu’une bonne
+monnaie devrait permettre de conserver la valeur acquise sans effort supplémentaire. C’est ce que
+propose Bitcoin : une épargne solide, sans risque imposé.
+
+
+#### La grande financiarisation
+
+Parce que la monnaie perd sans cesse de la valeur, tout le monde est poussé à investir pour protéger
+son épargne. Cette course à la préservation du pouvoir d’achat a permis à la finance de prendre une
+place immense dans l’économie : produits financiers complexes, marchés surdimensionnés, risques
+empilés. La frontière entre épargne et spéculation a disparu : investir est devenu obligatoire, non
+par choix mais par nécessité.
+
+Ce système, résultat direct de la création monétaire et de l’inflation organisée, a transformé
+chaque citoyen en preneur de risques malgré lui, rendant l’économie instable et dépendante d’une
+finance toujours plus envahissante.
+
+#### Conséquences de la dissuasion d’épargner
+
+Quand la monnaie est programmée pour perdre de la valeur, l’épargne devient un pari perdant : garder
+son argent, c’est s’appauvrir, et prendre des risques devient une obligation, pas un choix. Ce
+système prive chacun de la possibilité de préserver le fruit de ses efforts, alors même que tout
+individu a déjà pris des risques pour gagner cet argent. Dans un marché libre, la valeur de la
+monnaie devrait fluctuer naturellement, mais garantir sa dépréciation institutionnalise une logique
+où l’on préfère consommer ou investir à tout prix, même sans discernement, plutôt que d’épargner.
+
+Peu à peu, l’idée même d’épargne disparaît : tout est orienté vers le court terme, la prise de
+risque est banalisée, et la réflexion sur l’avenir s’efface. Les décisions économiques, qu’il
+s’agisse d’investir ou de consommer, se prennent sans repères stables, faussées par la peur de la
+perte de valeur. Les keynésiens craignent qu’une monnaie stable freine l’investissement, mais en
+réalité, une incitation à l’épargne permettrait des choix plus judicieux et une économie plus
+saine : les investissements seraient plus productifs, la consommation plus réfléchie.
+
+À l’inverse, la dépréciation programmée de la monnaie encourage la financiarisation excessive,
+l’accumulation de risques et rend l’économie fragile. Quand l’épargne n’a plus de sens, la société
+devient vulnérable et incapable de faire face aux imprévus : la fragilité du système est alors
+inévitable.
+
+
+#### Le paradoxe d’une monnaie à masse monétaire fixe
+
+Le manque d’épargne et l’instabilité économique proviennent avant tout d’incitations monétaires
+détraquées : c’est ce que Bitcoin corrige. Avec une offre limitée à 21 millions de bitcoins,
+impossible de créer de la monnaie à volonté. Cette rareté aligne les incitations : chacun est poussé
+à épargner, car la monnaie ne se déprécie plus. Même si un bitcoin est divisible, il n’y en aura
+jamais plus ; la masse monétaire est donc parfaitement inélastique. Il en découle un paradoxe : s’il
+n’est pas possible d’accumuler plus de monnaie au total, l’incitation à épargner devient très forte
+au niveau individuel.
+
+En effet, si l’on attend que la monnaie prenne de la valeur, on est naturellement tenté de différer
+ses achats ou investissements, ce qui ne supprime pas la consommation, mais la rend plus réfléchie.
+Chaque transaction devient une véritable compétition : pour obtenir de la monnaie, il faut offrir
+quelque chose de suffisamment précieux à autrui. Cette dynamique crée un cercle vertueux :
+l’incitation à épargner pousse chacun à produire plus de valeur pour pouvoir consommer ou investir.
+
+Finalement, même si plus personne ne peut “créer” de monnaie, l’économie reste active, car les
+besoins quotidiens et la préférence pour le présent subsistent : tout le monde doit consommer et
+investir, mais le fait de pouvoir différer ces choix sans pénalité rend l’ensemble du système plus
+sain et plus efficace. Ainsi, Bitcoin ne bloque pas l’économie, il oriente simplement les décisions
+vers une gestion plus prudente et alignée des ressources.
 
 Depuis plusieurs décennies, la sphère financière n’a cessé de s’étendre, absorbant progressivement
 toutes les dimensions de l’économie et de la vie quotidienne. Les marchés financiers, les produits
@@ -192,24 +287,7 @@ envers des tiers, de promesses lointaines et de systèmes opaques. L’individu 
 d’un système où il ne détient plus rien directement : tout passe par des comptes bancaires, des
 contrats, des cautions, des flux de promesses et de dettes.
 
-<figure>
-<a data-fancybox data-src="/media/progressivement-puis-soudainement/hyper-finance-prive-liberte.webp" data-caption="Dans un labyrinthe financier opaque, l'humain est prisonnier de l’emprise complexe et étouffante de la finance sur sa vie et son épanouissement.">
-<img src="/media/progressivement-puis-soudainement/hyper-finance-prive-liberte-thumb.webp" alt="Dans un labyrinthe financier opaque, l'humain est prisonnier de l’emprise complexe et étouffante de la finance sur sa vie et son épanouissement." />
-</a>
-<figcaption style="margin-top: 0px">
-<span>Dans un labyrinthe financier opaque, l'humain est prisonnier de l’emprise complexe et étouffante de la finance sur sa vie et son épanouissement.</span>
-</figcaption>
-</figure>
-
-
-Bitcoin vient bouleverser cet ordre. Dans Bitcoin, il n’y a pas de dette : chaque unité existe,
-unique, indivisible, et appartient à quelqu’un, sans contrepartie ni promesse future. Il n’y a pas
-non plus d’intermédiaire : la possession est directe, garantie par la cryptographie et vérifiable
-par tous à chaque instant. Il n’as pas besoin de demander la permission à une banque, ni de faire
-confiance à une institution qui pourrait faire faillite, changer les règles, ou geler les avoirs.
-Avec Bitcoin, on détient sa valeur, comme on détiendrait de l’or ou un bien matériel, mais sans les
-contraintes physiques : personne ne peut te le confisquer, le dévaluer ou t’empêcher de le
-transmettre.
+#### Bitcoin et la grande définanciarisation
 
 <figure>
 <a data-fancybox data-src="/media/progressivement-puis-soudainement/bitcoin-pure.webp" data-caption="Bitcoin est pur, simple, sans dette, sans promesse, sans dette, sans intermédiaire.">
@@ -220,29 +298,141 @@ transmettre.
 </figcaption>
 </figure>
 
+Bitcoin redéfinit l’épargne : il offre la possibilité de posséder une part fixe et inaltérable de la
+masse monétaire mondiale, sans que personne ne puisse la diluer par création monétaire.
+Contrairement au système actuel où la dépréciation de la monnaie a poussé chacun vers
+l’investissement risqué et la financiarisation, bitcoin remet au centre l’incitation à épargner. Ce
+basculement, déjà amorcé, s’accélérera à mesure que les limites du système financier traditionnel
+apparaîtront, notamment face à des anomalies comme la dette à rendement négatif ou l’impression
+massive de monnaie par les banques centrales.
 
-La définanciarisation que propose Bitcoin, c’est ce retour à la simplicité et à la souveraineté
-individuelle. Tu n’as pas besoin de produits financiers complexes pour épargner : pas
-d’assurance-vie, pas de fonds de pension, pas de titres de créance sophistiqués. Tu choisis
-simplement de conserver une partie de ta valeur sous forme de bitcoin, que tu peux transmettre,
-échanger, ou stocker librement, sans dépendre de la santé d’une institution ou de la conjoncture
-politique. Cette logique s’étend à tout : héritage, transfert d’épargne, commerce international,
-tout redevient direct, pair-à-pair, universel.
+À mesure que bitcoin s’impose comme standard monétaire, il attire la richesse stockée dans les
+actifs financiers : actions, obligations ou produits complexes perdront de leur attrait au profit
+d’un actif monétaire fiable. Cela entraînera un recul du secteur financier, une contraction du
+crédit et une diminution du poids de la finance dans l’économie. Les gens délaisseront
+progressivement les placements risqués pour l’épargne en bitcoin, recherchant la simplicité et la
+sécurité d’une monnaie vraiment rare et résistante à la manipulation.
 
-Ce mouvement va bien au-delà de la technologie : il transforme la relation à la monnaie, à la
-confiance, au pouvoir et au risque. Là où la finance traditionnelle multiplie les couches de
-promesses et d’intermédiaires, **Bitcoin les supprime toutes**. La transparence du protocole remplace
-les audits, la rareté programmée remplace le contrôle des banques centrales, et la vérification
-libre remplace l’opacité des bilans bancaires. Ce n’est plus la promesse d’une institution qui
-garantit la valeur, mais la certitude partagée par tous les utilisateurs d’un système ouvert, neutre
-et inaltérable.
+Cette transition restaurera la différence fondamentale entre épargne (conserver de la valeur sans
+risque) et investissement (prendre un risque pour espérer plus). La finance restera utile, mais sa
+taille et son influence diminueront, car l’économie se recentrera sur la création de valeur réelle
+et l’échange direct. Le système bancaire perdra son rôle central, et la monnaie circulera plus
+librement entre acteurs productifs.
 
-La grande définanciarisation, c’est la sortie du piège de la financiarisation totale :
+Au final, bitcoin promet de libérer les individus de l’obsession permanente pour la gestion de
+portefeuille : avec une monnaie saine, chacun pourra consacrer plus de temps à créer et à vivre,
+sans craindre que ses économies fondent ou qu’il doive sans cesse prendre des risques inutiles. La
+définanciarisation de l’économie pourrait ainsi ouvrir la voie à une société plus stable, plus
+simple et plus tournée vers l’essentiel.
 
 **Bitcoin c'est la possibilité pour chacun de détenir, d’échanger et de transmettre de la valeur sans dépendre d’aucun
 tiers, sans subir l’inflation, la censure, la confiscation ou la faillite d’un acteur central. C’est
 la réappropriation de la monnaie par l’individu, la fin du règne des promesses et du crédit, le
 retour à la propriété réelle et à la liberté monétaire.**
+
+## Idées fausses courantes
+
+### Alchimie
+
+#### Bitcoin ne peut pas être copié
+
+Depuis la crise financière, créer de la monnaie à partir de rien est devenu une réalité banale,
+réservée jusque-là aux banques centrales. Bitcoin a précisément été inventé pour mettre fin à ce
+privilège : avec son offre limitée, personne ne peut en créer plus à sa guise. Pourtant, depuis son
+apparition, des milliers de crypto-monnaies ont tenté de répliquer (ou “améliorer”) Bitcoin, que ce
+soit par copie, fourche ou nouveaux protocoles. Chacune promet d’être plus rapide, plus stable ou
+plus flexible, mais toutes cherchent en réalité à recréer de la monnaie à partir de rien, comme les
+alchimistes d’autrefois.
+
+Pourtant, la véritable innovation de Bitcoin, c’est son émergence libre sur le marché – un phénomène
+comparable à l’apparition de l’or comme monnaie. Beaucoup préfèrent ignorer cette révolution et se
+précipitent vers des copies ou des dérivés, croyant à l’enrichissement facile. Mais chaque tentative
+de “faire mieux que Bitcoin” n’est qu’une nouvelle forme d’alchimie : une illusion qui oublie que
+seule la rareté et l’absence de manipulation donnent à la monnaie sa véritable valeur.
+
+#### La valeur et les propriétés uniques de Bitcoin
+
+Un actif dont l’utilité principale est d’être échangé contre des biens et services, sans lien avec
+la production de revenus comme une action ou une obligation, doit rivaliser comme forme de monnaie :
+il ne peut **stocker de la valeur que s’il possède de véritables propriétés monétaires**. Ceux qui
+copient Bitcoin en ajoutant des “fonctionnalités” manquent l’essentiel : **la valeur de Bitcoin vient
+de règles stables et non modifiables arbitrairement**. Copier le code ne suffit pas, car Bitcoin n’est
+devenu monnaie qu’au fil du temps, à mesure qu’**un réseau mondial d’utilisateurs a émergé** et que les
+propriétés monétaires (décenntralisation, résistance à la censure) se sont imposées spontanément.
+
+Cette **émergence progressive** rend Bitcoin quasiment impossible à reproduire aujourd’hui. Plus sa
+valeur augmente, plus il devient décentralisé et résistant aux tentatives de modification des règles
+ou de censure des transactions. C’est précisément cette stabilité et cette résistance qui
+garantissent la crédibilité de son offre limitée à 21 millions d’unités. Ainsi, **Bitcoin s’est imposé
+comme le système monétaire le plus décentralisé et résistant à la censure au monde, générant un
+cercle vertueux : plus il prend de valeur et d’ampleur, plus ses propriétés monétaires se
+renforcent, consolidant son statut de réserve de valeur**.
+
+
+#### Convergence monétaire et Bitcoin
+
+Les systèmes économiques tendent naturellement vers une seule forme de monnaie, car l’utilité
+première de la monnaie réside dans sa liquidité et sa capacité à faciliter les échanges, non dans la
+consommation ou la production. Toutes les monnaies – fiat, matières premières ou cryptomonnaies –
+sont en concurrence pour ce même rôle, même si cela n’est pas toujours perçu. Il serait irrationnel
+de stocker sa valeur dans un réseau monétaire plus petit, moins liquide et moins sécurisé alors
+qu’un réseau plus large et plus sûr existe. Logiquement, face à deux devises, on choisira toujours
+celle qui est la plus acceptée et la plus facile à échanger.
+
+C’est pourquoi, dans la pratique, la plupart des individus conservent leur richesse dans une seule
+monnaie, non parce qu’il n’en existe pas d’autres, mais parce que la liquidité et l’acceptation
+généralisée priment. Les habitants de pays connaissant une forte inflation, comme le Venezuela ou
+l’Argentine, préféreraient détenir des dollars s’ils le pouvaient. De même, ceux qui investissent
+dans une copie de bitcoin choisissent volontairement un réseau monétaire moins liquide et moins sûr.
+Si aujourd’hui des monnaies comme le dollar restent plus liquides que bitcoin, ceux qui adoptent
+bitcoin le font car ils estiment que son offre fixe constitue un meilleur stockage de valeur à long
+terme, et parient sur l’adhésion croissante d’autres utilisateurs, renforçant ainsi sa liquidité et
+sa robustesse.
+
+La combinaison **décentralisation → résistance à la censure → offre fixe → réserve de valeur** fait de
+Bitcoin une alternative crédible dans cette dynamique de convergence.
+
+#### L’unicité de Bitcoin
+
+La plupart des créateurs de monnaies numériques ne reconnaissent pas que leur projet doit devenir
+une véritable monnaie pour réussir, et les spéculateurs sous-estiment la tendance des systèmes
+monétaires à converger vers un seul support. Aucun ne peut expliquer comment leur monnaie pourrait
+surpasser Bitcoin en décentralisation, en résistance à la censure ou en liquidité. Or, sans ces
+propriétés, il est impossible d’avoir une politique monétaire crédible. 
+
+La valeur de Bitcoin ne tient pas à une fonctionnalité particulière, mais à sa rareté numérique
+finie, qui en fait une réserve de valeur. Cette rareté n’est crédible que parce que **Bitcoin est
+réellement décentralisé et résistant à la censure**, des qualités qui ne dépendent pas du logiciel
+mais du réseau lui-même. Ces propriétés attirent l’adoption et renforcent la liquidité, rendant le
+réseau Bitcoin toujours plus solide et unique, pendant que d’autres réseaux monétaires déclinent.
+
+Comprendre la force de Bitcoin, c’est saisir trois points : sa rareté, la valeur qu’il en tire, et
+la **tendance naturelle des économies à converger vers une seule monnaie**. Le marché, par son
+expérience et ses choix, a validé Bitcoin comme réserve de valeur fiable, écartant les alternatives
+malgré la multiplication de concurrents. Ainsi, **Bitcoin ne peut être copié ni surpassé, car ce sont
+ses propriétés émergentes, renforcées par le consensus du marché, qui fondent sa supériorité**.
+
+#### La règle de la minorité et Bitcoin
+
+Nassim Taleb explique comment une petite minorité intransigeante peut imposer ses préférences à la
+majorité, un phénomène qu’il nomme « la règle de la minorité »[^3]. Les systèmes monétaires illustrent
+parfaitement ce principe : si une minorité convaincue de la supériorité monétaire de Bitcoin refuse
+toute autre monnaie, alors que la majorité accepte plusieurs alternatives, c’est la minorité qui
+l’emportera. C’est ce qui se passe actuellement dans la compétition mondiale des monnaies
+numériques : une minorité déterminée ne jure que par Bitcoin, rejetant toutes les autres
+cryptomonnaies, et finit par imposer ce choix au reste du marché.
+
+Diversifier entre différentes monnaies numériques, c’est finalement laisser la majorité décider à
+votre place et risquer de perdre une partie de votre valeur. Il vaut mieux se concentrer sur les
+fondamentaux et comprendre « la règle de la minorité » avant d’échanger son épargne contre des
+promesses incertaines.
+
+> Bitcoin est une réalisation cryptographique remarquable, et la capacité de créer quelque chose qui
+> n'est pas duplicable dans le monde numérique a une valeur énorme.
+> -- Eric Schmidt, former CEO and executive chairman, Google[^4]
+
+
+### Bitcoin n'est pas si volatile
 
 
 
@@ -260,3 +450,8 @@ Voir la livre « [La Monnaie : entre violence et confiance](https://www.abebook
  Ce hasard est relatif car il dépend de la puissance de calcul de chaque mineur et, dans le cas du
  Bitcoin, la résolution du problème se fait par [force brute](https://fr.wikipedia.org/wiki/Recherche_exhaustive) ce qui assure l'absence de stratégie, de
  ruse ou de compétence particulière. [Pour en savoir plus sur la PoW de Bitcoin](https://bitcoin.fr/preuve-de-travail-proof-of-work/).
+[^3]: Nassim N. Taleb, “The Most Intolerant Wins: The Dictatorship of the Small Minority,” Incerto
+    (blog), Medium, 19 August 2016.
+[^4]: Eric Schmidt and Jared Cohen, “The New Digital Age: Authors Eric Schmidt and Jared Cohen in
+    Conversation with Facebook’s Sheryl Sandberg,” interview by Sheryl Sandberg (Mountain View, CA:
+    Computer History Museum, 3 March 2014), catalog number 102740112.
