@@ -469,14 +469,11 @@ marché à une nouvelle forme de monnaie. Les experts traditionnels négligent q
 avéré être une réserve de valeur exceptionnelle sur le long terme.
 
 <figure>
-<a data-fancybox data-src="/media/progressivement-puis-soudainement/bitcoin-vs-dollar.webp" data-caption="Le dollar est en réalité volatile et inflationiste pendant que le bitcoin prend de la valeur.">
-<img src="/media/progressivement-puis-soudainement/bitcoin-vs-dollar.webp-thumb.webp" alt="Le dollar est en réalité volatile et inflationiste pendant que le bitcoin prend de la valeur." />
-</a>
+<img src="/media/progressivement-puis-soudainement/bitcoin-vs-dollar.webp" alt="Le dollar est en réalité volatile et inflationiste pendant que le bitcoin prend de la valeur." />
 <figcaption style="margin-top: 0px">
 <span>C'est le dollar qui est en réalité volatile et perd de la valeur face au bitcoin qui est aussi stable que l'or.</span>
 </figcaption>
 </figure>
-
 
 #### Volatilité et rareté de Bitcoin
 
@@ -494,7 +491,6 @@ variation est de l’information » : la volatilité de Bitcoin n’est donc
 que le marché assimile de nouvelles informations. À mesure que le prix fluctue et atteint de
 nouveaux sommets, Bitcoin attire de nouveaux capitaux et utilisateurs, ce qui alimente de nouvelles
 vagues d’adoption.
-
 
 #### La dynamique d’adoption de Bitcoin : un processus cyclique
 
@@ -578,7 +574,6 @@ non une faiblesse.
 ### Le bitcoin ne gaspille pas d'énergie
 
 Fais un résumé en Français de ce texte avec un style naratif, d'une longueur approximative de 30% de l'original et avec un titre au format markdow.
-
 
 
 [^1]: si la confiance en la monnaie fiduciaire s’effrite, l'état peut alors recourir à des mesures
