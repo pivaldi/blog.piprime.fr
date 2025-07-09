@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre II
-date: 20025-05-25 23:53:00
+date: 2025-05-25 23:53:00
 id: la-route-de-la-servitude-chapitre-2
 lang: fr
 description: Chapitre II du livre "La route de la servitude" de Friedrich Hayek

@@ -1,6 +1,6 @@
 ---
 title: États-Unis d'Europe, l'UE a été créé par la CIA
-date: 20025-06-25 21:00:00
+date: 2025-06-25 21:00:00
 id: eu-a-ete-cree-par-la-cia
 lang: fr
 description: Les documents du gouvernement américain déclassifié montrent que la communauté du renseignement américain a mené une campagne dans les années cinquante et 60 pour prendre un élan pour une Europe unie.

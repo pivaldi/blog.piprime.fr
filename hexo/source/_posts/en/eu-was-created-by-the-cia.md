@@ -1,6 +1,6 @@
 ---
 title: United States of Europe, EU was created by the CIA
-date: 20025-06-25 21:00:00
+date: 2025-06-25 21:00:00
 id: eu-was-created-by-the-cia
 lang: en
 description: Declassified American government documents show that the US intelligence community ran a campaign in the Fifties and Sixties to build momentum for a united Europe.

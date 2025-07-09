@@ -1,6 +1,6 @@
 ---
 title: How this Hexo website is build and deployed ?
-date: 20025-04-29 19:00:00
+date: 2025-04-29 19:00:00
 id: how-this-hexo-website-is-build-and-deployed
 description: How this Hexo website is deployed using Docker, Caddy, docker-caddy-proxy thanks to Ansible
 categories:

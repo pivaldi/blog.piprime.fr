@@ -1,6 +1,6 @@
 ---
 title:  La CIA finance la construction européenne
-date: 20025-06-25 21:30:00
+date: 2025-06-25 21:30:00
 id:  la-cia-finance-la-construction-europeenne
 lang: fr
 description: De 1949 à  1959, en pleine guerre froide, les Américains, par l'intermédiaire de leurs services secrets et du Comité pour l'Europe unie, versent l'équivalent de 50 millions de dollars actuels à  tous les mouvements pro-européens.

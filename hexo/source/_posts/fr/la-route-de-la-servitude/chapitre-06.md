@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre VI
-date: 20025-05-25 23:49:00
+date: 2025-05-25 23:49:00
 id: la-route-de-la-servitude-chapitre-6
 lang: fr
 description: Chapitre VI du livre "La route de la servitude" de Friedrich Hayek

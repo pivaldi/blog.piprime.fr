@@ -1,6 +1,6 @@
 ---
 title: Europe vassal des USA
-date: 20025-06-25 20:00:00
+date: 2025-06-25 20:00:00
 id: europe-vassal-des-us
 lang: fr
 description: Le message du secrétaire général de l'OTAN à Donald Trump montre que l'Europe est un vassal des USA.

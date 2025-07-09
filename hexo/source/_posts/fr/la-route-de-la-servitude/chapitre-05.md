@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre V
-date: 20025-05-25 23:50:00
+date: 2025-05-25 23:50:00
 id: la-route-de-la-servitude-chapitre-5
 lang: fr
 description: Chapitre V du livre "La route de la servitude" de Friedrich Hayek

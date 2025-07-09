@@ -1,6 +1,6 @@
 ---
 title: Des décharges de bombes chimiques dans les océans
-date: 20025-05-25 23:59:00
+date: 2025-05-25 23:59:00
 id: des-decharges-de-bombes-chimiques-dans-les-oceans
 lang: fr
 description: Des millions de tonnes d’armes chimiques ont été coulées volontairement, le long de nos côtes Atlantiques, près de Toulon et de St Rafaël

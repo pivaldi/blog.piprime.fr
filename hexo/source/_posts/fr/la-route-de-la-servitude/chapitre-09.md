@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre IX
-date: 20025-05-25 23:46:00
+date: 2025-05-25 23:46:00
 id: la-route-de-la-servitude-chapitre-9
 lang: fr
 description: Chapitre IX du livre "La route de la servitude" de Friedrich Hayek

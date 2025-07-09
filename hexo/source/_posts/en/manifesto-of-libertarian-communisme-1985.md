@@ -1,6 +1,6 @@
 ---
 title: Manifesto of Libertarian Communism
-date: 20025-06-30 19:00:00
+date: 2025-06-30 19:00:00
 id: manifesto-of-libertarian-communism-1985
 lang: en
 description: Political essay by Georges Fontenis, integrating the political theory and practices of the Fédération Communiste Libertaire (FCL)

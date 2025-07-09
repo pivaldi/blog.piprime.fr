@@ -1,6 +1,6 @@
 ---
 title: Notes sur l'aquariophilie
-date: 20025-05-25 19:00:00
+date: 2025-05-25 19:00:00
 id: notes-sur-l-aquariophilie
 lang: fr
 description: Mes prises de notes sur l'aquariophilie.

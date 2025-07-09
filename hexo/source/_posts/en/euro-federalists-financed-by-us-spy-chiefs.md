@@ -1,6 +1,6 @@
 ---
 title: Euro-federalists financed by US spy chiefs
-date: 20025-06-25 22:00:00
+date: 2025-06-25 22:00:00
 id: euro-federalists-financed-by-us-spy-chiefs
 lang: en
 description: Declassified American government documents show that the CIA ran a campaign in the Fifties and Sixties to build momentum for a united Europe.

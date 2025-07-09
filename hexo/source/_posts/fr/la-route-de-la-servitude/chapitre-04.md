@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre IV
-date: 20025-05-25 23:51:00
+date: 2025-05-25 23:51:00
 id: la-route-de-la-servitude-chapitre-4
 lang: fr
 description: Chapitre IV du livre "La route de la servitude" de Friedrich Hayek

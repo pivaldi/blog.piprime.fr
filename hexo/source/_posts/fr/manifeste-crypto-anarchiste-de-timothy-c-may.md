@@ -1,6 +1,6 @@
 ---
 title: Le manifeste crypto anarchiste de Timothy C. May
-date: 20025-07-01 21:00:00
+date: 2025-07-01 21:00:00
 id: manifeste-crypto-anarchiste-de-timothy-c-may
 lang: fr
 description: La version du manifeste crypto anarchiste lue par Timothy C. May au Cypherpunk Meeting de septembre 1992
@@ -16,7 +16,6 @@ tags:
 - bitcoin
 - sociologie
 - cryptographie
-- cryptologie
 ---
 
 <figure>
@@ -28,7 +27,16 @@ tags:
 </figcaption>
 </figure>
 
-## Un spectre surgit dans le monde moderne, le spectre de la crypto-anarchie.
+Le crypto-anarchisme, ou cyber-anarchisme, est une idéologie politique axée sur **la protection
+de la vie privée**, **la liberté politique** et **la liberté économique**. Ses adeptes utilisent des
+logiciels cryptographiques pour garantir la confidentialité et la sécurité lors de l'envoi et de
+la réception d'informations sur les réseaux informatiques. Dans son "Manifeste
+Crypto-Anarchiste" de 1988, [Timothy C. May](https://nakamotoinstitute.org/authors/timothy-c-may/) et [Eric Hughes](https://cryptoanarchy.wiki/people/eric-hughes) ont introduit les principes de base du
+crypto-anarchisme, à savoir des échanges cryptés assurant une anonymat total, une liberté
+d'expression totale et une liberté totale de commercer. En 1992, Timothy a lu ce texte lors de la
+réunion fondatrice du mouvement cypherpunk.
+
+## Un spectre surgit dans le monde moderne, le spectre de la crypto-anarchie[^1].
 
 La technologie informatique est sur le point de fournir aux individus et aux groupes la possibilité
 de communiquer et d’interagir les uns avec les autres d’une manière totalement anonyme. Il est
@@ -75,4 +83,7 @@ coupantes qui démantèleront le fil de fer barbelé qui entoure la propriété 
 
 **Debout, tu n’as rien d’autre à perdre que tes clôtures de barbelé !**
 
-[Autre source de ce texte](https://bitcoin.fr/the-crypto-anarchist-manifesto/).
+---
+
+- [Autre source de ce texte en Français](https://bitcoin.fr/the-crypto-anarchist-manifesto/).
+- [Le texte original en Englais](https://www.activism.net/cypherpunk/crypto-anarchy.html).

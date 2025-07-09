@@ -1,6 +1,6 @@
 ---
 title: Quand les Américains voulaient gouverner la France
-date: 20025-06-25 21:00:00
+date: 2025-06-25 21:00:00
 id: quand-les-americains-voulaient-gouverner-la-france
 lang: fr
 description: Les USA avait prévu d’imposer à la France un statut de protectorat, régi par un Allied Military Government of Occupied Territories (Amgot).

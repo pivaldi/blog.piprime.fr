@@ -1,6 +1,6 @@
 ---
 title: Les euro-fédéralistes financés par des chefs espions américains
-date: 20025-06-25 21:30:00
+date: 2025-06-25 21:30:00
 id: les-euro-federalistes-finances-par-des-espions-americains
 lang: fr
 description: Des documents déclassifiés du gouvernement américain montrent que la CIA a mené une campagne dans les années 50 et 60 pour créer un élan en faveur d'une Europe unie.

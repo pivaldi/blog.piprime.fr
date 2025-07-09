@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre VII
-date: 20025-05-25 23:48:00
+date: 2025-05-25 23:48:00
 id: la-route-de-la-servitude-chapitre-7
 lang: fr
 description: Chapitre VII du livre "La route de la servitude" de Friedrich Hayek

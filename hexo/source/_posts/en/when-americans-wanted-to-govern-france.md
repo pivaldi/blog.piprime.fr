@@ -1,6 +1,6 @@
 ---
 title: When the Americans Wanted to Govern France
-date: 20025-06-25 21:00:00
+date: 2025-06-25 21:00:00
 id: when-americans-wanted-to-govern-france
 lang: en
 description: The USA had planned to impose on France a protectorate status, governed by an Allied Military Government of Occupied Territories (AMGOT).

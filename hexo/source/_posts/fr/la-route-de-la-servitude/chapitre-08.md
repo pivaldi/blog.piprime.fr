@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Chapitre VIII
-date: 20025-05-25 23:47:00
+date: 2025-05-25 23:47:00
 id: la-route-de-la-servitude-chapitre-8
 lang: fr
 description: Chapitre VIII du livre "La route de la servitude" de Friedrich Hayek

@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Introduction
-date: 20025-05-25 23:56:00
+date: 2025-05-25 23:56:00
 id: la-route-de-la-servitude-introduction
 lang: fr
 description: Introduction du livre "La route de la servitude" de Friedrich Hayek

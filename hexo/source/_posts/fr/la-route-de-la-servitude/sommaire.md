@@ -1,6 +1,6 @@
 ---
 title: La route de la servitude - Sommaire
-date: 20025-05-25 23:58:00
+date: 2025-05-25 23:58:00
 id: la-route-de-la-servitude-sommaire
 lang: fr
 description: Sommaire du livre "La route de la servitude" de Friedrich Hayek

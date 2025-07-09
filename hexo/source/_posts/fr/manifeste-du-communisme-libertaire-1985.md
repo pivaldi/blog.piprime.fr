@@ -1,6 +1,6 @@
 ---
 title: Manifeste du communisme libertaire
-date: 20025-06-30 19:00:00
+date: 2025-06-30 19:00:00
 id: manifeste-du-communisme-libertaire-1985
 lang: fr
 description: Essai politique de Georges Fontenis, qui intègre la théorie politique et les pratiques de la Fédération Communiste Libertaire (FCL)

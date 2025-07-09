@@ -1,6 +1,6 @@
 ---
 title: Bitcoin in 5 words and three concepts
-date: 20025-05-23 14:00:00
+date: 2025-05-23 14:00:00
 id: bitcoin-in-5-words
 lang: en
 description: Non-technical definition of bitcoin and reflection around this disruptive innovation.
