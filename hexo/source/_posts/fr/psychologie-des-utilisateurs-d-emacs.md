@@ -14,11 +14,11 @@ tags:
 
 [This article is available in English](/en/psychological-portrait-of-emacs-users/).
 
-Question posée à ChatGPT « Dresse un portrait psychologique des utilisateurs d'Emacs » ; voici sa réponse.
+Question posée à ChatGPT « Dresse un portrait psychologique des utilisateurs d'[Emacs](https://www.gnu.org/software/emacs/) » ; voici sa réponse.
 
 ---
 
-Les utilisateurs du logiciel **Emacs** forment une communauté distincte, souvent perçue comme un
+Les utilisateurs du logiciel **[Emacs](https://www.gnu.org/software/emacs/)** forment une communauté distincte, souvent perçue comme un
 groupe particulier dans l'univers de la programmation. Voici un portrait détaillé de ces
 utilisateurs, avec les traits psychologiques qui les caractérisent.
 
@@ -28,7 +28,7 @@ les aspects de son fonctionnement. Cela attire des personnes qui aiment **avoir 
 sur leur environnement de travail.
 
 - **Caractéristiques psychologiques** :  
-  - Désir de **perfectionnisme**
+  - [Désir de **perfectionnisme**](/fr/le-perfectionnisme/)
   - Goût pour la **maîtrise**  
   - Tendance à rechercher des **solutions sur-mesure**
   - Orientation vers l'**autonomie**

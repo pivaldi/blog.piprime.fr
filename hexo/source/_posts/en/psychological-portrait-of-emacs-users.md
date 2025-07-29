@@ -14,13 +14,13 @@ tags:
 
 [This article is available in French](/fr/portrait-psychologique-des-utilisateurs-d-emacs).
 
-Question asked in Chatgpt "draws up a psychological portrait of Emacs users". Here is his answer.
+Question asked in Chatgpt "draws up a psychological portrait of [Emacs](https://www.gnu.org/software/emacs/) users". Here is his answer.
 
 ---
 
 # Psychological Portrait of Emacs Users
 
-Emacs users form a distinct community, often perceived as a particular group within the world of
+**[Emacs](https://www.gnu.org/software/emacs/) users form a distinct community**, often perceived as a particular group within the world of
 programming. Here is a detailed portrait of these users, along with the psychological traits that
 characterize them.
 
@@ -29,7 +29,7 @@ Emacs is a highly customizable editor, allowing users to modify almost every asp
 operation. This attracts people who like to **have total control** over their working environment.
 
 - **Psychological traits**:  
-  - Desire for **perfectionism**
+  - [Desire for **perfectionism**](/en/the-perfectionism/)
   - Taste for **mastery**
   - Tendency to look for **custom-made solutions**
   - Orientation towards **autonomy**
