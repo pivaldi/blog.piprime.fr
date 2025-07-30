@@ -2,7 +2,7 @@
 title: The desire for perfectionism
 date: 2025-07-29 20:44:05
 id: the-perfectionism
-lang: fr
+lang: en
 description: "The desire for perfectionism is characterized by a constant pursuit of excellence, often accompanied by perpetual dissatisfaction with one's achievements."
 categories:
 - [EN, Non Tech, Psychology]

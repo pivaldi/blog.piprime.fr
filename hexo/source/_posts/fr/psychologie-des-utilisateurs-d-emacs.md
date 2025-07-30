@@ -29,7 +29,7 @@ sur leur environnement de travail.
 
 - **Caractéristiques psychologiques** :  
   - [Désir de **perfectionnisme**](/fr/le-perfectionnisme/)
-  - Goût pour la **maîtrise**  
+  - [Goût pour la **maîtrise**](/fr/le-gout-de-la-maîtrise)
   - Tendance à rechercher des **solutions sur-mesure**
   - Orientation vers l'**autonomie**
 

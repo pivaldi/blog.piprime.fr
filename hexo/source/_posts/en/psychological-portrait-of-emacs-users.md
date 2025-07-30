@@ -30,7 +30,7 @@ operation. This attracts people who like to **have total control** over their wo
 
 - **Psychological traits**:  
   - [Desire for **perfectionism**](/en/the-perfectionism/)
-  - Taste for **mastery**
+  - [Taste for **mastery**](/en/the-taste-for-mastery/)
   - Tendency to look for **custom-made solutions**
   - Orientation towards **autonomy**
 
