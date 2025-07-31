@@ -5,7 +5,7 @@ id: the-taste-for-mastery
 lang: en
 description: "The taste for mastery is not just a personal preference: it is a psychological structure, sometimes valued as willpower, sometimes seen as a defensive mechanism."
 categories:
-- [en, Non Tech, Psychology]
+- [EN, Non Tech, Psychology]
 tags:
 - psychology
 ---
