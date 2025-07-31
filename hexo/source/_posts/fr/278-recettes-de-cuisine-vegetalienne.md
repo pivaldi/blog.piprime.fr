@@ -14,7 +14,7 @@ tags:
 
 {% note %}
 Ces recettes sont issues de [ce fichier en pdf](http://avis.free.fr/livret_278_recettes.pdf) disponible sur [ce site](http://avis.free.fr/).  
-La présentation a été reprise pour une meilleur lisibilité et l'accès aux recette sur une page web permet de toujours l'avoir sous la main.
+La présentation a été reprise pour une meilleure lisibilité et l'accès aux recette sur une page web permet de toujours l'avoir sous la main.
 {% endnote %}
 
 {% note info Abréviations et quantités %}
