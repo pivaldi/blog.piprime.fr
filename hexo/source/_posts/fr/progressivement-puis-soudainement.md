@@ -834,7 +834,7 @@ banque : il suffit d’une connexion et d’un peu de curiosité pour rejoindr
 
 À travers le monde, des individus de toutes conditions se saisissent de cet outil pour sauvegarder
 leur épargne, envoyer de l’argent à leurs proches ou [s’affranchir de la surveillance et des
-restrictions imposées par des régimes autoritaires](/fr/pourquoi-bitcoin-devient-populaire-dans%20les-dictature/).
+restrictions imposées par des régimes autoritaires](/fr/pourquoi-bitcoin-devient-populaire-dans-les-dictatures/).
 Bitcoin devient alors le lien silencieux et invisible unissant des inconnus, une promesse d’égalité
 financière inédite à l’échelle planétaire.
 
