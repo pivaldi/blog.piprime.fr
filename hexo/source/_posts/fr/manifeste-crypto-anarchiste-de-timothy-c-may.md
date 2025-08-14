@@ -10,6 +10,7 @@ categories:
 - [FR, Non Tech, Tech]
 - [FR, Non Tech, Économie]
 - [FR, Non Tech, Sociologie]
+- [FR, Non Tech, Cryptographie]
 tags:
 - politique
 - anarchie
