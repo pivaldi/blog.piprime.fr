@@ -9,6 +9,8 @@ categories:
 - [FR, Non Tech, Cryptographie]
 ---
 
+[This article is available in English](/en/if-you-have-nothing-to-hide-you-have-nothing-to-fear/)
+
 ## Ma vie privée est importante, non pas parce que mes actions sont douteuses, mais parce que votre jugement et vos intentions le sont.
 
 La phrase **« Si vous n’avez rien à cacher, vous n’avez rien à craindre »** est souvent utilisée dans
