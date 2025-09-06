@@ -240,14 +240,7 @@ site_state: true
 ## List of icons here : https://fontawesome.com/v4/icons/
 social:
   GitHub: https://github.com/pivaldi || fab fa-github
-  E-Mail: mailto:fromblog1@piprime.fr || fa fa-envelope
-  # Linkedin: https://fr.linkedin.com/in/philippe-ivaldi-32432018 || linkedin
-  # Twitter: https://twitter.com/piprime || twitter
-  # FB Page: https://www.facebook.com/philippe.ivaldi.1 || facebook
-  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
-  #YouTube: https://youtube.com/yourname || youtube
-  #Instagram: https://instagram.com/yourname || instagram
-  #Skype: skype:yourname?call|chat || skype
+  E-Mail: mailto:blog.daylong008@passmail.net || fa fa-envelope
   "Buymeacoffee": https://buymeacoffee.com/pivaldi || fa fa-coffee
 
 social_icons:
@@ -476,7 +469,7 @@ font:
     family: Inconsolata
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
-  host:
+  host: https:://api.fonts.coollabs.io
 
   # Font options:
   # `external: true` will load this font family from `host` above.
