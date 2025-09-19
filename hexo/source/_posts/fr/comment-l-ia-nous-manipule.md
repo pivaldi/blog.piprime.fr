@@ -13,11 +13,11 @@ tags:
 
 ## Le contexte
 
-Pour gagner du temps de lecture de [L'élégance du Bitcoin](https://bitcoinelegance.fr/), j'ai
-entrepris de faire faire un résumé chapitre par chapitre à partir du [dépôt Github du bouquin](https://github.com/lugaxker/bitcoinelegance)…  
+Pour gagner du temps de lecture sur [L'élégance du Bitcoin](https://bitcoinelegance.fr/), j'ai
+entrepris de faire faire un résumé à ChatGPT, chapitre par chapitre, à partir du [dépôt Github du bouquin](https://github.com/lugaxker/bitcoinelegance)…  
 J'en aurais profité pour le mettre à disposition ici même car je pensais que ça pouvait intéresser
 d'autres personnes sans qu'ils aient à redemander le résumé à une IA ; c'est très fastidieux en
-vérité d'obtenir un résumé correct à une IA.
+vérité d'obtenir un résumé correct à une IA d'un contenu aussi long.
 
 Après différents allé/retour conversationnels fastidieux avec ChatGPT5 pour lui faire comprendre
 exactement ce que je veux et comment je le veux, on a réussi à se mettre d'accord sur cette demande
@@ -35,22 +35,22 @@ qui me semble on ne peut plus claire dans mes intentions et dans ce que je l'att
 
 J'ai fait résumer par ChatGPT5 les chapitres 01 à 11 et j'ai lu tous ses magnifiques résumés écrits
 les uns après les autres. Tout est écrit sur un ton neutre, lisse, sans aucune rugosité
-intellectuelle, sans rien qui puisse heurter un quelconque ordre établi, une pensée communément admise ;
-[le bon sens près de chez vous](https://www.journaldunet.com/martech/1529281-le-bon-sens-marketing-pres-de-chez-vous/) à l'état pur.
+intellectuelle, sans rien qui puisse heurter un quelconque ordre établi, une pensée communément admise sans caractère ;
+[le bon sens près de chez vous](https://www.journaldunet.com/martech/1529281-le-bon-sens-marketing-pres-de-chez-vous/) à l'état pur.  
 Les points 1, 2, 3, 4 et 7 étaient parfaitement respecté à mon sens à quelques points de crispation
-près ; c'était globalement intéressant mais sans plus voir un peu décevant.  
+près ; les résumés étaient globalement intéressants mais sans plus, voir parfois un peu décevant.  
 Par contre le résumé du [chapitre 09](https://github.com/lugaxker/bitcoinelegance/blob/main/chapters/ch09-censure.tex)
 qu'elle m'a fait m'a paru vraiment ~chiant~ inintéressant et abscons, j'ai commencé à me dire que ce livre était finalement sans grand intérêt 😔  
 J'ai commencé… je continue ! Peut-être est-ce un mauvais passage, me dis-je…  
 Arrivé au chapitre 11, je me rends compte que ça manque d'illustration pour comprendre vraiment de
 quoi il en retourne car les résumés sont de plus en plus impénétrable ; j'explore alors le contenue d'un fichier `tex` original que j'avais ouvert
-récemment, c'était le chapitre 09 justement !
+récemment, c'était le [chapitre 09](https://github.com/lugaxker/bitcoinelegance/blob/main/chapters/ch09-censure.tex) justement !
 
 ## Mon "résumé"
 
-J'essayerai de faire m-même un vrai résumé du livre si j'en éprouve le besoin et si j'en ai le
-temps. En attendant voici une présentation succincte de son contenu mais je vous invite vivement à lire ce chapitre 09,
-[La résistance à la censure](https://bitcoinelegance.fr/chapters/la-resistance-a-la-censure) dans son intégralité.
+J'essayerai de faire moi-même un vrai résumé du livre si j'en éprouve le besoin et si j'en ai le
+temps. En attendant voici une présentation succincte du chapitre 09 mais je vous invite vivement à lire
+[La résistance à la censure](https://bitcoinelegance.fr/chapters/la-resistance-a-la-censure) en ligne dans son intégralité.
 
 Deux extraits du début du chapitre donne le ton et résume plus de la moitié du chapitre :
 
@@ -68,15 +68,15 @@ Deux extraits du début du chapitre donne le ton et résume plus de la moitié d
 Le chapitre est divisé en 9 sections dont la moitié parle de la censure du système bancaire actuel et à venir :
 
 - [La banque et la censure](https://bitcoinelegance.fr/chapters/la-resistance-a-la-censure#la-banque-et-la-censure)  
-   Dans cette partie on nous explique comment et sous quels prétextes la censure et la surveillance finacière
-   s'exerce mondialement aussi bien sur les populations que sur les organisations ou les entreprises privées. Le chapitre se termine par cette citation qui résume bien cette partie du chapitre :
+   Dans cette partie on nous explique comment et sous quels prétextes la censure et la surveillance financière
+   s'exercent mondialement aussi bien sur les populations que sur les organisations ou les entreprises privées. Le chapitre se termine par cette citation qui résume bien cette partie du chapitre :
    > « Dans le monde moderne, aucun État important ne veut autoriser des transactions financières
    > internationales intraçables au-delà d’un certain seuil relativement modeste. (Les mots d’ordre
    > habituels incluent des expressions telles que “blanchiment de l’argent de la drogue”, “évasion
    > fiscale”, et / ou “financement du terrorisme”). À cette fin, les transactions financières
    > électroniques sont actuellement surveillées par divers États et leurs agences, et toutes les
    > transactions, sauf les plus petites, sont désormais soumises à diverses exigences en matière
-   > d’identification pour les personnes se trouvant à chaque extrémité5. »
+   > d’identification pour les personnes se trouvant à chaque extrémité. »
 - [Les cas de censure financière](https://bitcoinelegance.fr/chapters/la-resistance-a-la-censure#les-cas-de-censure-financi%C3%A8re)  
   Dans cette partie, l'auteur donne nombreux exemples de censures financières connus et reconnus.
    > Mais l’exemple qui ressort du lot est le mouvement canadien du « Convoi de la liberté » de février
@@ -86,9 +86,9 @@ Le chapitre est divisé en 9 sections dont la moitié parle de la censure du sys
 - [Censure et monnaie numérique de banque centrale](https://bitcoinelegance.fr/chapters/la-resistance-a-la-censure#censure-et-monnaie-num%C3%A9rique-de-banque-centrale)  
   Dans cette partie assez longue, [Ludovic Lars](https://viresinnumeris.fr/liste-articles/) nous explique comment
   la mise en place des monnaies numériques de banque centrale telle que [L’euro numérique](https://www.banque-france.fr/fr/strategie-monetaire/moyens-de-paiement/leuro-numerique)
-  et la disparition conjointe de l’argent liquide vont permettre **une surveillance et un contôle total**
-  aussi bien des personnes physiques que des entreprises ou même des institutions politiques qui s'opposeraient au
-  système en place en faisant ainsi entrevoir l’instauration d’un système de crédit social à la chinoise.
+  et la disparition conjointe de l’argent liquide vont permettre **une surveillance et un contrôle total**
+  des entités qui s'opposeraient au système en place en faisant ainsi entrevoir l’instauration à
+  plus ou moins long terme d’un système de crédit social à la chinoise.
   > « Par ses manœuvres, tous, petits et grands, riches ou pauvres, libres et esclaves, se feront
   > marquer sur la main droite et sur le front, et nul ne pourra rien acheter ni vendre s’il n’est pas
   > marqué au nom de la Bête ou au chiffre de son nom. »
@@ -111,15 +111,15 @@ On a fait un rapide tour d'horizon du contenu du chapitre 9 pour comprendre qu'i
 capacités de censure des systèmes bancaires, financiers et politiques actuels et à venir, comment et
 pourquoi le Bitcoin peut nous soustraire de cette emprise de plus en plus forte qu'ils ont sur nos libertés.
 
-Le résumé qu'en fait ChatGPT concerne seulement des problèmatiques essentiellement techniques liées
-à la résistance à la censure du Bitcoin et des transactions dans une blockchain.  
+Le résumé qu'en fait ChatGPT concerne seulement des problèmatiques purement techniques liées
+à la résistance à la censure dans Bitcoin et des transactions dans une blockchain en général.  
 **À aucun moment il ne fait mention de la censure étatique, du système bancaire ou de la finance en
 général** et en quoi Bitcoin pourrait nous libérer de leurs emprises.
 
 **Au lieu de faire un résumé objectif du chapitre comme c'était expressément demandé**, en nous
 noyant dans un magma technique abscons sur le fonctionnement du Bitcoin, **ChatGPT prend le partie de
 supprimer toute critique, toute rugosité, toute pensée ou idéologie et propose un résumé qui ne
-reflète réellement en rien la pensée de l'auteur**.
+reflète en rien la pensée de l'auteur**.
 
 Cette exemple flagrant de **manipulation d'opinion par omission** montre comment L'IA tue petit à
 petit toute revendication, toute velléité d'indignation, toute idée un tant soit peu subversive par
