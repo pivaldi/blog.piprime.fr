@@ -1,0 +1,10 @@
+## TODO: make it dynamic value from direnv
+:4280 {
+	# Set this path to your site's directory.
+	root * /srv/
+
+	# Enable the static file server.
+	file_server
+	encode
+	try_files {path}.html
+}

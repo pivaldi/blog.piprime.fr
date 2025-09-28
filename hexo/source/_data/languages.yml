@@ -1,0 +1,19 @@
+---
+default:
+  coauthor: 合著者
+
+fr:
+  menu:
+    home: Accueil
+    search: Chercher
+    posts: Posts
+    about: À Propos
+  coauthor: Coauteur
+
+  widget:
+    github: Code source du site
+
+en:
+  widget:
+    github: Website Source Code
+  coauthor: Coauthor

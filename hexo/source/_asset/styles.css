@@ -1,0 +1,532 @@
+body p {
+  line-height: 1.5;
+}
+
+li {
+  line-height: 1.6;
+}
+
+span.nav-number {
+  display: none;
+}
+
+.site-author-image {
+  border: none;
+}
+
+.posts-expand .post-body figure img {
+  margin-bottom: 0;
+}
+
+figcaption {
+  text-align: center;
+}
+
+figcaption span.src {
+  float: right;
+  position: absolute;
+  margin-left: 10px;
+  font-size: 50%;
+  font-style: italic;
+}
+
+.fancybox-container .fancybox-slide .fancybox-image-wrap {
+  background: white;
+}
+
+.post-body figure.image-caption figcaption {
+  margin: auto
+}
+
+div.lg-backdrop.in {
+background-color: #efefef; !important
+}
+
+/* admonition */
+@charset "UTF-8";
+.admonition > .admonition-title::before {
+  /* font-family: "Material Icons"; */
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition {
+  box-shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: 0.4rem solid blue;
+  border-radius: 0.2rem;
+  /* font-size: 2em; */
+  overflow: auto;
+}
+[dir="rtl"] .admonition {
+  border-right: 0.4rem solid blue;
+  border-left: none;
+}
+html .admonition > :last-child {
+  margin-bottom: 1.2rem;
+}
+.admonition .admonition {
+  margin: 1em 0;
+}
+.admonition > .admonition-title {
+  margin: 0 -1.2rem 0.4em -1.2em;
+  padding: 0.4rem 1.2rem 0.4rem 2rem;
+  border-bottom: 0.1rem solid rgba(0, 0, 255, 0.1);
+  background-color: rgba(0, 0, 255, 0.1);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+[dir="rtl"] .admonition > .admonition-title {
+  padding: 0.8rem 4rem 0.8rem 1.2rem;
+}
+.admonition > .admonition-title:last-child {
+  margin-bottom: 0;
+}
+.admonition > .admonition-title::before {
+  position: absolute;
+  left: 1.2rem;
+  color: blue;
+  font-size: 1.6rem;
+  content: "⚑";
+}
+[dir="rtl"] .admonition > .admonition-title::before {
+  right: 1.2rem;
+  left: initial;
+}
+.admonition.abstract {
+  border-left-color: blue;
+}
+[dir="rtl"] .admonition.abstract {
+  border-right-color: blue;
+}
+.admonition.abstract > .admonition-title {
+  border-bottom: 0.1rem solid rgba(0, 0, 255, 0.1);
+  background-color: rgba(0, 0, 255, 0.1);
+}
+.admonition.abstract > .admonition-title::before {
+  color: blue;
+  content: "@1";
+}
+.admonition.info {
+  border-left-color: #7986cb;
+}
+[dir="rtl"] .admonition.info {
+  border-right-color: #7986cb;
+}
+.admonition.info > .admonition-title {
+  border-bottom: 0.1rem solid rgba(0, 0, 255, 0.1);
+  background-color: rgba(0, 0, 255, 0.1);
+}
+.admonition.info > .admonition-title::before {
+  color: #7986cb;
+  /* content: "✔"; */
+  content: "";
+}
+.admonition.tip {
+  border-left-color: teal;
+}
+[dir="rtl"] .admonition.tip {
+  border-right-color: teal;
+}
+.admonition.tip > .admonition-title {
+  border-bottom: 0.1rem solid rgba(0, 128, 128, 0.1);
+  background-color: rgba(0, 128, 128, 0.1);
+}
+.admonition.tip > .admonition-title::before {
+  color: teal;
+  content: "@@";
+}
+.admonition.success {
+  border-left-color: green;
+}
+[dir="rtl"] .admonition.success {
+  border-right-color: green;
+}
+.admonition.success > .admonition-title {
+  border-bottom: 0.1rem solid rgba(0, 128, 0, 0.1);
+  background-color: rgba(0, 128, 0, 0.1);
+}
+.admonition.success > .admonition-title::before {
+  color: green;
+  content: "@3";
+}
+.admonition.question {
+  border-left-color: green;
+}
+[dir="rtl"] .admonition.question {
+  border-right-color: green;
+}
+.admonition.question > .admonition-title {
+  border-bottom: 0.1rem solid rgba(0, 128, 0, 0.1);
+  background-color: rgba(0, 128, 0, 0.1);
+}
+.admonition.question > .admonition-title::before {
+  color: green;
+  content: "@4";
+}
+.admonition.warning {
+  border-left-color: orange;
+}
+[dir="rtl"] .admonition.warning {
+  border-right-color: orange;
+}
+.admonition.warning > .admonition-title {
+  border-bottom: 0.1rem solid rgba(255, 165, 0, 0.1);
+  background-color: rgba(255, 165, 0, 0.1);
+}
+.admonition.warning > .admonition-title::before {
+  color: orange;
+  content: "@5";
+}
+.admonition.failure {
+  border-left-color: red;
+}
+[dir="rtl"] .admonition.failure {
+  border-right-color: red;
+}
+.admonition.failure > .admonition-title {
+  border-bottom: 0.1rem solid rgba(255, 0, 0, 0.1);
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.admonition.failure > .admonition-title::before {
+  color: red;
+  content: "⚡";
+}
+.admonition.danger {
+  border-left-color: red;
+}
+[dir="rtl"] .admonition.danger {
+  border-right-color: red;
+}
+.admonition.danger > .admonition-title {
+  border-bottom: 0.1rem solid rgba(255, 0, 0, 0.1);
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.admonition.danger > .admonition-title::before {
+  color: red;
+  content: "❗";
+}
+.admonition.bug {
+  border-left-color: pink;
+}
+[dir="rtl"] .admonition.bug {
+  border-right-color: pink;
+}
+.admonition.bug > .admonition-title {
+  border-bottom: 0.1rem solid rgba(255, 192, 203, 0.1);
+  background-color: rgba(255, 192, 203, 0.1);
+}
+.admonition.bug > .admonition-title::before {
+  color: pink;
+  content: "@8";
+}
+.admonition.example {
+  border-left-color: purple;
+}
+[dir="rtl"] .admonition.example {
+  border-right-color: purple;
+}
+.admonition.example > .admonition-title {
+  border-bottom: 0.1rem solid rgba(128, 0, 128, 0.1);
+  background-color: rgba(128, 0, 128, 0.1);
+}
+.admonition.example > .admonition-title::before {
+  color: purple;
+  content: "@9";
+}
+.admonition.quote {
+  border-left-color: grey;
+}
+[dir="rtl"] .admonition.quote {
+  border-right-color: grey;
+}
+.admonition.quote > .admonition-title {
+  border-bottom: 0.1rem solid rgba(128, 128, 128, 0.1);
+  background-color: rgba(128, 128, 128, 0.1);
+}
+.admonition.quote > .admonition-title::before {
+  color: grey;
+  content: "@10";
+}
+
+pre.asymptote {
+  line-height: 125%;
+}
+td.linenos .normal {
+  color: inherit;
+  background-color: transparent;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+span.linenos {
+  color: inherit;
+  background-color: transparent;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+td.linenos .special {
+  color: #000000;
+  background-color: #ffffc0;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+span.linenos.special {
+  color: #000000;
+  background-color: #ffffc0;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+pre.asymptote .hll {
+  background-color: #ffffcc;
+}
+pre.asymptote .c {
+  color: #3d7b7b;
+  font-style: italic;
+} /* Comment */
+pre.asymptote .err {
+  border: 1px solid #ff0000;
+} /* Error */
+pre.asymptote .k {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword */
+pre.asymptote .o {
+  color: #666666;
+} /* Operator */
+pre.asymptote .ch {
+  color: #3d7b7b;
+  font-style: italic;
+} /* Comment.Hashbang */
+pre.asymptote .cm {
+  color: #3d7b7b;
+  font-style: italic;
+} /* Comment.Multiline */
+pre.asymptote .cp {
+  color: #9c6500;
+} /* Comment.Preproc */
+pre.asymptote .cpf {
+  color: #3d7b7b;
+  font-style: italic;
+} /* Comment.PreprocFile */
+pre.asymptote .c1 {
+  color: #3d7b7b;
+  font-style: italic;
+} /* Comment.Single */
+pre.asymptote .cs {
+  color: #3d7b7b;
+  font-style: italic;
+} /* Comment.Special */
+pre.asymptote .gd {
+  color: #a00000;
+} /* Generic.Deleted */
+pre.asymptote .ge {
+  font-style: italic;
+} /* Generic.Emph */
+pre.asymptote .gr {
+  color: #e40000;
+} /* Generic.Error */
+pre.asymptote .gh {
+  color: #000080;
+  font-weight: bold;
+} /* Generic.Heading */
+pre.asymptote .gi {
+  color: #008400;
+} /* Generic.Inserted */
+pre.asymptote .go {
+  color: #717171;
+} /* Generic.Output */
+pre.asymptote .gp {
+  color: #000080;
+  font-weight: bold;
+} /* Generic.Prompt */
+pre.asymptote .gs {
+  font-weight: bold;
+} /* Generic.Strong */
+pre.asymptote .gu {
+  color: #800080;
+  font-weight: bold;
+} /* Generic.Subheading */
+pre.asymptote .gt {
+  color: #0044dd;
+} /* Generic.Traceback */
+pre.asymptote .kc {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Constant */
+pre.asymptote .kd {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Declaration */
+pre.asymptote .kn {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Namespace */
+pre.asymptote .kp {
+  color: #008000;
+} /* Keyword.Pseudo */
+pre.asymptote .kr {
+  color: #008000;
+  font-weight: bold;
+} /* Keyword.Reserved */
+pre.asymptote .kt {
+  color: #b00040;
+} /* Keyword.Type */
+pre.asymptote .m {
+  color: #666666;
+} /* Literal.Number */
+pre.asymptote .s {
+  color: #ba2121;
+} /* Literal.String */
+pre.asymptote .na {
+  color: #687822;
+} /* Name.Attribute */
+pre.asymptote .nb {
+  color: #008000;
+} /* Name.Builtin */
+pre.asymptote .nc {
+  color: #0000ff;
+  font-weight: bold;
+} /* Name.Class */
+pre.asymptote .no {
+  color: #880000;
+} /* Name.Constant */
+pre.asymptote .nd {
+  color: #aa22ff;
+} /* Name.Decorator */
+pre.asymptote .ni {
+  color: #717171;
+  font-weight: bold;
+} /* Name.Entity */
+pre.asymptote .ne {
+  color: #cb3f38;
+  font-weight: bold;
+} /* Name.Exception */
+pre.asymptote .nf {
+  color: #0000ff;
+} /* Name.Function */
+pre.asymptote .nl {
+  color: #767600;
+} /* Name.Label */
+pre.asymptote .nn {
+  color: #0000ff;
+  font-weight: bold;
+} /* Name.Namespace */
+pre.asymptote .nt {
+  color: #008000;
+  font-weight: bold;
+} /* Name.Tag */
+pre.asymptote .nv {
+  color: #19177c;
+} /* Name.Variable */
+pre.asymptote .ow {
+  color: #aa22ff;
+  font-weight: bold;
+} /* Operator.Word */
+pre.asymptote .w {
+  color: #bbbbbb;
+} /* Text.Whitespace */
+pre.asymptote .mb {
+  color: #666666;
+} /* Literal.Number.Bin */
+pre.asymptote .mf {
+  color: #666666;
+} /* Literal.Number.Float */
+pre.asymptote .mh {
+  color: #666666;
+} /* Literal.Number.Hex */
+pre.asymptote .mi {
+  color: #666666;
+} /* Literal.Number.Integer */
+pre.asymptote .mo {
+  color: #666666;
+} /* Literal.Number.Oct */
+pre.asymptote .sa {
+  color: #ba2121;
+} /* Literal.String.Affix */
+pre.asymptote .sb {
+  color: #ba2121;
+} /* Literal.String.Backtick */
+pre.asymptote .sc {
+  color: #ba2121;
+} /* Literal.String.Char */
+pre.asymptote .dl {
+  color: #ba2121;
+} /* Literal.String.Delimiter */
+pre.asymptote .sd {
+  color: #ba2121;
+  font-style: italic;
+} /* Literal.String.Doc */
+pre.asymptote .s2 {
+  color: #ba2121;
+} /* Literal.String.Double */
+pre.asymptote .se {
+  color: #aa5d1f;
+  font-weight: bold;
+} /* Literal.String.Escape */
+pre.asymptote .sh {
+  color: #ba2121;
+} /* Literal.String.Heredoc */
+pre.asymptote .si {
+  color: #a45a77;
+  font-weight: bold;
+} /* Literal.String.Interpol */
+pre.asymptote .sx {
+  color: #008000;
+} /* Literal.String.Other */
+pre.asymptote .sr {
+  color: #a45a77;
+} /* Literal.String.Regex */
+pre.asymptote .s1 {
+  color: #ba2121;
+} /* Literal.String.Single */
+pre.asymptote .ss {
+  color: #19177c;
+} /* Literal.String.Symbol */
+pre.asymptote .bp {
+  color: #008000;
+} /* Name.Builtin.Pseudo */
+pre.asymptote .fm {
+  color: #0000ff;
+} /* Name.Function.Magic */
+pre.asymptote .vc {
+  color: #19177c;
+} /* Name.Variable.Class */
+pre.asymptote .vg {
+  color: #19177c;
+} /* Name.Variable.Global */
+pre.asymptote .vi {
+  color: #19177c;
+} /* Name.Variable.Instance */
+pre.asymptote .vm {
+  color: #19177c;
+} /* Name.Variable.Magic */
+pre.asymptote .il {
+  color: #666666;
+} /* Literal.Number.Integer.Long */
+
+div.inner-footer {
+   display: flex;
+   height: 100px;
+   background-color: #eeeeee;
+   font-size: 10pt;
+   width: 100%;
+}
+
+div.inner-footer p {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: 5%;
+}
