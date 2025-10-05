@@ -14,7 +14,6 @@ tags:
 [This article is available in English](/en/the-basics-for-understanding-bitcoin/)
 {% endnote %}
 
-
 Quand on parle de Bitcoin cela peut signifier trois choses :
 
 1. **un protocole informatique** ;

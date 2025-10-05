@@ -65,8 +65,8 @@ comme l'Euro ou le Dollar.
   ainsi qu'à [La politique monétaire et le contrôle de l'inflation](https://www.universalis.fr/encyclopedie/inflation/6-la-politique-monetaire-et-le-controle-de-l-inflation/)).  
   Pour fixer les idées, la valeur intrinsèque d'une pomme ne change pas en quatre ans alors que
   sa valeur mesurée en Euros change car en quatre ans l'Euro, lui, perd de sa valeurs intrinsèque.
-  L'histoire montre que les monnaies à masse monétaire illimitée perdre de leur valeur au cours du
-  temps, et que par conséquent les peuples qui les utilisent ont de moins en moins confiance en
+  L'histoire montre que les monnaies à masse monétaire illimitée perde de leur valeur au cours du
+  temps, et que, par conséquent, les peuples qui les utilisent ont de moins en moins confiance en
   ces monnaies et ne souhaitent plus les stocker puis les utiliser.  
   À ce titres **le Bitcoin propose un stockage plus fiable et stable de la valeur** car il n'y aura jamais plus de 21 millions de Bitcoin.
 
