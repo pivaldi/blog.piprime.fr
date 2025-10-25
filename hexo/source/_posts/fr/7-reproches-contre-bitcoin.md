@@ -81,3 +81,9 @@ tags:
 * Il offre **une sécurité, portabilité et résistance à la censure** uniques au monde.
 * Son utilité réside dans le fait qu’il permet de **transférer de la valeur de façon sécurisée et sans intermédiaire**, ce qui a une valeur économique réelle en soi.
 * Les monnaies fiduciaires créées ex-nihilo et à volonté n'ont pas de valeur fondamentale, leur valeur repose sur l'obligation gouvernementale de les utiliser, on dit que c'est un système monétaire à [cours forcé](https://fr.wikipedia.org/wiki/Cours_forc%C3%A9).
+
+
+## Pour aller plus loin
+
+On peut se référer à l'article [Les conséquences distributionnelles du bitcoin](/fr/les-consequences-distributionnelles-du-bitcoin/)
+qui expose de nombreux contres-arguments aux [propos tenus par des magnats de la banque central Européenne](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4985877).
