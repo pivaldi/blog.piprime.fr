@@ -10,6 +10,7 @@ tags:
 - cryptographie
 - hasard
 - distribué
+- décentralisé
 ---
 
 # drand — un service distribué de balises aléatoires
