@@ -16,7 +16,7 @@ tags:
 
 ## Le rôle de l’aléa dans la cryptographie
 
-Dans un **réseau décentralisé**, chaque utilisateur possède :
+Dans un **réseau décentralisé**, chaque utilisateur possède :
 
 * une **clé privée** (secrète),
 * une **clé publique** (dérivée de la clé privée),
@@ -32,7 +32,7 @@ C’est là qu’intervient la **génération de nombres aléatoires**.
 1. Un générateur de nombres aléatoires (appelé **RNG – Random Number Generator**) produit un
    **nombre aléatoire très grand**, souvent de **256 bits** (soit 2²⁵⁶ possibilités).
 
-   * Exemple (en simplifié) :
+   * Exemple simplifié :
 
      ```
      0x7BDA34E2B9F84C3A7D9E... (256 bits)
@@ -44,14 +44,14 @@ C’est cet aléa qui garantit la **sécurité et l’unicité** de chaque clé 
 
 ## Dérivation de la clé publique
 
-Une fois la clé privée générée :
+Une fois la clé privée générée :
 
 * On applique une **fonction mathématique déterministe**, fondée sur la **cryptographie à courbe
   elliptique** (ECC, par ex. *secp256k1* dans Bitcoin).
 * Cette opération consiste à multiplier un **point de base G** de la courbe elliptique par la clé
   privée (le grand nombre aléatoire).
 
-Formule :
+Formule :
 
 $$
 \text{Clé publique} = \text{clé privée} \times G
@@ -62,10 +62,10 @@ connaître la clé privée, c’est le **principe de sécurité asymétrique**.
 
 ## Du point de vue du réseau décentralisé
 
-Dans un réseau comme Bitcoin ou Ethereum :
+Dans un réseau comme Bitcoin ou Ethereum :
 
 * Le **RNG** est utilisé localement par le portefeuille pour générer ta clé privée.
-* Le réseau **ne participe pas** à cette génération : cela reste **décentralisé et local**.
+* Le réseau **ne participe pas** à cette génération : cela reste **décentralisé et local**.
 * La clé publique (et donc l'adresse) est utilisée pour recevoir des transactions, sans jamais exposer ta clé privée.
 
 ## Pourquoi la qualité de l’aléa est cruciale

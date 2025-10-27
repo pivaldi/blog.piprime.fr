@@ -1,7 +1,7 @@
 ---
-title: "drand : un protocole distribué de jetons aléatoires"
+title: "drand : un protocole décentralisé de jetons aléatoires"
 date: 2025-10-25 18:34:44
-id: drand-un-protocole-distribue-de-jetons-aleatoires
+id: drand-un-protocole-decentralise-de-jetons-aleatoires
 lang: fr
 description: "drand est un protocole distribué produisant à intervalles réguliers des valeurs aléatoires, non biaisables et publiquement vérifiables"
 categories:

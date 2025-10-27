@@ -16,7 +16,7 @@ tags:
 La génération de nombres ou de jetons aléatoires joue un rôle crucial dans plusieurs aspects des
 réseaux décentralisés, notamment dans la sécurité, la validation, l'anonymat, et la distribution des
 ressources.  
-Voici quelques raisons pour lesquelles elle est si importante :
+On trouvera ici quelques raisons pour lesquelles elle est si importante.
 
 ## Sécurité et cryptographie
 

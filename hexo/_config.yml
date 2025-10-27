@@ -5,6 +5,7 @@
 # Markdown-it config
 ## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
 markdown:
+  preset: "default"
   render:
     html: true
     xhtmlOut: false
@@ -25,6 +26,21 @@ markdown:
     permalink: true
     permalinkClass: header-anchor
     permalinkSymbol: 🔗
+  images:
+    lazyload: true
+    prepend_root: false
+    post_asset: false
+
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: false
+  breaks: false
+  langPrefix:
+  linkify: true
+  typographer: true
+  quotes: “”‘’
+  pre_class: highlight
 
 # Site
 title: PIPRIME.FR BLOG
@@ -280,7 +296,7 @@ vendors:
 marked:
   gfm: true
   pedantic: false
-  breaks: true
+  breaks: false
   smartLists: true
   smartypants: true
   quotes: "“”‘’"
