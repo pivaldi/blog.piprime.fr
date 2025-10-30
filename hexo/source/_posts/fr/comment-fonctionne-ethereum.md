@@ -19,6 +19,12 @@ tags:
 </picture>
 
 
+{% note %}
+Ceci est le résumé d'un cours du MOOC
+[Mastering Web3](https://www.unic.ac.cy/mastering-web3-unic-s-brand-new-free-mooc-offering-a-blockchain-verifiable-certificate/)
+suivi à l'[Université de Nicosia](https://www.unic.ac.cy/).
+{% endnote %}
+
 ## Présentation d'Ethereum
 
 **Ethereum est une plate-forme blockchain décentralisée et open source qui permet réaliser des [contrats intelligents](/fr/comprendre-les-notions-de-smart-contracts-et-de-dapps) et des [applications décentralisées](/fr/comprendre-les-notions-de-smart-contracts-et-de-dapps) (DApps)**.
@@ -240,6 +246,35 @@ etc !
 
 Se référer à l'article [Comprendre les notions de smart contracts et de Dapps](/fr/comprendre-les-notions-de-smart-contracts-et-de-dapps)
 sur l'excellent blog piprime.fr.
+
+## Conclusion
+
+Ethereum est une plate-forme blockchain décentralisée conçue pour permettre des contrats intelligents programmables et des applications décentralisées.  
+Contrairement au Bitcoin, qui sert principalement de réserve de valeur et de moyen d’échange,
+Ethereum fonctionne comme un « ordinateur mondial » prenant en charge un large éventail de cas
+d’utilisation au-delà des transactions financières.
+
+Ethereum a introduit des innovations significatives, notamment les smart contracts. Ces contrats
+s'exécutent sur la machine virtuelle Ethereum (EVM), garantissant la sécurité et la standardisation
+sur l'ensemble du réseau.
+
+L'Ether (ETH), la crypto-monnaie native, est utilisé pour les frais de transaction (gaz), le
+staking dans le modèle Proof of Stake (PoS) d'Ethereum et comme garantie dans les
+applications de finance décentralisée (DeFi). L'évolutivité a été l'un des principaux défis
+d'Ethereum, entraînant des frais de gaz élevés et des congestions pendant les pics d'activité du
+réseau. Les solutions de couche 2, telles que les rollups, les canaux d’état et le sharding, visent
+en outre à améliorer le débit des transactions d’Ethereum.
+
+L’essor d’Ethereum a alimenté le développement d’un vaste écosystème, comprenant la finance
+décentralisée (DeFi), les jetons non fongibles (NFT) et les organisations autonomes décentralisées
+(DAO). Ces applications exploitent l'infrastructure décentralisée et programmable d'Ethereum pour
+créer des systèmes financiers ouverts, des mécanismes de propriété numérique et de nouveaux modèles
+de gouvernance.
+
+Il est à noté qu'à l'heure où est écrit cet article l'Union européenne envisage sérieusement de
+lancer son [euro numérique sur une blockchain](https://cryptodnes.bg/fr/euro-numerique-ethereum/) publique comme Ethereum ou Solana, marquant un
+changement stratégique par rapport à une infrastructure privée initialement prévue.  
+Si cette velléité se confirme, Ethereum jouera un rôle majeure dans l'économie mondiale.
 
 [^1]: Dans Ethereum le gas est une unité spéciale utilisée pour mesurer la quantité de « travail » (ressources informatiques) requise par certaines tâches.
 [^2]: Le staking consiste à verrouiller, à gager, une cryptomonnaie pour prendre en charge la sécurité et les fonctionnalités d’une blockchain, en gagnant des récompenses en retour.
