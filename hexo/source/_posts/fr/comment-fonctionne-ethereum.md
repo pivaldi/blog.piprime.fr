@@ -225,7 +225,10 @@ etc !
 
 ## Smart contracts & dApps
 
+Se référer à l'article [Comprendre les notions de smart contracts et de Dapps](/fr/comprendre-les-notions-de-smart-contracts-et-de-dapps)
+sur l'excellent blog de piprime.fr.
 
+## Ethereum et blockchain compatible avec EVM
 
 [^1]: Dans Ethereum le gas est une unité spéciale utilisée pour mesurer la quantité de « travail » (ressources informatiques) requise par certaines tâches.
 [^2]: Le staking consiste à verrouiller, à gager, une cryptomonnaie pour prendre en charge la sécurité et les fonctionnalités d’une blockchain, en gagnant des récompenses en retour.
