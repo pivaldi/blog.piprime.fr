@@ -13,6 +13,10 @@ tags:
 - cryptomonnaie
 ---
 
+<figure>
+<img src="/media/la-reinitialisation-financiere-de-l-europe-en-2027/lagarde.webp" alt="Christine Lagarde en train de discourir" />
+</figure>
+
 {% note %}
 Traduction en Français de l'article  
 [Europe’s 2027 Financial Reset: The End of Monetary Privacy or the Beginning of Economic Security?](https://substack.com/inbox/post/178473086)  
