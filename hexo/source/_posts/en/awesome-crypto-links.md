@@ -278,7 +278,15 @@ file that is private and the build is not reproducible:
   * [Blockchain Revolution Specialization](https://www.coursera.org/specializations/blockchain-revolution-enterprise) (INSEAD).
   * [Blockchain Specialization](https://www.coursera.org/specializations/blockchain-revolution-enterprise) at university of Buffalo.
 
-## The Nostr Ecosystem
+## Decentralized Protocol
+
+### GNUnet
+
+[GNUnet](https://www.gnunet.org/fr/index.html) is a network protocol stack for building secure,
+distributed, and privacy-preserving applications.  
+With strong roots in [academic research](https://bib.gnunet.org/), our goal is to replace the [old insecure Internet protocol](https://secushare.org/broken-internet) stack.
+
+### The Nostr Ecosystem
 
 [Nostr](https://nostr.com/) is an apolitical communication commons.  
 A simple standard that defines a scalable architecture of clients and servers that can be used to spread information freely.  
