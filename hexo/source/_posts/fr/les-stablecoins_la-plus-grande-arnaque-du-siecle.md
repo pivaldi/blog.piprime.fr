@@ -1,7 +1,7 @@
 ---
 title: "Les stablecoins sont la plus grande arnaque du siècle"
 date: 2025-11-29 20:25:09
-id: les-stablecoins_la-plus-grande-arnaque-du-siecle
+id: les-stablecoins-la-plus-grande-arnaque-du-siecle
 lang: fr
 description: "Et si les Stablecoins n’étaient pas un pont vers la liberté financière, mais le moteur secret de la plus grande machine à dette mondiale ?"
 categories:
@@ -11,6 +11,9 @@ tags:
 - stablecoin
 - économie
 ---
+
+[This article is available in English](/en/stablecoins-the-biggest-scam-of-the-century).
+
 
 {% note %}
 Cet article est un résumé de [l'entretient de Michel Khazzaka sur Surfin' Bitcoin](https://youtu.be/QhWDApIiFp4?).

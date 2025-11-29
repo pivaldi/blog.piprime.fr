@@ -12,6 +12,8 @@ tags:
 - economy
 ---
 
+[Cet article est disponible en Français](/fr/les-stablecoins-la-plus-grande-arnaque-du-siecle).
+
 {% note %}
 This article is a summary of [Michel Khazzaka's interview on Surfin' Bitcoin](https://youtu.be/QhWDApIiFp4?).
 {% endnote %}
