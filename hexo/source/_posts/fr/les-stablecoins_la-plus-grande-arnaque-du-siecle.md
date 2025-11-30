@@ -175,7 +175,7 @@ alors que celui les a généré sera lui gratieusement rémunérer.
 
 ## L’Euro numérique (CBDC) expliqué simplement
 
-### L’euro numérique n'est une nouvelle monnaie
+### L’euro numérique N'EST PAS une nouvelle monnaie
 
 Selon la BCE elle-même l'euro numérique **n’est pas une monnaie**[^4] car il ne répond pas aux
 fonctionnalités d'une monnaie :
