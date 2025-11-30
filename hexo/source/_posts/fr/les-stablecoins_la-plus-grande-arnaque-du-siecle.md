@@ -100,9 +100,9 @@ Ils sont devenus un **système de paiement parallèle** à celui des banques.
 Prenons le cas du plus grand : **Tether (USDT)**.  
 Pour chaque USDT émis par [Tether](https://tether.to/) il y a exactement 1 dollar
 réellement déposé dans une banque; on appel ce dépôt un collatéral.  
-Mais ce dollar ne dort pas ; **les dollars déposés sont investis**, Les émetteurs achètent presque toujours des **bons du Trésor
-américain** (les [T-Bills](https://fr.wikipedia.org/wiki/Treasury_Bill)) qui financent le
-gouvernement américain.  
+Mais ce dollar ne dort pas ; **les dollars déposés sont investis**, Les émetteurs achètent sont obligés par l'État
+d'acheter des **bons du Trésor américain** (les
+[T-Bills](https://fr.wikipedia.org/wiki/Treasury_Bill)) qui financent le gouvernement américain.  
 Ces bons rapportent des intérêts et c’est là que le modèle économique de Tether (dans notre exemple)
 apparaît.
 
@@ -136,6 +136,10 @@ crypto, la masse monétaire effective augmente ; cela **crée de l’inflation 
 Même si les montants semblent petits aujourd’hui, les projections montrent une inflation
 **additionnelle de 3 à 6 %** si la croissance continue[^1].
 
+Pour Michel Khazzaka, le Genius Act (obligation d'acheter des Bons du Trésor US) accompagné de la
+réglementation MICA (interdiction de rémunérer le détenteur) seront le cause de l'inflation lié aux
+stablecoins.
+
 ## Pourquoi Donald adore les stablecoins ?
 
 ### Le Genius Act
@@ -163,17 +167,21 @@ L’Europe craint deux choses :
 Afin de **ralentir l’adoption des stablecoins en euro** [la réglementation Européenne MiCA](https://eur-lex.europa.eu/FR/legal-content/summary/european-crypto-assets-regulation-mica.html) a :
 
 * limité les montants détenus en stablecoins ;
-* interdit la rémunération des stablecoins ;
+* interdit la rémunération des détenteurs de stablecoins ;
 * restreint les opérations.
+
+On notera le manque d'étique de l'interdiction par MICA de rémunérer le détenteur de stablecoins
+alors que celui les a généré sera lui gratieusement rémunérer. 
 
 ## L’Euro numérique (CBDC) expliqué simplement
 
 ### L’euro numérique n'est une nouvelle monnaie
 
-Selon la BCE elle-même l'euro numérique **n’est pas une monnaie** car :
+Selon la BCE elle-même l'euro numérique **n’est pas une monnaie**[^4] car il ne répond pas aux
+fonctionnalités d'une monnaie :
 
 * Il y a un **plafond de détention** (ex : 3 000 € max) ;
-* **Les commerçants ne peuvent pas le garder**, il est instantanément reconverti en Euro ;
+* **Les commerçants ne peuvent pas le garder**, il est instantanément reconverti en Euro, [il n'a pas de pouvoir libératoire](https://hal.science/LEO/hal-04918074v1) ;
 * **Il n’est pas une réserve de valeur**.
 
 **L’euro numérique est simplement un moyen de paiement moderne, pas une monnaie**.
@@ -186,7 +194,17 @@ Pour **moderniser** l’équivalent du billet physique :
 * concurrencer Visa et Mastercard qui sont Américains ;
 * conserver un ancrage de confiance dans la monnaie centrale.
 
-C’est une réponse défensive, pas un projet d’hégémonie.
+C’est une réponse défensive, pas un projet d’hégémonie bien des **craintes** de contrôles existent :
+* Traçabilité totale des paiements sauf pour les petites transactions (≈ <50 €) qui pourraient être
+  hors ligne et privées, ;
+* Blocage ou refus de paiement (économiquement non viable à grande échelle car la monnaie repose sur la confiance) ;
+* Plafonds de détention car la BCE veut éviter un bank run numérique (que tout le monde vide sa banque pour stocker de l’euro numérique) ;
+* Monnaie qui “expire” ou impose un usage : la BCE a explicitement rejeté ce scénario, mais
+  techniquement, une CBDC pourrait permettre ce genre de mécanismes dans un futur plus ou moins lointain ;
+* Centralisation accrue du pouvoir monétaire par l'État ;
+* Surveillance financière étendue avec un suivi automatisé des habitudes de consommation, un profilage financier et des analyses comportementales sophistiquées ;
+* Contrôle fiscal renforcé ;
+* 
 
 ## Bitcoin est une alternative monétaire sans dette
 
@@ -204,8 +222,10 @@ Ses caractéristiques bien connues :
 ### Les États commencent à en accumuler
 
 * Les États-Unis ont créé une réserve nationale passive (25 milliards de $ déjà) ;
-* Les banques centrales seront probablement obligées d’en acheter dans les années
-  à venir ([analyse de Deutsche Bank](https://www.dbresearch.com/PROD/RI-PROD/PDFVIEWER.calias?pdfViewerPdfUrl=PROD0000000000603643)).
+* [L'analyse de la Deutsche Bank](https://www.dbresearch.com/PROD/RI-PROD/PDFVIEWER.calias?pdfViewerPdfUrl=PROD0000000000603643)
+  sur le Bitcoin révèle que le Bitcoin suit le même chemin historique d'adoption et de valorisation que l'or.
+  La Deutsche Bank considère donc à ce titre que les banques centrales seront probablement obligées d’en
+  acheter dans les années à venir.
 
 ### Modèle stratégique pour un État comme la France
 
@@ -251,4 +271,5 @@ C’est ce qui fait de **Bitcoin une alternative simple et robuste dans un monde
  l’inflation si les taux d’intérêt réels tombaient en dessous du niveau nécessaire à la stabilité
  des prix.
 [^2]: [Fiche d'information de la Maison Blanche](https://www.whitehouse.gov/fact-sheets/2025/07/fact-sheet-president-donald-j-trump-signs-genius-act-into-law/)
-[^3]: La monnaie numérique de banque centrale.
+[^3]: CBDC = Central Bank Digital Currency = monnaie numérique de banque centrale.
+[^4]: L'Euro numérique est nommé CBDC par la BCE
