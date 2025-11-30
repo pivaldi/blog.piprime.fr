@@ -27,7 +27,7 @@ Cet article est un résumé de [l'entretient de Michel Khazzaka sur Surfin' Bitc
 </figure>
 
 
-## Comment fonctionne vraiment la monnaie aujourd’hui ?
+## Comment fonctionne vraiment la monnaie aujourd’hui ?
 
 Pour comprendre les stablecoins, il faut d’abord comprendre la **monnaie bancaire**, car c’est elle
 que nous utilisons tous les jours.
@@ -43,9 +43,9 @@ La seule vraie monnaie est celle de la **banque centrale** :
 * les billets ;
 * les comptes des banques commerciales auprès de la banque centrale (réserves).
 
-Nous vivons donc dans un système **à trois étages** :
+Nous vivons donc dans un système **à trois étages** :
 
-| Niveau | Qui ?                | Quel type d'argent ?                     |
+| Niveau | Qui ?                | Quel type d'argent ?                     |
 | ------ | -------------------- | ---------------------------------------- |
 | 1      | Banque centrale      | monnaie ultime (incontestable)           |
 | 2      | Banques commerciales | promesses de monnaie                     |
@@ -53,7 +53,7 @@ Nous vivons donc dans un système **à trois étages** :
 
 ### Les paiements entre banques
 
-Quand vous payez quelqu’un qui est dans une autre banque :
+Quand vous payez quelqu’un qui est dans une autre banque :
 
 1. Votre banque doit retirer des **réserves** sur son compte à la banque centrale.
 2. Elle les transfère à l'autre banque.
@@ -73,10 +73,10 @@ Cela ce traduit par :
 * des frais élevés ;
 * une **dépendance totale au dollar américain**.
 
-Ce système explique en partie pourquoi les stablecoins ont explosé : ils permettent d’envoyer de la
+Ce système explique en partie pourquoi les stablecoins ont explosé : ils permettent d’envoyer de la
 valeur **comme un message WhatsApp ou un email**, instantanément et partout dans le monde.
 
-## Pourquoi les stablecoins ont-ils été créés ?
+## Pourquoi les stablecoins ont-ils été créés ?
 
 Contrairement à l’idée reçue la plus commune, les stablecoins **n’ont pas été créés pour “stabiliser” le prix des cryptos**.
 
@@ -95,9 +95,9 @@ Les stablecoins ont aussi permis des envois immédiats à des coûts très faibl
 aucune banque intermédiaire.  
 Ils sont devenus un **système de paiement parallèle** à celui des banques.
 
-## Comment fonctionne un stablecoin ?
+## Comment fonctionne un stablecoin ?
 
-Prenons le cas du plus grand : **Tether (USDT)**.  
+Prenons le cas du plus grand : **Tether (USDT)**.  
 Pour chaque USDT émis par [Tether](https://tether.to/) il y a exactement 1 dollar
 réellement déposé dans une banque; on appel ce dépôt un collatéral.  
 Mais ce dollar ne dort pas ; **les dollars déposés sont investis**, Les émetteurs achètent sont obligés par l'État
@@ -108,7 +108,7 @@ apparaît.
 
 ### Le business modèle des stablecoins
 
-Les émetteurs gagnent de l'argent via :
+Les émetteurs gagnent de l'argent via :
 
 1. **Les intérêts** sur des centaines de milliards de dollars déposés. Ce sont les plus grosses recettes.
 2. **Les commissions** lors de l’achat/vente du stablecoin.
@@ -137,10 +137,10 @@ Même si les montants semblent petits aujourd’hui, les projections montrent un
 **additionnelle de 3 à 6 %** si la croissance continue[^1].
 
 Pour Michel Khazzaka, le Genius Act (obligation d'acheter des Bons du Trésor US) accompagné de la
-réglementation MICA (interdiction de rémunérer le détenteur) seront le cause de l'inflation lié aux
-stablecoins.
+réglementation MICA (interdiction de rémunérer le détenteur) seront le cause de l'inflation causée
+par les stablecoins.
 
-## Pourquoi Donald adore les stablecoins ?
+## Pourquoi Donald adore les stablecoins ?
 
 ### Le Genius Act
 
@@ -155,16 +155,16 @@ américaine.**, c’est une sorte **d’impôt mondial volontaire**, sans vote, 
 C'est pourquoi D. Trump c'est empressé de stopper la CBDC[^3] américaine et a encouragé massivement
 les stablecoins, les plaçant comme un outil géopolitique majeur.
 
-## Pourquoi l’Europe freine les stablecoins ?
+## Pourquoi l’Europe freine les stablecoins ?
 
-L’Europe craint deux choses :
+L’Europe craint deux choses :
 1. **Que l’euro perde son rôle dans les paiements** car, si les Européens payent en USDT, l’euro devient
    marginal, les banques commerciales perdent des dépôts et la BCE perd le contrôle de la politique
    monétaire.
 2. **Que les citoyens fuient le système bancaire** car les stablecoins rapportent des intérêts
    (aujourd’hui captés par Tether) que les banques ne peuvent pas proposer.
 
-Afin de **ralentir l’adoption des stablecoins en euro** [la réglementation Européenne MiCA](https://eur-lex.europa.eu/FR/legal-content/summary/european-crypto-assets-regulation-mica.html) a :
+Afin de **ralentir l’adoption des stablecoins en euro** [la réglementation Européenne MiCA](https://eur-lex.europa.eu/FR/legal-content/summary/european-crypto-assets-regulation-mica.html) a :
 
 * limité les montants détenus en stablecoins ;
 * interdit la rémunération des détenteurs de stablecoins ;
@@ -180,15 +180,15 @@ alors que celui les a généré sera lui gratieusement rémunérer.
 Selon la BCE elle-même l'euro numérique **n’est pas une monnaie**[^4] car il ne répond pas aux
 fonctionnalités d'une monnaie :
 
-* Il y a un **plafond de détention** (ex : 3 000 € max) ;
+* Il y a un **plafond de détention** (ex : 3 000 € max) ;
 * **Les commerçants ne peuvent pas le garder**, il est instantanément reconverti en Euro, [il n'a pas de pouvoir libératoire](https://hal.science/LEO/hal-04918074v1) ;
 * **Il n’est pas une réserve de valeur**.
 
 **L’euro numérique est simplement un moyen de paiement moderne, pas une monnaie**.
 
-### Pourquoi la BCE le crée ?
+### Pourquoi la BCE crée l'Ero numérique ?
 
-Pour **moderniser** l’équivalent du billet physique :
+Pour **moderniser** l’équivalent du billet physique :
 
 * garantir que l’euro reste utilisé dans les paiements du quotidien ;
 * concurrencer Visa et Mastercard qui sont Américains ;
@@ -203,8 +203,7 @@ C’est une réponse défensive, pas un projet d’hégémonie bien des **craint
   techniquement, une CBDC pourrait permettre ce genre de mécanismes dans un futur plus ou moins lointain ;
 * Centralisation accrue du pouvoir monétaire par l'État ;
 * Surveillance financière étendue avec un suivi automatisé des habitudes de consommation, un profilage financier et des analyses comportementales sophistiquées ;
-* Contrôle fiscal renforcé ;
-* 
+* Contrôle fiscal renforcé.
 
 ## Bitcoin est une alternative monétaire sans dette
 
@@ -229,14 +228,14 @@ Ses caractéristiques bien connues :
 
 ### Modèle stratégique pour un État comme la France
 
-Si la France achetait seulement **0,5 % de son PIB par an en Bitcoin**, alors, selon les modèles,
-elle pourrait **effacer une partie majeure de sa dette** en 20–25 ans grâce à la croissance
-naturelle de Bitcoin ; c’est la première technologie permettant une telle stratégie.
-
+Si la France achetait seulement **0,5 % de son PIB par an en Bitcoin**, elle pourrait
+**effacer une partie majeure de sa dette** en 20–25 ans même en prenant un modèle de
+croissance logarithmique très pessimiste de la valeur du bitcoin ; c’est la première technologie
+permettant une telle stratégie.
 
 ## Pour conclure
 
-Nous sommes aujourd’hui devant trois systèmes monétaires :
+Nous sommes aujourd’hui devant trois systèmes monétaires :
 
 | Système                   | Type de monnaie          | Atout                                | Problème                  |
 | ------------------------- | ------------------------ | ------------------------------------ | ------------------------- |
@@ -244,7 +243,7 @@ Nous sommes aujourd’hui devant trois systèmes monétaires :
 | **Euro numérique (CBDC)** | moyen de paiement public | modernisation, souveraineté          | pas une vraie monnaie     |
 | **Bitcoin**               | monnaie sans dette       | réserve de valeur, liberté réelle    | volatilité court terme    |
 
-Ces trois systèmes vont **coexister**, mais Bitcoin est le seul :
+Ces trois systèmes vont **coexister**, mais Bitcoin est le seul :
 
 * non relié à une dette ;
 * non relié à une banque ;
