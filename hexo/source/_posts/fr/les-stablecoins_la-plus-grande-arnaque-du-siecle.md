@@ -194,7 +194,8 @@ Pour **moderniser** l’équivalent du billet physique :
 * concurrencer Visa et Mastercard qui sont Américains ;
 * conserver un ancrage de confiance dans la monnaie centrale.
 
-C’est une réponse défensive, pas un projet d’hégémonie bien des **craintes** de contrôles existent :
+C’est une réponse défensive, pas un projet d’hégémonie mais des **craintes** de contrôles plus ou
+moins fondées existent :
 * Traçabilité totale des paiements sauf pour les petites transactions (≈ <50 €) qui pourraient être
   hors ligne et privées, ;
 * Blocage ou refus de paiement (économiquement non viable à grande échelle car la monnaie repose sur la confiance) ;
