@@ -16,7 +16,7 @@ tags:
 
 
 {% note %}
-Cet article est un résumé de [l'entretient de Michel Khazzaka sur Surfin' Bitcoin](https://youtu.be/QhWDApIiFp4?).
+Cet article se base sur les propos tenus lors de [l'entretient de Michel Khazzaka sur Surfin' Bitcoin](https://youtu.be/QhWDApIiFp4?) mais j'y ajoute quelques informations au fil de l'eau…
 {% endnote %}
 
 <figure>
@@ -25,7 +25,6 @@ Cet article est un résumé de [l'entretient de Michel Khazzaka sur Surfin' Bitc
 </a>
 <figcaption><br><span>Les stablecoins et leurs modèles de revenus (<a href="https://xangle.io/en/research/detail/1953">source</a>)</span></figcaption>
 </figure>
-
 
 ## Comment fonctionne vraiment la monnaie aujourd’hui ?
 
@@ -171,7 +170,24 @@ Afin de **ralentir l’adoption des stablecoins en euro** [la réglementation Eu
 * restreint les opérations.
 
 On notera le manque d'étique de l'interdiction par MICA de rémunérer le détenteur de stablecoins
-alors que celui les a généré sera lui gratieusement rémunérer. 
+alors que celui les a généré sera lui gratieusement rémunérer.  
+
+Ceci étant, l'UE ne reste pas campée sur ses position et
+[l'USDC et l'EURC de Circle deviennent les premières pièces stables approuvées par l'UE](https://financefeeds.com/fr/les-cercles-usdc-et-eurc-deviennent-les-premiers-stablecoins-approuv%C3%A9s-par-l%27ue/) ;
+ils ont peut-être aussi vu la belle carotte à croquer avec ce genre d'actif qui va financer leur dette sur le dos de la population.
+
+### Des banques privées Européennes créent Qivalis
+
+<picture>
+<img alt="Dix grandes banques européennes s'associent pour lancer le stablecoin en euros Qivalis" src="/media/les-stablecoins_la-plus-grande-arnaque-du-siecle/qivalis.webp">
+<figcaption>
+<span>Dix banques commerciales européennes s'associent pour lancer le stablecoin en euros Qivalis</span>
+</figcaption>
+</picture>
+
+Si la commission Européenne est plutôt réfractaire aux stablecoin, des banques Européennes commerciales ont bien
+compris l'opportunité de mettre du beurre dans leurs zépinards en créant le
+[stablecoin Qivalis adossé à l'Euro](https://financefeeds.com/fr/10-major-european-banks-team-up-to-launch-euro-stablecoin-qivalis/) avec un lancement prévu en 2026.
 
 ## L’Euro numérique (CBDC) expliqué simplement
 
