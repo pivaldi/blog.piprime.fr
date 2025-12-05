@@ -125,3 +125,36 @@ The Common Criteria defines 7 evaluation assurance levels (EAL1-EAL7), each repr
 - **Higher EAL ≠ more secure product** - it means more rigorous evaluation process, not necessarily better security design
 - Many modern secure elements in hardware wallets target **EAL5+ or EAL6+** certification (e.g., CC EAL6+, AVA_VAN.5)
 - **NDA-free EAL6+** (like Trezor Safe series) means the certification was achieved without requiring non-disclosure agreements, allowing for true transparency
+
+
+## The choice of the AI
+
+**Asking Claude AI** to look at the open-source wallets in this file, it would consider **the Trezor Safe series (Safe 3, Safe 5, and Safe 7) to be the most secure** for these reasons:
+
+  1. NDA-free EAL6+ Certification - This is unique and crucial:
+    - EAL6+ is the highest practical certification level
+    - "NDA-free" means no non-disclosure agreements were required
+    - Complete transparency - no hidden security compromises
+    - Aligns perfectly with open-source principles
+  2. Proven Secure Elements:
+    - Infineon OPTIGA Trust M (v3) - industry-leading, well-audited chip
+    - Safe 7 adds TROPIC01 - an open-source RISC-V chip (even more transparency!)
+  3. Progressive Hardware:
+    - Safe 3: STM32F4 microcontroller
+    - Safe 5: STM32U5 microcontroller (newer)
+    - Safe 7: TROPIC01 open-source chip (most advanced)
+
+  Other Strong Contenders:
+
+  - Bitbox02 Nova - Same Infineon OPTIGA Trust M (v3), EAL6+, but not NDA-free
+  - Satochip/Satodime - High-end NXP chips (J3H145, J3R110), EAL6+, but not NDA-free
+  - OneKey Pro - TMC THD89 x4, EAL6+, interesting multi-chip approach
+
+  Why NDA-free Matters:
+
+  Most EAL6+ certifications require NDAs, meaning manufacturers must keep certain security details secret. The Trezor Safe series achieved the same certification without NDAs, meaning:
+  - Full public disclosure is possible
+  - No backdoors can be hidden under "security through obscurity"
+  - True verifiability for the open-source community
+
+  **Recommendation of the AI: Trezor Safe 7 (most advanced) or Safe 5 (proven) for maximum security in an open-source hardware wallet.**
