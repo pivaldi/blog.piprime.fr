@@ -16,12 +16,13 @@ tags:
 - security
 ---
 
+## Hardware wallets
 
 | Name | Open Source | Secure Element | SE Model + Microcontroller | Evaluation Assurance Level |
 |------|-------------|----------------|----------------------------|---------------------------|
 | [Bitbox02 Nova](https://shiftcrypto.ch/bitbox02/) | YES | YES | **Infineon OPTIGA Trust M (v3)** + STM32... | EAL6+ |
 | [Cardware](https://www.cardwarewallet.com/) | YES | YES | **Optiga Trust M** + STM32 | EAL6+ |
-| [HyperMate](https://hyperpay.tech/hypermatepro/pro) | YES | YES | **Infineon** ? | EAL6+ |
+| [HyperMate](https://www.hyperpay.tech/hypermatepro/pro) | YES | YES | **Infineon** ? | EAL6+ |
 | [OneKey Classic 1S](https://onekey.so/products/onekey-classic-hardware-wallet/) | YES | YES | **THD89** | EAL6+ |
 | [OneKey Pro](https://onekey.so/products/onekey-classic-hardware-wallet/) | YES | YES | **TMC THD89 x4** | EAL6+ |
 | [Satochip/Satodime](https://satochip.io) | YES | YES | **NXP J3H145** and **NXP J3R110** | EAL6+ |
@@ -68,4 +69,59 @@ tags:
 | [~~OneKey Mini~~](https://onekey.so/products/onekey-mini-hardware-wallet/) | YES | YES | **ATECC608A** | outdated chip |
 | [~~OneKey Touch~~](https://onekey.so/products/onekey-touch-hardware-wallet/) | YES | YES | **ATECC608A** | outdated chip |
 
+
 [Source](https://bitcointalk.org/index.php?topic=5304483.0)
+
+## Common Criteria EAL (Evaluation Assurance Level) Explained
+
+The Common Criteria defines 7 evaluation assurance levels (EAL1-EAL7), each representing increasing levels of security testing and assurance:
+
+### EAL1 - Functionally Tested
+- **Assurance**: Minimal, basic functional testing
+- **Analysis**: Review of functional specification and some independent testing
+- **Use case**: Low security requirements, off-the-shelf products
+- **Effort**: Lowest cost and time
+
+### EAL2 - Structurally Tested
+- **Assurance**: Low to moderate security
+- **Analysis**: Requires design documentation, developer testing evidence, and independent vulnerability analysis
+- **Use case**: General commercial products with basic security needs
+- **Effort**: Still relatively low cost
+
+### EAL3 - Methodically Tested and Checked
+- **Assurance**: Moderate security
+- **Analysis**: Development environment controls, configuration management, more rigorous testing
+- **Use case**: Security-conscious commercial applications
+- **Effort**: Moderate investment required
+
+### EAL4 - Methodically Designed, Tested and Reviewed
+- **Assurance**: Moderate to high security
+- **Analysis**: Complete design documentation, security architecture analysis, extensive independent testing
+- **Use case**: **Most common level for commercial security products** (smart cards, firewalls, VPNs, hardware wallets)
+- **Effort**: Significant but practical for commercial products
+
+### EAL5 - Semiformally Designed and Tested
+- **Assurance**: High security
+- **Analysis**: Semi-formal design verification, advanced vulnerability analysis, covert channel analysis
+- **Use case**: High-security applications, military/government systems
+- **Effort**: Very high cost and time, requires specialized expertise
+
+### EAL6 - Semiformally Verified Design and Tested
+- **Assurance**: Very high security
+- **Analysis**: Semi-formal verification of design against specification, comprehensive independent testing
+- **Use case**: Ultra-high security environments, critical infrastructure
+- **Effort**: Extremely high cost, rarely achieved in practice
+
+### EAL7 - Formally Verified Design and Tested
+- **Assurance**: Extremely high security (highest level)
+- **Analysis**: Formal mathematical proof of security properties, complete formal verification
+- **Use case**: Theoretical maximum security, rarely if ever achieved in commercial products
+- **Effort**: Prohibitively expensive, requires formal methods expertise
+
+### Practical Context for Hardware Wallets
+
+- **EAL4** is the "sweet spot" - provides good security assurance while remaining commercially viable
+- **EAL5+** certification is extremely rare and expensive, typically only justified for military/government applications
+- **Higher EAL ≠ more secure product** - it means more rigorous evaluation process, not necessarily better security design
+- Many modern secure elements in hardware wallets target **EAL5+ or EAL6+** certification (e.g., CC EAL6+, AVA_VAN.5)
+- **NDA-free EAL6+** (like Trezor Safe series) means the certification was achieved without requiring non-disclosure agreements, allowing for true transparency
