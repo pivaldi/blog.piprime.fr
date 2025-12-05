@@ -174,11 +174,16 @@ file that is private and the build is not reproducible:
 
 ### Hardware
 
+Before choosing a hardware wallet, it is important to consider the [State of Secure Elements in Hardware wallets](/en/state-of-secure-elements-in-hardware-wallets).
+
 * [Trezor](https://trezor.io/).
 * [COLDCARD](https://coldcard.com/) is the world’s most trusted and secure Bitcoin signing device.
 * [Hard wallet open-source](https://github.com/Blockstream/Jade).
 * [SeedSigner](https://seedsigner.com/): build your own bitcoin signing device using a raspberry pi zero (VERSION 1.3).
 * [Ledger Crypto Wallets](https://www.ledger.com/).
+* [Krux](https://selfcustody.github.io/krux/) is an open-source firmware that transforms off-the-shelf Kendryte K210 devices, such as the Maix Amigo, M5StickV and more, into versatile bitcoin transaction signers.
+* With [SeedSigner](https://seedsigner.com/) You can build an offline, air-gapped Bitcoin transaction signing device from off-the-shelf components.
+* [Tagem](https://tangem.com/fr/): Swiss-based, 25-year warranty, EAL6+ security standard, Audited by [Kudelski Security & Riscure](https://kudelskisecurity.com/).
 
 ## Ligthning
 
