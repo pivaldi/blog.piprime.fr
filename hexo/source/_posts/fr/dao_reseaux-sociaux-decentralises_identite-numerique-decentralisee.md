@@ -698,61 +698,85 @@ Les DAO sont des plateformes expérimentales qui offrent des perspectives sur la
 l’autonomie et la coordination, tout en posant d’importants défis en matière de protection de la vie
 privée, d’éthique, de droit et d’économie.
 
-## Decentralized Social Media
+## Médias sociaux décentralisés
 
-### Challenges of Centralized Social Media
+### Défis des médias sociaux centralisés
 
-* **Data Ownership and Privacy**  
-  Centralized platforms often control user data, leading to privacy concerns and potential misuse.
-* **Frequent Data Breaches**  
-  Frequent data breaches highlight vulnerabilities in centralized data storage.
-* **Content Moderation**  
-  Opaque and inconsistent moderation policies can result in censorship or the spread of misinformation.
-* **Monetization and Exploitation**  
-  Creators may receive minimal compensation, while platforms retain significant profits.
-* **Centralized Power**  
-  A few entities act as gatekeepers, influencing public discourse and user behavior.
+* **Propriété des données et confidentialité**
+  Les plateformes centralisées contrôlent souvent les données des utilisateurs, ce qui soulève des problèmes de confidentialité et d'utilisation abusive potentielle.
+* **Violations fréquentes de données**
+  Les violations fréquentes de données mettent en évidence les vulnérabilités du stockage centralisé des données.
+* **Modération du contenu**
+  Des politiques de modération opaques et incohérentes peuvent entraîner de la censure ou la propagation de désinformation.
+* **Monétisation et exploitation**
+  Les créateurs peuvent recevoir une rémunération minimale, tandis que les plateformes conservent des bénéfices importants.
+* **Pouvoir centralisé**
+  Quelques entités agissent comme gardiens, influençant le discours public et le comportement des utilisateurs.
 
-### Centralized vs. Decentralized Social Media
+### Médias sociaux centralisés vs. décentralisés
 
-Feature | Centralized |Decentralized |
-|-------|-------------|--------------|
-Data Ownership | Platform | User
-Governance | Platform | Community (User)
-Content Moderation | Opaque and inconsistent | Transparent and decentralized (community-driven) |
-Censorship | Single-point control | Resistant / democratic |
-Monetization | Platform | Blockchain incentives |
-Scalability | High | Limited due to technology and adoption |
-Security | Vulnerable to attacks | Immutable and secure |
+| Fonctionnalité | Centralisé | Décentralisé |
+|----------------|------------|--------------|
+| Propriété des données | Plateforme | Utilisateur |
+| Gouvernance | Plateforme | Communauté (Utilisateur) |
+| Modération du contenu | Opaque et incohérente | Transparente et décentralisée (gérée par la communauté) |
+| Censure | Contrôle à point unique | Résistant / démocratique |
+| Monétisation | Plateforme | Incitations blockchain |
+| Évolutivité | Élevée | Limitée en raison de la technologie et de l'adoption |
+| Sécurité | Vulnérable aux attaques | Immuable et sécurisé |
 
-### Challenges of Decentralized Social Media
+### Défis des médias sociaux décentralisés
 
-* **Scalability**  
-  Decentralized networks often struggle to handle the volume and speed of traditional platforms.
-* **User Experience**  
-  Interfaces and functionalities may be less polished compared to centralized counterparts.
-* **Content Moderation**  
-  Effective moderation is complex, potentially leading to the spread of harmful content or misinformation.
-* **Adoption and Network Effects**  
-  Centralized platforms dominate due to large user bases, creating barriers for decentralized alternatives.
-* **Regulatory Uncertainty**  
-  Decentralized platforms often face unclear or restrictive legal frameworks.
+* **Évolutivité**
+  Les réseaux décentralisés ont souvent du mal à gérer le volume et la vitesse des plateformes traditionnelles.
+* **Expérience utilisateur**
+  Les interfaces et les fonctionnalités peuvent être moins abouties par rapport aux équivalents centralisés.
+* **Modération du contenu**
+  Une modération efficace est complexe, pouvant potentiellement conduire à la propagation de contenus nuisibles ou de désinformation.
+* **Adoption et effets de réseau**
+  Les plateformes centralisées dominent en raison de leurs grandes bases d'utilisateurs, créant des barrières pour les alternatives décentralisées.
+* **Incertitude réglementaire**
+  Les plateformes décentralisées font souvent face à des cadres juridiques peu clairs ou restrictifs.
 
-### Examples of decentralized social media
+### Exemples de médias sociaux décentralisés
 
-* **[Mastodon](https://mastodon.social)**  
-  A federated network where users control their servers, promoting community-driven moderation and privacy.
-* **[Bluesky](https://bluesky.social)**  
-  Built upon the AT Protocol, Bluesky aims to create a decentralized foundation for
-public social media, enabling multiple interoperable providers and giving users agency over
-the content they see.
-* **[Secure Scuttlebutt (SSB)](https://ssbjs.org)**  
-  A peer-to-peer communication protocol that allows users to host
-their own content, providing fault tolerance and resistance to censorship.
-* **[Diaspora](https://diasporafoundation.org)**  
-  A decentralized and open-source platform where data is stored on user-owned
-servers (“pods”), giving users control over their information.
-* **[Steemit](https://steemit.com)**  
-  A blockchain-based platform that rewards users with cryptocurrency for content creation and curation, promoting fair monetization.
-* **[Holochain](https://holochain.org)**  
-  A decentralized platform that enables users to create and manage their own data, promoting self-sovereignty and privacy.
+* **[Mastodon](https://mastodon.social)**
+  Un réseau fédéré où les utilisateurs contrôlent leurs serveurs, favorisant une modération communautaire et la confidentialité.
+* **[Bluesky](https://bluesky.social)**
+  Construit sur le protocole AT, Bluesky vise à créer une base décentralisée pour les médias sociaux publics, permettant plusieurs fournisseurs interopérables et donnant aux utilisateurs le contrôle sur le contenu qu'ils voient.
+* **[Secure Scuttlebutt (SSB)](https://ssbjs.org)**
+  Un protocole de communication pair-à-pair qui permet aux utilisateurs d'héberger leur propre contenu, offrant une tolérance aux pannes et une résistance à la censure.
+* **[Diaspora](https://diasporafoundation.org)**
+  Une plateforme décentralisée et open-source où les données sont stockées sur des serveurs appartenant aux utilisateurs (« pods »), donnant aux utilisateurs le contrôle de leurs informations.
+* **[Steemit](https://steemit.com)**
+  Une plateforme basée sur la blockchain qui récompense les utilisateurs avec de la cryptomonnaie pour la création et la curation de contenu, favorisant une monétisation équitable.
+* **[Holochain](https://holochain.org)**
+  Une plateforme décentralisée qui permet aux utilisateurs de créer et de gérer leurs propres données, favorisant la souveraineté personnelle et la confidentialité.
+
+
+### Exemple d'une pile technologique - SocialX
+
+<picture>
+<img alt="Social X est un écosystème pour vos interactions quotidiennes." src="/media/dao_reseaux-sociaux-decentralises_identite-numerique-decentralisee/ecosystem.webp">
+<figcaption>
+<span>Social X est un exemple d'écologie pour vos interactions quotidiennes. <a href="https://socialx.network/ecosystem/">Source</a>.</span>
+</figcaption>
+</picture>
+
+SocialX est une plateforme de médias sociaux basée sur la blockchain qui combine la création de communautés, les récompenses en cryptomonnaie et les interactions sécurisées.
+Sa mission est de donner aux utilisateurs la propriété de leur contenu, de défendre la liberté d'expression et de récompenser les contributeurs pour leur travail créatif.
+En exploitant la technologie blockchain, SocialX vise à décentraliser les réseaux sociaux, transformant la façon dont les gens partagent, interagissent et effectuent des transactions en ligne.
+
+1. L'utilisateur télécharge du contenu
+2. Le contenu est optimisé
+3. IPFS est utilisé pour le stockage du contenu avec [Infura](https://www.infura.io/)
+4. La technologie blockchain est utilisée pour la gestion des données transactionnelles et l'application SocialX
+5. Elle fournit également un réseau P2P pour le calcul et le stockage
+6. Les preuves à divulgation nulle de connaissance sont implémentées pour le chiffrement et la vérification des parties
+
+<picture>
+<img alt="Quand la blockchain rencontre les réseaux sociaux en ligne" src="/media/dao_reseaux-sociaux-decentralises_identite-numerique-decentralisee/when-blockchain-meets-online-social-networks.webp">
+<figcaption>
+<span>Quand la blockchain rencontre les réseaux sociaux en ligne. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1574119220300195">Source</a>.</span>
+</figcaption>
+</picture>
