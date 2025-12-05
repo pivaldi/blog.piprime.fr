@@ -67,3 +67,5 @@ tags:
 | [~~OneKey Classic~~](https://onekey.so/products/onekey-classic-hardware-wallet/) | YES | YES | **HSC32I1** | EAL6+*/EAL 4+ |
 | [~~OneKey Mini~~](https://onekey.so/products/onekey-mini-hardware-wallet/) | YES | YES | **ATECC608A** | outdated chip |
 | [~~OneKey Touch~~](https://onekey.so/products/onekey-touch-hardware-wallet/) | YES | YES | **ATECC608A** | outdated chip |
+
+[Source](https://bitcointalk.org/index.php?topic=5304483.0)
