@@ -763,7 +763,7 @@ privée, d’éthique, de droit et d’économie.
 </figcaption>
 </picture>
 
-SocialX est une plateforme de médias sociaux basée sur la blockchain qui combine la création de communautés, les récompenses en cryptomonnaie et les interactions sécurisées.
+[SocialX](https://socialx.network/) est une plateforme de médias sociaux basée sur la blockchain qui combine la création de communautés, les récompenses en cryptomonnaie et les interactions sécurisées.
 Sa mission est de donner aux utilisateurs la propriété de leur contenu, de défendre la liberté d'expression et de récompenser les contributeurs pour leur travail créatif.
 En exploitant la technologie blockchain, SocialX vise à décentraliser les réseaux sociaux, transformant la façon dont les gens partagent, interagissent et effectuent des transactions en ligne.
 
@@ -780,3 +780,22 @@ En exploitant la technologie blockchain, SocialX vise à décentraliser les rés
 <span>Quand la blockchain rencontre les réseaux sociaux en ligne. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1574119220300195">Source</a>.</span>
 </figcaption>
 </picture>
+
+## Conclusion
+
+* Le SSI offre aux individus un contrôle total sur leur identité numérique, renforçant la confidentialité et la sécurité.
+* La blockchain, les DID et les VC constituent les fondements du SSI, garantissant la décentralisation, la sécurité et l'intégrité des données.
+* Le triangle de confiance (titulaire, émetteur, vérificateur) garantit une gestion d'identité sécurisée et respectueuse de la vie privée.
+* L'ENS simplifie la gestion des adresses blockchain en traduisant les adresses complexes en noms lisibles par l'homme.
+* L'ENS permet une dénomination décentralisée et résistante à la censure et prend en charge la fonctionnalité inter-chaînes.
+* Les systèmes de preuve d'humanité combinent la blockchain et la validation communautaire pour vérifier les identités humaines réelles, réduisant ainsi la fraude et renforçant la confiance.
+* Les DAO combinent les sciences sociales et informatiques avec la blockchain pour créer des structures de gouvernance innovantes.
+* Bien que les DAO promettent autonomie, transparence et décentralisation, elles font face à des défis tels que la centralisation des jetons de gouvernance, les problèmes de confidentialité et les incertitudes juridiques.
+* La recherche explore des solutions en matière de vote sécurisé, de normalisation et de nouveaux modèles économiques pour les DAO.
+* Les DAO agissent également comme des plateformes pour tester des théories en matière de comportement organisationnel, de sciences politiques et d'éthique.
+* Les réseaux sociaux décentralisés donnent aux utilisateurs le contrôle de leurs données, renforçant la confidentialité et résistant à la censure. Ces réseaux utilisent la blockchain pour une gouvernance communautaire et des systèmes de récompense pour les créateurs.
+* Des projets comme Mastodon, Lens Protocol et SocialX montrent le potentiel de décentraliser la propriété du contenu et de promouvoir la liberté d'expression.
+* Des défis comme l'évolutivité, l'adoption par les utilisateurs et la modération restent des obstacles pour les réseaux sociaux décentralisés.
+* Les DAO et les réseaux sociaux décentralisés contribuent à la gouvernance, à l'interaction numérique et à l'inclusivité économique.
+* Pour atteindre leur plein potentiel, ces systèmes doivent équilibrer l'innovation technique avec des considérations éthiques, juridiques et opérationnelles.
+* Les DAO et les réseaux décentralisés jouent un rôle pivot dans la conduite de la prochaine phase de l'économie numérique.
