@@ -29,7 +29,7 @@ Traduction de l'[annonce de GrapheneOS sur Nostr](https://njump.me/nevent1qqsxn3
 Ils nous confondent avec des entreprises vendant des produits fermés/propriétaires utilisant des parties de notre code. Étant donné qu'il est facile de rechercher GrapheneOS en ligne et de lire notre documentation, vous ne pouvez que supposer que **cela est intentionnel*.
 
 Les médias d'État français et les médias d'entreprise publient de nombreux articles attaquant le projet GrapheneOS sur la base de fausses allégations non fondées de la part des forces de l'ordre françaises.  
-Cela s'est même étendu aux médias audiovisuels. Ils ont formulé **une menace claire de saisir nos serveurs et d'arrêter nos développeurs si nous ne coopérons pas en ajoutant des portes dérobées*.
+Cela s'est même étendu aux médias audiovisuels. Ils ont formulé **une menace claire de saisir nos serveurs et d'arrêter nos développeurs si nous ne coopérons pas en ajoutant des portes dérobées**.
 
 **En raison de cela, nous quittons les fournisseurs de services français et nous quitterons/n'opérerons jamais en France.**
 
