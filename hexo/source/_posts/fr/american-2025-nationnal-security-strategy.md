@@ -274,7 +274,7 @@ Prévenir le conflit nécessite une posture vigilante dans l'Indo-Pacifique, une
 
 Les responsables américains se sont habitués à penser aux problèmes européens en termes de dépenses militaires insuffisantes et de stagnation économique. Il y a du vrai là-dedans, mais les vrais problèmes de l'Europe sont encore plus profonds.
 
-L'Europe continentale a perdu des parts du PIB mondial – passant de 25 % en 1990 à 14 % aujourd'hui – en partie à cause de réglementations nationales et transnationales qui sapent la créativité et l'industriosité.
+L'Europe continentale a perdu des parts du PIB mondial – passant de 25 % en 1990 à 14 % aujourd'hui – en partie à cause de réglementations nationales et transnationales qui sapent la créativité et l'activité industrielle.
 
 Mais ce déclin économique est éclipsé par la perspective réelle et plus frappante d'effacement civilisationnel. Les problèmes plus importants auxquels l'Europe est confrontée incluent les activités de l'Union européenne et d'autres organismes transnationaux qui sapent la liberté politique et la souveraineté, les politiques migratoires qui transforment le continent et créent des conflits, la censure de la liberté d'expression et la suppression de l'opposition politique, les taux de natalité en chute libre, et la perte des identités nationales et de la confiance en soi.
 

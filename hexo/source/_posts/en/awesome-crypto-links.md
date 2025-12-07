@@ -144,6 +144,8 @@ digital age for all people through advocacy, research, and litigation.
 
 ### Software
 
+The best software wallet must be open-source, reproducible build, cold storage compatible, lightning compatible, multisig, lightning payments.
+
 #### For Bitcoin
 
 Best choice for Androïd is [Electrum](https://electrum.org/) : 
@@ -159,6 +161,9 @@ Other important web-sites on wallets:
 * [WalletScrutiny](https://walletscrutiny.com/) helps everyday bitcoin users verify whether or not their wallet is truly open-source and secure.
 * [Choose your Bitcoin wallet](https://bitcoin.org/en/choose-your-wallet) on bitcoin.org.
 * [Top 96 lightning-network open source projects](https://gitplanet.com/label/lightning-network).
+* [Mycelium Bitcoin Wallet](https://wallet.mycelium.com/)
+* [Bitcoin Core](https://bitcoincore.org/en/download/)
+* 
 
 ### Best for Monero
 
