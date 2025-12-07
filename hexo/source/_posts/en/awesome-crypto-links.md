@@ -227,6 +227,20 @@ Before choosing a hardware wallet, it is important to consider the [State of Sec
 
 ## NFT
 
+## DAO
+
+- DAO Governed on [Aragon](https://app.aragon.org)..
+  [Tutorial for deploying a DAO on Aragon](https://youtu.be/-cU1ybm1ZDU)
+- DAO Governed on [DAOstack](https://daostack.io/)
+- DAO Governed on [MakerDAO](https://makerdao.com/)
+- DAO Governed on [Compound](https://compound.finance/)
+- DAO Governed on [Uniswap](https://uniswap.org/)
+- DAO Governed on [Gnosis Safe](https://gnosis-safe.io/)
+- DAO Governed on [OpenZeppelin](https://openzeppelin.com/)
+- DAO Governed on [Compound](https://compound.finance/)
+- DAO Governed on [MakerDAO](https://makerdao.com/)
+- DAO Governed on [OpenZeppelin](https://openzeppelin.com/)
+
 ## Discover
 
 * [NFT Beginner’s Guide](https://www.ledger.com/academy/nfts/nft-beginners-guide).
@@ -244,11 +258,13 @@ Before choosing a hardware wallet, it is important to consider the [State of Sec
 
 - [Bitcoiner Jobs](https://bitcoinerjobs.com/) is the leading career site helping to build the
   emerging Bitcoin industry and the careers of Bitcoiners within it.
+- [ZapWork](https://zap-work.com/) is a platform that connects Bitcoiners with job opportunities in the Bitcoin industry.
 
 ## WEB3 Domains
 
 - [Freename](https://freename.com/).
 - [Unstoppable Domain](https://unstoppabledomains.com/).
+- [ENS](https://app.ens.domains/).
 
 ## Formation
 
