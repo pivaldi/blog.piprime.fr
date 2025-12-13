@@ -1,6 +1,6 @@
 ---
 title: "Understand the Decentralized Finance (DeFi)"
-date: 2025-12-97 17:00:00
+date: 2025-12-07 17:00:00
 id: defi-understand
 lang: en
 description: "Decentralized Finance (DeFi) is a collection of decentralized, open-source, peer-to-peer financial services built on blockchain technology."
