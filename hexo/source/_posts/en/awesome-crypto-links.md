@@ -98,6 +98,7 @@ digital age for all people through advocacy, research, and litigation.
 
 ## Buy Monero in Europe
 
+* [The Monero ATM Project](https://atm.monero.is/) : A do-it-yourself automated teller machine that runs free software.
 * [ChangeNOW](https://changenow.io/fr/buy/monero) to buy Monero with Bitcoin.
 * [KYCnot.me](https://kycnot.me/) is a directory of trustworthy alternatives for buying, exchanging,
   trading, and using cryptocurrencies without having to disclose your identity, thus preserving your
@@ -111,6 +112,8 @@ digital age for all people through advocacy, research, and litigation.
 
 * [Mining XMR with the GPU](https://github.com/fireice-uk/xmr-stak).
 * [Tuto Debian pour miner de la Monero avec une GPU NVIDIA](/fr/tuto-debian-pour-miner-de-la-monero-avec-une-gpu-nvidia) in french.
+* [Gupax](https://github.com/gupax-io/gupax) is a GUI for mining Monero on a decentralized pool using P2Pool and XMRig.  
+  See also [Gupaxx](https://github.com/Cyrix126/gupaxx) a fork of Gupax integrating the XMRvsBeast Raffle.
 
 ### Hardware
 
@@ -318,4 +321,9 @@ With strong roots in [academic research](https://bib.gnunet.org/), our goal is t
 A simple standard that defines a scalable architecture of clients and servers that can be used to spread information freely.  
 Not controlled by any corporation or government, anyone can build on Nostr and anyone can use it.
 
-Work in progress #TODO
+- [Nostr Development Kit](https://github.com/nostr-dev-kit/) with outbox-model support.
+- Discover and fund Bitcoin projects worldwide with [Geyser](https://geyser.fund/)
+- The Library of [Alexandria](https://next-alexandria.gitcitadel.eu/)
+- [noStrudel](https://nostrudel.ninja/) is a web app for exploring the nostr protocol.
+- (abandoned)[NostrGit](https://github.com/NostrGit/NostrGit) is a censorship-resistant alternative to GitHub.
+- [gittr.space](https://gittr.space/): Git over Nostr with Bitcoin Incentives
