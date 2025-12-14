@@ -1,7 +1,7 @@
 ---
 title: "NFT : Les Fondamentaux et les Applications"
 date: 2025-12-14
-id: nft-fundamentals-and-applications
+id: nft-les-fondamentaux-et-les-applications
 lang: fr
 description: "Découvrez les NFT et les standards Ethereum, les caractéristiques de la blockchain, les places de marché, l'impact sur l'art et les mécanismes de création."
 categories:
@@ -13,6 +13,10 @@ tags:
 - nft
 - art
 ---
+
+{%note%}
+[his article is also available in English](/en/nft-fundamentals-and-applications/).
+{%endnote%}
 
 {% note warning %}
 Ceci est le résumé d'un cours MOOC

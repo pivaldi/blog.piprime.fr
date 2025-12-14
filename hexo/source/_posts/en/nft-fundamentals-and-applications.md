@@ -14,6 +14,10 @@ tags:
 - art
 ---
 
+{%note%}
+[Cet article est également disponible en français](/fr/nft-les-fondamentaux-et-les-applications/).
+{%endnote%}
+
 {% note warning %}
 This is the summary of a MOOC course
 [Mastering Web3](https://www.unic.ac.cy/mastering-web3-unic-s-brand-new-free-mooc-offering-a-blockchain-verifiable-certificate/)
