@@ -397,6 +397,57 @@ Yuga Labs a fortement mis l'accent sur la fourniture d'utilité aux NFT, amélio
 * **Surveiller les Ventes et les Performances**
   Suivez les données de vente et les mesures de performance pour comprendre la popularité et la valeur de votre NFT au fil du temps.
 
+
+### Création en Lot de NFT
+
+Voici des méthodes solides et largement utilisées pour **créer (minter) des NFT en lot via des API**, regroupées par ce que vous cherchez à optimiser :
+
+#### Fournisseurs d'API de "Minting" clés en main (le plus rapide à déployer)
+
+* **NFTPort (mint en lot ERC-1155 via API)** – dispose d'un point de terminaison dédié pour le **minting en lot personnalisable** pour les contrats "produit" ERC-1155, vous permettant de minter plusieurs jetons en un seul appel (et plusieurs copies par jeton). ([docs.nftport.xyz][1])
+* **Crossmint Mint API (options de garde / sans portefeuille)** – mintez et livrez des NFT à un portefeuille **ou même à une adresse e-mail** (ils peuvent créer un portefeuille pour l'utilisateur). Disponible en tant qu'API REST et également via une intégration QuickNode Marketplace. ([docs.crossmint.com][2])
+* **Venly NFT API (distribution en lot à de nombreux destinataires)** – conçu pour **minter en lot + envoyer** à plusieurs adresses de portefeuille (éventuellement des montants différents par destination). ([Venly][3])
+* **Immutable Minting API (lot + traitement asynchrone)** – prend en charge le **minting en lot** et traite les demandes de manière asynchrone ; les lots peuvent être optimisés pour partager des hachages de transaction afin de réduire les coûts. ([docs.immutable.com][4])
+
+#### Plateformes pour développeurs (vous possédez toujours le contrat, mais les SDK aident beaucoup)
+
+* **thirdweb (métadonnées en lot / modèles de mint en lot)** – fournit des extensions de contrat comme **BatchMintMetadata** (utile pour les drops de style "lot" où les métadonnées sont organisées sous un modèle baseURI/tokenId). Idéal si vous voulez un SDK + des contrats + des tableaux de bord. ([thirdweb docs][5])
+
+#### Stockage + "construisez votre propre API de minting" (contrôle maximal, courant en production)
+
+Ceux-ci ne mintent pas les NFT eux-mêmes, mais ils font généralement partie de tout pipeline de mint en lot :
+
+* **Pinata (téléchargements IPFS via API/SDK)** – méthode fiable pour télécharger en lot des images + métadonnées vers IPFS, puis votre backend minte en lots en utilisant votre contrat. ([docs.pinata.cloud][6])
+* **OpenZeppelin contracts (construisez vos propres fonctions de mint en lot)** – contrats de base standard, audités ; vous implémentez des modèles de minting en lot (souvent ERC-1155 pour un vrai batch, ou des approches ERC-721 optimisées en gaz). ([OpenZeppelin Docs][7])
+
+#### Minting en lot spécifique à la chaîne
+
+* **XRPL (exemple de mint en lot)** – si vous êtes sur XRP Ledger, il existe un flux JS documenté pour le minting en lot de plusieurs NFT. ([xrpl.org][8])
+
+#### Note sur les "API NFT" qui sont principalement pour les données (pas le minting)
+
+* **Alchemy NFT API** et **Moralis NFT API** sont excellentes pour **l'indexation, les requêtes, les métadonnées, la propriété**, etc., mais elles ne sont pas principalement des API de mint en lot "minting-as-a-service" de la même manière que NFTPort/Crossmint/Venly/Immutable. ([Alchemy][9])
+
+#### Top 3 des solutions d'API de minting de NFT en lot sur Ethereum (EVM)
+
+1. **NFTPort (mint en lot ERC-1155 via API REST)**
+  * Meilleur lorsque vous voulez un vrai "batching" (plusieurs jetons / quantités en un seul appel) en utilisant **ERC-1155**.
+  * Dispose d'un point de terminaison dédié **Batch customizable minting (ERC1155)** : "créer plusieurs NFT avec un seul appel API" et "plus d'un du même jeton." ([docs.nftport.xyz][1])
+2. **Venly NFT API (mint en lot + distribution à plusieurs portefeuilles)**
+  Meilleur pour les **lots de style airdrop** où vous mintez et envoyez à **plusieurs adresses de destination** (même des montants différents par portefeuille) en une seule requête. ([Venly][3])
+3. **Crossmint Minting API (mint + livraison, y compris destinataires sans portefeuille/e-mail)**
+    Meilleur lorsque vous avez besoin de **minting + livraison faciles** avec moins de difficultés UX web3 (par exemple, destinataires via adresse de portefeuille ou e-mail, création de portefeuille via API). ([docs.crossmint.com][2])
+
+[1]: https://docs.nftport.xyz/reference/batch-customizable-minting?utm_source=chatgpt.com "Batch customizable minting (ERC1155) - NFTPort Developer Documentation ..."
+[2]: https://docs.crossmint.com/minting/quicknode/api-reference?utm_source=chatgpt.com "QuickNode RPC API Reference - Crossmint Docs"
+[3]: https://docs.venly.io/docs/how-to-batch-mint-nfts-to-multiple-destinations?utm_source=chatgpt.com "Batch Mint NFTs - docs.venly.io"
+[4]: https://docs.immutable.com/build/typescript/usage/minting/minting-api/?utm_source=chatgpt.com "Minting API | Immutable Documentation"
+[5]: https://portal.thirdweb.com/tokens/build/extensions/general/BatchMintMetadata?utm_source=chatgpt.com "BatchMintMetadata | thirdweb contract"
+[6]: https://docs.pinata.cloud/files/uploading-files?utm_source=chatgpt.com "Uploading Files - Pinata Docs"
+[7]: https://docs.openzeppelin.com/contracts/5.x/api/token/erc721?utm_source=chatgpt.com "ERC721 | OpenZeppelin Docs"
+[8]: https://xrpl.org/docs/tutorials/javascript/nfts/batch-mint-nfts?utm_source=chatgpt.com "Batch Mint NFTs Using JavaScript - xrpl.org"
+[9]: https://www.alchemy.com/docs/reference/nft-api-quickstart?utm_source=chatgpt.com "NFT API Quickstart | Alchemy Docs"
+
 ## Conclusion
 
 * Les NFT représentent des actifs numériques uniques sur les blockchains, permettant la propriété d'actifs numériques et physiques.
