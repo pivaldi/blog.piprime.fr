@@ -274,6 +274,10 @@ Before choosing a hardware wallet, it is important to consider the [State of Sec
 - [Unstoppable Domain](https://unstoppabledomains.com/).
 - [ENS](https://app.ens.domains/).
 
+## DeFI
+
+- [The Data Index for the Tokenized Real-World Asset (RWA) market](https://app.rwa.xyz/).
+
 ## Formation
 
 ### Formation in English
