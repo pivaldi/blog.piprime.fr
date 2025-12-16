@@ -461,6 +461,7 @@ Ceux-ci ne mintent pas les NFT eux-mêmes, mais ils font généralement partie d
 
 ## Pour aller plus loin
 
+* [Exploring The Blur Marketplace + Minting an NFT Collection on OpenSea](https://youtu.be/CkLwtLvYvx4?si=piprime)
 * [How Non-Fungible Tokens Work](https://www.investopedia.com/non-fungible-tokens-nft-5115211)
 * [What are NFT profile pictures and why do people use them?](https://cointelegraph.com/learn/what-are-nft-profile-pictures)
 * [What Is Tokenized Real Estate?](https://chain.link/education-hub/tokenized-real-estate)
