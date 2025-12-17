@@ -166,7 +166,6 @@ Other important web-sites on wallets:
 * [Top 96 lightning-network open source projects](https://gitplanet.com/label/lightning-network).
 * [Mycelium Bitcoin Wallet](https://wallet.mycelium.com/)
 * [Bitcoin Core](https://bitcoincore.org/en/download/)
-* 
 
 ### Best for Monero
 
@@ -199,6 +198,11 @@ Before choosing a hardware wallet, it is important to consider the [State of Sec
 
 ## Anonymous Tumblers
 
+{% note warning %}
+These publicly available materials and informations are provided for
+information purposes only and does not constitute a recommendation.
+{% endnote %}
+
 * [Qu'est-ce qu'un Bitcoin tumbler, ou mixeur ?](https://cryptoast.fr/mixer-bitcoin-tumbler-anonymat/) (in french).
 * [A Samourail Fork](https://ashigaru.rs/proof-of-ownership/).
 * [Wasabi Wallet](https://wasabiwallet.io/): the Privacy focused Bitcoin wallet.
@@ -211,8 +215,13 @@ Before choosing a hardware wallet, it is important to consider the [State of Sec
 
 ## Pay in Bitcoin
 
-* [Bitrefill](https://www.bitrefill.com/fr/fr/).
+{% note warning %}
+These publicly available materials and informations are provided for
+information purposes only and does not constitute a recommendation.
+{% endnote %}
 
+* [Bitrefill](https://www.bitrefill.com/fr/fr/).
+* [Xapo Bank](https://www.xapobank.com/en)
 
 ## Exchanges
 
@@ -234,6 +243,26 @@ Before choosing a hardware wallet, it is important to consider the [State of Sec
 * [Advanced crypto library for the Go language](https://github.com/dedis/kyber).
 
 ## NFT
+
+### Market Places
+
+* https://opensea.io/
+* https://og.rarible.com/
+* https://superrare.com/
+* https://blur.io/
+* https://foundation.app/
+  * https://foundation.app/@EricPause
+* https://magiceden.io/
+
+### Art Collection
+
+- https://6529.io/
+
+## Metverse
+
+### Open
+
+- [Decentraland](https://decentraland.org/)
 
 ## DAO
 
