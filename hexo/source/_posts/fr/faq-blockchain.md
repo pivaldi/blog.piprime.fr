@@ -15,6 +15,8 @@ tags:
 - dapps
 ---
 
+This article is available in [English](/en/faq-blockchain).
+
 {% note %}
 Cette FAQ provient du [The Cambridge Blockchain Network Sustainability Index (CBNSI)](https://ccaf.io/cbnsi/about/faq).  
 Ce travail est sous licence [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.fr).
