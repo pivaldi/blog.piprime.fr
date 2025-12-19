@@ -216,12 +216,16 @@ information purposes only and does not constitute a recommendation.
 ## Pay in Bitcoin
 
 {% note warning %}
-These publicly available materials and informations are provided for
-information purposes only and does not constitute a recommendation.
+**These publicly available materials and informations are provided for
+information purposes only and does not constitute a recommendation.**
 {% endnote %}
 
-* [Bitrefill](https://www.bitrefill.com/fr/fr/).
-* [Xapo Bank](https://www.xapobank.com/en)
+* Gift Card
+  * [Bitrefill](https://www.bitrefill.com/fr/fr/)
+  * [GiftOff](https://giftoff.com/)
+* [Xapo Bank](https://www.xapobank.com/en): regulated bank based in Gibraltar and passport they services into the United Kingdom
+* [FREEDOMIA](https://www.freedomia.io/home) : prepaid Visa card.
+* [French Computer Shop PcDuo](https://boutique.pcduo.fr/)
 
 ## Exchanges
 
