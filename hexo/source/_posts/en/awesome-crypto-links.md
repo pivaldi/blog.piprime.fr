@@ -27,6 +27,7 @@ Here my bookmark as a curated list of awesome links related to the cryto world.
 
 ### Learning Resources
 
+* [Bitcoin Fundamentals Review](https://github.com/lnbook/lnbook/blob/develop/appendix_bitcoin_fundamentals_review.asciidoc).
 * [₿ Awesome Crypto Currency Tools & Algorithms](https://github.com/Zheaoli/awesome-coins).
 * [Bitcoin Information & Resources](https://www.lopp.net/bitcoin-information.html).
 * [Plan ₿ Academy](https://github.com/PlanB-Network/bitcoin-educational-content).
