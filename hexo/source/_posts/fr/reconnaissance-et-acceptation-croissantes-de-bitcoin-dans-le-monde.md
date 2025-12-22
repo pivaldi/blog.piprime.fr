@@ -30,7 +30,7 @@ Voici des exemples prouvant la reconnaissance et l’acceptation croissantes de 
 - Des villes comme **Miami** (États-Unis) [^11] ou **Lugano** (Suisse) [^12] encouragent l’utilisation de Bitcoin pour régler certains services publics ou taxes locales.
 
 ## 5. Développement de produits financiers et services liés à Bitcoin
-- Lancement d’ETF Bitcoin Spot aux États-Unis (janvier 2024), marquant la légitimation de Bitcoin comme actif d’investissement. [^1][^2]
+- Lancement d’ETF Bitcoin Spot aux États-Unis (janvier 2024), marquant la légitimation de Bitcoin comme actif d’investissement. [^1] [^2]
 - Croissance rapide du nombre de distributeurs automatiques de bitcoin (Bitcoin ATM) dans le monde entier. [^13]
 
 ## 6. Adoption par le grand public
