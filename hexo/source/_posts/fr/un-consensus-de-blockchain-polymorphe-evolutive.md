@@ -97,7 +97,7 @@ changent.
 
 ### Idée centrale
 
-Exécuter une **chaîne de style Nakamoto pour la disponibilité** + une **superposition de finalité de style BFT pour une finalité rapide**, avec un **mode de repli automatique** lorsque le réseau est stressé ou adversarial. Pensez à "la direction Gasper d'Ethereum" (choix de fork + gadget de finalité) mais rendue explicitement multi-mode et auto-ajustable. ([ethereum.org][1])
+Exécuter une **chaîne de style Nakamoto pour la disponibilité** + une **superposition de finalité de style BFT pour une finalité rapide**, avec un **mode de repli automatique** lorsque le réseau est stressé ou adversarial. Pensez à "la direction Gasper d'Ethereum" (choix de fork + gadget de finalité) mais rendue explicitement multi-mode et auto-ajustable. ([ethereum.org][6])
 
 ## Mode 0 — Mode normal (rapide, faible latence)
 
@@ -105,7 +105,7 @@ Exécuter une **chaîne de style Nakamoto pour la disponibilité** + une **super
 
 **Superposition de finalité (gadget BFT de comité) :**
 * À chaque époque, échantillonner un **comité aléatoire** à partir du stake (basé sur VRF).
-* Le comité exécute un vote BFT en 2–3 étapes pour **finaliser les points de contrôle** (style "gadget de finalité"). Ceci est conceptuellement aligné avec Gasper (Casper-FFG + LMD-GHOST). ([ethereum.org][1])
+* Le comité exécute un vote BFT en 2–3 étapes pour **finaliser les points de contrôle** (style "gadget de finalité"). Ceci est conceptuellement aligné avec Gasper (Casper-FFG + LMD-GHOST). ([ethereum.org][6])
 * Les votes de finalité sont *légers* et agrégables (style BLS), donc le débit normal reste de type chaîne.
 
 **Pourquoi cela fonctionne :** vous obtenez un flux de blocs continu de type Bitcoin + une finalité "plus forte" de type Ethereum lorsque les conditions du réseau sont décentes.
@@ -124,7 +124,7 @@ Déclenché lorsque la chaîne montre des symptômes d'instabilité, par ex. :
 * **Augmenter la taille du comité** (plus de messages, mais meilleure résilience).
 * **Délais d'attente plus longs** pour le vote de finalité afin de retrouver la vivacité sous latence plus élevée.
 
-Ce type d'ajustement est motivé par des analyses montrant que les compromis sécurité/latence dépendent fortement des contraintes réseau/traitement. ([arXiv][2])
+Ce type d'ajustement est motivé par des analyses montrant que les compromis sécurité/latence dépendent fortement des contraintes réseau/traitement. ([arXiv][7])
 
 ## Mode 2 — Mode adversarial (confinement d'attaque)
 
@@ -137,7 +137,7 @@ Deux façons pratiques de faire cela :
 * En mode normal, utiliser un BFT pipeline/avec leader pour la vitesse.
 * En mode adversarial, revenir à un protocole sans leader ou à leader minimisé pour réduire l'effet de levier "attaquer le leader".
   C'est le même *modèle de conception* que les protocoles de basculement automatique explicites dans la littérature
-  (même si de nombreux articles ciblent des environnements de consortium). ([ScienceDirect][3])
+  (même si de nombreux articles ciblent des environnements de consortium). ([ScienceDirect][8])
 
 ### B. Règles de finalité "sécurité d'abord"
 
@@ -166,14 +166,14 @@ participation au vote), et appliquées avec :
 * **verrouillages temporels** (par ex., activer après N époques),
 * **plafonds** (ne peut pas dépasser les limites sûres prouvées/analysées).
 
-C'est exactement le genre d'"analyse d'ajustement" que les chercheurs font sur les systèmes de type Gasper. ([ScienceDirect][4])
+C'est exactement le genre d'"analyse d'ajustement" que les chercheurs font sur les systèmes de type Gasper. ([ScienceDirect][9])
 
 ### B. Reconfiguration dynamique du validateur/comité
 
 Les comités tournent à chaque époque de toute façon, mais le protocole doit assurer des changements d'adhésion sûrs pour la
 *superposition de finalité*.
 Utiliser une méthode de reconfiguration avec preuves de sécurité explicites (la recherche BFT à comité dynamique se concentre sur
-ceci). ([Springer Link][5])
+ceci). ([Springer Link][10])
 
 ### C. Minimisation des hard forks via des "profils de consensus"
 
@@ -194,14 +194,14 @@ Ainsi la gouvernance peut faire évoluer les *capacités*, pendant que la chaîn
 * **Risque de complexité :** le polymorphisme ajoute de la complexité—donc chaque mode doit être formellement spécifié, et
   le changement doit préserver les invariants de sécurité (pas "la moitié du réseau pense que nous sommes en Mode 0").
   Le travail sur "BFT flexible" est un bon rappel que différents modèles/croyances de panne peuvent coexister, mais cela
-  doit être soigneusement conçu. ([arXiv][6])
+  doit être soigneusement conçu. ([arXiv][11])
 
-[1]: https://ethereum.org/developers/docs/consensus-mechanisms/pos/gasper/ "Gasper - ethereum.org"
-[2]: https://arxiv.org/abs/2303.09113v4 "Nakamoto Consensus under Bounded Processing Capacity"
-[3]: https://www.sciencedirect.com/science/article/pii/S209672092400068X "ATBFT-automatically switch consensus protocol - ScienceDirect"
-[4]: https://www.sciencedirect.com/science/article/pii/S0140366425000805 "A stochastic analysis of the Gasper protocol - ScienceDirect"
-[5]: https://link.springer.com/article/10.1007/s12083-025-01934-9 "Efficient dynamic-committee BFT consensus based on HotStuff"
-[6]: https://arxiv.org/pdf/1904.10067 "arXiv:1904.10067v2 [cs.CR] 30 May 2019"
+[6]: https://ethereum.org/developers/docs/consensus-mechanisms/pos/gasper/ "Gasper - ethereum.org"
+[7]: https://arxiv.org/abs/2303.09113v4 "Nakamoto Consensus under Bounded Processing Capacity"
+[8]: https://www.sciencedirect.com/science/article/pii/S209672092400068X "ATBFT-automatically switch consensus protocol - ScienceDirect"
+[9]: https://www.sciencedirect.com/science/article/pii/S0140366425000805 "A stochastic analysis of the Gasper protocol - ScienceDirect"
+[10]: https://link.springer.com/article/10.1007/s12083-025-01934-9 "Efficient dynamic-committee BFT consensus based on HotStuff"
+[11]: https://arxiv.org/pdf/1904.10067 "arXiv:1904.10067v2 [cs.CR] 30 May 2019"
 
 ## MorphPoW-L1 : une L1 PoW sans permission avec *finalité instantanée optimiste*
 
@@ -210,7 +210,7 @@ L'objectif :
 * **Pire cas :** si le chemin rapide est attaqué ou le réseau est désordonné, la chaîne **se replie** sur la sécurité PoW classique (finalité probabiliste), puis récupère automatiquement.
 
 C'est essentiellement le **paradigme Thunderella** (chemin optimiste rapide + repli PoW lent) rendu
-sans permission, avec **adhésion ouverte de style ByzCoin** pour le comité du chemin rapide. ([Springer Link][7])
+sans permission, avec **adhésion ouverte de style ByzCoin** pour le comité du chemin rapide. ([Springer Link][12])
 
 ## Structures de données : deux couches
 
@@ -221,7 +221,7 @@ sans permission, avec **adhésion ouverte de style ByzCoin** pour le comité du 
 * Les keyblocks ancrent le temps, l'aléatoire et l'adhésion.
 
 Découpler l'élection du leader de la sérialisation des transactions est une astuce bien connue (par
-ex., Bitcoin-NG). ([USENIX][8])
+ex., Bitcoin-NG). ([USENIX][13])
 
 ### B. Flux rapide (microblocs / confirmations rapides)
 
@@ -229,7 +229,7 @@ ex., Bitcoin-NG). ([USENIX][8])
 * Les microblocs sont **finalisés instantanément** lorsque le comité rapide les signe (ci-dessous).
 
 Encore une fois, le modèle "keyblocks + microblocs" est utilisé dans les conceptions
-Bitcoin-NG/ByzCoin. ([USENIX][8])
+Bitcoin-NG/ByzCoin. ([USENIX][13])
 
 ## Formation de comité sans permission (pas de stake requis)
 
@@ -246,7 +246,7 @@ Utiliser les **gagnants PoW récents comme parts de comité** :
 C'est essentiellement ce que [ByzCoin](https://github.com/dedis/cothority/blob/main/byzcoin/README.md)
 propose : adhésion ouverte, groupes de consensus proportionnels au hashpower
 formés à partir de mineurs récemment réussis, permettant des commits irréversibles en quelques secondes (lorsque le
-comité est honnête). ([USENIX][9])
+comité est honnête). ([USENIX][14])
 
 ## Modes de consensus polymorphes (le "polymorphe")
 
@@ -256,7 +256,7 @@ comité est honnête). ([USENIX][9])
 * Le comité exécute une étape BFT/signature collective très courte (par ex., 2–3 tours) pour **finaliser** le microbloc.
 * Preuve de finalité = signature agrégée + référence de liste de comité (depuis la fenêtre de keyblock).
 
-C'est le chemin de "confirmation instantanée" optimiste décrit par Thunderella. ([Springer Link][7])
+C'est le chemin de "confirmation instantanée" optimiste décrit par Thunderella. ([Springer Link][12])
 
 ### Mode 1 — **Mode réseau dégradé** (auto-ajustable)
 
@@ -266,7 +266,7 @@ Actions :
 * Ralentir la cadence des microblocs.
 * Nécessiter des seuils "vu-par" plus élevés avant de proposer le prochain microbloc.
 
-Pourquoi : la sécurité/latence réelle dépend fortement des conditions du réseau ; l'ajustement fait partie de l'enveloppe de performance.) ([tselab.stanford.edu][10]
+Pourquoi : la sécurité/latence réelle dépend fortement des conditions du réseau ; l'ajustement fait partie de l'enveloppe de performance. ([tselab.stanford.edu][15])
 
 ### Mode 2 — **Mode PoW de repli** (attaque / partition / mauvais comportement du leader)
 
@@ -274,7 +274,7 @@ Si le chemin rapide se bloque ou équivoque :
 * Les nœuds **ignorent la finalité rapide** et n'acceptent que ce que la **chaîne lente PoW** finit par confirmer.
 * Une fois les conditions stabilisées, retour automatique au Mode 0.
 
-Ce "chemin rapide + repli et récupération via chaîne lente" est le paradigme Thunderella. ([Springer Link][7])
+Ce "chemin rapide + repli et récupération via chaîne lente" est le paradigme Thunderella. ([Springer Link][12])
 
 ## Consensus "évolutif" : adaptation bornée sûre + mises à niveau
 
@@ -299,9 +299,9 @@ Pour des changements plus profonds (nouveau schéma de signature, nouvel échant
 
 ### Avantages
 
-* **Finalité en quelques secondes** dans le cas optimiste (Mode 0). ([Springer Link][7])
-* Toujours **adhésion PoW sans permission** (pas de staking requis). ([arXiv][11])
-* **Repli robuste** vers le consensus Nakamoto lorsque le chemin rapide est attaqué ou le réseau est instable. ([Springer Link][7])
+* **Finalité en quelques secondes** dans le cas optimiste (Mode 0). ([Springer Link][12])
+* Toujours **adhésion PoW sans permission** (pas de staking requis). ([arXiv][16])
+* **Repli robuste** vers le consensus Nakamoto lorsque le chemin rapide est attaqué ou le réseau est instable. ([Springer Link][12])
 
 ### Compromis / risques
 
@@ -309,11 +309,11 @@ Pour des changements plus profonds (nouveau schéma de signature, nouvel échant
 * **Complexité** : le changement de mode doit être *formellement spécifié* pour éviter les divisions "la moitié du réseau pense être en Mode 0".
 * **DoS du leader/accélérateur** : atténué par des règles de remplacement rapide et le repli Mode 2.
 
-[7]: https://link.springer.com/content/pdf/10.1007/978-3-319-78375-8_1.pdf?pdf=inline+link&utm_source=chatgpt.com "Thunderella: Blockchains with Optimistic Instant Confirmation"
-[8]: https://www.usenix.org/system/files/conference/nsdi16/nsdi16-paper-eyal.pdf "Bitcoin-NG: A Scalable Blockchain Protocol - USENIX"
-[9]: https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_kokoris-kogias.pdf "Enhancing Bitcoin Security and Performance with Strong ... - USENIX"
-[10]: https://tselab.stanford.edu/research/blockchains-decentralized-systems/achieving-physical-limits/ "Consensus layer protocols to achieve physical limits"
-[11]: https://arxiv.org/abs/1602.06997 "[1602.06997] Enhancing Bitcoin Security and Performance with Strong ..."
+[12]: https://link.springer.com/content/pdf/10.1007/978-3-319-78375-8_1.pdf?pdf=inline+link&utm_source=chatgpt.com "Thunderella: Blockchains with Optimistic Instant Confirmation"
+[13]: https://www.usenix.org/system/files/conference/nsdi16/nsdi16-paper-eyal.pdf "Bitcoin-NG: A Scalable Blockchain Protocol - USENIX"
+[14]: https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_kokoris-kogias.pdf "Enhancing Bitcoin Security and Performance with Strong ... - USENIX"
+[15]: https://tselab.stanford.edu/research/blockchains-decentralized-systems/achieving-physical-limits/ "Consensus layer protocols to achieve physical limits"
+[16]: https://arxiv.org/abs/1602.06997 "[1602.06997] Enhancing Bitcoin Security and Performance with Strong ..."
 
 ---
 
@@ -342,7 +342,7 @@ Cela compte car la finalité de style BFT veut quelques allers-retours.
 * **Ajustement de difficulté :** recalibrer tous les **N=720 keyblocks (~12h)** (ou votre algo de lissage favori).
 
 > Ce modèle "blocs d'élection de leader séparés vs flux de transactions" est exactement la direction de Bitcoin-NG.
-> ([USENIX][12])
+> ([USENIX][17])
 
 ### Sélection de comité (sans permission, proportionnelle au hashpower)
 
@@ -358,7 +358,7 @@ Cela compte car la finalité de style BFT veut quelques allers-retours.
 
 > L'idée centrale de ByzCoin est *exactement* l'adhésion ouverte avec des groupes de consensus proportionnels au hashpower
 > formés à partir de mineurs récemment réussis, permettant des commits irréversibles en quelques secondes en utilisant
-> la signature collective. ([USENIX][13])
+> la signature collective. ([USENIX][18])
 
 ### Chemin rapide (microblocs + finalité instantanée)
 
@@ -384,7 +384,7 @@ Cela compte car la finalité de style BFT veut quelques allers-retours.
   * **Cible "finalité instantanée" ≈ 1,2–2,5 secondes**
 
 Cela correspond à l'intention de ByzCoin (commit irréversible en quelques secondes via signature collective) et
-au chemin rapide optimiste de Thunderella. ([USENIX][13])
+au chemin rapide optimiste de Thunderella. ([USENIX][18])
 
 ## Seuils de changement de mode (comportement polymorphe)
 
@@ -421,7 +421,7 @@ Actions en Mode 2 :
 
 > Thunderella cadre explicitement ceci comme "chemin asynchrone rapide + repli synchrone lent exécuté
 > seulement si quelque chose va mal", donnant une confirmation instantanée optimiste tout en préservant la robustesse.
-> ([Springer Link][14])
+> ([Springer Link][19])
 
 ## Sémantique de "finalité d'application" recommandée
 
@@ -436,11 +436,11 @@ Donc les applications obtiennent une seule API : "final" est QC-final en temps n
 * **Fenêtre de comité de 24h** rend difficile "l'attaque flash" du comité à moins que l'attaquant
   maintienne un hashpower important assez longtemps.
 * **QC en 2 tours avec ~400 ms de délais d'attente** est cohérent avec le RTT p95 européen et un schéma de signature
-  d'agrégation en arbre (l'approche utilisée dans la ligne de signature collective de ByzCoin). ([USENIX][13])
+  d'agrégation en arbre (l'approche utilisée dans la ligne de signature collective de ByzCoin). ([USENIX][18])
 
-[12]: https://www.usenix.org/system/files/conference/nsdi16/nsdi16-paper-eyal.pdf "Bitcoin-NG: A Scalable Blockchain Protocol - USENIX"
-[13]: https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_kokoris-kogias.pdf "Enhancing Bitcoin Security and Performance with Strong ... - USENIX"
-[14]: https://link.springer.com/content/pdf/10.1007/978-3-319-78375-8_1.pdf?pdf=inline+link&utm_source=chatgpt.com "Thunderella: Blockchains with Optimistic Instant Confirmation"
+[17]: https://www.usenix.org/system/files/conference/nsdi16/nsdi16-paper-eyal.pdf "Bitcoin-NG: A Scalable Blockchain Protocol - USENIX"
+[18]: https://www.usenix.org/system/files/conference/usenixsecurity16/sec16_paper_kokoris-kogias.pdf "Enhancing Bitcoin Security and Performance with Strong ... - USENIX"
+[19]: https://link.springer.com/content/pdf/10.1007/978-3-319-78375-8_1.pdf?pdf=inline+link&utm_source=chatgpt.com "Thunderella: Blockchains with Optimistic Instant Confirmation"
 
 ---
 
