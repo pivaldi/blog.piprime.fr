@@ -14,6 +14,10 @@ tags:
 [This article is available in French](/fr/les-bases-pour-comprendre-bitcoin/)
 {% endnote %}
 
+{% note danger %}
+This article is solely educational and has not been catered to your individual circumstances, and as such, any action or inaction which you may contemplate based on the contents herein should be made in consultation with your personal legal, tax, and financial advisors. Nothing in this article or its associated services constitutes professional or financial advice of any kind (including business, employment, investment advisory, accounting, tax, and/or legal advice). Nothing in this article or its associated services constitutes or forms a part of any offer for sale or subscription of, or any invitation to offer to buy or subscribe for, any securities, nor should it, or any part of it, form the basis of, or be relied upon in connection with, any contract or commitment whatsoever.
+{% endnote %}
+
 When we talk about Bitcoin, it can mean three things:
 
 1. **a computer protocol**;
@@ -115,4 +119,3 @@ The essential characteristics for something to be considered a unit of account a
 [^2]: See [Measuring volatility in finance (Wikipedia)](https://en.wikipedia.org/wiki/Volatility_(finance))
 [^3]: [Bitcoin recognized as a fungible asset - CoinDesk](https://www.coindesk.com/policy/2020/03/06/french-court-recognizes-bitcoin-as-fungible-replaceable-asset/) or, in french, [France: the court considers Bitcoin a fungible intangible asset, just like the euro](https://cryptoast.fr/france-la-justice-considere-le-bitcoin-comme-un-actif-incorporel-fongible-au-meme-titre-que-leuro/)
 [^4]: [How law enforcement tracks and seizes bitcoin - MIT Technology Review](https://www.technologyreview.com/2023/01/23/1067019/crypto-crime-bitcoin-tracing-chainalysis/) or, in French [The FBI tries to prevent North Korean Lazarus hackers from selling $40 million in bitcoins](https://www.usine-digitale.fr/article/le-fbi-tente-d-empecher-la-vente-de-40-millions-de-dollars-de-bitcoins-par-les-hackers-nord-coreens-lazarus.N2162692)
-

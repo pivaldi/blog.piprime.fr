@@ -778,6 +778,7 @@ tidio:
 
 # Note tag (bs-callout)
 note:
+  # See https://github.com/iissnan/hexo-theme-next/pull/1697
   # Note tag style values:
   #  - simple    bs-callout old alert style. Default.
   #  - modern    bs-callout new (v2-v3) alert style.

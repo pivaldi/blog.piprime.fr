@@ -17,6 +17,10 @@ tags:
 
 [This article is available in French](/fr/bitcoin-en-5-mots/)
 
+{% note danger %}
+This article is solely educational and has not been catered to your individual circumstances, and as such, any action or inaction which you may contemplate based on the contents herein should be made in consultation with your personal legal, tax, and financial advisors. Nothing in this article or its associated services constitutes professional or financial advice of any kind (including business, employment, investment advisory, accounting, tax, and/or legal advice). Nothing in this article or its associated services constitutes or forms a part of any offer for sale or subscription of, or any invitation to offer to buy or subscribe for, any securities, nor should it, or any part of it, form the basis of, or be relied upon in connection with, any contract or commitment whatsoever.
+{% endnote %}
+
 This article is based on the statements of
 [Yves Choueifaty](https://fr.linkedin.com/in/yves-choueifaty-849b1b13) in
 [this interview](https://youtu.be/prgRUFtmaY4).
