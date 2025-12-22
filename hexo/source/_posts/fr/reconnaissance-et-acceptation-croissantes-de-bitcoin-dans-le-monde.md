@@ -10,6 +10,14 @@ tags:
 - bitcoin
 ---
 
+{% note danger %}
+Cet article est uniquement éducatif et n'a pas été adapté à votre situation individuelle. Par conséquent, toute action ou inaction que vous pourriez envisager sur la base du contenu du présent document doit être effectuée en consultation avec vos conseillers juridiques, fiscaux et financiers personnels. Rien dans cet article ou ses services associés ne constitue ou ne fait partie d'une offre de vente ou de souscription, ou d'une invitation à acheter ou à souscrire à des services, et ne doit pas non plus constituer la base, ou être invoqué en relation avec un contrat ou un engagement quel qu'il soit.
+{% endnote %}
+
+{%note warning %}
+Les cryptoactifs constituent une classe d’actifs très volatile. La valeur des crypto-actifs peut augmenter comme diminuer et **vous pouvez perdre tout votre investissement**. Lorsqu’ils sont détenus par des dépositaires, les crypto-actifs ne sont souvent pas assurés et ne sont généralement pas couverts par les régimes nationaux d’indemnisation.
+{% endnote %}
+
 Voici des exemples prouvant la reconnaissance et l’acceptation croissantes de Bitcoin dans le monde.
 
 ## 1. Adoption par des institutions financières majeures

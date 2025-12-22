@@ -20,6 +20,10 @@ tags:
 Cet article est basé sur les propos de
 [Yves Choueifaty](https://fr.linkedin.com/in/yves-choueifaty-849b1b13) recueillis dans [cet interview](https://youtu.be/prgRUFtmaY4).
 
+{%note warning %}
+Les cryptoactifs constituent une classe d’actifs très volatile. La valeur des crypto-actifs peut augmenter comme diminuer et **vous pouvez perdre tout votre investissement**. Lorsqu’ils sont détenus par des dépositaires, les crypto-actifs ne sont souvent pas assurés et ne sont généralement pas couverts par les régimes nationaux d’indemnisation.
+{% endnote %}
+
 ## Caractérisations du Bitcoin en 5 mots
 
 Trois mots qui définissent le Bitcoin et qui sont communs aux monnaies fiduciaires.

@@ -25,6 +25,10 @@ Ceci est le résumé d'un cours du MOOC
 suivi à l'[Université de Nicosia](https://www.unic.ac.cy/).
 {% endnote %}
 
+{% note warning %}
+Les cryptoactifs constituent une classe d’actifs très volatile. La valeur des crypto-actifs peut augmenter comme diminuer et **vous pouvez perdre tout votre investissement**. Lorsqu’ils sont détenus par des dépositaires, les crypto-actifs ne sont souvent pas assurés et ne sont généralement pas couverts par les régimes nationaux d’indemnisation.
+{% endnote %}
+
 ## Présentation d'Ethereum
 
 **Ethereum est une plate-forme blockchain décentralisée et open source qui permet réaliser des [contrats intelligents](/fr/comprendre-les-notions-de-smart-contracts-et-de-dapps) et des [applications décentralisées](/fr/comprendre-les-notions-de-smart-contracts-et-de-dapps) (DApps)**.

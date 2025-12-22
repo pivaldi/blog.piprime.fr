@@ -13,6 +13,10 @@ tags:
 - dapps
 ---
 
+{% note warning %}
+Les cryptoactifs constituent une classe d’actifs très volatile. La valeur des crypto-actifs peut augmenter comme diminuer et **vous pouvez perdre tout votre investissement**. Lorsqu’ils sont détenus par des dépositaires, les crypto-actifs ne sont souvent pas assurés et ne sont généralement pas couverts par les régimes nationaux d’indemnisation.
+{% endnote %}
+
 ## Qu'est-ce qu'un smart contract ?
 
 **Les smart contracts sont des programmes auto-exécutables stockés sur une blockchain.**

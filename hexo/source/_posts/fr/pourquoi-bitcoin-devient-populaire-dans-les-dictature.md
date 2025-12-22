@@ -12,6 +12,10 @@ tags:
 - économie
 ---
 
+{%note warning %}
+Les cryptoactifs constituent une classe d’actifs très volatile. La valeur des crypto-actifs peut augmenter comme diminuer et **vous pouvez perdre tout votre investissement**. Lorsqu’ils sont détenus par des dépositaires, les crypto-actifs ne sont souvent pas assurés et ne sont généralement pas couverts par les régimes nationaux d’indemnisation.
+{% endnote %}
+
 {% note %}
 Traduction française de [Untouchable par Human Right Foundation](https://substack.com/@arnaudbertrand/note/c-129143216) de [Gustav Jönsson](https://www.thesgnl.com/author/gustav-jonsson/) et [Farida Nabourema](https://en.wikipedia.org/wiki/Farida_Nabourema).
 {% endnote %}
