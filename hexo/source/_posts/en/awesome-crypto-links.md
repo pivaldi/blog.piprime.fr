@@ -43,6 +43,10 @@ Here my bookmark as a curated list of awesome links related to the cryto world.
 * [The Bitcoin Wiki](https://en.bitcoin.it/wiki/Main_Page).
 * [NFT Beginner's Guide](https://www.ledger.com/academy/nfts/nft-beginners-guide).
 * [Art Blocks](https://www.artblocks.io/) and the [Art Blocks Docs](https://docs.artblocks.io/).
+* [Mastering Ethereum: Building Smart Contracts, Tokens And Dapps](https://masteringethereum.xyz/)
+* [Cyfrin Courses](https://github.com/Cyfrin/foundry-full-course-cu?tab=readme-ov-file): Blockchain
+  Developer, Smart Contract, & Solidity Career Path - Powered By AI - Beginner to Expert Course |
+  Foundry Edition 2024 |
 
 ### Articles
 
@@ -70,6 +74,9 @@ Here my bookmark as a curated list of awesome links related to the cryto world.
   * [Conférence Bitcoin - Kryptosphere Jussieu](https://www.youtube.com/watch?v=3ckNbh5vS54) by Michel Khazzaka.
   * [Esclaves des banques par la dette ? 🏦 Bitcoin comme solution ?](https://www.youtube.com/watch?v=h1-cK_7FNf4)  by Michel Khazzaka.
   * [BITCOIN : Est-il réellement une MONNAIE ?](https://youtu.be/bWqVnHCQVOQ) with Michel Khazzaka.
+* In english
+  * [Setting Up a Multisig Wallet with Safe{Wallet}](https://www.youtube.com/watch?v=90wM83Zs4Jc)
+  * ([Swap crypto tokens on 1inch platform](https://www.youtube.com/watch?v=KfyUINtroB4))
 
 ### Training & Certification
 
@@ -141,6 +148,8 @@ Here my bookmark as a curated list of awesome links related to the cryto world.
 ### dApp Development
 
 * [The Ultimate Ethereum Dapp Tutorial](https://www.dappuniversity.com/articles/the-ultimate-ethereum-dapp-tutorial).
+* [Distributed RPC Service](https://public.blockpi.io/): BlockPI deploys high performance RPC servers all over the world, providing reliable RPC services for Dapps.
+* [The Graph](https://thegraph.com/docs/en/): "The Graph" is a blockchain data solution, analytics, and AI on 80+ chains. The Graph's core products include the Token API for web3 apps, Subgraphs for indexing smart contracts, and Substreams for real-time and historical data streaming.
 
 ## Wallets & Security
 
@@ -299,6 +308,7 @@ information purposes only and does not constitute a recommendation.**
 ### DeFi Platforms
 
 * [The Data Index for the Tokenized Real-World Asset (RWA) market](https://app.rwa.xyz/).
+* [1inch is the self-custodial DeFi ecosystem](https://1inch.com/): Swap crypto tokens at the best rates. ([See a tutorial](https://www.youtube.com/watch?v=KfyUINtroB4))
 
 ### Crypto Fundraising
 
@@ -323,6 +333,7 @@ information purposes only and does not constitute a recommendation.**
 #### NFT Art Collections
 
 - https://6529.io/
+- https://boredapeyachtclub.com/
 
 ### DAOs
 
