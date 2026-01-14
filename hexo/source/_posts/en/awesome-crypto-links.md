@@ -277,7 +277,10 @@ information purposes only and does not constitute a recommendation.
 * [Bitcoin ATM Map](https://coinatmradar.com/): find where to buy or sell bitcoins and other cryptocurrencies for cash.
 * [RetoSwap](https://retoswap.com/): direct exchange (P2P), without intermediaries.
 * [Mexc](https://www.mexc.com/) based in China.
-* [bitpapa](https://bitpapa.com/) based in russe.
+* [bitpapa](https://bitpapa.com/) based in Russia.
+* [Robosats](http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/) accessible only via [tor](https://www.torproject.org/fr/download/).  
+  It is a BTC/FIAT peer-to-peer exchange over lightning. It simplifies matchmaking and minimizes the
+  need of trust. RoboSats focuses in privacy and speed.
 
 ### Trading Platforms
 

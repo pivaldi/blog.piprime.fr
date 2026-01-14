@@ -20,6 +20,7 @@ markdown:
     - markdown-it-sub
     - markdown-it-sup
     - markdown-it-katex
+    # - hexo-codapi
   anchors:
     level: 1
     collisionSuffix: "v"
@@ -41,6 +42,13 @@ markdown_it_plus:
   typographer: true
   quotes: “”‘’
   pre_class: highlight
+  # codapi:
+  #   version: 0.20.0
+  #   default_sandbox: go
+  #   default_editor: full
+  #   js: https://unpkg.com/@antonz/codapi@0.20.0/dist/snippet.js
+  #   css: https://unpkg.com/@antonz/codapi@0.20.0/dist/snippet.css
+  #   priority: 10
 
 # Site
 title: PIPRIME.FR BLOG
@@ -106,11 +114,26 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-highlight:
-  enable: true
+# syntax_highlighter: highlight.js
+# highlight:
+#   enable: true
+#   line_number: true
+#   auto_detect: false
+#   line_threshold: 0
+#   tab_replace: "  "
+#   wrap: true
+#   hljs: false
+#   exclude_languages:
+#     - mermaid
+
+syntax_highlighter: prismjs
+prismjs:
+  preprocess: true
   line_number: true
-  auto_detect: false
-  tab_replace:
+  line_threshold: 0
+  tab_replace: ""
+  exclude_languages:
+    - mermaid
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -258,9 +281,9 @@ vendors:
   instant_search:
 
   # Mermaid
-  # mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
+  mermaid: //cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
   # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js
-  mermaid:
+  # mermaid:
 
   # Internal version: 1.2.1
   # velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js

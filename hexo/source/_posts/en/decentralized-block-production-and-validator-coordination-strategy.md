@@ -6,7 +6,7 @@ lang: en
 description: "High-level strategy for participating in decentralized block production under competitive and evolving network conditions"
 categories:
 - [EN, Tech, Blockchain]
-- [EN, Tech, Cryptographie]
+- [EN, Tech, Cryptography]
 tags:
 - blockchain
 - cryptography
