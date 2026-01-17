@@ -396,20 +396,43 @@ _ = macKey
 **The output of Diffie–Hellman is raw cryptographic material and must be passed through a [key derivation function](https://en.wikipedia.org/wiki/Key_derivation_function) (such as HKDF) to produce uniformly random, context-bound, protocol-safe session keys.**
 {% endnote %}
 
-## Summary
+## The big picture
 
 ```mermaid
-flowchart TB
-    PrivA[ Alice private key ] --> Shared
-    PubB[ Bob public key ] --> Shared
+sequenceDiagram
+    participant Alice
+    participant Network
+    participant Bob
 
-    PrivB[ Bob private key ] --> Shared
-    PubA[ Alice public key ] --> Shared
+    Note over Alice,Bob: Handshake phase (public-key crypto)
 
-    Shared --> SecureComm[ Secure communication ]
+    Alice->>Alice: Generate ephemeral key pair (a, A)
+    Alice->>Network: Send A (ephemeral public key)
+    Network->>Bob: Deliver A
+
+    Bob->>Bob: Generate ephemeral key pair (b, B)
+    Bob->>Network: Send B (ephemeral public key)
+    Network->>Alice: Deliver B
+
+    Alice->>Alice: sharedSecret = ECDH(a, B)
+    Bob->>Bob:   sharedSecret = ECDH(b, A)
+
+    Alice->>Alice: Derive session keys via HKDF
+    Bob->>Bob:   Derive session keys via HKDF
+
+    Note over Alice,Bob: Secure data phase (symmetric crypto)
+
+    Alice->>Alice: Encrypt message with session key
+    Alice->>Network: Encrypted data + MAC
+    Network->>Bob: Encrypted data + MAC
+    Bob->>Bob: Verify + decrypt
 ```
 
 > Diffie–Hellman enables two parties to independently derive the same secret over an insecure network by combining their own private key with the other party’s public key, without ever transmitting the secret itself.
+
+## A Go Messaging Demo Using Derived Symmetric Keys
+
+[pivaldi/twoway-messaging-demo](https://github.com/pivaldi/twoway-messaging-demo?tab=readme-ov-file) is a demonstration of secure two-way encrypted messaging using the [openpcc/twoway](https://github.com/openpcc/twoway) library.
 
 ## Final Notes for Developers
 
