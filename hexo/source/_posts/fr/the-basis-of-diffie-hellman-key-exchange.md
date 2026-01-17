@@ -406,20 +406,44 @@ _ = macKey
 **La sortie de Diffie–Hellman est de la matière cryptographique brute et doit être passée par une [fonction de dérivation de clés](https://en.wikipedia.org/wiki/Key_derivation_function) (telle que HKDF) afin de produire des clés de session uniformément aléatoires, liées au contexte et sûres pour le protocole.**
 {% endnote %}
 
-## Résumé
+## Vue globale
 
 ```mermaid
-flowchart TB
-    PrivA[ Clé privée d’Alice ] --> Shared
-    PubB[ Clé publique de Bob ] --> Shared
+sequenceDiagram
+    participant Alice
+    participant Network
+    participant Bob
 
-    PrivB[ Clé privée de Bob ] --> Shared
-    PubA[ Clé publique d’Alice ] --> Shared
+    Note over Alice,Bob: Phase de prise de contact (crypto à clé publique)
 
-    Shared --> SecureComm[ Communication sécurisée ]
+    Alice->>Alice: "Génére une paire de clés éphémères (a, A)"
+    Alice->>Network: Envoie A (clé publique éphémère)
+    Network->>Bob: Délivre A
+
+    Bob->>Bob: "Génére une paire de clés éphémères (b, B)"
+    Bob->>Network: Envoie B (clé publique éphémère)
+    Network->>Alice: Délivre B
+
+    Alice->>Alice: sharedSecret = ECDH(a, B)
+    Bob->>Bob:   sharedSecret = ECDH(b, A)
+
+    Alice->>Alice: Dérive les clés de session via HKDF
+    Bob->>Bob:   Dérive les clés de session via HKDF
+
+    Note over Alice,Bob: Phase de données sécurisées (crypto symétrique)
+
+    Alice->>Alice: Chiffre le message avec la clé de session
+    Alice->>Network: Chiffre data + MAC
+    Network->>Bob: Chiffre data + MAC
+    Bob->>Bob: Vérifie et déchiffre
 ```
 
-> Diffie–Hellman permet à deux parties de dériver indépendamment le même secret sur un réseau non sécurisé en combinant leur propre clé privée avec la clé publique de l’autre, sans jamais transmettre le secret lui-même.
+> Diffie–Hellman enables two parties to independently derive the same secret over an insecure network by combining their own private key with the other party’s public key, without ever transmitting the secret itself.
+
+## Une démo de messagerie en Go
+
+[pivaldi/twoway-messaging-demo](https://github.com/pivaldi/twoway-messaging-demo?tab=readme-ov-file) est une démonstration de messagerie bidirectionnelle chiffrée et sécurisée à l'aide de la bibliothèque [openpcc/twoway](https://github.com/openpcc/twoway).
+
 
 ## Notes finales pour les développeurs
 
