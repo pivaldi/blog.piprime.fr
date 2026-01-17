@@ -417,11 +417,7 @@ All keys derive from (G).
 
 ### Curve used by Bitcoin
 
-Bitcoin uses:
-
-> **secp256k1**
-
-Equation:
+Bitcoin uses **secp256k1** which has for equation:
 
 $$
 y^2 \equiv x^3 + 7 \pmod p
@@ -455,7 +451,9 @@ $$
 K = kG
 $$
 
-Where (G) is the secp256k1 base point.
+Where (G) is the secp256k1 base point with $G(G_{x},G_{y})$, where ([hexadecimal base](https://en.wikipedia.org/wiki/Hexadecimal)):
+$$G_{x}=79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798$$
+$$G_{y}=483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8$$
 
 ## Bitcoin Diagram
 
