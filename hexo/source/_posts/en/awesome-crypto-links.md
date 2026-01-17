@@ -47,6 +47,8 @@ Here my bookmark as a curated list of awesome links related to the cryto world.
 * [Cyfrin Courses](https://github.com/Cyfrin/foundry-full-course-cu?tab=readme-ov-file): Blockchain
   Developer, Smart Contract, & Solidity Career Path - Powered By AI - Beginner to Expert Course |
   Foundry Edition 2024 |
+* [bellaj/Blockchain](https://github.com/bellaj/Blockchain): Compilation of useful documents and scientific papers about Blockchain & cryptocurrencies.
+* [OpenCourseWare](https://ocw.mit.edu/search/?q=blockchain): courses, materials & teaching resources on blockchain.
 
 ### Articles
 

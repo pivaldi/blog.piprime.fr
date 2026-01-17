@@ -68,9 +68,9 @@ sequenceDiagram
 
 At this point:
 
-* Alice knows `(a, B)`
-* Bob knows `(b, A)`
-* The network (and any attacker) knows `(A, B)`
+* Alice knows $(a, B)$
+* Bob knows $(b, A)$
+* The network (and any attacker) knows $(A, B)$
 
 ## Deriving the Same Secret Independently
 
@@ -88,11 +88,11 @@ flowchart LR
     B_calc --> S2[ Shared Secret S2]
 ```
 
-Mathematically, each computes the shared secret where `G` is a public curve base point:  
-* Alice computes `S₁ = a · B = a · (b · G)`
-* Bob computes `S₂ = b · A = b · (a · G)`
+Mathematically, each computes the shared secret where $G$ is a public curve base point:  
+* Alice computes $S_1 = a \cdot{} B = a \cdot{} (b \cdot{} G)$
+* Bob computes $S_2 = b \cdot{} A = b \cdot{} (a \cdot{} G)$
 
-Because elliptic-curve multiplication is associative: `a · (b · G) = b · (a · G)` so **`S₁ == S₂`**
+Because [elliptic-curve](/en/understanding-elliptic-curves-in-cryptography/) multiplication is associative: $a \cdot{} (b \cdot{} G) = b \cdot{} (a \cdot{} G)$ so **$S_1 = S_2$**
 
 No secret was transmitted.
 The shared secret **emerges independently** on both sides.
@@ -110,10 +110,10 @@ flowchart TB
 
 But the attacker lacks:
 
-* Alice’s private key `a`
-* Bob’s private key `b`
+* Alice’s private key $a$
+* Bob’s private key $b$
 
-Without one of those, computing `a × B` or `b × A` is computationally infeasible.
+Without one of those, computing $a × B$ or $b × A$ is computationally infeasible.
 
 ## Ephemeral Keys and Forward Secrecy
 
