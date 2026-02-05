@@ -13,10 +13,14 @@ tags:
 - tuto
 ---
 
-## Objectif
+Ce tutoriel se propose de présenter [mise](https://mise.jdx.dev/), un outil de
+configuration d'environnement de développement, et d'en survoler les principales capacités et
+usages.
+
+## Objectif de `mise`
 
 **Unifier, accélérer et fiabiliser** la gestion des versions et des outils
-sans scripts maison à-lac, sans forcément passer par Docker et limite les « ça marche chez moi ».
+sans scripts maison à-lac, sans forcément passer par Docker et limiter les « ça marche chez moi ».
 
 ## Les problèmes qu’on rencontre tous
 
