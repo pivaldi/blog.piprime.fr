@@ -188,7 +188,7 @@ The Bridge pattern avoids this by ensuring the bridge contains **only interfaces
 
 ## The Evolution Path
 
-**The beauty of this architecture is its migration path. You don't have to decide your final deployment strategy on Day 1:**
+**The beauty of this architecture is its migration path: you don't have to decide the final deployment strategy on Day 1:**
 
 1.  **Start In-Process:** Deploy a single binary. Services talk via function calls through the Bridge.
 2.  **Add Contracts:** Introduce Protobuf/Connect when you need formal schemas.

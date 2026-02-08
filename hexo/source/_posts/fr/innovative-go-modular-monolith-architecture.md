@@ -31,7 +31,7 @@ Dans les monolithes Go traditionnels, les frontières sont maintenues par conven
 Ce modèle repose sur trois piliers fondamentaux pour fournir des **frontières solides** avec une **distribution flexible**.
 
 ### 1. Go Workspaces (`go.work`)
-Au lieu d'un seul fichier `go.mod` massif, nous traitons chaque service comme un module Go indépendant au sein d'un dépôt unique. Le workspace Go coordonne ces modules, leur permettant de coexister dans un monorepo tout en permettant au compilateur d'empêcher les imports non autorisés entre eux.
+Au lieu d'un seul fichier `go.mod` massif, on traite chaque service comme un module Go indépendant au sein d'un dépôt unique. Le workspace Go coordonne ces modules, leur permettant de coexister dans un monorepo tout en permettant au compilateur d'empêcher les imports non autorisés entre eux.
 
 ### 2. Le pattern "Bridge Module"
 C'est la « recette secrète ». Au lieu que les services s'appellent directement, ils communiquent via un **Module Bridge**.
@@ -188,11 +188,11 @@ Le pattern Bridge évite cela en s'assurant que le bridge ne contient **que des 
 
 ## Le chemin d'évolution
 
-**La beauté de cette architecture réside dans son processus de migration. Vous n'avez pas à décider de votre stratégie de déploiement finale au premier jour :**
+**La beauté de cette architecture réside dans son processus de migration: on n'a pas à décider de la stratégie de déploiement finale au premier jour :**
 
 1.  **Démarrage In-Process :** Déployez un binaire unique. Les services communiquent via des appels de fonctions à travers le Bridge.
-2.  **Ajout de Contrats :** Introduisez Protobuf/Connect lorsque vous avez besoin de schémas formels.
-3.  **Distribution :** Lorsque le `Service A` a besoin de scaler indépendamment, swappez son implémentation bridge de `InprocClient` vers `ConnectClient`. 
+2.  **Ajout de Contrats :** Introduir Protobuf/Connect lorsqu'on a besoin de schémas formels.
+3.  **Distribution :** Lorsque le `Service A` a besoin de scaler indépendamment, swapper son implémentation bridge de `InprocClient` vers `ConnectClient`.
 
 Voici un pseudo-code du **mécanisme de bascule** (ce n'est plus une migration, c'est une simple bascule) définie par configuration et qui démontre la simplicité de sa mise en œuvre :
 
@@ -245,18 +245,17 @@ func main() {
 
  // Démarrage du serveur...
 }
-
 ```
 
 ## Faire respecter les règles
 
-Une architecture n'est efficace que si elle est respectée. Nous recommandons un outil personnalisé — `arch-test` — qui s'exécute dans votre pipeline CI pour garantir que :
+Une architecture n'est efficace que si elle est respectée. On recommande un outil personnalisé — `arch-test` — qui s'exécute dans la pipeline CI pour garantir que :
 
 * Les couches Domaine n'importent pas `net/http`.
 * Les services ne piochent pas dans les dossiers `internal/` des autres.
 * Les modules Bridge restent exempts de dépendances.
 
-Pour plus de détails, référez-vous au [livre blanc](https://github.com/pivaldi/go-modular-monolith-white-paper)…
+Pour plus de détails, se référer au [livre blanc](https://github.com/pivaldi/go-modular-monolith-white-paper)…
 
 ## Conclusion
 
