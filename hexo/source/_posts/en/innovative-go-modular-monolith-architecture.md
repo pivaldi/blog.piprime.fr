@@ -250,7 +250,7 @@ func main() {
 ## Enforcing the Rules
 
 Architecture is only as good as its enforcement. We recommend a custom tool—`arch-test`—that runs in your CI pipeline to ensure:
-* Domain layers don't import `net/http`.
+* Domain layers do not import third-party modules (like `net/htt` for example) or `infra` etc…
 * Services don't reach into each other's `internal/` folders.
 * Bridge modules remain dependency-free.
 

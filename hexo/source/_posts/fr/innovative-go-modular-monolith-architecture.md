@@ -251,8 +251,8 @@ func main() {
 
 Une architecture n'est efficace que si elle est respectée. On recommande un outil personnalisé — `arch-test` — qui s'exécute dans la pipeline CI pour garantir que :
 
-* Les couches Domaine n'importent pas `net/http`.
-* Les services ne piochent pas dans les dossiers `internal/` des autres.
+* Domain layers do not import third-party modules (like `net/htt` for example) or `infra` etc…
+* Les services ne piochent pas dans les dossiers `internal/` des autres avec des `replace` dans les `go.mod`.
 * Les modules Bridge restent exempts de dépendances.
 
 Pour plus de détails, se référer au [livre blanc](https://github.com/pivaldi/go-modular-monolith-white-paper)…
