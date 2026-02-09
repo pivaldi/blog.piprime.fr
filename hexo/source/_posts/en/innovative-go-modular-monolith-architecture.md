@@ -19,7 +19,7 @@ tags:
 
 The choice between a monolith and microservices is often framed as a "pick your poison" scenario. Monoliths are easy to start but often devolve into a "big ball of mud." Microservices offer isolation but introduce a massive operational tax from day one.
 
-In this post, we’ll dive into a middle path detailed in our latest architecture white paper: **[The Go Workspaces Modular Monolith with Bridge Modules](https://github.com/pivaldi/go-modular-monolith-white-paper/blob/master/README_fr.md).**
+In this post, we’ll dive into a middle path detailed in our latest architecture white paper: **[The Go Workspaces Modular Monolith with Bridge Modules](https://github.com/pivaldi/go-modular-monolith-white-paper).**
 
 ## The Problem: Boundary Erosion
 
