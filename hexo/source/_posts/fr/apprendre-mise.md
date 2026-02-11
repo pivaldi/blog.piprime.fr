@@ -5,10 +5,10 @@ id: apprendre-a-utiliser-mise
 lang: fr
 description: "Tutoriel pour apprendre à utiliser Mise, un outil de configuration d'environnement de développement super puissant."
 categories:
-- [FR, Tech, Développement]
+- [FR, Tech, Ingénierie]
 - [FR, Tech, Tuto]
 tags:
-- développement
+- ingénierie
 - dev
 - tuto
 ---
