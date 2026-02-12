@@ -956,13 +956,16 @@ vendors:
   internal: local
   # The default CDN provider of third-party plugins.
   # Available values: local | jsdelivr | unpkg | cdnjs | custom
-  # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: cdnjs
+  # Using local with fixed @next-theme/plugins from github:pivaldi/next-theme-plugins
+  plugins: local
   # Custom CDN URL
   # For example:
   # custom_cdn_url: https://cdn.jsdelivr.net/npm/${npm_name}@${version}/${minified}
   # custom_cdn_url: https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${cdnjs_file}
   custom_cdn_url:
+
+  # Custom vendor paths removed - using @next-theme/plugins auto-generation
+  # All vendors are automatically copied to /lib/ with correct integrity hashes
 
 # Assets
 # Accelerate delivery of static files using a CDN
