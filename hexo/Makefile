@@ -7,6 +7,7 @@ all: deploy
 
 .PHONY: deploy
 deploy: install
+	$(HEXO) clean
 	$(HEXO) generate --deploy
 
 .PHONY: dev
