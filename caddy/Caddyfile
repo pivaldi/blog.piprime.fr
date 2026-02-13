@@ -3,6 +3,25 @@
 	# Set this path to your site's directory.
 	root * /srv/
 
+	# Vendor assets (/lib/) are versioned by npm package — cache 1 year, immutable.
+	@vendor {
+		path /lib/*
+	}
+	header @vendor Cache-Control "public, max-age=31536000, immutable"
+
+	# Fonts outside /lib/ (e.g. /fonts/) — also immutable.
+	@fonts {
+		path_regexp \.(woff2?|ttf|eot|otf)$
+	}
+	header @fonts Cache-Control "public, max-age=31536000, immutable"
+
+	# Other static assets (blog CSS, JS, images) — 1 week, revalidatable.
+	@assets {
+		path_regexp \.(css|js|ico|png|jpe?g|gif|svg|webp)$
+		not path /lib/*
+	}
+	header @assets Cache-Control "public, max-age=604800"
+
 	# Enable the static file server.
 	file_server
 	encode
