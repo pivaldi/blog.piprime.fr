@@ -10,6 +10,12 @@ cache:
 # Remove unnecessary files after hexo generate.
 minify: true
 
+# Performance optimization
+performance:
+  # Lazy-load non-critical CSS (FontAwesome, Fancybox, KaTeX)
+  # This improves Lighthouse scores by making these CSS files non-render-blocking
+  lazy_css: true
+
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
@@ -895,7 +901,7 @@ quicklink:
 # Use velocity to animate everything.
 # For more information: http://velocityjs.org
 motion:
-  enable: true
+  enable: false
   async: true
   transition:
     # Transition variants:
