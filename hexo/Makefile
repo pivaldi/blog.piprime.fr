@@ -19,7 +19,7 @@ clean:
 
 .PHONY: install
 install:
-	npm install
+	npm ci
 
 .PHONY: update
 update:
