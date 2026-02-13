@@ -1,4 +1,4 @@
-FROM node:bookworm AS builder
+FROM node:24-bookworm AS builder
 
 SHELL ["/bin/bash", "-c"]
 
