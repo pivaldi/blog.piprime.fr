@@ -38,10 +38,6 @@ figcaption span.src {
   margin: auto
 }
 
-div.lg-backdrop.in {
-background-color: #efefef; !important
-}
-
 /* admonition */
 @charset "UTF-8";
 .admonition > .admonition-title::before {
