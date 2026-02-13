@@ -469,7 +469,7 @@ font:
     family: Inconsolata
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
-  host: https:://api.fonts.coollabs.io
+  host: https://api.fonts.coollabs.io
 
   # Font options:
   # `external: true` will load this font family from `host` above.
