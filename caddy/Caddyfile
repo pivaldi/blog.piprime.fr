@@ -3,6 +3,30 @@
 	# Set this path to your site's directory.
 	root * /srv/
 
+	# Security Headers
+	header {
+		# HSTS: Force HTTPS for 2 years, include subdomains
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+		# X-Frame-Options: Prevent clickjacking
+		X-Frame-Options "SAMEORIGIN"
+
+		# X-Content-Type-Options: Prevent MIME type sniffing
+		X-Content-Type-Options "nosniff"
+
+		# Referrer-Policy: Control referrer information
+		Referrer-Policy "strict-origin-when-cross-origin"
+
+		# Permissions-Policy: Disable unnecessary browser features
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+		# Content-Security-Policy: Strict policy - local resources only
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; object-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+
+		# Remove Server header for security
+		-Server
+	}
+
 	# Vendor assets (/lib/) are versioned by npm package — cache 1 year, immutable.
 	@vendor {
 		path /lib/*
