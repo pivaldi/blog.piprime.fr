@@ -14,8 +14,8 @@
 		# X-Content-Type-Options: Prevent MIME type sniffing
 		X-Content-Type-Options "nosniff"
 
-		# Referrer-Policy: Control referrer information
-		Referrer-Policy "strict-origin-when-cross-origin"
+		# Referrer-Policy: Control referrer information (strict-origin for better privacy)
+		Referrer-Policy "strict-origin"
 
 		# Permissions-Policy: Disable unnecessary browser features
 		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
