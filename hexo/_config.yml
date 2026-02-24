@@ -96,6 +96,9 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - "lib/**"
+  - "_asset/**"
+include:
+  - "_asset/**"
 
 # Writing
 new_post_name: :lang/:title.md

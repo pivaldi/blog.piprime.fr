@@ -144,6 +144,46 @@ Posts use YAML front matter with fields like:
 - Reference in markdown using `/media/{post-slug}/{filename}`
 - Images support lazy loading via lozad.js
 
+## Tree Visualization
+
+Posts can opt-in to tree-like visual styling with hierarchical connecting lines.
+
+### Enabling Tree Visualization
+
+Add to post front matter:
+```yaml
+tree_view: true
+```
+
+### How It Works
+
+- **Hexo filter**: `hexo/scripts/ascii-tree-filter.js` processes HTML after rendering
+- **CSS**: Tree visualization styles are in `hexo/source/_asset/styles.css`
+- **Classes**: Script adds `tree-root`, `tree-node`, `depth-N`, `is-last`, `trunk-N`
+- **Code containers**: Pre blocks and Mermaid diagrams inherit parent tree styling
+
+### Class Meanings
+
+- `tree-root`: H1 elements (depth-0)
+- `tree-node`: All other elements
+- `depth-N`: Hierarchical depth (H2=depth-1, content under H2=depth-2, etc.)
+- `is-last`: Last sibling before returning to shallower depth
+- `trunk-N`: Vertical bypass lines from ancestor sections
+
+### Visual Behavior
+
+- **depth-0 and depth-1** (H1 and H2): No indentation or left border
+- **depth-2+** (H3+ and their content): Progressive indentation with vertical connecting lines
+- **Vertical lines only**: No horizontal segments, only vertical lines connecting hierarchy
+
+### Customization
+
+Edit CSS variables at the top of the tree visualization section in `hexo/source/_asset/styles.css`:
+- `--tree-step`: Indentation width (default: 1.5rem)
+- `--tree-line-color`: Line color (default: rgba(128, 128, 128, 0.4))
+- `--tree-line-width`: Line thickness (default: 2px)
+- `--tree-font-family`: Font family (default: inherit)
+
 ## Important Notes
 
 - The NexT theme is a git submodule - use `git submodule update --init` to initialize

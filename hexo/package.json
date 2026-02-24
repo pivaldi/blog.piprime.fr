@@ -14,6 +14,7 @@
     "@next-theme/plugins": "github:pivaldi/next-theme-plugins",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
+    "cheerio": "^1.2.0",
     "hexo": "^8.1.1",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",

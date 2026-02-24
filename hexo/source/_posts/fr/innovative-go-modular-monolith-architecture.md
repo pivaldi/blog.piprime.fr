@@ -4,6 +4,7 @@ description: "Découvrez le Monolithe Modulaire avec Go Workspaces, un modèle q
 date: 2026-02-07 23:13:18
 id: innovative-go-modular-monolith-architecture
 lang: fr
+tree_view: true
 categories:
 - [FR, Tech, Engineering]
 tags:

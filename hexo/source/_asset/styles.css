@@ -1,3 +1,335 @@
+/* Tree Visualization Styles */
+/* Add to posts with tree_view: true front matter */
+
+.post-body {
+  /* Tree Configuration */
+  --tree-step: 1rem;
+  --tree-line-color: rgba(238, 238, 238, 0.4);
+  --tree-line-width: 1px;
+  --tree-font-family: inherit;
+}
+
+/* Base Node Styling */
+.tree-root,
+.tree-node {
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+  position: relative;
+  list-style: none;
+  font-family: var(--tree-font-family);
+}
+
+/* --- INDENTATION --- */
+/* depth-0 and depth-1: No indentation */
+.depth-0,
+.depth-1 {
+  padding-left: 0.5rem !important;
+}
+
+/* depth-2 and beyond: Progressive indentation */
+.depth-2 {
+  padding-left: calc(var(--tree-step) * 1 + 0.5rem) !important;
+}
+
+.depth-3 {
+  padding-left: calc(var(--tree-step) * 2 + 0.5rem) !important;
+}
+
+.depth-4 {
+  padding-left: calc(var(--tree-step) * 3 + 0.5rem) !important;
+}
+
+.depth-5 {
+  padding-left: calc(var(--tree-step) * 4 + 0.5rem) !important;
+}
+
+.depth-6 {
+  padding-left: calc(var(--tree-step) * 5 + 0.5rem) !important;
+}
+
+/* --- VERTICAL LINES --- */
+/* depth-2: line at left edge (position 0) */
+.tree-node.depth-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+}
+
+/* depth-3+: line at their depth position, PLUS trunk lines for shallower depths */
+.tree-node.depth-3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 1);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+}
+
+.tree-node.depth-4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 2);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+}
+
+.tree-node.depth-5::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 3);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+}
+
+.tree-node.depth-6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 4);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+}
+
+/* /\* Last Node - Vertical line stops at middle *\/ */
+/* .tree-node.is-last::before { */
+/*   bottom: calc(100% - 0.5rem - 0.7em); */
+/* } */
+
+/* --- TRUNK BYPASS LINES (using ::after for each trunk) --- */
+/* trunk-0: line at position 0 (depth-2 column) */
+.tree-node.trunk-0::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+/* Multiple trunk lines - need to use background gradients with proper specificity */
+.tree-node.depth-3.trunk-0,
+.tree-node.depth-4.trunk-0,
+.tree-node.depth-5.trunk-0,
+.tree-node.depth-6.trunk-0 {
+  background-image: linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  background-size: var(--tree-line-width) 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+/* For elements with multiple trunks, add more gradients */
+.tree-node.depth-4.trunk-0.trunk-1,
+.tree-node.depth-5.trunk-0.trunk-1,
+.tree-node.depth-6.trunk-0.trunk-1 {
+  background-image:
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  background-position:
+    0 0,
+    calc(var(--tree-step) * 1) 0;
+}
+
+.tree-node.depth-5.trunk-0.trunk-1.trunk-2,
+.tree-node.depth-6.trunk-0.trunk-1.trunk-2 {
+  background-image:
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  background-position:
+    0 0,
+    calc(var(--tree-step) * 1) 0,
+    calc(var(--tree-step) * 2) 0;
+}
+
+.tree-node.depth-6.trunk-0.trunk-1.trunk-2.trunk-3 {
+  background-image:
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  background-position:
+    0 0,
+    calc(var(--tree-step) * 1) 0,
+    calc(var(--tree-step) * 2) 0,
+    calc(var(--tree-step) * 3) 0;
+}
+
+/* --- TREE ROOT STYLING --- */
+.tree-root {
+  font-weight: bold;
+}
+
+/* Optional: Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .post-body {
+    --tree-line-color: rgba(200, 200, 200, 0.3);
+  }
+}
+
+/* Code containers (not processed by filter, need special handling) */
+.tree-node + .code-container {
+  position: relative;
+  margin: 0 !important;
+  padding: 0.5rem 0 !important;
+  background-color: var(--content-bg-color, #fff);
+  z-index: 1;
+}
+
+/* Inherit indentation from previous tree-node sibling */
+.tree-node.depth-2 + .code-container {
+  padding-left: calc(var(--tree-step) * 1 + 0.5rem) !important;
+}
+
+.tree-node.depth-3 + .code-container {
+  padding-left: calc(var(--tree-step) * 2 + 0.5rem) !important;
+}
+
+.tree-node.depth-4 + .code-container {
+  padding-left: calc(var(--tree-step) * 3 + 0.5rem) !important;
+}
+
+.tree-node.depth-5 + .code-container {
+  padding-left: calc(var(--tree-step) * 4 + 0.5rem) !important;
+}
+
+.tree-node.depth-6 + .code-container {
+  padding-left: calc(var(--tree-step) * 5 + 0.5rem) !important;
+}
+
+/* Add vertical line on the code-container itself */
+.tree-node.depth-2 + .code-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+.tree-node.depth-3 + .code-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 1);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+.tree-node.depth-4 + .code-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 2);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+.tree-node.depth-5 + .code-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 3);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+.tree-node.depth-6 + .code-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--tree-step) * 4);
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+/* Add trunk lines to code containers using ::after */
+.tree-node.depth-3.trunk-0 + .code-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--tree-line-width);
+  background-color: var(--tree-line-color);
+  z-index: -1;
+}
+
+.tree-node.depth-4.trunk-0 + .code-container::after,
+.tree-node.depth-4.trunk-1 + .code-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  background-size: var(--tree-line-width) 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.tree-node.depth-4.trunk-0 + .code-container::after {
+  left: 0;
+  width: var(--tree-line-width);
+}
+
+.tree-node.depth-4.trunk-0.trunk-1 + .code-container::after {
+  left: 0;
+  width: calc(var(--tree-step) * 2);
+  background-image:
+    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
+    linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  background-position:
+    0 0,
+    calc(var(--tree-step) * 1) 0;
+}
+
+/* Remove tree styling from pre elements inside code-containers */
+/* The code-container handles the tree visualization, not the pre itself */
+.code-container pre.tree-node,
+.code-container .mermaid.tree-node {
+  padding-left: 1rem !important;
+  background-image: none !important;
+  /* background: none !important; */
+}
+
+.code-container pre.tree-node::before,
+.code-container pre.tree-node::after,
+.code-container .mermaid.tree-node::before,
+.code-container .mermaid.tree-node::after {
+  display: none !important;
+}
+
+/* Reset any other borders on inner elements */
+.code-container pre,
+.code-container .mermaid {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  margin: 0 !important;
+  position: relative;
+}
+
 body p {
   line-height: 1.5;
 }
@@ -35,7 +367,7 @@ figcaption span.src {
 }
 
 .post-body figure.image-caption figcaption {
-  margin: auto
+  margin: auto;
 }
 
 /* admonition */
@@ -513,11 +845,11 @@ pre.asymptote .il {
 } /* Literal.Number.Integer.Long */
 
 div.inner-footer {
-   display: flex;
-   height: 100px;
-   background-color: #eeeeee;
-   font-size: 10pt;
-   width: 100%;
+  display: flex;
+  height: 100px;
+  background-color: #eeeeee;
+  font-size: 10pt;
+  width: 100%;
 }
 
 div.inner-footer p {
