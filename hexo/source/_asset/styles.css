@@ -2,185 +2,137 @@
 /* Add to posts with tree_view: true front matter */
 
 .post-body {
-  /* Tree Configuration */
-  --tree-step: 1.5rem;
-  --tree-line-color: rgba(128, 128, 128, 0.4);
+  --tree-step: 1rem;
+  --tree-line-color: rgba(238, 238, 238, 0.7);
   --tree-line-width: 2px;
-  --tree-font-family: inherit;
 }
 
-/* Base Node Styling */
+/* Base Spacing */
 .tree-root,
-.tree-node {
+.tree-node,
+.tree-content {
   margin: 0 !important;
   padding: 0.5rem 0 !important;
   position: relative;
   list-style: none;
-  font-family: var(--tree-font-family);
 }
 
-/* --- INDENTATION --- */
-/* depth-0 and depth-1: No indentation */
-.depth-0,
+/* --- INDENTATIONS --- */
+/* Depth 1 (H2) is now flush left with no extra padding */
 .depth-1 {
-  padding-left: 0.5rem !important;
+  padding-left: 0 !important;
 }
 
-/* depth-2 and beyond: Progressive indentation */
+/* Everything else shifts left by 1 step */
 .depth-2 {
   padding-left: calc(var(--tree-step) * 1 + 0.5rem) !important;
 }
-
 .depth-3 {
   padding-left: calc(var(--tree-step) * 2 + 0.5rem) !important;
 }
-
 .depth-4 {
   padding-left: calc(var(--tree-step) * 3 + 0.5rem) !important;
 }
-
 .depth-5 {
   padding-left: calc(var(--tree-step) * 4 + 0.5rem) !important;
 }
-
 .depth-6 {
   padding-left: calc(var(--tree-step) * 5 + 0.5rem) !important;
 }
 
-/* --- VERTICAL LINES --- */
-/* depth-2: line at left edge (position 0) */
-.tree-node.depth-2::before {
+/* Branch start coordinates (Shifted left by 1) */
+.depth-2 {
+  --col: calc(var(--tree-step) * 0);
+}
+.depth-3 {
+  --col: calc(var(--tree-step) * 1);
+}
+.depth-4 {
+  --col: calc(var(--tree-step) * 2);
+}
+.depth-5 {
+  --col: calc(var(--tree-step) * 3);
+}
+.depth-6 {
+  --col: calc(var(--tree-step) * 4);
+}
+
+/* --- RULE A: Branches (ONLY for Headings at Depth 2+ / H3+) --- */
+/* The :not(.depth-1) ensures H2s never draw horizontal ├── branches */
+.tree-node:not(.depth-1)::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: var(--col);
   width: var(--tree-line-width);
   background-color: var(--tree-line-color);
 }
-
-/* depth-3+: line at their depth position, PLUS trunk lines for shallower depths */
-.tree-node.depth-3::before {
+.tree-node:not(.depth-1)::after {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 1);
-  width: var(--tree-line-width);
+  top: calc(0.5rem + 0.7em);
+  left: var(--col);
+  width: var(--tree-step);
+  height: var(--tree-line-width);
   background-color: var(--tree-line-color);
 }
-
-.tree-node.depth-4::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 2);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
+.tree-node.is-last:not(.depth-1)::before {
+  bottom: calc(100% - 0.5rem - 0.7em);
 }
 
-.tree-node.depth-5::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 3);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-}
-
-.tree-node.depth-6::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 4);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-}
-
-/* /\* Last Node - Vertical line stops at middle *\/ */
-/* .tree-node.is-last::before { */
-/*   bottom: calc(100% - 0.5rem - 0.7em); */
-/* } */
-
-/* --- TRUNK BYPASS LINES (using ::after for each trunk) --- */
-/* trunk-0: line at position 0 (depth-2 column) */
-.tree-node.trunk-0::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-/* Multiple trunk lines - need to use background gradients with proper specificity */
-.tree-node.depth-3.trunk-0,
-.tree-node.depth-4.trunk-0,
-.tree-node.depth-5.trunk-0,
-.tree-node.depth-6.trunk-0 {
-  background-image: linear-gradient(var(--tree-line-color), var(--tree-line-color));
+/* --- RULE B: Vertical Trunks (For BOTH Headings and Content) --- */
+/* We drop trunk-0 (H1) entirely, and start drawing at trunk-1 (H2) */
+.tree-node,
+.tree-content {
+  --t1: transparent;
+  --t2: transparent;
+  --t3: transparent;
+  --t4: transparent;
+  --t5: transparent;
+  background-image:
+    linear-gradient(var(--t1), var(--t1)), linear-gradient(var(--t2), var(--t2)),
+    linear-gradient(var(--t3), var(--t3)), linear-gradient(var(--t4), var(--t4)),
+    linear-gradient(var(--t5), var(--t5));
   background-size: var(--tree-line-width) 100%;
   background-repeat: no-repeat;
-  background-position: 0 0;
-}
 
-/* For elements with multiple trunks, add more gradients */
-.tree-node.depth-4.trunk-0.trunk-1,
-.tree-node.depth-5.trunk-0.trunk-1,
-.tree-node.depth-6.trunk-0.trunk-1 {
-  background-image:
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color));
+  /* Background gradients shift left to start at 0 */
   background-position:
-    0 0,
-    calc(var(--tree-step) * 1) 0;
-}
-
-.tree-node.depth-5.trunk-0.trunk-1.trunk-2,
-.tree-node.depth-6.trunk-0.trunk-1.trunk-2 {
-  background-image:
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color));
-  background-position:
-    0 0,
-    calc(var(--tree-step) * 1) 0,
-    calc(var(--tree-step) * 2) 0;
-}
-
-.tree-node.depth-6.trunk-0.trunk-1.trunk-2.trunk-3 {
-  background-image:
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color));
-  background-position:
-    0 0,
+    calc(var(--tree-step) * 0) 0,
     calc(var(--tree-step) * 1) 0,
     calc(var(--tree-step) * 2) 0,
-    calc(var(--tree-step) * 3) 0;
+    calc(var(--tree-step) * 3) 0,
+    calc(var(--tree-step) * 4) 0;
 }
 
-/* --- TREE ROOT STYLING --- */
-.tree-root {
-  font-weight: bold;
+/* Activate the lines! (trunk-1 drops from H2, trunk-2 from H3, etc.) */
+.trunk-1 {
+  --t1: var(--tree-line-color);
+}
+.trunk-2 {
+  --t2: var(--tree-line-color);
+}
+.trunk-3 {
+  --t3: var(--tree-line-color);
+}
+.trunk-4 {
+  --t4: var(--tree-line-color);
+}
+.trunk-5 {
+  --t5: var(--tree-line-color);
 }
 
-/* Optional: Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .post-body {
-    --tree-line-color: rgba(200, 200, 200, 0.3);
-  }
+.post-body h1.tree-node,
+.post-body h2.tree-node,
+.post-body h3.tree-node,
+.post-body h4.tree-node,
+.post-body h5.tree-node,
+.post-body h6.tree-node {
+  border-bottom: none;
 }
 
-
-/* With hierarchical wrapper structure, content elements (notes, code, blockquotes)
-   inherit indentation naturally from their tree-node wrapper div - no special handling needed */
+/* ==================================================================================================== */
 
 body p {
   line-height: 1.5;
