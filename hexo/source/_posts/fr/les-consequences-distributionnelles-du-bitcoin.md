@@ -2,6 +2,7 @@
 title: Les conséquences distributionnelles du bitcoin
 date: 2025-08-09 21:25:32
 id: les-consequences-distributionnelles-du-bitcoin
+tree_view: true
 lang: fr
 description: Contrepoint sur un document produit par la banque centrale Européenne qui tente de prouver que le Bitcoin n'est qu'une bulle spéculative, sans utilité et sans création de richesse.
 categories:

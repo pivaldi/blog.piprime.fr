@@ -2,6 +2,7 @@
 title: Le goût de la maîtrise
 date: 2025-07-29 23:19:18
 id: le-gout-de-la-maîtrise
+tree_view: true
 lang: fr
 description: "Le goût pour la maîtrise n’est pas qu’une préférence personnelle : c’est une structure psychologique, parfois valorisée comme une force de volonté, parfois perçue comme un mécanisme défensif."
 categories:

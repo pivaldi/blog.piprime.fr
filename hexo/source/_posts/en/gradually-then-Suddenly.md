@@ -2,6 +2,7 @@
 title: Gradually then suddenly
 date: 2025-07-01 23:00:00
 id: gradually-then-suddenly
+tree_view: true
 lang: en
 description: "Gradually, then suddenly: a framework for understanding bitcoin as money."
 categories:

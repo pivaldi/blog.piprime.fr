@@ -2,6 +2,7 @@
 title: "Stratégie de production de blocs décentralisée et de coordination de validation"
 date: 2025-12-19 19:40:04
 id: strategie-de-production-de-blocs-decentralisee-et-de-coordination-de-validation
+tree_view: true
 lang: fr
 description: "Stratégie de haut niveau pour participer à la production de blocs décentralisée dans des conditions réseau compétitives et évolutives"
 categories:

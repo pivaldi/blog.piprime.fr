@@ -2,6 +2,7 @@
 title: "Awesome Crypto Links"
 date: 2025-11-12 21:19:26
 id: awesome-crypto-links
+tree_view: true
 lang: en
 description: "A curated list of awesome links related to the cryto world."
 categories:

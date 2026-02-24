@@ -2,6 +2,7 @@
 title: Progressivement puis soudainement
 date: 2025-07-01 23:00:00
 id: progressivement-puis-soudainement
+tree_view: true
 lang: fr
 description: "Progressivement, puis soudainement : un cadre pour comprendre le bitcoin comme argent."
 categories:

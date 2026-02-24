@@ -2,6 +2,7 @@
 title: The Risks of Hyperinflation
 date: 2025-07-09 12:14:00
 id: the-risks-of-hyperinflation
+tree_view: true
 lang: en
 description: "Hyperinflation, an extreme form of inflation, leads to severe economic, social, and political consequences."
 categories:

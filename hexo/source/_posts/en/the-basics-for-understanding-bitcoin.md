@@ -2,6 +2,7 @@
 title: The Basics for Understanding Bitcoin
 date: 2025-07-09 00:23:25
 id: the-basics-for-understanding-bitcoin
+tree_view: true
 lang: en
 description: "Gradually, then suddenly: a framework for understanding bitcoin as money."
 categories:

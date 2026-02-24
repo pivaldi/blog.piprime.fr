@@ -2,6 +2,7 @@
 title: "Apprendre à utiliser Mise"
 date: 2026-02-03 19:04:22
 id: apprendre-a-utiliser-mise
+tree_view: true
 lang: fr
 description: "Tutoriel pour apprendre à utiliser Mise, un outil de configuration d'environnement de développement super puissant."
 categories:

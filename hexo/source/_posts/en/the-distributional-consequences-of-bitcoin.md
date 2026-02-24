@@ -2,6 +2,7 @@
 title: The Distributional Consequences of Bitcoin
 date: 2025-08-09 21:24:32
 id: the-distributional-consequences-of-bitcoin
+tree_view: true
 lang: en
 description: BEAKING ON A DOCUMENT produced by the European Central Bank which is trying to prove that Bitcoin is only a speculative bubble, without utility and without creation of wealth.
 categories:

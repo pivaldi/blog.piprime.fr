@@ -2,6 +2,7 @@
 title: "Comprendre la Finance Décentralisée (DeFi)"
 date: 2025-12-07 17:00:00
 id: defi-comprendre
+tree_view: true
 lang: fr
 description: "La Finance Décentralisée (DeFi) est un ensemble de services financiers décentralisés, open-source, pair-à-pair construits sur la technologie blockchain."
 categories:

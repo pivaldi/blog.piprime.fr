@@ -2,6 +2,7 @@
 title: "DAO, reseaux sociaux décentralisés et identité numérique décentralisées."
 date: 2025-11-18 18:35:40
 id: dao_reseaux-sociaux-decentralises_identite-numerique-decentralisee
+tree_view: true
 lang: fr
 description: "Explorer l'identité auto-souveraine, comprendre le service de noms Ethereum, les sites Web décentralisés et explorer les études de cas DAO."
 categories:

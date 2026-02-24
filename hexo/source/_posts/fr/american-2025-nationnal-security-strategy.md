@@ -2,6 +2,7 @@
 title: Stratégie de Sécurité Nationale Américaine 2025
 date: 2025-12-07
 id: american-2025-national-security-strategy
+tree_view: true
 lang: fr
 description: "Traduction de la Stratégie de Sécurité Nationale des États-Unis d'Amérique de novembre 2025."
 categories:

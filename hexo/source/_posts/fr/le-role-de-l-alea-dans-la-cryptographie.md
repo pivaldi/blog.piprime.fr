@@ -2,6 +2,7 @@
 title: "Le rôle de l’aléa dans la cryptographie"
 date: 2025-10-26 18:52:57
 id: le-role-de-l-alea-dans-la-cryptographie
+tree_view: true
 lang: fr
 description: "La génération de nombres ou de jetons aléatoires joue un rôle crucial dans plusieurs aspects des réseaux décentralisés, notamment dans la génération d’une clé privée/public."
 mathjax: true

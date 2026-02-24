@@ -2,6 +2,7 @@
 title: "Analyse de la gouvernance des différentes DAO."
 date: 2025-12-07 16:54:00
 id: evaluation-de-la-gouvernance-des-principales-dao
+tree_view: true
 lang: fr
 description: "Explorez les mécanismes de gouvernance des différentes DAO."
 categories:

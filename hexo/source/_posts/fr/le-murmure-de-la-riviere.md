@@ -2,6 +2,7 @@
 title: Le murumure de la rivière
 date: 2025-04-20 19:00:00
 id: le-murumure-de-la-riviere
+tree_view: true
 lang: fr
 description: La joie se trouve dans le continuel devenir, le changement.
 categories:

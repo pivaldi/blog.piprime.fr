@@ -2,6 +2,7 @@
 title: Les 7 reproches les plus fréquents contre Bitcoin
 date: 2025-10-14 19:21:12
 id: 7-reproches-contre-bitcoin
+tree_view: true
 lang: fr
 description: "Les 7 reproches les plus fréquents contre Bitcoin et leurs contre-arguments."
 categories:

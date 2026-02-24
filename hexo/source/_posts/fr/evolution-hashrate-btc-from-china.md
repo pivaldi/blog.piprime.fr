@@ -2,6 +2,7 @@
 title: "Évolution du hashate Chinois dans le minage du Bitcoin"
 date: 2025-12-16 21:39:34
 id: evolution-hashrate-btc-from-china
+tree_view: true
 lang: fr
 description: "Voici un aperçu de l’évolution du hashrate Bitcoin de la Chine ainsi que les faits récents qui montrent comment cette dynamique a changé depuis 2021."
 categories:

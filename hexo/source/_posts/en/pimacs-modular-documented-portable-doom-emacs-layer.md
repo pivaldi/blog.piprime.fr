@@ -2,6 +2,7 @@
 title: "PIMacs: A Modular, Documented, and Reproducible Doom Emacs Layer"
 date: 2026-02-08 12:24:53
 id: pimacs-modular-documented-reproducible-doom-emacs-layer
+tree_view: true
 description: "PIMacs is a modular, documented, and reproducible layer on top of Doom Emacs, designed to deliver a ready-to-use development ecosystem with auto tooling installation."
 lang: en
 tags:

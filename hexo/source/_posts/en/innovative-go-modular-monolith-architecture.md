@@ -3,6 +3,7 @@ title: "Innovative Architecture with Workspace and Bridge Modules in Go"
 description: "Explore the Go Workspaces Modular Monolith, a pattern that offers compiler-enforced boundaries with the performance of a monolith and the flexibility of microservices."
 date: 2026-02-07 23:13:18
 id: innovative-go-modular-monolith-architecture
+tree_view: true
 lang: en
 categories:
 - [EN, Tech, Engineering]

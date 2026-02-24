@@ -2,6 +2,7 @@
 title: "La réinitialisation financière de l’Europe en 2027"
 date: 2025-11-11 14:44:03
 id: la-reinitialisation-financiere-de-l-europe-en-2027
+tree_view: true
 lang: fr
 description: "La réinitialisation financière de l’Europe en 2027 : la fin de la confidentialité monétaire ou le début de la sécurité économique ?"
 categories:

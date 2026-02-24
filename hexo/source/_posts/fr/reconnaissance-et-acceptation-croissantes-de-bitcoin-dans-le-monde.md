@@ -2,6 +2,7 @@
 title: Reconnaissance et acceptation croissantes de bitcoin dans le monde
 date: 2025-07-09 00:23:25
 id: reconnaissance-et-acceptation-croissantes-de-bitcoin-dans-le-monde
+tree_view: true
 lang: fr
 description: "Des exemples prouvant la reconnaissance et l’acceptation croissantes de Bitcoin dans le monde."
 categories:

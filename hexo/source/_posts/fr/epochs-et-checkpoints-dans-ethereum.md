@@ -2,6 +2,7 @@
 title: "Epochs et les Checkpoints dans Ethereum"
 date: 2025-10-30 00:02:31
 id: epochs-et-checkpoints-dans-ethereum
+tree_view: true
 lang: fr
 description: "Les Epochs et les Checkpoints sont des concepts clés dans le système de consensus Proof of Stake d'Ethereum 2.0, en particulier en ce qui concerne le rôle de la Beacon Chain."
 categories:

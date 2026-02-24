@@ -2,6 +2,7 @@
 title: Le manifeste crypto anarchiste de Timothy C. May
 date: 2025-07-01 21:00:00
 id: manifeste-crypto-anarchiste-de-timothy-c-may
+tree_view: true
 lang: fr
 description: La version du manifeste crypto anarchiste lue par Timothy C. May au Cypherpunk Meeting de septembre 1992
 categories:

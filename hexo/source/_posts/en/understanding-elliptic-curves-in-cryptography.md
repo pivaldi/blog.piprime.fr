@@ -2,6 +2,7 @@
 title: Elliptic Curves Explained — From Mathematics to Bitcoin
 date: 2026-01-14 22:49:11
 id: understanding-elliptic-curves-in-cryptography
+tree_view: true
 lang: en
 description: An intuitive, and mathematical explanation of elliptic curves for developers, with diagrams, Go code, and Bitcoin applications.
 categories:

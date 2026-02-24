@@ -2,6 +2,7 @@
 title: "Comprendre les UTXOs"
 date: 2025-11-08 18:25:46
 id: comprendre-utxo
+tree_view: true
 lang: fr
 description: "Comprendre les UTXOs et pourquoi faut-il les consolider."
 mathjax: true

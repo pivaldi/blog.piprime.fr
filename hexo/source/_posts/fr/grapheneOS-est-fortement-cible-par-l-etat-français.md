@@ -2,6 +2,7 @@
 title: "GrapheneOS est fortement ciblé par l'État français"
 date: 2025-12-06 20:35:40
 id: grapheneos-est-fortement-cible-par-l-etat-francais
+tree_view: true
 lang: fr
 description: "GrapheneOS est fortement ciblé par l'État français car ils fournissent des appareils n'incluant pas de portes dérobées pour l'accès aux forces de l'ordre à leurs logiciels."
 categories:

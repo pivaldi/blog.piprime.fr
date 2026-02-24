@@ -2,6 +2,7 @@
 title: Les Risques de l'Hyperinflation
 date: 2025-07-09 12:14:00
 id: les-risques-de-l-hyperinflation
+tree_view: true
 lang: fr
 description: "L'hyperinflation, une forme extrême d'inflation entraîne de graves conséquences sur les plans économique, social et politique"
 categories:

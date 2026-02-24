@@ -2,6 +2,7 @@
 title: "Repricing the Economy in Bitcoin"
 date: 2025-12-22 19:40:04
 id: repricing-the-economy-in-bitcoin
+tree_view: true
 lang: en
 description: "Summary of the document “Repricing the Economy in Bitcoin”, capturing both its conceptual argument and its technical valuation framework."
 categories:

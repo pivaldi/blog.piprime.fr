@@ -2,6 +2,7 @@
 title: Autres recettes de cuicines végétaliennes
 date: 2025-08-01 14:01:09
 id: autres-recettes-de-cuisine-vegetalienne
+tree_view: true
 lang: fr
 description: "Des recettes de cuisine végétalienne."
 categories:

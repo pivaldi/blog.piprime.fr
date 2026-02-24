@@ -2,6 +2,7 @@
 title: "Les stablecoins sont la plus grande arnaque du siècle"
 date: 2025-11-29 20:25:09
 id: les-stablecoins-la-plus-grande-arnaque-du-siecle
+tree_view: true
 lang: fr
 description: "Et si les Stablecoins n’étaient pas un pont vers la liberté financière, mais le moteur secret de la plus grande machine à dette mondiale ?"
 categories:

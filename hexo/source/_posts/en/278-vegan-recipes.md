@@ -2,6 +2,7 @@
 title: 278 Vegan Recipes
 date: 2025-07-31 02:15:26
 id: 278-vegan-recipes
+tree_view: true
 lang: en
 description: "278 vegan recipes."
 categories:

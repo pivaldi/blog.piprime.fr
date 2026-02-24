@@ -2,6 +2,7 @@
 title: "La chaine de Beacon"
 date: 2025-10-29 23:15:53
 id: la-beacon-chain
+tree_view: true
 lang: fr
 description: "La Beacon Chain est la chaîne de blocs principale du système Proof of Stake (PoS) d'Ethereum 2.0, qui a été lancée en décembre 2020."
 categories:

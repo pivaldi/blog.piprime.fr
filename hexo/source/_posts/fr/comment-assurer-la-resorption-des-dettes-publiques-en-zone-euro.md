@@ -2,6 +2,7 @@
 title: Comment assurer la résorption des dettes publiques en zone euro
 date: 2025-06-27 20:00:00
 id: comment-assurer-la-resorption-des-dettes-publiques-en-zone-euro
+tree_view: true
 lang: fr
 description: Comment assurer la résorption des dettes publiques en zone euro afin d’assurer la pérennité de la monnaie commune.
 categories:

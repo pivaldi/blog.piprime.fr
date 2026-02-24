@@ -2,6 +2,7 @@
 title: "State of Secure Elements in Hardware wallets"
 date: 2025-12-05 21:19:26
 id: state-of-secure-elements-in-hardware-wallets
+tree_view: true
 lang: en
 description: "Hardware wallets are used as second chip for storing private keys and seed words. Here is the state of secure elements in hardware wallets."
 categories:

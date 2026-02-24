@@ -3,9 +3,9 @@
 
 .post-body {
   /* Tree Configuration */
-  --tree-step: 1rem;
-  --tree-line-color: rgba(238, 238, 238, 0.4);
-  --tree-line-width: 1px;
+  --tree-step: 1.5rem;
+  --tree-line-color: rgba(128, 128, 128, 0.4);
+  --tree-line-width: 2px;
   --tree-font-family: inherit;
 }
 
@@ -178,157 +178,9 @@
   }
 }
 
-/* Code containers (not processed by filter, need special handling) */
-.tree-node + .code-container {
-  position: relative;
-  margin: 0 !important;
-  padding: 0.5rem 0 !important;
-  background-color: var(--content-bg-color, #fff);
-  z-index: 1;
-}
 
-/* Inherit indentation from previous tree-node sibling */
-.tree-node.depth-2 + .code-container {
-  padding-left: calc(var(--tree-step) * 1 + 0.5rem) !important;
-}
-
-.tree-node.depth-3 + .code-container {
-  padding-left: calc(var(--tree-step) * 2 + 0.5rem) !important;
-}
-
-.tree-node.depth-4 + .code-container {
-  padding-left: calc(var(--tree-step) * 3 + 0.5rem) !important;
-}
-
-.tree-node.depth-5 + .code-container {
-  padding-left: calc(var(--tree-step) * 4 + 0.5rem) !important;
-}
-
-.tree-node.depth-6 + .code-container {
-  padding-left: calc(var(--tree-step) * 5 + 0.5rem) !important;
-}
-
-/* Add vertical line on the code-container itself */
-.tree-node.depth-2 + .code-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-.tree-node.depth-3 + .code-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 1);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-.tree-node.depth-4 + .code-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 2);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-.tree-node.depth-5 + .code-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 3);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-.tree-node.depth-6 + .code-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(var(--tree-step) * 4);
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-/* Add trunk lines to code containers using ::after */
-.tree-node.depth-3.trunk-0 + .code-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: var(--tree-line-width);
-  background-color: var(--tree-line-color);
-  z-index: -1;
-}
-
-.tree-node.depth-4.trunk-0 + .code-container::after,
-.tree-node.depth-4.trunk-1 + .code-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background-image: linear-gradient(var(--tree-line-color), var(--tree-line-color));
-  background-size: var(--tree-line-width) 100%;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-.tree-node.depth-4.trunk-0 + .code-container::after {
-  left: 0;
-  width: var(--tree-line-width);
-}
-
-.tree-node.depth-4.trunk-0.trunk-1 + .code-container::after {
-  left: 0;
-  width: calc(var(--tree-step) * 2);
-  background-image:
-    linear-gradient(var(--tree-line-color), var(--tree-line-color)),
-    linear-gradient(var(--tree-line-color), var(--tree-line-color));
-  background-position:
-    0 0,
-    calc(var(--tree-step) * 1) 0;
-}
-
-/* Remove tree styling from pre elements inside code-containers */
-/* The code-container handles the tree visualization, not the pre itself */
-.code-container pre.tree-node,
-.code-container .mermaid.tree-node {
-  padding-left: 1rem !important;
-  background-image: none !important;
-  /* background: none !important; */
-}
-
-.code-container pre.tree-node::before,
-.code-container pre.tree-node::after,
-.code-container .mermaid.tree-node::before,
-.code-container .mermaid.tree-node::after {
-  display: none !important;
-}
-
-/* Reset any other borders on inner elements */
-.code-container pre,
-.code-container .mermaid {
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  margin: 0 !important;
-  position: relative;
-}
+/* With hierarchical wrapper structure, content elements (notes, code, blockquotes)
+   inherit indentation naturally from their tree-node wrapper div - no special handling needed */
 
 body p {
   line-height: 1.5;

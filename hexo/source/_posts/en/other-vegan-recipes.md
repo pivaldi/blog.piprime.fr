@@ -2,6 +2,7 @@
 title: Other Vegan Cooking Recipes
 date: 2025-08-01 14:01:09
 id: other-vegan-cooking-recipes
+tree_view: true
 lang: en
 description: "Vegan cooking recipes."
 categories:

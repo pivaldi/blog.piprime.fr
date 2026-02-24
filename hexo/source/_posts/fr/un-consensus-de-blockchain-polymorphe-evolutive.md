@@ -2,6 +2,7 @@
 title: "Un consensus de blockchain polymorphe évolutif"
 date: 2025-12-19 20:40:04
 id: consensus-de-blockchain-polymorphe-evolutive
+tree_view: true
 lang: fr
 description: "Une étude sur un système de consensus blockchain capable de modifier son comportement au fil du temps."
 categories:

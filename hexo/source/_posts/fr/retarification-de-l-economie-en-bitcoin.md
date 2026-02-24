@@ -2,6 +2,7 @@
 title: "Retarification de l'économie en Bitcoin"
 date: 2025-12-22 19:40:04
 id: retarification-de-l-economie-en-bitcoin
+tree_view: true
 lang: fr
 description: "Résumé du document « Repricing the Economy in Bitcoin », présentant son argument conceptuel et son cadre technique d'évaluation."
 categories:

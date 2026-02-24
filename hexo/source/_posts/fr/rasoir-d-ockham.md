@@ -2,6 +2,7 @@
 title: Rasoir d'Ockham
 date: 2025-06-25 19:00:00
 id: rasoir-d-ockham
+tree_view: true
 lang: fr
 description: Le rasoir d'Ockham, également appelé principe de simplicité ou principe de parcimonie, est un outil de raisonnement.
 categories:

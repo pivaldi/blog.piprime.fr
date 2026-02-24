@@ -2,6 +2,7 @@
 title: Conférence Bitcoin - Kryptosphere Jussieu
 date: 2025-08-01 16:42:25
 id: conference-bitcoin-kryptosphere-jussieu
+tree_view: true
 lang: fr
 description: "Les intervenants aborderont le passionnant sujet de la Blockchain & du Consensus de Nakamoto, offrant ainsi un éclairage sur la manière dont ils redéfinissent la conservation de la valeur."
 categories:

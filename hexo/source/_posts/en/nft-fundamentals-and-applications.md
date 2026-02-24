@@ -2,6 +2,7 @@
 title: "NFT Fundamentals and Applications"
 date: 2025-12-14
 id: nft-fundamentals-and-applications
+tree_view: true
 lang: en
 description: "Learn NFT and Ethereum standards, blockchain features, marketplaces, art impact, and creation mechanics."
 categories:

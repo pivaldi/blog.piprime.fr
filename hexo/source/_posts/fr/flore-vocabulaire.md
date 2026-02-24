@@ -2,6 +2,7 @@
 title: Vocabulaire des mots techniques employés dans la flore de l'Abbé Coste
 date: 2018-05-12
 id: vocabulaire-des-mots-techniques-employes-dans-la-flore-de-l-abbe-coste
+tree_view: true
 description: Vocabulaire des mots techniques employés dans la flore de l'Abbé Coste.
 lang: fr
 categories:

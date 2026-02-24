@@ -2,6 +2,7 @@
 title: Psychological Portrait of Emacs Users
 date: 2025-07-02 23:00:00
 id: psychological-portrait-of-emacs-users
+tree_view: true
 lang: en
 description: "Psychological portrait of Emacs users drawn up by Chatgpt."
 categories:

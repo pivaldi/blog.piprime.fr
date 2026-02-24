@@ -2,6 +2,7 @@
 title: "Comprendre les notions de smart contracts et de Dapps"
 date: 2025-10-30 12:42:50
 id: comprendre-les-notions-de-smart-contracts-et-de-dapps
+tree_view: true
 lang: fr
 description: "Les smart contracts contribuent à construire une « économie intelligente » dans laquelle les processus lents, manuels et sujets aux erreurs sont remplacés par des processus automatisés transparents et vérifiables."
 categories:

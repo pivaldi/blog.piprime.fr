@@ -2,6 +2,7 @@
 title: "NFT : Les Fondamentaux et les Applications"
 date: 2025-12-14
 id: nft-les-fondamentaux-et-les-applications
+tree_view: true
 lang: fr
 description: "Découvrez les NFT et les standards Ethereum, les caractéristiques de la blockchain, les places de marché, l'impact sur l'art et les mécanismes de création."
 categories:

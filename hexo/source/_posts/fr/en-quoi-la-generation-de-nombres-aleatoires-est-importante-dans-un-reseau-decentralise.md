@@ -2,6 +2,7 @@
 title: "En quoi la génération de nombres aléatoires est importante dans un réseau décentralisé"
 date: 2025-10-26 14:14:47
 id: en-quoi-la-generation-de-nombres-aleatoires-est-importante-dans-un-reseau-decentralise
+tree_view: true
 lang: fr
 description: "La génération de nombres ou de jetons aléatoires joue un rôle crucial dans plusieurs aspects des réseaux décentralisés, notamment dans la sécurité, la validation, l'anonymat, et la distribution des ressources."
 categories:

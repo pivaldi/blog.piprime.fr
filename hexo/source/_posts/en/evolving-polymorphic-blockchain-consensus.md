@@ -2,6 +2,7 @@
 title: "An Evolving Polymorphic Blockchain Consensus"
 date: 2025-12-19 20:40:04
 id: evolving-polymorphic-blockchain-consensus
+tree_view: true
 lang: en
 description: "A study of blockchain consensus system that can change its behavior over time."
 categories:

@@ -2,6 +2,7 @@
 title: "Blockchain FAQ of The Cambridge Blockchain Network Sustainability Index"
 date: 2025-12-16 22:39:34
 id: faq-blockchain
+tree_view: true
 lang: EN
 description: "The Blockchain FAQ of the University of Cambridge."
 categories:

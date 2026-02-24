@@ -1,4 +1,5 @@
 ---
+tree_view: true
 title: "Une liste de cas d’usage pratiques de Git Worktree"
 date: 2026-01-21 20:52:24
 id: liste-selectionnee-de-cas-d-usage-pratiques-de-git-worktree

@@ -2,6 +2,7 @@
 title: "Comparison of open and closed metaverse systems"
 date: 2025-12-17
 id: comparison-open-and-closed-metaverse-systems
+tree_view: true
 lang: en
 description: "Open metaverse (Decentraland) and closed metaverse (Meta Horizon Worlds) compared specifically"
 categories:

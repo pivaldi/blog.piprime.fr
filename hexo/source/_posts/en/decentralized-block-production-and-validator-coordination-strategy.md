@@ -2,6 +2,7 @@
 title: "A decentralized block production and validator coordination strategy"
 date: 2025-12-19 19:40:04
 id: decentralized-block-production-and-validator-coordination-strategy
+tree_view: true
 lang: en
 description: "High-level strategy for participating in decentralized block production under competitive and evolving network conditions"
 categories:

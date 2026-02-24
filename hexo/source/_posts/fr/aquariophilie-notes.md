@@ -2,6 +2,7 @@
 title: Notes sur l'aquariophilie
 date: 2025-05-25 19:00:00
 id: notes-sur-l-aquariophilie
+tree_view: true
 lang: fr
 description: Mes prises de notes sur l'aquariophilie.
 categories:

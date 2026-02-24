@@ -2,6 +2,7 @@
 title: Les bases pour comprendre Bitcoin
 date: 2025-07-09 00:23:25
 id: les-bases-pour-comprendre-bitcoin
+tree_view: true
 lang: fr
 description: "Progressivement, puis soudainement : un cadre pour comprendre le bitcoin comme argent."
 categories:

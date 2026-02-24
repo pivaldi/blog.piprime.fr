@@ -2,6 +2,7 @@
 title: The Taste for Mastery
 date: 2025-07-29 23:19:18
 id: the-taste-for-mastery
+tree_view: true
 lang: en
 description: "The taste for mastery is not just a personal preference: it is a psychological structure, sometimes valued as willpower, sometimes seen as a defensive mechanism."
 categories:

@@ -2,6 +2,7 @@
 title: How this Hexo website is build and deployed ?
 date: 2025-04-29 19:00:00
 id: how-this-hexo-website-is-build-and-deployed
+tree_view: true
 description: How this Hexo website is deployed using Docker, Caddy, docker-caddy-proxy thanks to Ansible
 categories:
 - [EN, Tech, Configuring, Docker]

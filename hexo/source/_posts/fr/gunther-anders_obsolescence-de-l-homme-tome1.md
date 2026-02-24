@@ -2,6 +2,7 @@
 title: L'Obsolescence de l'homme - Tome 1
 date: 2025-08-12 21:53:47
 id: l-obsolescence-de-l-homme-tome-1
+tree_view: true
 lang: fr
 description: "L'Obsolescence de l'homme - Tome 1 - Sur l'âme à l'époque de la deuxième révolution industrielle."
 categories:

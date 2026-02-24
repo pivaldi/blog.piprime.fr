@@ -18,90 +18,166 @@ hexo.extend.filter.register("after_post_render", function (data) {
       return data;
     }
 
-    // PASS 1: Build nodes array with depths
-    const nodes = [];
-    let currentHeadingDepth = 0;
+    // PASS 1: Group elements into heading + content blocks
+    const groups = [];
+    let currentGroup = null;
 
     elements.forEach((el) => {
       const tagName = el.tagName.toUpperCase();
       const match = tagName.match(/^H([1-6])$/);
 
-      let depth;
       if (match) {
-        // Heading: H1=0, H2=1, H3=2, etc.
-        depth = parseInt(match[1]) - 1;
-        currentHeadingDepth = depth;
-      } else {
-        // Content: parent heading depth + 1
-        depth = currentHeadingDepth + 1;
-      }
+        // This is a heading - start a new group
+        const depth = parseInt(match[1]) - 1; // H1=0, H2=1, etc.
 
-      nodes.push({ el, depth, tagName });
+        currentGroup = {
+          heading: el,
+          headingDepth: depth,
+          contentDepth: depth + 1,
+          content: []
+        };
+        groups.push(currentGroup);
+      } else {
+        // This is content - add to current group
+        if (currentGroup) {
+          currentGroup.content.push(el);
+        } else {
+          // Content before first heading - create a group without heading
+          currentGroup = {
+            heading: null,
+            headingDepth: -1,
+            contentDepth: 0,
+            content: [el]
+          };
+          groups.push(currentGroup);
+        }
+      }
     });
 
-    // PASS 2: Calculate isLast flags
-    for (let i = 0; i < nodes.length; i++) {
-      const node = nodes[i];
+    // PASS 2: Calculate isLast flags for each group
+    for (let i = 0; i < groups.length; i++) {
+      const group = groups[i];
       let isLast = true;
 
-      // Look ahead for siblings or shallower headings
-      for (let j = i + 1; j < nodes.length; j++) {
-        if (nodes[j].depth < node.depth) {
-          // Shallower heading = section ended, we're last
-          isLast = true;
-          break;
-        } else if (nodes[j].depth === node.depth) {
-          // Sibling found = not last
-          isLast = false;
+      // Check if there's a sibling or shallower group after this one
+      for (let j = i + 1; j < groups.length; j++) {
+        if (groups[j].headingDepth <= group.headingDepth) {
+          if (groups[j].headingDepth === group.headingDepth) {
+            isLast = false; // Found a sibling
+          }
           break;
         }
-        // Deeper nodes don't affect our status, keep looking
       }
 
-      node.isLast = isLast;
+      group.isLast = isLast;
     }
 
-    // PASS 3: Calculate trunk classes
-    for (let i = 0; i < nodes.length; i++) {
-      const node = nodes[i];
-      const trunks = [];
+    // PASS 3: Calculate trunk classes for each group
+    for (let i = 0; i < groups.length; i++) {
+      const group = groups[i];
 
-      // Check each ancestor level from 1 to (current depth - 1)
-      for (let ancestorDepth = 1; ancestorDepth < node.depth; ancestorDepth++) {
-        // Look backwards to find most recent node at this depth
+      // Calculate trunks for heading
+      const headingTrunks = [];
+      for (let ancestorDepth = 1; ancestorDepth <= group.headingDepth; ancestorDepth++) {
+        // Find the ancestor at this depth
+        // Stop if we encounter a shallower element (different section)
+        let ancestorIndex = -1;
         for (let j = i - 1; j >= 0; j--) {
-          if (nodes[j].depth === ancestorDepth) {
-            // If ancestor is not last, we need a trunk line
-            if (!nodes[j].isLast) {
-              trunks.push(`trunk-${ancestorDepth - 1}`);
-            }
+          if (groups[j].headingDepth === ancestorDepth) {
+            ancestorIndex = j;
             break;
+          }
+          // If we encounter an element shallower than what we're looking for, stop
+          if (groups[j].headingDepth < ancestorDepth) {
+            break;
+          }
+        }
+
+        if (ancestorIndex === -1) continue;
+
+        // Add trunk if ancestor is not last (has siblings) OR has descendants (current element is one)
+        // This means: add trunk unless ancestor is last AND we're the last descendant
+        if (!groups[ancestorIndex].isLast) {
+          // Ancestor has siblings, always add trunk
+          headingTrunks.push(`trunk-${ancestorDepth - 1}`);
+        } else {
+          // Ancestor is last (no siblings), but check if there are more descendants
+          let hasMoreDescendants = false;
+          for (let k = i + 1; k < groups.length; k++) {
+            if (groups[k].headingDepth <= ancestorDepth) {
+              // Exited ancestor's section
+              break;
+            }
+            // Found another descendant
+            hasMoreDescendants = true;
+            break;
+          }
+
+          if (hasMoreDescendants || !group.isLast) {
+            // Either more descendants coming, or we're not the last at our depth
+            headingTrunks.push(`trunk-${ancestorDepth - 1}`);
           }
         }
       }
 
-      node.trunks = trunks;
+      // Calculate trunks for content wrapper (one level deeper)
+      const contentTrunks = [...headingTrunks];
+      // Add trunk line if the heading itself is not last
+      if (group.heading && !group.isLast) {
+        contentTrunks.push(`trunk-${group.headingDepth}`);
+      }
+
+      group.headingTrunks = headingTrunks;
+      group.contentTrunks = contentTrunks;
     }
 
-    // PASS 4: Apply classes to DOM
-    for (const node of nodes) {
-      const $el = $(node.el);
+    // PASS 4: Apply classes and wrap content
+    const newBody = $("<div>");
 
-      if (node.depth === 0) {
-        // H1 gets tree-root only
-        $el.addClass("tree-root");
-      } else {
-        // Everything else gets tree-node + depth + optional modifiers
-        $el.addClass("tree-node");
-        $el.addClass(`depth-${node.depth}`);
+    groups.forEach((group) => {
+      // Add heading with tree classes
+      if (group.heading) {
+        const $heading = $(group.heading);
 
-        if (node.isLast) {
-          $el.addClass("is-last");
+        if (group.headingDepth === 0) {
+          $heading.addClass("tree-root");
+        } else {
+          $heading.addClass("tree-node");
+          $heading.addClass(`depth-${group.headingDepth}`);
+
+          if (group.isLast) {
+            $heading.addClass("is-last");
+          }
+
+          group.headingTrunks.forEach((trunk) => $heading.addClass(trunk));
         }
 
-        node.trunks.forEach((trunk) => $el.addClass(trunk));
+        newBody.append($heading);
       }
-    }
+
+      // Wrap content in a div with tree classes if there's content
+      if (group.content.length > 0) {
+        const wrapper = $("<div>");
+        wrapper.addClass("tree-node");
+        wrapper.addClass(`depth-${group.contentDepth}`);
+
+        if (group.isLast) {
+          wrapper.addClass("is-last");
+        }
+
+        group.contentTrunks.forEach((trunk) => wrapper.addClass(trunk));
+
+        // Move content into wrapper
+        group.content.forEach((el) => {
+          wrapper.append($(el));
+        });
+
+        newBody.append(wrapper);
+      }
+    });
+
+    // Replace body content
+    $("body").empty().append(newBody.children());
 
     // Return modified HTML
     data.content = $("body").html();

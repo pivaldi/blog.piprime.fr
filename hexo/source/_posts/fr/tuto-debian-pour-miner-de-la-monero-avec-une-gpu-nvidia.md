@@ -2,6 +2,7 @@
 title: Tuto Debian pour miner de la Monero avec une GPU NVIDIA
 date: 2025-09-18 20:12:57
 id: tuto-debian-pour-miner-de-la-monero-avec-une-gpu-nvidia
+tree_view: true
 lang: fr
 description: "Tuto Debian/Unbuntu pour miner de la Monero en utilisant une carte graphique Nvidia."
 categories:

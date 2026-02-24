@@ -2,6 +2,7 @@
 title: "A Curated List of Practical Git Worktree Use Cases"
 date: 2026-01-21 20:52:24
 id: curated-list-of-practical-git-worktree-use-cases
+tree_view: true
 lang: en
 description: "A curated list of practical git worktree use cases with real workflows."
 categories:

@@ -2,6 +2,7 @@
 title: Portrait psychologique des utilisateurs d'Emacs
 date: 2025-07-02 23:00:00
 id: portrait-psychologique-des-utilisateurs-d-emacs
+tree_view: true
 lang: fr
 description: "Portrait psychologique des utilisateurs d'Emacs dressé par ChatGPT."
 categories:

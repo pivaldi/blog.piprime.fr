@@ -2,6 +2,7 @@
 title: Le désir de perfection
 date: 2025-07-29 20:44:05
 id: le-perfectionnisme
+tree_view: true
 lang: fr
 description: "Le désir de perfectionnisme se caractérise par une quête constante d'excellence, souvent accompagnée d'une insatisfaction perpétuelle envers les résultats obtenus."
 categories:

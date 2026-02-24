@@ -2,6 +2,7 @@
 title: 278 recettes de cuicines végétaliennes
 date: 2025-07-30 23:14:54
 id: 278-recettes-de-cuisine-vegetalienne
+tree_view: true
 lang: fr
 description: "278 recettes de cuisine végétalienne."
 categories:

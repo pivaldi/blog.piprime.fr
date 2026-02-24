@@ -2,6 +2,7 @@
 title: "Analysis of the governance of different DAOs."
 date: 2025-12-07 16:17:00
 id: evaluation-of-the-governance-mechanism-of-dao
+tree_view: true
 lang: en
 description: "Explore the governance mechanisms of different DAOs."
 categories:

@@ -2,6 +2,7 @@
 title: Comment l'IA nous manipule
 date: 2025-09-06 19:36:51
 id: comment-l-ia-nous-manipule
+tree_view: true
 lang: fr
 description: "À travers un exemple très concret d'utilisation de ChatGPG, je montre comment l'IA diffuse une pensée unique qui étouffe toute revendication, toute critique de l'ordre établi."
 categories:

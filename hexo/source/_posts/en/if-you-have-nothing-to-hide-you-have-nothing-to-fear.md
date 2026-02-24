@@ -2,6 +2,7 @@
 title: If you have nothing to hide, you have nothing to fear
 date: 2025-08-14 18:35:21
 id: if-you-have-nothing-to-hide-you-have-nothing-to-fear
+tree_view: true
 lang: en
 description: "To all those who think that if you have nothing to hide, you have nothing to fear!"
 categories:

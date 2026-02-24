@@ -2,6 +2,7 @@
 title: "Stablecoins are the biggest scam of the century"
 date: 2025-11-29 20:25:09
 id: stablecoins-the-biggest-scam-of-the-century
+tree_view: true
 lang: en
 description: "What if Stablecoins weren't a bridge to financial freedom, but the secret engine of the world's largest debt machine?"
 categories:

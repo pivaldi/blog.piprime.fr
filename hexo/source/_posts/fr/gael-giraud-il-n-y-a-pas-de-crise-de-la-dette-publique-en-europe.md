@@ -2,6 +2,7 @@
 title: "Gaël Giraud : il n’y a pas de crise de la dette publique en Europe."
 date: 2025-11-30 14:32:37
 id: gael-giraud-il-n-y-a-pas-de-crise-de-la-dette-publique-en-europe
+tree_view: true
 lang: fr
 description: "Économie, finance, écologie, IA : la conversation fuse et brise des tabous et des dogmes qui nous intoxiquent. À commencer par cette histoire de dette qui n’existe pas, pas plus que la crise qu’elle engendre. "
 categories:

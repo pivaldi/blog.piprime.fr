@@ -2,6 +2,7 @@
 title: Le manifeste d'un Cypherpunk
 date: 2025-08-14 18:35:21
 id: le-manifeste-d-un-cypherpunk
+tree_view: true
 lang: fr
 description: "Le manifeste d'un Cypherpunk de Eric Hughes écrit en 1993."
 categories:
