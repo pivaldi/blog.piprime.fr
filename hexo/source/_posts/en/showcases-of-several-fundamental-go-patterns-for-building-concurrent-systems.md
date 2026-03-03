@@ -23,32 +23,31 @@ In this article, we'll explore the key technical principles that make StreamStep
 
 ### Architecture Overview
 
-StreamStepper follows a clean layered architecture with clear separation of concerns:
+StreamStepper follows a clean layered architecture with clear separation of concerns. The application uses the **Cobra CLI framework** for professional command-line interface handling and introduces a **TUI struct** that composes the Display and Tracker components for cleaner dependency management.
 
 ```mermaid
 graph TD
     %% Define the application flow in a container
     subgraph Application ["Application Architecture & Flow"]
         %% Main Orchestrator
-        Main["**cmd/main.go**<br/>(Orchestration)"]
+        Main["**main.go**<br/>(Cobra CLI + Orchestration)"]
+
+        %% TUI Composite
+        TUI["**TUI Struct**<br/>(Display + Tracker)"]
 
         %% Components
-        Stream["**Stream**<br/>(exec, pipe)"]
-        Process["**Process**<br/>(line parser)"]
-        Progress["**Progress**<br/>(tracker & bar)"]
-        UI["**UI**<br/>(tview)"]
+        Stream["**Stream**<br/>(exec, pipe, fifo, tagged)"]
+        Process["**Processor**<br/>(default, stbash)"]
 
         %% Dependency Injection / Initialization
+        Main -.-> TUI
         Main -.-> Stream
         Main -.-> Process
-        Main -.-> Progress
-        Main -.-> UI
 
         %% Data Flow
         Stream -- "Raw Output" --> Process
-        Process -- "Parsed Events" --> Progress
-        Process -- "Formatted Data" --> UI
-        Progress -- "Updates" --> UI
+        Process -- "Parsed Events" --> TUI
+        Process -- "Formatted Data" --> TUI
     end
 
     %% Invisible connection to force the Legend below the Application
@@ -63,16 +62,20 @@ graph TD
 
     %% Styling
     style Main fill:#e1f5fe,stroke:#01579b
+    style TUI fill:#c8e6c9,stroke:#2e7d32
     style Application fill:none,stroke:none
     style Legend fill:#fafafa,stroke:#ccc,stroke-dasharray: 5 5
-    style UI fill:#fff3e0,stroke:#e65100
     style L1 fill:#f9f9f9,stroke:#999
     style L2 fill:#f9f9f9,stroke:#999
     style L3 fill:#f9f9f9,stroke:#999
     style L4 fill:#f9f9f9,stroke:#999
 ```
 
-Each layer has a well-defined responsibility and communicates through interfaces, not concrete implementations.
+Key architectural decisions:
+- **Cobra framework** for professional CLI with automatic help generation and flag validation
+- **TUI struct** composes Display and Tracker, simplifying function signatures across the codebase
+- **Multiple processors** support (default trigger-based and stbash for [bash-stepper](https://github.com/pivaldi/bash-stepper))
+- Each layer communicates through interfaces, not concrete implementations
 
 ### 1. Interface-Based Design: Decoupling Components
 
@@ -92,24 +95,27 @@ This simple interface abstracts **four different input modes**:
 - `TaggedHandler` - processes tagged output (`[OUT]`/`[ERR]`)
 - `FIFOHandler` - reads from named pipes
 
-The beauty of this design is that `main.go` doesn't care which handler it's using:
+The beauty of this design is that `main.go` doesn't care which handler it's using. With the TUI struct, handler selection becomes even cleaner:
 
 ```go
-func selectHandler(display ui.Display, tagged bool, fifoPath string) stream.Handler {
+func selectHandler(tui ui.TUI, tagged bool, fifoPath string, args []string) stream.Handler {
     switch {
-    case flag.NArg() > 0:
-        return stream.NewExecHandler(display, flag.Arg(0))
+    case len(args) > 0:
+        return stream.NewExecHandler(tui, args[0])
     case tagged:
-        return stream.NewTaggedHandler(display, os.Stdin)
+        return stream.NewTaggedHandler(tui, os.Stdin)
     case fifoPath != "":
-        return stream.NewFIFOHandler(display, os.Stdin, fifoPath)
+        return stream.NewFIFOHandler(tui, os.Stdin, fifoPath)
     default:
-        return stream.NewPipeHandler(display, os.Stdin)
+        return stream.NewPipeHandler(tui, os.Stdin)
     }
 }
 ```
 
-**Key principle**: Program to interfaces, not implementations. This enables runtime polymorphism without inheritance.
+**Key principles**:
+- Program to interfaces, not implementations (enables runtime polymorphism)
+- Use composition to simplify dependencies (TUI struct reduces parameter count)
+- Factory pattern for handler selection based on runtime conditions
 
 #### The LineProcessor Interface
 
@@ -254,10 +260,26 @@ This closure captures the dependencies and provides a clean callback interface f
 
 ### 4. Dependency Injection and Composition
 
-Go doesn't have constructors, but the "New" function pattern combined with struct composition achieves similar goals:
+Go doesn't have constructors, but the "New" function pattern combined with struct composition achieves similar goals. StreamStepper introduces a **TUI struct** that composes Display and Tracker, simplifying dependency management throughout the codebase.
+
+#### The TUI Composite Pattern
 
 ```go
-func initializeComponents(steps int) (*progress.Tracker, ui.Display) {
+// TUI struct composes Display and Tracker
+type TUI struct {
+    Display Display
+    Tracker *progress.Tracker
+}
+
+func New(display Display, tracker *progress.Tracker) TUI {
+    return TUI{
+        Display: display,
+        Tracker: tracker,
+    }
+}
+
+// Initialization creates and wires components
+func initializeComponents(steps int) (ui.Display, *progress.Tracker) {
     tracker := progress.NewTracker(int32(steps))
     display := ui.NewTViewDisplay()
     if err := display.Initialize(); err != nil {
@@ -265,32 +287,62 @@ func initializeComponents(steps int) (*progress.Tracker, ui.Display) {
         os.Exit(1)
     }
 
-    return tracker, display
-}
-
-// Handlers receive their dependencies explicitly
-func NewExecHandler(display ui.Display, cmdStr string) *ExecHandler {
-    return &ExecHandler{
-        display: display,
-        cmdStr:  cmdStr,
-    }
+    return display, tracker
 }
 ```
 
-**Why this works**: Dependencies flow from `main()` down. Components don't create their own dependencies, making them testable and flexible.
+**Why this works**:
+- Dependencies flow from `main()` down
+- The TUI struct reduces function parameters from passing `display` and `tracker` separately
+- Components don't create their own dependencies, making them testable and flexible
+- Stream handlers receive a single `TUI` parameter instead of multiple dependencies
+
+#### Cobra-based CLI Structure
+
+StreamStepper uses the [Cobra](https://github.com/spf13/cobra) framework for professional CLI handling:
+
+```go
+var (
+    steps         int
+    triggerFlag   string
+    processorType string
+    // ... other flags
+
+    rootCmd = &cobra.Command{
+        Use:   "stream-stepper [flags] [command]",
+        Short: "A CLI tool that parses shell command output...",
+        Args:  cobra.MaximumNArgs(1),
+        Run:   runStreamStepper,
+    }
+)
+
+func initFlags() {
+    rootCmd.Flags().IntVarP(&steps, "steps", "s", 0, "Total steps for 100% progress (required)")
+    rootCmd.Flags().StringVarP(&triggerFlag, "flag", "f", defaultTriggerFlag, "Trigger string...")
+    rootCmd.Flags().StringVarP(&processorType, "processor", "p", "", "Parsing processor (default, stbash)")
+
+    rootCmd.MarkFlagRequired("steps")
+}
+```
+
+**Benefits**:
+- Automatic help generation with `--help`
+- Short flag aliases (`-s`, `-f`, `-p`)
+- Built-in flag validation
+- Professional error messages
+- Subcommand support (extensible)
 
 #### Struct Embedding for Composition
-
-While not heavily used in StreamStepper, Go's struct embedding provides inheritance-like behavior without the complexity:
 
 ```go
 type ExecHandler struct {
     display ui.Display  // Composition over inheritance
+    tracker *progress.Tracker
     cmdStr  string
 }
 ```
 
-Each handler composes a `Display` instead of inheriting from a base class. This is more explicit and avoids the diamond problem.
+Each handler composes Display and Tracker instead of inheriting from a base class. This is more explicit and avoids the diamond problem.
 
 ### 5. Reading Multiple Streams Concurrently
 
@@ -333,22 +385,31 @@ If you read stdout and stderr sequentially, a blocked stream (e.g., stderr buffe
 
 ### 6. Package Organization and Visibility
 
-Go's package system enforces encapsulation through capitalization:
+Go's package system enforces encapsulation through capitalization. StreamStepper uses a plugin-like architecture for processors, with each processor in its own subdirectory:
 
 ```
-internal/
-├── ui/
-│   ├── interface.go     ## Public Display interface
-│   └── tview.go         ## Public TViewDisplay implementation
-├── processor/
-│   ├── interface.go     ## Public LineProcessor interface
-│   └── processor.go     ## Public implementation
-├── stream/
-│   ├── interface.go     ## Public Handler interface
-│   └── exec.go          ## Public ExecHandler
-└── progress/
-    ├── tracker.go       ## Public Tracker with private fields
-    └── bar.go           ## Public functions for rendering
+stream-stepper/
+├── main.go              ## Entry point (Cobra CLI + orchestration)
+└── internal/
+    ├── ui/
+    │   ├── interface.go     ## Display interface + TUI struct
+    │   └── tview.go         ## TViewDisplay implementation
+    ├── processor/
+    │   ├── interface.go     ## LineProcessor interface
+    │   ├── default/         ## Default trigger-based processor
+    │   │   └── processor.go
+    │   └── stbash/          ## bash-stepper processor
+    │       └── processor.go
+    ├── stream/
+    │   ├── interface.go     ## Handler interface
+    │   ├── exec.go          ## ExecHandler (runs commands)
+    │   ├── pipe.go          ## PipeHandler (stdin)
+    │   ├── tagged.go        ## TaggedHandler ([OUT]/[ERR])
+    │   └── fifo.go          ## FIFOHandler (named pipes)
+    └── progress/
+        ├── tracker.go       ## Thread-safe state tracker
+        ├── bar.go           ## Progress bar rendering
+        └── eta.go           ## ETA calculation
 ```
 
 **Capitalization rules**:
@@ -360,6 +421,23 @@ This prevents external code from bypassing the mutex-protected getters/setters.
 #### The `internal` Directory
 
 The `internal/` directory is a special Go convention: packages inside it **cannot be imported** by code outside the parent tree. This enforces architectural boundaries at compile time.
+
+#### Multiple Processor Architecture
+
+The processor package uses a plugin-like pattern where each processor type lives in its own subdirectory:
+
+```go
+// main.go - processor selection based on CLI flag
+var proc processor.LineProcessor
+switch processorType {
+case "stbash":
+    proc = stbashprocessor.New()  // Supports bash-stepper format
+default:
+    proc = defaultprocessor.New(triggerFlag)  // Trigger-based parsing
+}
+```
+
+This makes it easy to add new processors without modifying existing code—just create a new subdirectory implementing the `LineProcessor` interface.
 
 ### 7. Error Handling Patterns
 
@@ -464,24 +542,96 @@ func startTicker(display ui.Display, tracker *progress.Tracker, pbWidth int, don
 
 **Why `defer ticker.Stop()`**: Prevents ticker goroutine leaks. Tickers keep running until explicitly stopped.
 
+### 11. Architectural Evolution and Refactoring
+
+StreamStepper's current architecture didn't emerge fully formed. The codebase evolved through several refactoring passes:
+
+#### From Native Flag to Cobra
+
+**Before:**
+```go
+stepsPtr := flag.Int("steps", 0, "Required total steps for 100%")
+flagPtr := flag.String("flag", "==>", "Trigger string")
+flag.Parse()
+
+if *stepsPtr <= 0 {
+    fmt.Println("Error: --steps is required")
+    os.Exit(1)
+}
+```
+
+**After:**
+```go
+rootCmd.Flags().IntVarP(&steps, "steps", "s", 0, "Total steps (required)")
+rootCmd.MarkFlagRequired("steps")
+```
+
+Benefits: Short flags, automatic help generation, professional error messages, and validation built-in.
+
+#### From Multiple Parameters to Composite TUI
+
+**Before:**
+```go
+func updateStatus(display ui.Display, tracker *progress.Tracker, pbWidth int, spinner string) {
+    currentSteps := tracker.GetCurrentSteps()
+    totalSteps := tracker.GetTotalSteps()
+    // ... 5 parameters passed to every function
+}
+```
+
+**After:**
+```go
+func updateStatus(tui ui.TUI, pbWidth int, spinner string) {
+    currentSteps := tui.Tracker.GetCurrentSteps()
+    totalSteps := tui.Tracker.GetTotalSteps()
+    // ... cleaner signature with TUI composite
+}
+```
+
+Benefits: Reduced parameter count, clearer ownership, easier refactoring.
+
+#### From Single Processor to Plugin Architecture
+
+**Before:** Processing logic hardcoded in a single file.
+
+**After:** Multiple processors in subdirectories, selected at runtime:
+```go
+internal/processor/
+├── interface.go
+├── default/
+│   └── processor.go
+└── stbash/
+    └── processor.go
+```
+
+Benefits: Easy to add new processors, separation of concerns, testability.
+
+**Key lesson**: Refactoring toward better abstractions pays dividends. Start with working code, then improve structure as patterns emerge.
+
 ### Key Takeaways
 
 Building StreamStepper taught several important Go lessons:
 
 1. **Interfaces enable testability** - Small, focused interfaces make components easy to mock and test
-2. **Explicit is better than implicit** - Dependency injection through function parameters makes data flow obvious
-3. **Channels coordinate, mutexes protect** - Use channels to communicate between goroutines, mutexes to protect shared state
-4. **RWMutex for read-heavy workloads** - When reads vastly outnumber writes, read-write locks improve performance
-5. **Package structure enforces architecture** - Use `internal/` and capitalization to enforce boundaries
-6. **Error handling is explicit** - No hidden exceptions; every error is visible in the function signature
-7. **Defer for cleanup** - Always pair resource acquisition with deferred cleanup
-8. **Context for cancellation** - Even if not used immediately, context enables future timeout/cancellation support
+2. **Composition over multiple parameters** - The TUI struct composing Display and Tracker simplifies function signatures
+3. **Use established frameworks** - Cobra provides professional CLI handling with minimal code
+4. **Plugin architecture through subdirectories** - Each processor type in its own package enables easy extension
+5. **Channels coordinate, mutexes protect** - Use channels to communicate between goroutines, mutexes to protect shared state
+6. **RWMutex for read-heavy workloads** - When reads vastly outnumber writes, read-write locks improve performance
+7. **Package structure enforces architecture** - Use `internal/` and capitalization to enforce boundaries
+8. **Error handling is explicit** - No hidden exceptions; every error is visible in the function signature
+9. **Defer for cleanup** - Always pair resource acquisition with deferred cleanup
+10. **Context for cancellation** - Even if not used immediately, context enables future timeout/cancellation support
 
 The complete source code is available at [github.com/pivaldi/stream-stepper](https://github.com/pivaldi/stream-stepper).
 
 ### Conclusion
 
-This article analyzes the architectural patterns in StreamStepper, a practical CLI tool for visualizing shell command progress. The patterns demonstrated here apply to any Go application requiring concurrent processing, clean architecture, and real-time user interfaces.
+This article analyzes the architectural patterns in StreamStepper, a practical CLI tool for visualizing shell command progress. The evolution from native `flag` package to **Cobra**, the introduction of the **TUI composite struct**, and the **plugin-based processor architecture** demonstrate how Go applications can evolve toward cleaner, more maintainable designs.
+
+The patterns demonstrated here—interface-based design, composition over inheritance, thread-safe concurrency, and proper dependency injection—apply to any Go application requiring concurrent processing, clean architecture, and real-time user interfaces.
+
+StreamStepper showcases that good architecture doesn't emerge all at once. Through refactoring and composition patterns, even a working codebase can evolve toward better maintainability without breaking existing functionality.
 
 ---
 
