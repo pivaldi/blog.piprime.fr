@@ -284,6 +284,12 @@ information purposes only and does not constitute a recommendation.
 * [Robosats](http://robosats6tkf3eva7x2voqso3a5wcorsnw34jveyxfqi2fu7oyheasid.onion/) accessible only via [tor](https://www.torproject.org/fr/download/).  
   It is a BTC/FIAT peer-to-peer exchange over lightning. It simplifies matchmaking and minimizes the
   need of trust. RoboSats focuses in privacy and speed.
+* [Peach](https://peachbitcoin.com/buy-bitcoin-with-mercado-pago/)
+* [P2P Bitcoin exchanges decentralized aggregator](https://p2p.band/)
+* [Vexl](https://vexl.it/)
+* [Services that accept Monero or Bitcoin without KYC](https://kycnot.me/?currency-mode=or&currencies=xmr&currencies=btc&max-kyc=0)
+* [REXCHANGE](https://www.rexchange.ch/en/exchange/) based in Geneva
+
 
 ### Trading Platforms
 
