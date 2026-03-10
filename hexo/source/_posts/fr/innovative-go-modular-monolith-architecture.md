@@ -9,7 +9,9 @@ categories:
 - [FR, Tech, Engineering]
 tags:
   - go
+  - golang
   - architecture
+  - design patterns
   - microservices
   - DDD
   - engineering
