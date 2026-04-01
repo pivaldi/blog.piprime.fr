@@ -667,7 +667,7 @@ const transport = createConnectTransport({
 
 **Ce que cela garantit**
 
-Si un champ change dans le `.proto` ou qu'une méthode est renommée, la compilation échoue des deux côtés — Go **et** TypeScript — avant que le code ne tourne. L'équipe frontend détecte immédiatement toute rupture de contrat, sans attendre l'exécution ni consulter une documentation externe.
+Si un champ change dans le `.proto` ou qu'une méthode est renommée, la compilation échoue des deux côtés, Go **et** TypeScript, avant que le code ne tourne. L'équipe frontend détecte immédiatement toute rupture de contrat, sans attendre l'exécution ni consulter une documentation externe.
 
 ```mermaid
 graph LR
@@ -684,6 +684,50 @@ graph LR
     Go --> Back
     TS --> Front
 ```
+
+**Il en va de même pour la gestion des erreurs du domaine au niveau du client TypeScript.**
+
+Les erreurs traversent trois couches sans jamais dévier d'une couche à l'autre avant d'arriver au client TypeScript.
+
+```
+Sentinel domain → DomainErrorFor (application) → connectErrorFrom (adapter) → Client TypeScript
+```
+
+**Couche 1 — Sentinelles dans le domaine**
+
+Le domaine ne connaît ni ConnectRPC ni les contrats protobuf. Il déclare de simples variables d'erreur :
+
+```go
+// modules/todo/internal/domain/errors.go
+var ErrInvalidTitle = errors.New("invalid title")
+var ErrTodoNotFound = errors.New("todo not found")
+```
+
+**Couche 2 — `DomainErrorFor` dans la couche application**
+
+Avant de retourner, le service appelle `DomainErrorFor` qui traduit chaque sentinelle en `*platform.DomainError`. Ce type est fourni par `platform` — c'est le **type frontière** partagé entre la couche application et les adaptateurs entrants de tous les modules.
+
+```go
+// libs/platform/errors.go
+type DomainError struct {
+    Code    ErrorCode // valeur numérique issue de l'enum proto
+    Message string
+}
+```
+
+Les codes numériques viennent de l'enum `TodoErrorCode` défini en protobuf et exposés comme constantes dans `contracts/definitions/todo`. **Le client TypeScript utilise le même enum généré depuis le même `.proto`**.
+
+**Couche 3 — `connectErrorFrom` dans l'adaptateur Connect**
+
+L'adaptateur de conversion de type (type-switch) de `*platform.DomainError`, consulte une table `domainConnectCodeMap` pour obtenir le statut Connect (`InvalidArgument`, `NotFound`, `FailedPrecondition`…), puis attache un détail proto `commonv1.DomainError{code, message}` :
+
+```go
+// TypeScript côté client
+const details = err.findDetails(DomainError);
+// details[0].code === TodoErrorCode.TODO_ERROR_CODE_INVALID_TITLE
+```
+
+Les erreurs inconnues (infrastructure, inattendu) deviennent `CodeInternal` sans exposer d'information interne.
 
 ### 5.3 Unit of Work — transactions et propagation de contexte
 
@@ -708,7 +752,7 @@ sequenceDiagram
     App->>PGX: COMMIT
 ```
 
-Les repositories ne reçoivent jamais le pool de connexion directement — ils tiennent un `*UnitOfWork` et appellent `uow.Executor(ctx)`. La transaction active est extraite du contexte de façon transparente :
+Les repositories ne reçoivent jamais le pool de connexion directement — ils accèdent à un `*UnitOfWork` et appellent `uow.Executor(ctx)`. La transaction active est extraite du contexte de façon transparente :
 
 ```go
 // modules/auth/internal/adapters/outbound/persistence/postgres/user_repository.go
@@ -800,80 +844,35 @@ func (c *InprocClient) ValidateToken(ctx context.Context, token string) (uuid.UU
 
 Si demain le module Auth devient un vrai microservice, seul l'adaptateur change en remplaçant `InprocClient` par `NetworkClient`. Le code métier du module Todo ne change pas d'une ligne.
 
-### 5.6 Gestion des erreurs — du domaine au client TypeScript
-
-Les erreurs traversent trois couches sans jamais dévier d'une couche à l'autre.
-
-```
-Sentinel domain → DomainErrorFor (application) → connectErrorFrom (adapter) → Client TypeScript
-```
-
-**Couche 1 — Sentinelles dans le domaine**
-
-Le domaine ne connaît ni ConnectRPC ni les contrats protobuf. Il déclare de simples variables d'erreur :
-
-```go
-// modules/todo/internal/domain/errors.go
-var ErrInvalidTitle = errors.New("invalid title")
-var ErrTodoNotFound = errors.New("todo not found")
-```
-
-**Couche 2 — `DomainErrorFor` dans la couche application**
-
-Avant de retourner, le service appelle `DomainErrorFor` qui traduit chaque sentinelle en `*platform.DomainError`. Ce type est fourni par `platform` — c'est le **type frontière** partagé entre la couche application et les adaptateurs entrants de tous les modules.
-
-```go
-// libs/platform/errors.go
-type DomainError struct {
-    Code    ErrorCode // valeur numérique issue de l'enum proto
-    Message string
-}
-```
-
-Les codes numériques viennent de l'enum `TodoErrorCode` défini en protobuf et exposés comme constantes dans `contracts/definitions/todo`. Le client TypeScript utilise le même enum généré depuis le même `.proto`.
-
-**Couche 3 — `connectErrorFrom` dans l'adaptateur Connect**
-
-L'adaptateur type-switch sur `*platform.DomainError`, consulte une table `domainConnectCodeMap` pour obtenir le statut Connect (`InvalidArgument`, `NotFound`, `FailedPrecondition`…), puis attache un détail proto `commonv1.DomainError{code, message}` :
-
-```go
-// TypeScript côté client
-const details = err.findDetails(DomainError);
-// details[0].code === TodoErrorCode.TODO_ERROR_CODE_INVALID_TITLE
-```
-
-Les erreurs inconnues (infrastructure, inattendu) deviennent `CodeInternal` sans exposer d'information interne.
-
 ## 6. Uniformisation : tout futur projet devient un module
 
-MMW n'est pas juste une architecture pour CostesPro — c'est le **socle technique standard** de l'entreprise. Tout nouveau projet démarre comme un module, se branche sur la plateforme, et bénéficie immédiatement de tout ce qu'elle fournit.
+MMW n'est pas juste une architecture pour le *CostesPro* — c'est le **socle technique standard** de l'entreprise. Tout nouveau projet démarre comme un module, se branche sur la plateforme MMW, et bénéficie immédiatement de tout ce qu'elle fournit.
 
-### Pour le patron
+### Pour le DG
 
 Une nouvelle fonctionnalité métier ne repart plus de zéro. L'équipe passe 100 % de son temps sur la valeur métier, pas sur la plomberie. Le temps de démarrage d'un nouveau projet est drastiquement réduit.
 
 ### Pour les devs
 
-Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'onboarding d'un nouveau développeur est accéléré, les revues de code sont plus efficaces — tout le monde parle le même langage.
+Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'intégration d'un nouveau développeur est accéléré, les revues de code sont plus efficaces — tout le monde parle le même langage.
 
 ### Ce que la plateforme fournit "gratuitement" à chaque module
 
-```mermaid
-graph TD
-    P["Plateforme MMW"]
-    P --> H["Serveur HTTP<br>+ healthchecks<br>+ routes debug"]
-    P --> L["Logs structurés<br>(slog, JSON prod / couleur dev)"]
-    P --> C["Configuration<br>(TOML + env vars)"]
-    P --> U["Unit of Work<br>(transactions PostgreSQL)"]
-    P --> O["Outbox Relay<br>(événements garantis)"]
-    P --> M["Migrations DB<br>(Goose, versionnées)"]
-    P --> E["Bus d'événements<br>(Watermill in-memory)"]
-    P --> G["Génération des contrats<br>(Protobuf → Go + TypeScript)"]
-```
+- La librairie `pkg/platform`
+  - Serveur HTTP : healthchecks, routes debug
+  - HTTP Middlewares : Cors mw, logging mw, Authentication mw
+  - Logs structurés : slog, JSON prod / couleur en dev
+  - Configuration Générique : TOML + env vars
+  - Unit of Work : transactions PostgreSQL
+  - Outbox Relay : événements garantis
+  - Système de Migrations DB intégré : Goose patché
+  - Bus d'événements : Watermill in-memory
+  - Génération des contrats : Protobuf → Go + TypeScript
+- Interface de Ligne de Commandes: *cli* MMW
+  - Synthèse de Couverture de Test
+  - Génération de Module (À faire) TODO:
 
 **Migrations centralisées :** chaque module déclare ses migrations en quelques lignes de code — le socle s'occupe de l'exécution, du versionnement et du rollback (Up/Down). Pas d'outil externe à configurer, pas de script à maintenir séparément.
-
-**Contrats Protobuf — source unique de vérité :** une seule définition `.proto` génère automatiquement les types Go côté serveur *et* les types TypeScript + clients ConnectRPC côté front. L'équipe frontend n'écrit jamais de types ni de routes API à la main. Si un champ change, la compilation échoue des deux côtés immédiatement.
 
 ### Chemin d'évolution
 
