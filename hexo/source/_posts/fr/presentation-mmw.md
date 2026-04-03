@@ -1,10 +1,10 @@
 ---
-title: "Architecture Logicielle Modular Monolith Workspace"
+title: "Modular Monolith Workspace - MMW"
 date: 2026-03-26 18:25:00
 id: mmw-software-architecture-2
 tree_view: true
 lang: fr
-description: "Présentation de l'architecture logicielle Modular Monolith Workspace"
+description: "Plus qu'un design architecturale, MMW est un socle technique pour OVYA, une plateforme de développement pour nos futurs projets SI."
 categories:
 - [FR, Tech, Architecture]
 - [FR, Tech, Programmation]
@@ -19,9 +19,12 @@ Depuis 15 ans, le cœur de notre activité repose sur le **CostesPro**, une appl
 Mais la dette technique a pris de l'ampleur : la logique métier s'est dispersée dans des centaines de fichiers (plus de 2000 hors librairies) sans structure uniforme.  
 Modifier une fonctionnalité, c'est risquer d'en casser une autre ailleurs, ajouter un nouveau comportement devient un véritable casse tête.
 
-Voilà à quoi ressemble le CostesPro actuellement :
+Voilà à quoi ressemble le CostesPro actuellement vu de l'extérieur :
 
-![/media/mmw-software-architecture/voiture.jpg](/media/mmw-software-architecture/voiture.jpg)
+![CostesPro vu de l'extérieur](/media/mmw-software-architecture/voiture.jpg)
+
+Et vu de l'intérieur :
+![CostesPro vu de l'intérieur](/media/mmw-software-architecture/graph-cpro.svg)
 
 En parallèle, l'équipe a livré plusieurs services en Go au fil des années.  
 Bien que chacun ait été mieux conçu que le précédent aucun n'est pleinement satisfaisant et à chaque fois, le même travail recommençait : configurer le serveur web, gérer les logs, brancher la base de données, inventer un système de configuration ; du temps et de l'énergie dépensé sur de la plomberie, pas sur de la valeur métier.
@@ -255,7 +258,7 @@ flowchart TD
 
     %% External Connections
     Client --> Gateway
-    
+
     Gateway --> S1_Server
     Gateway --> S2_Server
     Gateway --> S3_Server
@@ -604,7 +607,8 @@ type User = authv1.User  // alias — pas une redéfinition
 
 **Étape 4 — Côté client TypeScript : `createClient` depuis les fichiers générés**
 
-Le frontend ne connaît pas les URLs, pas les formats JSON, pas les types de requêtes. Il importe les fichiers générés et crée un client typé en trois lignes :
+Le frontend ne connaît pas les URLs, pas les formats JSON, pas les types de requêtes.  
+Il importe les fichiers générés et crée un client typé en trois lignes sans avoir à définir les objets en entrée et en sortie :
 
 ```typescript
 // src/app/services/todo.service.ts
@@ -859,18 +863,41 @@ Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes p
 ### Ce que la plateforme fournit "gratuitement" à chaque module
 
 - La librairie `pkg/platform`
-  - Serveur HTTP : healthchecks, routes debug
-  - HTTP Middlewares : Cors mw, logging mw, Authentication mw
-  - Logs structurés : slog, JSON prod / couleur en dev
-  - Configuration Générique : TOML + env vars
-  - Unit of Work : transactions PostgreSQL
-  - Outbox Relay : événements garantis
-  - Système de Migrations DB intégré : Goose patché
-  - Bus d'événements : Watermill in-memory
-  - Génération des contrats : Protobuf → Go + TypeScript
-- Interface de Ligne de Commandes: *cli* MMW
-  - Synthèse de Couverture de Test
-  - Génération de Module (À faire) TODO:
+  - **Serveur HTTP** : healthchecks, routes debug pprof
+  - **Connect RPC** : intercepteurs d'erreurs (logging, recovery) pour les handlers HTTP/2
+  - **HTTP Middlewares** : CORS, logging structuré, authentification, recovery panique
+  - **Logs structurés** : `slog`, JSON en prod / couleur en dev, sans configuration
+  - **Configuration générique** : TOML + surcharge par variables d'environnement
+  - **DomainError** : type d'erreur métier typé + `ErrorCode` — mapping automatique vers les codes Connect RPC dans les adaptateurs
+  - **Unit of Work** : transactions PostgreSQL sans fuites de session (`pgx`)
+  - **StructArgs** : conversion struct → `pgx.NamedArgs` pour les requêtes nommées
+  - **Outbox Relay** : publication d'événements garantie (au-moins-une-fois) via table outbox
+  - **Bus d'événements** : Watermill in-memory — même API que pour un bus distribué
+  - **Système de migrations DB** : Goose patché, embarqué dans le binaire du module
+  - **SafeGo** : goroutines sans fuite — panic capturée, loguée, propagée proprement
+  - **Platform Runner** : coordination `errgroup` de tous les serveurs et workers du processus
+  - **Interface Module** (`pfcore.Module`) : contrat standard pour brancher un module sur le runner
+  - **Génération des contrats** : Protobuf → Go + TypeScript via `buf`
+
+- La librairie `pkg/archtest` — Validation architecturale automatisée
+  - **Contract Purity** : le package `contracts/` n'importe jamais un module
+  - **Lib Independence** : les `libs/` n'importent ni module ni `mmw`
+  - **Module Isolation** : les modules ne s'importent pas directement entre eux
+  - **Module Interface** : un module n'expose que son interface contractuelle définie
+  - **Domain Purity** : `internal/domain/` n'importe jamais `contracts/`
+  - **Application Purity** : `internal/application/` n'importe jamais `contracts/`
+
+- La librairie `pkg/scaffold` — Génération de module
+  - **`GenerateModule`** : squelette complet du module (21 fichiers) — domaine, application, infra, connect, cmd, tests, mise.toml, arch-go, go.mod, …
+  - **`GenerateContract`** : squelette `contracts/definitions/<name>/` + proto + buf.gen
+  - **`UpdateGoWork`** : enregistrement idempotent du nouveau module dans `go.work`
+  - **`UpdateMiseToml`** : ajout automatique des tâches `test`, `test:integration`, `test:contract` dans le mise.toml racine
+
+- Interface de Ligne de Commandes : *CLI* `mmw`
+  - **`mmw new module`** : assistant interactif — nom, exposition Connect RPC, contrat inproc, accès base de données
+  - **`mmw new contract`** : génère la définition de contrat associée
+  - **`mmw check arch`** : valide les frontières architecturales de tous les modules
+  - **Synthèse de couverture de test** : rapport de couverture agrégé multi-modules
 
 **Migrations centralisées :** chaque module déclare ses migrations en quelques lignes de code — le socle s'occupe de l'exécution, du versionnement et du rollback (Up/Down). Pas d'outil externe à configurer, pas de script à maintenir séparément.
 
@@ -932,3 +959,246 @@ Deux approches possibles, non exclusives :
 ### Les services Go existants
 
 Les services Go actuels, qui ont chacun leur propre architecture, peuvent être progressivement adaptés en modules MMW : on remplace leur infrastructure ad hoc par le socle commun, sans réécrire la logique métier.
+
+## 8. Stratégie de tests
+
+L'architecture hexagonale n'est pas qu'une organisation du code — elle rend les tests naturels. Chaque couche a une frontière claire, ce qui détermine exactement comment et à quel coût la tester.
+
+### La pyramide
+
+```
+         /\      Tests système — une seule suite au niveau du monolithe
+        /  \     (binaire in-process, postgres via Docker,
+       /    \     authentification réelle, scénarios cross-modules)
+      /______\
+     /        \   Tests de contrat — par module, rapides, sans infra
+    /__________\
+   /            \  Tests d'intégration — par module, Docker,
+  /______________\  adaptateurs uniquement (//go:build integration)
+ /                \
+/__________________\ Tests unitaires & applicatifs — par module, tout en mémoire
+```
+
+Plus on monte, plus les tests sont lents, coûteux à maintenir et rares. La base doit être large et rapide — c'est là que la confiance se construit.
+
+### Niveau 1 — Tests unitaires & applicatifs
+
+**Ce qu'ils testent :** le domaine (`domain/`) et la couche application (`application/`) — les règles métier, les cas nominaux, les cas d'erreur.
+
+**Pourquoi c'est facile :** l'architecture hexagonale interdit toute dépendance vers l'infrastructure dans le domaine et l'application. Il n'y a pas de base de données à simuler, pas de serveur HTTP à démarrer — tout est câblé avec des fakes en mémoire.
+
+```go
+// modules/todo/internal/testhelpers/fakes.go
+// InMemoryTodoRepo, PassthroughUoW, NoopEventDispatcher
+// → câblent un vrai TodoApplicationService sans aucune infrastructure
+
+func NewTestService(t *testing.T) (application.TodoService, *InMemoryTodoRepo) {
+    repo := NewInMemoryTodoRepo()
+    svc  := application.NewTodoApplicationService(repo, PassthroughUoW{}, NoopEventDispatcher{})
+    return svc, repo
+}
+```
+
+Les handlers Connect sont aussi testés à ce niveau : `newTestHandler(t)` câble un vrai service applicatif via les fakes — le domaine s'exécute réellement, pas un mock. Un bug dans le mapping proto ↔ domaine est détecté ici, pas en production.
+
+**Exécution :** `go test ./...` — aucun Docker, aucun réseau. Quelques millisecondes par suite.
+
+### Niveau 2 — Tests d'intégration
+
+**Ce qu'ils testent :** les adaptateurs outbound — les repositories PostgreSQL, l'outbox dispatcher — contre une vraie base de données.
+
+**Séparation par build tag :**
+
+```go
+//go:build integration
+
+// libs/mmw/pkg/platform/pg/uow/uow_integration_test.go
+```
+
+La règle est stricte : seul le code qui touche réellement l'infrastructure porte ce tag. Le reste du projet ne sait pas que Docker existe.
+
+```bash
+go test ./...                           # unitaires + applicatifs uniquement
+go test -tags integration ./...         # ajoute les tests d'adaptateurs
+go test -tags integration -short ./...  # intégration sans Docker (CI léger)
+```
+
+### Niveau 3 — Tests de contrat
+
+**Ce qu'ils testent :** l'adaptateur inproc (`inproc.Adapter`) qui expose le module aux autres modules du monolithe. Ce que le compilateur ne peut pas vérifier : les valeurs correctes des enums proto, la traduction des erreurs domaine en codes de retour, la cohérence du mapping proto ↔ domaine sur l'ensemble des opérations.
+
+**Sans build tag** — ces tests sont aussi rapides que les tests unitaires. Ils tournent avec `go test ./...`.
+
+```go
+// modules/todo/test/contract/contract_test.go
+
+func TestContract_StatusMapping(t *testing.T) {
+    // Vérifie que les 4 valeurs de TaskStatus traversent l'adaptateur sans perte
+    // PENDING, IN_PROGRESS, COMPLETED, CANCELLED → chacune testée
+}
+
+func TestContract_ErrorPropagation(t *testing.T) {
+    // Vérifie que domain.ErrTodoNotFound sort bien comme ErrorCodeNotFound
+    // à travers la chaîne : domain → DomainErrorFor → inproc.Adapter
+}
+```
+
+L'assertion à la compilation `var _ deftodo.TodoService = (*inproc.Adapter)(nil)` garantit la signature. Les tests de contrat garantissent le comportement.
+
+### Niveau 4 — Tests système
+
+**Ce qu'ils testent :** le monolithe entier — modules auth + todo câblés en mémoire exactement comme dans `main.go`, contre une vraie base PostgreSQL, avec des vrais tokens JWT.
+
+**Pas de stubs** : le test s'enregistre via l'API HTTP d'Auth, reçoit un vrai JWT, puis l'utilise pour toutes les opérations Todo. Si le middleware JWT est cassé, le test système le détecte — pas un test unitaire avec un token inventé.
+
+```go
+//go:build system
+
+// test/system/todo_flow_test.go
+func TestMain(m *testing.M) {
+    // 1. Démarre postgres via testcontainers
+    // 2. Exécute auth.Migrate() et todo.Migrate()
+    // 3. Câble les modules : auth.New(...) + todo.New(...)
+    // 4. Enveloppe chaque module dans httptest.NewServer
+    // 5. Lance les tests
+}
+
+func TestSystem_TodoCRUDFlow(t *testing.T) {
+    // register → login → createTodo → getTodo → updateTodo
+    //         → completeTodo → reopenTodo → deleteTodo
+}
+
+func TestSystem_TodoScopedToUser(t *testing.T) {
+    // Deux utilisateurs : chacun ne voit que ses propres todos
+}
+```
+
+**Exécution :**
+```bash
+go test -tags system -v -timeout 180s ./test/system/...
+```
+
+### Pourquoi pas de tests E2E par module ?
+
+Dans un monolithe modulaire, tester un module seul avec un stub JWT créerait un doublon des tests système, avec une couche de mock à maintenir.  
+La frontière naturelle du système est le binaire complet — c'est là que les vrais tests de bout en bout ont leur place.  
+Chaque module gagne en confiance via ses contrats (niveau 3) et par les tests système partagés (niveau 4).
+
+### Lancer les tests
+
+```bash
+# Tous les tests rapides (unitaires + applicatifs + contrats)
+mise run test
+
+# Tests d'intégration (requiert Docker)
+mise run test:integration
+
+# Tests de contrat uniquement
+mise run test:contract
+
+# Tests système (requiert Docker)
+mise run test:system
+
+# Tout
+mise run test:all
+```
+
+```mermaid
+graph LR
+    U["go test ./..."]
+    I["go test -tags integration ./..."]
+    C["go test ./test/contract/..."]
+    S["go test -tags system ./test/system/..."]
+
+    U -->|"ms"| R1["✅ Unitaires<br>Applicatifs<br>Contrats"]
+    I -->|"~10s"| R2["✅ + Adaptateurs<br>PostgreSQL"]
+    S -->|"~30s"| R3["✅ + Monolithe<br>complet"]
+```
+
+## 9. Évolutions planifiées
+
+La plateforme est conçue par couches livrables indépendantes.  
+La couche 1 (scaffolding & standardisation) est opérationnelle.  
+Les trois couches suivantes sont conçues et documentées, prêtes à être implémentées après discutions avec l'équipe.8
+
+### Couche 2 — Gestion des secrets
+
+**Problème actuel :** les secrets (mots de passe DB, clés JWT…) sont écrits en clair dans `mise.toml` et commités dans git.
+
+**Solution : SOPS + age.** Les secrets sont des fichiers TOML chiffrés commités dans git. La clé privée `age` ne vit que sur les serveurs de déploiement. Aucun serveur de secrets à opérer.
+
+```
+configs/
+├── default.toml              # config non-sensible (en clair)
+└── secrets/
+    ├── development.enc.toml  # chiffré avec age (commité)
+    └── production.enc.toml   # chiffré avec age (commité)
+```
+
+Le binaire déchiffre ses propres secrets au démarrage via `telemetry.LoadSecrets(ctx, env)` — aucun outil externe dans le processus de démarrage. Un hook pre-commit `gitleaks` empêche de commiter un secret en clair par accident.
+
+---
+
+### Couche 3 — Observabilité complète
+
+**Stack cible :**
+
+| Composant | Rôle | Statut |
+|-----------|------|--------|
+| Prometheus | Métriques | déjà en place |
+| Grafana | Visualisation | déjà en place |
+| **Loki** | Agrégation de logs | à déployer |
+| **Tempo** | Traces distribuées | à déployer |
+| **OTel Collector** | Réception + routage depuis l'app | à déployer |
+
+L'intégration dans `pkg/platform` se résume à trois fichiers :
+
+```
+pkg/platform/telemetry/
+├── provider.go   # initialise TracerProvider + MeterProvider OTel
+├── middleware.go # auto-instrumente les handlers Connect (traces + métriques HTTP)
+└── slog.go       # bridge slog → OTel logs (corrèle logs avec trace_id)
+```
+
+```go
+// main.go — une seule ligne d'initialisation
+shutdown, err := telemetry.Init(ctx, telemetry.Config{
+    ServiceName:  "mmw",
+    OTelEndpoint: cfg.OTelEndpoint,
+})
+defer shutdown(ctx)
+```
+
+Les modules héritent du provider via le `context` — **aucune modification dans les modules existants ou futurs**. Les queries SQL (`pgx`), les transactions (Unit of Work) et les batchs outbox apparaissent automatiquement comme spans fils de chaque requête.
+
+**Ce qui devient visible sans rien changer dans les modules :**
+
+| Signal | Outil | Contenu |
+|--------|-------|---------|
+| Traces | Tempo | Chaque requête Connect RPC, durée, statut, spans SQL |
+| Métriques | Prometheus | Latence P50/P95/P99, taux d'erreur, requêtes en vol |
+| Logs | Loki | Tous les `slog.*` avec `trace_id` pour corrélation |
+
+---
+
+### Couche 4 — Alerting & tickets automatiques
+
+**Objectif :** transformer une alerte Grafana en ticket dans Plane (remplacement open-source d'auto-hébergement de Redmine).
+
+**Flux :**
+
+```
+App Go (OTel)
+    ↓ traces + métriques + logs
+OTel Collector → Prometheus + Loki + Tempo
+    ↓
+Grafana Alerting  ← règles sur métriques et patterns de logs
+    ↓ webhook HTTP
+cmd/mmw-webhook/  ← ~100 lignes Go dans le repo
+    ↓ API REST Plane
+Ticket créé automatiquement dans Plane
+```
+
+`mmw-webhook` est un petit binaire HTTP dans le repo — pas de service externe. Il reçoit les notifications Grafana et crée des issues Plane via son API REST.
+
+**Résultat :** une erreur applicative génère automatiquement un ticket, avec le lien vers la trace Tempo et les logs Loki correspondants. Le développeur clique, il voit exactement ce qui s'est passé.
