@@ -46,10 +46,11 @@ Chaque société locataire n'a pas à s'occuper de l'acheminement de l'électric
 | Ce que fournit la plateforme MMW | Équivalent hôtel |
 |----------------------------------|-----------------|
 | Connexion base de données & transactions | Réseau électrique |
-| Serveur HTTP, healthchecks, logs | Réception & sécurité |
-| Bus d'événements entre modules | Système d'interphone interne |
-| Configuration, gestion d'erreurs | Intendance |
+| Serveur HTTP avec Middleware CORS/Auth etc intégrés, healthchecks, logs | Réception & sécurité |
+| Bus d'événements entre modules | Interphone et Téléphonie |
+| Configuration centralisée, gestion des erreurs | Intendance |
 | Migrations de base de données | Travaux & aménagement |
+| [Une interface Web interactive](https://github.com/fullstorydev/grpcui) pour tester l'api GRPC | Réfectoire et Espaces verts |
 
 Chaque **module** (Auth, CPro, Documents, Congés…) est une "entreprise locataire" : il se branche sur la plateforme et se concentre uniquement sur sa logique métier.
 
@@ -57,8 +58,8 @@ Chaque **module** (Auth, CPro, Documents, Congés…) est une "entreprise locata
 graph TD
     P["🏢 Plateforme MMW<br>(socle technique)"]
     A["📦 Module Auth<br>Qui est cet utilisateur ?"]
-    T["📦 Module Douments<br>Ajoute un document pour le dossier XXX"]
-    C["📦 Module Cpro<br>Quels sont les vendeurs sur le dossier XXX ?"]
+    T["📦 Module Douments<br>Ajoute un document<br>pour le dossier XXX"]
+    C["📦 Module Cpro<br>Quels sont les vendeurs<br>sur le dossier XXX ?"]
     X["📦 Module X<br>(futur)"]
 
     P --> A
@@ -77,6 +78,49 @@ Voici un exemple de contrat `auth`:
 Comme le module `CPro` a besoin de savoir si un utilisateur est authentifié, il déclare avoir besoin du contrat `auth`.  
 C'est au moment du démarrage du module `Cpro` que l'orchestrateur (la plateforme par défaut mais ça
 peut être un test ou le `main.go`) va injecter un module qui déclare satisfaire ce contrat (injection de dépendance).
+
+### Pour les devs
+
+Un contrat c'est une interface de ce genre:
+```go
+type AuthPrivateService interface {
+	ValidateToken(ctx context.Context, req *authv1.ValidateTokenRequest) (*authv1.ValidateTokenResponse, error)
+}
+```
+
+avec `authv1.ValidateTokenResponse` qui est généré depuis un fichier `.proto`:
+```go
+type ValidateTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	IsValid       bool                   `protobuf:"varint,2,opt,name=is_valid,json=isValid,proto3" json:"is_valid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+```
+
+Le `.proto` ressemble à ça:
+```protobuf
+// AuthPrivateService exposes endpoints reachable only by internal services.
+service AuthPrivateService {
+  // ValidateToken checks if a token is valid and returns the user's identity.
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
+message ValidateTokenRequest {
+  string token = 1;
+}
+
+message ValidateTokenResponse {
+  string user_id = 1;
+  bool is_valid = 2;
+}
+```
+
+Le `.proto` génère à la fois les contrats Go et Typescript réseaux et les contracts Go "in-process" grace à un plugin Protobuf développé pour l'occasion dans *MMW*.
+Les appels réseaux sont portés par [Connect](https://connectrpc.com/) qui crée à la fois des API HTTP compatibles avec les navigateurs et gRPC (le protocol gRPC c'est du *HTTP* classique avec le body encodé par Protobuf).
+
+Le but annoncé de [Buf Technologies](https://buf.build/) : « déprécier REST/JSON en faveur du développement basé sur des schémas utilisant Protobuf ».
 
 ## 3. Tour des architectures
 
@@ -99,13 +143,13 @@ graph TD
 
 | ✅ Avantages | ❌ Inconvénients |
 |-------------|----------------|
-| Simple à démarrer | Tout est couplé, **les codes métiers** se mélangent entre eux et parfois aussi au code technique |
+| Simple à démarrer | Tout est couplé, **les codes métiers** se mélangent entre eux et parfois/souvent aussi au code technique |
 | Facile à déployer | De plus en plus difficile à modifier sans effet de bord ou sans risquer de tout casser |
 | — | Tests difficiles |
 
 ### 3.2 Monolithe modulaire classique
 
-Code organisé en modules dans le même processus mais sans isolation forte entre les modules.
+Code organisé en modules dans le même processus mais sans isolation forte entre les modules ; l'isolation se fait par des règles plus ou moins bien respectées et par des programmes qui vérifient si certaines règles sont respectées.
 
 ```mermaid
 graph TD
@@ -126,7 +170,7 @@ graph TD
 
 | ✅ Avantages | ❌ Inconvénients |
 |-------------|----------------|
-| Meilleure organisation | Les frontières s'érodent avec le temps |
+| Meilleure organisation | Les frontières s'érodent avec le temps et les linters sont facilement contournables |
 | Un seul déploiement | Les modules finissent par dépendre les uns des autres (couplage) |
 | — | Pas d'isolation réelle |
 
@@ -195,7 +239,6 @@ graph TD
 
 Modules fortement isolés **dans un seul processus** grâce à la notion de **Go Workspace** ; le meilleur des deux mondes.
 
-
 ```mermaid
 ---
 config:
@@ -243,9 +286,9 @@ flowchart TD
         Bus["🚌 Bus d'événements (Watermill SystemEventBus)"]
 
         %% In-process memory calls
-        S3_Logic -. "Appel direct en mémoire<br>InprocClient injecté par le monolith" .-> S1_Logic
-        S3_Logic -. "Appel direct en mémoire<br>InprocClient injecté par le monolith" .-> S2_Logic
-        S3_Logic -. "Appel direct en mémoire<br>InprocClient injecté par le monolith" .-> S4_Logic
+        S3_Logic -. "Appel direct en mémoire<br>via interface contrat strict" .-> S1_Logic
+        S3_Logic -. "Appel direct en mémoire<br>via interface contrat strict" .-> S2_Logic
+        S3_Logic -. "Appel direct en mémoire<br>via interface contrat strict" .-> S4_Logic
 
         %% Force the description to stay at the very top
         Desc ~~~ ModuleAuth
@@ -275,59 +318,49 @@ flowchart TD
     DB -. "EventsRelay" .-> Bus
 ```
 
-![mmw simplifié](/media/mmw-software-architecture/mmw-simple.png)
-
-```txt
-=========================================================================================
-🌐 CLIENT FRONT-END / API GATEWAY
-=========================================================================================
-          |                              |                              |
-      (Requêtes HTTP/Connect vers les différents ports ou chemins)
-          |                              |                              |
-          v                              v                              v
-+---------------------------------------------------------------------------------------+
-| 📦 MONOLITHE (Un seul processus Go - cmd/mmw/main.go et le work.go)                   |
-| 🚀 PLATFORM RUNNER (errgroup) : Coordonne le démarrage et l'arrêt de tous les         |
-|                                 serveurs HTTP et Relays en même temps.                |
-|                                                                                       |
-|   +---------------------+    +---------------------+    +---------------------+       |
-|   |     Module AUTH     |    |     Module CPRO     |    |      Module DOC     |       |
-|   |---------------------|    |---------------------|    |---------------------|       |
-|   | 🟢 Serveur HTTP     |    | 🟢 Serveur HTTP     |    | 🟢 Serveur HTTP     |       |
-|   |                     |    |                     |    |                     |       |
-|   | 🧠 Logique (DDD)    |<---|-🔌 InprocClient     |    | 🧠 Logique (DDD)    |       |
-|   |                     |    |    InprocClient -🔌-|--->|                     |       |
-|   |                     |    | 🧠 Logique (DDD)    |    |                     |       |
-|   |                     |    |                     |    |                     |       |
-|   | 🔄 Outbox Relay     |    | 🔄 Outbox Relay     |    | 🔄 Outbox Relay     |       |
-|   +---------+-----------+    +---------+-----------+    +---------+-----------+       |
-|             |                          |                          |                   |
-|             v                          v                          v                   |
-|  ===================================================================================  |
-|                      🚌 Bus d'Événements (Watermill SystemEventBus)                   |
-|  ===================================================================================  |
-|                                                                                       |
-+-------------+--------------------------+--------------------------+-------------------+
-              |                          |                          |
-    (Connexions SQL distinctes mais issues du même pool pgxpool partagé)
-              |                          |                          |
-              v                          v                          v
-+---------------------------------------------------------------------------------------+
-| 🐘 BASE DE DONNÉES POSTGRESQL (Un seul serveur / Une seule DB)                        |
-|                                                                                       |
-|   [ Schéma 'auth' ]          [ Schéma 'cpro' ]          [ Schéma 'doc' ]              |
-|   - auth.users               - cpro.dossiers            - doc.fichiers                |
-|   - auth.event (outbox)      - cpro.event (outbox)      - doc.event (outbox)          |
-+---------------------------------------------------------------------------------------+
-```
-
-
 | ✅ Avantages | ❌ Inconvénients |
 |-------------|----------------|
 | Isolation forte entre modules | Scalabilité par module impossible (initialement) |
 | Simplicité du monolithe (1 déploiement) | — |
 | Communication interne sans réseau | — |
 | Extractible en microservice si besoin | — |
+
+
+#### Intérêt et limite du Workspace Go
+
+Un Workspace Go définit un espace de développement qui résout un problème simple mais courant de mise à jour des dépendances.
+
+Imaginons que l'on développe simultanément deux applications Go `APP1` et `APP2` chacune avec sont propre `go.mod` mais avec `APP1` qui dépend de `APP2`.  
+Sans Workspace, Le cycle de développement peut devenir rapidement pénible :
+
+Développement de APP2 → Git commit+push → dans APP1: `go get -u APP2`
+
+À chaque modification de APP2, il faut refaire le processus.  
+Pour contourner ce problème, il est possible de spécifier dans le `go.mod` de `APP1` une directive du genre `replace ovya.fr/app2 => ../app2`.
+
+Ça résout le problème mais cela en apporte d'autres:
+- Il ne faut pas oublier de supprimer le `replace` dans `go.mod` lors de la publication définitive de la lib et le remettre lors de nouveaux développement.
+- Imaginons que `APP3` ait besoin de `APP1` et `APP2`. Il faut ajouter deux nouvelles directives `replace` dans la `go.mod` de `APP3` pour que le développement reste fluide.  
+  Le jour où l'on déploie le projet, il faut se souvenir de tous les `replace` dans chacun des modules, ça peut vite devenir un casse tête…
+
+Le Workspace permet de résoudre tous ces problèmes très simplement. Il suffit de créer à la racine du projet Go `APP3` un fichier `go.work` qui définit l'emplacement de chaque `APPx`:
+```go
+use (
+	.
+	./app1
+	./app2
+)
+```
+
+Le `go.mod` de `APP3` contiendra toujours les dépendances à `APP1` et `APP2`, le `go.mod` de `APP1` contiendra toujours la dépendance à `APP2` mais toutes les applications utiliseront les versions présentent sur le disque tant que le `go.work` est présent.
+
+En général le `go.work` n'est pas versionné mais dans une plateforme de développement son versionnement fait sens.
+
+**ATTENTION:**  
+La commande `go work sync` synchronise les versions des dépendances externes communes dans les `go.mod` de chaque module du Workspace, mais **elle ne met pas à jour les versions des modules locaux `APP1`, `APP2` et `APP3` entre eux** !  
+Pour ce faire, il faut descendre dans chaque application et faire le `go get -u github.com/xxx/appx` à la main, ce qui reste particulièrement pénible.
+
+Heureusement la plateforme `MMW` fournit un script (`mise run workspace:sync-modules`) qui permet de mettre à jour tous les `go.mod` de toutes les applications récursivement à la version Git en cours de chaque application.
 
 ## 4. Les principes fondateurs
 
@@ -357,7 +390,7 @@ graph LR
 
 ### 4.2 Clean Architecture (Architecture Hexagonale)
 
-> **Le métier ne connaît pas la base de données.**
+> **Le métier ne connaît pas la base de données, l'Unit of Work, les bus d'évènements etc.**
 
 Le code qui décrit ce que fait l'entreprise est totalement indépendant de PostgreSQL, de ConnectRPC, de la configuration. On peut changer de base de données ou de protocole réseau sans toucher à une seule ligne de logique métier. Les dépendances vont toujours **vers l'intérieur**.
 
@@ -435,7 +468,7 @@ flowchart TD
 
         subgraph "internal/"
             subgraph "DM: domain/"
-                DM["user/<br>Session<br>Domain Events"]
+                DM["User<br>Session<br>Domain Events"]
             end
 
             subgraph "SV: application/"
@@ -480,17 +513,231 @@ func New(infra Infrastructure) (*Module, error) {
 
 Chaque dépendance est injectée explicitement. Aucun registre global, aucun singleton.
 
-### 5.2 Contrats Protobuf — source unique de vérité
+#### Cycle de vie complet d'un module
 
-Les modules ne partagent jamais leurs types internes. Tout ce qui traverse une frontière de module passe par un **contrat** défini en Protobuf.
+Un module doit juste implémenter cette interface:
+```go
+// mmwcore.Module is the contract every module implements.
+type Module interface {
+	Start(ctx context.Context) error
+}
+```
 
-La chaîne complète, du `.proto` au composant Angular :
+Voici à quoi peut ressembler un module (extrait du module `todo`):
+```go
+type Module struct {
+	relay   *pfoutbox.EventsRelay   // m.relay.Start(gCtx)  ← outbox relay (DB → busEvent)
+	server  *pfserver.HTTPServer    // m.server.Start(gCtx) ← HTTP server
+	router  *message.Router         // m.router.Run(gCtx)   ← Watermill router (busEvent → handlers)
+	logger  *slog.Logger            // The native Go logger is enough
+	service application.TodoService // This is an internal/application interface of the Todo application ! Can be replaced by any implementation.
+}
+
+type Infrastructure struct {
+	DBPool     *pgxpool.Pool              // Connection to the database (the app does not use it but builds a uow with it)
+	EventBus   pfevents.SystemEventBus    // It's a contract not an implementation
+	Subscriber message.Subscriber         // It's a contract not an implementation
+	AuthSvc    defauth.AuthPrivateService // It's a contract not an implementation
+	Logger     *slog.Logger               // Native Go logger which is more than sufficient
+}
+
+// New wires all the dependencies of the Todo module and returns a ready-to-start Module.
+func New(infra Infrastructure) (*Module, error) {
+	// Load the config.
+	cfg, err := config.Load(context.Background(), "")
+	// Handle error
+
+	// The UnitOfWork is the single source of truth for database access: both the repository
+	// and the event dispatcher receive the same UoW so that writes to todo rows and writes
+	// to the outbox table share the same transaction.
+	uow := pfuow.New(infra.DBPool)
+	// Build the todo repository
+	todoRepo := postgres.NewPostgresTodoRepository(uow)
+	// Build the outbox dispatcher
+	eventDispatcher := events.NewPostgresOutboxDispatcher(uow)
+
+	// Wires them into the TodoApplicationService.
+	todoService := application.NewTodoApplicationService(todoRepo, uow, eventDispatcher)
+
+
+	// newEventRouter creates the Watermill message router and registers all inbound event
+	// handlers for the Todo module.
+	//
+	// Currently the only subscription is "auth.user.deleted.v1": when a user account is
+	// deleted the auth module publishes that event, and this handler removes all of the
+	// user's tasks to keep the database clean.
+	router, err := newEventRouter(infra)
+	// Handle error
+
+	// newHTTPServer mounts the Connect RPC handler on an HTTP mux and wraps it with
+	// platform middleware, then returns a pre-configured HTTPServer ready to be started.
+	//
+	// Auth middleware is applied to every route: all Todo RPCs require a valid JWT.
+	// The service's Health method is exposed at GET /debug/monit so the platform runner
+	// can probe database connectivity.
+	// gRPC server reflection is enabled so grpcui can discover the service schema without
+	// a compiled proto descriptor.
+	httpServer := newHTTPServer(cfg, infra, todoService)
+
+	return &Module{
+		// Outbox relay: polls todo.event every 2 s and forwards rows to the SystemEventBus.
+		relay:   pfoutbox.NewEnventsRelay(infra.DBPool, infra.EventBus, infra.Logger, relayTableName),
+		server:  httpServer,
+		router:  router,
+		logger:  infra.Logger,
+		service: todoService,
+	}, nil
+}
+
+// Start implements the module contract with a blocking process.
+func (m *Module) Start(ctx context.Context) error {
+	m.logger.Info("starting the app")
+
+	// Package errgroup provides synchronization, error propagation, and Context
+	// cancellation for groups of goroutines working on subtasks of a common task.
+	g, gCtx := errgroup.WithContext(ctx)
+
+	// Start the HTTP server
+	g.Go(func() error {
+		return m.server.Start(gCtx)
+	})
+
+	// Start the Outbox relay
+	if m.relay != nil {
+		g.Go(func() error {
+			m.relay.Start(gCtx)
+
+			return nil
+		})
+	}
+
+	// Start the Watermill message router triggering Todo module handlers for inbound event handlers.
+	g.Go(func() error {
+		return m.router.Run(gCtx)
+	})
+
+	// Wait until the context is cancled or a goroutine returns an error or panics.
+	err := g.Wait()
+
+	return eris.Wrapf(err, "%s failure", ModuleName)
+}
+```
+
+Voici comment les modules sont démarrés dans le monolithe (`cmd/mmw/main.go` à la racine du monolithe):
+
+```go
+func main() {
+	// signal.NotifyContext cancels ctx on SIGINT / SIGTERM, which propagates a
+	// graceful-shutdown signal to every running module via platform.Run.
+	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	var dbPool *pgxpool.Pool
+
+	defer func() {
+		if dbPool != nil {
+			dbPool.Close()
+		}
+		cancel()
+	}()
+
+	// initObservability loads the application config and creates the structured logger.
+	// If config.ServerDebugEnabled is true, it also starts a pprof server on localhost:6060 in the background.
+	// Both resources are derived from config, so they belong together.
+	config, logger, err := initObservability(ctx)
+	// Handle error
+
+	dbPool, err = getDatabasePoolConnexion(ctx, logger, config.MainDatabase.URL())
+	// Handle error
+
+	// Creates the in-process Watermill GoChannel and wraps it in the
+	// platform SystemEventBus interface.
+	// rawBus is the concrete GoChannel used directly by modules that need a
+	// message.Subscriber (e.g. the todo module's event router, the notifications
+	// module). eventBus is the publishing interface passed to every module so they
+	// can emit domain events without depending on the Watermill type.
+	rawBus := getRawbus(logger)
+	eventBus := pfevents.NewWatermillBus(rawBus)
+	defer rawBus.Close()
+
+	// initModules wires and returns all application modules in dependency order.
+	modules, err := initModules(logger, dbPool, rawBus, eventBus)
+	if err != nil {
+		return
+	}
+
+	// platform.Run launches every module in its own goroutine via errgroup and
+	// blocks until the context is cancelled or one module fails.
+	logger.Info("Platform startup…")
+	if err = platform.New(logger, modules).Run(ctx); err != nil {
+		// Handle error
+	}
+
+// initModules wires and returns all application modules in dependency order.
+//
+// Ordering matters: auth must be initialised before todo because todo's Connect
+// handler requires an AuthPrivateService to validate JWT tokens. Notifications
+// subscribes to topics from both auth and todo, so it is initialised last.
+func initModules(
+	logger *slog.Logger,
+	dbPool *pgxpool.Pool,
+	rawBus *gochannel.GoChannel,
+	eventBus pfevents.SystemEventBus,
+) ([]pfcore.Module, error) {
+	// 1. Auth — no inter-module dependencies.
+	authModule, err := auth.New(auth.Infrastructure{
+		DBPool:   dbPool,
+		EventBus: eventBus,
+		Logger:   logger.With("module", auth.ModuleName),
+	})
+	// Handle error
+
+	// 2. Todo — depends on auth's private service to validate bearer tokens.
+	todoModule, err := todo.New(todo.Infrastructure{
+		DBPool:     dbPool,
+		EventBus:   eventBus,
+		Subscriber: rawBus,
+		Logger:     logger.With("module", todo.ModuleName),
+		AuthSvc:    authModule.PrivateService(),
+	})
+	// Handle error
+
+	// 3. Notifications — subscribes to domain events from both auth and todo.
+	//    The topic list is built by merging the two modules' exported topic slices.
+	notifModule, err := notifications.New(notifications.Infrastructure{
+		Subscriber:  rawBus,
+		Logger:      logger.With("module", notifications.ModuleName),
+		Topics:      append(tododef.Topics, authdef.Topics...),
+		WithNotifer: true,
+	})
+	// Handle error
+
+	return []pfcore.Module{todoModule, authModule, notifModule}, nil
+}
+```
+
+On peut voir les graphes des dépendances
+- graphe des dépendances du module Todo  
+  ![graphe des dépendances du module Todo](/media/mmw-software-architecture/graph-todo.svg).
+- graphe des dépendances du module Auth  
+  ![graphe des dépendances du module Auth](/media/mmw-software-architecture/graph-auth.svg).
+- graphe des dépendances du monolith en entier  
+  ![graphe des dépendances du monolith en entier](/media/mmw-software-architecture/graph-mmw.svg).
+
+
+### 5.2 Contrats Protobuf
+
+**Les Contrats Protobuf sont la source unique de vérité de toute l'infrastructure informatique.**
+
+**Les modules ne partagent jamais leurs types ou fonctions internes.**
+
+Tout ce qui traverse une frontière de module passe par un **contrat** défini en Protobuf.
+
+Même les applications Angular s'appuie sur ces définitions :
 
 ```
 .proto (source unique)
     → buf generate
-        → gen/go/   (structs Go + interface serveur ConnectRPC)  → Module Go (handler)
-        → gen/ts/   (types TS + descripteur service ConnectRPC)  → Angular (createClient)
+        → contracts/network/go/   (structs Go + interface serveur ConnectRPC)  → HTTP handler des modules Go
+        → contracts/ts/   (types TS + descripteur service ConnectRPC)  → Angular (createClient)
 ```
 
 **Étape 1 — La définition `.proto` : les routes et les types en un seul endroit**
@@ -528,40 +775,77 @@ enum TaskStatus { PENDING = 1; IN_PROGRESS = 2; COMPLETED = 3; CANCELLED = 4; }
 
 Une seule commande lit `buf.gen.yaml` et génère les deux cibles en parallèle :
 
-```yaml
-# contracts/buf.gen.yaml
-plugins:
-  - remote: buf.build/protocolbuffers/go   # structs Go
-    out: gen/go
-  - remote: buf.build/connectrpc/go        # interface serveur + handler HTTP Go
-    out: gen/go
-  - remote: buf.build/bufbuild/es          # types TypeScript (Protobuf-ES)
-    out: gen/ts
-    opt: [target=ts, import_extension=none]
-  - remote: buf.build/connectrpc/es        # descripteur service TypeScript
-    out: gen/ts
-    opt: [target=ts, import_extension=none]
+```txt
+  contracts/
+  ├── proto/                              ← Source of truth (Protobuf IDL)
+  │   ├── auth/v1/auth.proto
+  │   ├── todo/v1/todo.proto
+  │   ├── common/v1/errors.proto
+  │   └── options/v1/options.proto
+  │
+  ├── go/
+  │   ├── network/                        ← Generated by buf / protoc (wire layer)
+  │   │   ├── common/v1/
+  │   │   │   └── errors.pb.go            ← DomainError proto message
+  │   │   ├── options/v1/
+  │   │   │   └── options.pb.go           ← Custom proto options
+  │   │   ├── auth/v1/
+  │   │   │   ├── auth.pb.go              ← Go structs (RegisterRequest, LoginRequest, User…)
+  │   │   │   └── authv1connect/
+  │   │   │       └── auth.connect.go     ← interfaces AuthPublicServiceHandler,
+  │   │   │                                  AuthPrivateServiceHandler + Connect clients
+  │   │   └── todo/v1/
+  │   │       ├── todo.pb.go              ← Go structs (Todo, CreateTodoRequest, Priority…)
+  │   │       └── todov1connect/
+  │   │           └── todo.connect.go     ← interface TodoServiceHandler + Connect client
+  │   │
+  │   └── application/                    ← Generated by protoc-gen-go-contracts (app layer)
+  │       ├── auth/
+  │       │   ├── auth_public_service_contract_gen.go   ← interface AuthPublicService
+  │       │   │                                            + NoopAuthPublicService
+  │       │   ├── auth_private_service_contract_gen.go  ← interface AuthPrivateService
+  │       │   │                                            + NoopAuthPrivateService
+  │       │   ├── errors_gen.go           ← error code consts (ErrorCodeInvalidCredentials…)
+  │       │   ├── events_gen.go           ← Topics []string, event type aliases
+  │       │   │                              (UserRegisteredEvent, UserDeletedEvent…)
+  │       │   ├── connect_client.go       ← PublicHTTPClient / PrivateHTTPClient
+  │       │   │                              wrapping Connect-generated clients
+  │       │   └── types.go                ← User convenience alias (authv1.User)
+  │       └── todo/
+  │           ├── todo_service_contract_gen.go  ← interface TodoService
+  │           │                                    + NoopTodoService
+  │           ├── errors_gen.go           ← error code consts (ErrorCodeNotFound…)
+  │           └── events_gen.go           ← Topics []string, event type aliases
+  │                                          (UserTaskCreatedEvent, UserTaskDeletedEvent…)
+  │
+  └── ts/                                 ← Generated by buf (front-end / BFF layer)
+      ├── common/v1/
+      │   └── errors_pb.ts                ← DomainError TS type + schema
+      ├── options/v1/
+      │   └── options_pb.ts               ← Custom proto options
+      ├── auth/v1/
+      │   ├── auth_pb.ts                  ← TS types (RegisterRequest, User…)
+      │   └── auth_connect.ts             ← AuthPublicService / AuthPrivateService
+      │                                      descriptors (used by createClient)
+      └── todo/v1/
+          ├── todo_pb.ts                  ← TS types, enums, schemas (Todo, Priority…)
+          └── todo_connect.ts             ← TodoService descriptor (used by createClient)
 ```
 
-Ce qui est généré pour le module Todo :
+The key layering distinction: go/network/ is the raw wire layer (proto-generated structs + Connect interfaces), while go/application/ is the application contract layer (domain-oriented interfaces, error codes, event topics) generated by the custom protoc-gen-go-contracts plugin. Only go/application/ is imported by module code — go/network/ types flow through adapters only.
 
-```
-gen/go/todo/v1/
-    todo.pb.go              ← structs Go (Todo, CreateTodoRequest, Priority…)
-    todov1connect/
-        todo.connect.go     ← interface TodoServiceHandler (serveur) + client Go
+La distinction clé entre les couches :
+- **go/network/** est la couche réseau brute (structures proto-générées + interfaces Connect) qui concerne la sérialisation/désérialisation des données sur le réseau.
+- **go/application/** est la couche de contrat d'application (interfaces orientées domaine, codes d'erreur, sujets d'événements) générée par un plugin personnalisé protoc-gen-go-contracts dans `MMW`.
 
-gen/ts/todo/v1/
-    todo_pb.ts              ← types TS, enums, schémas (Todo, CreateTodoRequest, Priority…)
-    todo_connect.ts         ← descripteur TodoService (utilisé par createClient)
-```
+Seul **go/application/** est importé par le code des modules, les types **go/network/** circulent uniquement via les adaptateurs.
 
 **Étape 3 — Côté serveur Go : implémenter l'interface générée**
 
 Le module Todo n'écrit pas son handler HTTP à la main. Il implémente l'interface `TodoServiceHandler` générée :
 
 ```go
-// gen/go/todo/v1/todov1connect/todo.connect.go (généré — ne pas modifier)
+// go/network/todo/v1/todov1connect/todo.connect.go (généré — ne pas modifier)
 type TodoServiceHandler interface {
     CreateTodo(context.Context, *connect.Request[todov1.CreateTodoRequest]) (*connect.Response[todov1.CreateTodoResponse], error)
     GetTodo   (context.Context, *connect.Request[todov1.GetTodoRequest])    (*connect.Response[todov1.GetTodoResponse], error)
@@ -580,14 +864,14 @@ func (h *TodoHandler) CreateTodo(
 ) (*connect.Response[todov1.CreateTodoResponse], error) {
     todo, err := h.service.Create(ctx, req.Msg.Title, req.Msg.Description)
     if err != nil {
-        return nil, connectErrorFrom(err)  // voir §5.6
+        return nil, connectErrorFrom(err)  // voir §5.2
     }
 
     return connect.NewResponse(&todov1.CreateTodoResponse{Todo: todo}), nil
 }
 ```
 
-Le module s'enregistre sur le mux HTTP via le path généré — aucune URL à écrire :
+Le module s'enregistre sur le mux HTTP via le path généré — aucune URL n'est à écrire :
 
 ```go
 // modules/todo/todo.go
@@ -596,10 +880,10 @@ path, handler := todov1connect.NewTodoServiceHandler(todoHandler)
 mux.Handle(path, handler)
 ```
 
-Les types Go sont exposés via des **alias** dans `contracts/definitions/` pour préserver l'interface `proto.Message` et éviter toute redéfinition :
+Les types Go sont exposés via des **alias** dans `contracts/go/application/` pour préserver l'interface `proto.Message` et éviter toute redéfinition :
 
 ```go
-// contracts/definitions/auth/contract.go
+// contracts/go/application/auth/contract.go
 import authv1 "github.com/pivaldi/mmw-contracts/gen/go/auth/v1"
 
 type User = authv1.User  // alias — pas une redéfinition
@@ -623,9 +907,17 @@ const client    = createClient(TodoService, transport);
 // client.createTodo(…)…, client.getTodo(…)…, client.listTodos(…)…
 ```
 
-Chaque appel est une promesse fortement typée — l'IDE connaît le type de la requête et de la réponse :
+Chaque appel est une promesse fortement typée — l'IDE connaît le type de la requête et de la réponse :
 
 ```typescript
+import {
+  Todo,
+  ListTodosRequest,
+  ListTodosResponse,
+  CreateTodoRequest,
+  UpdateTodoRequest,
+} from '@contracts/todo/v1/todo_pb';
+
 @Injectable({ providedIn: 'root' })
 export class TodoService {
   // Les types CreateTodoRequest et Todo viennent de todo_pb.ts (généré)
@@ -675,18 +967,36 @@ Si un champ change dans le `.proto` ou qu'une méthode est renommée, la compila
 
 ```mermaid
 graph LR
-    Proto["contracts/proto/<br>todo/v1/todo.proto"]
-    Buf["buf generate"]
-    Go["gen/go/todo/v1/<br>todo.pb.go<br>todov1connect/todo.connect.go"]
-    TS["gen/ts/todo/v1/<br>todo_pb.ts<br>todo_connect.ts"]
-    Back["Module Todo Go<br>(implémente TodoServiceHandler)"]
-    Front["Angular<br>(createClient + types TS)"]
+  Proto["contracts/proto/<br>todo/v1/todo.proto"]
 
-    Proto --> Buf
-    Buf --> Go
-    Buf --> TS
-    Go --> Back
-    TS --> Front
+  BufNet["buf generate<br>(protoc-gen-go<br>protoc-gen-connect-go)"]
+  BufTS["buf generate<br>(protoc-gen-es<br>protoc-gen-connect-es)"]
+  BufApp["buf generate<br>(protoc-gen-go-contracts)"]
+
+  NetGo["go/network/todo/v1/<br>todo.pb.go — structs wire<br>todov1connect/todo.connect.go — handler + client Connect"]
+  AppGo["go/application/todo/<br>todo_service_contract_gen.go — interface TodoService<br>errors_gen.go — codes d'erreur métier<br>events_gen.go — Topics, alias d'événements"]
+  TS["ts/todo/v1/<br>todo_pb.ts — types TS, enums, schémas<br>todo_connect.ts — descripteur TodoService"]
+
+  Adapters["Adapters<br>(inbound: implémente TodoServiceHandler<br>outbound: appelle TodoService)"]
+  Back["Module Todo<br>(internal/application)<br>importe uniquement AppGo"]
+  Front["Angular<br>(createClient + types TS)"]
+
+  Proto --> BufNet
+  Proto --> BufTS
+  Proto --> BufApp
+
+  BufNet --> NetGo
+  BufTS  --> TS
+  BufApp --> AppGo
+
+  AppGo -.->|"types wire réutilisés<br>(CreateTodoRequest…)"| NetGo
+
+  NetGo --> Adapters
+  AppGo --> Adapters
+  AppGo --> Back
+  Adapters --> Back
+
+  TS --> Front
 ```
 
 **Il en va de même pour la gestion des erreurs du domaine au niveau du client TypeScript.**
@@ -817,150 +1127,168 @@ func (d *OutboxDispatcher) Dispatch(ctx context.Context, events []user.DomainEve
 }
 ```
 
-### 5.5 Communication intra-processus (InProc)
+### 5.5 Outbox + EventBus — Monolithe vs déploiement séparé
 
-Pour les appels **synchrones** entre modules (ex : le module Todo valide un JWT auprès du module Auth), les modules communiquent via une **interface contrat** — sans réseau, sans sérialisation.
+L'outbox pattern est une préoccupation **côté producteur uniquement**. La même garantie d'at-least-once s'applique quel que soit le bus sous-jacent — seule l'implémentation injectée dans `main.go` change.
+
+#### Monolithe (gochannel en mémoire)
+
+Dans le monolithe, `rawBus` est un `gochannel` qui joue **deux rôles simultanément** :
+- il est le `message.Publisher` sous-jacent de `WatermillBus` (alias `systemBus`) que l'`EventsRelay` utilise
+- il est le `message.Subscriber` injecté directement dans le router du module Todo
+
+```
+main.go
+  rawBus    := gochannel.New()             ← implémente Publisher + Subscriber
+  systemBus := WatermillBus(rawBus)        ← implémente SystemEventBus (wraps rawBus)
+
+  auth.New(EventBus: systemBus)            ← relay publie via SystemEventBus
+  todo.New(Subscriber: rawBus)             ← router souscrit via message.Subscriber
+```
+
+```
+Module Auth (producteur)                     Module Todo (consommateur)
+─────────────────────────────────────────    ──────────────────────────────────────
+domain op (DeleteUser)
+  └─ BEGIN TRANSACTION
+       DELETE auth.users
+       INSERT auth.event          ← outbox
+     COMMIT                       ← atomique
+
+EventsRelay (goroutine)
+  └─ poll auth.event
+       systemBus.Publish()        ← SystemEventBus interface
+         └─ WatermillBus → rawBus.Publish() ─→  rawBus.Subscribe()
+                                                  └─ router.Run
+                                                       └─ HandleUserDeleted
+                                                            └─ DeleteUserTasksCommand
+```
+
+```mermaid
+sequenceDiagram
+    participant Auth as Module Auth
+    participant DB as PostgreSQL
+    participant Relay as EventsRelay
+    participant SBus as systemBus (WatermillBus)
+    participant Raw as rawBus (GoChannel)
+    participant Todo as Module Todo
+
+    Auth->>DB: BEGIN TRANSACTION
+    Auth->>DB: DELETE user
+    Auth->>DB: INSERT auth.event (UserDeleted)
+    Auth->>DB: COMMIT — atomique
+
+    Relay->>DB: poll auth.event
+    Relay->>SBus: SystemEventBus.Publish(topic, payload)
+    SBus->>Raw: message.Publisher.Publish(topic, msg)
+    Raw->>Todo: message.Subscriber → router.Run → HandleUserDeleted
+```
+
+Si le processus tombe après le `COMMIT` mais avant le `Publish`, l'`EventsRelay` reprend au redémarrage depuis la dernière ligne non traitée de `auth.event` : zéro événement perdu.
+
+#### Déploiement séparé (Kafka / RabbitMQ)
+
+Seules deux lignes changent dans `main.go` — aucun module ne change :
+
+```
+main.go
+  kafkaPub  := kafka.NewPublisher(...)     ← implémente message.Publisher
+  kafkaSub  := kafka.NewSubscriber(...)    ← implémente message.Subscriber
+  systemBus := WatermillBus(kafkaPub)      ← même interface SystemEventBus
+
+  auth.New(EventBus: systemBus)            ← relay publie vers Kafka (inchangé côté module)
+  todo.New(Subscriber: kafkaSub)           ← router souscrit depuis Kafka (inchangé côté module)
+```
+
+```
+Module Auth (producteur)                     Module Todo (consommateur)
+─────────────────────────────────────────    ──────────────────────────────────────
+domain op (DeleteUser)
+  └─ BEGIN TRANSACTION
+       DELETE auth.users
+       INSERT auth.event          ← outbox (identique)
+     COMMIT
+
+EventsRelay (goroutine)
+  └─ poll auth.event
+       systemBus.Publish()        ← même interface SystemEventBus
+         └─ WatermillBus → kafkaPub.Publish() ─→  kafkaSub.Subscribe()
+                                                    └─ router.Run
+                                                         └─ HandleUserDeleted
+```
+
+```mermaid
+sequenceDiagram
+    participant Auth as Module Auth
+    participant DB as PostgreSQL (auth)
+    participant Relay as EventsRelay
+    participant SBus as systemBus (WatermillBus)
+    participant Kafka as Kafka (Publisher + Subscriber)
+    participant Todo as Module Todo
+
+    Auth->>DB: BEGIN TRANSACTION
+    Auth->>DB: DELETE user
+    Auth->>DB: INSERT auth.event (UserDeleted)
+    Auth->>DB: COMMIT — atomique
+
+    Relay->>DB: poll auth.event
+    Relay->>SBus: SystemEventBus.Publish(topic, payload)
+    SBus->>Kafka: kafkaPub.Publish(topic, msg)
+    Kafka->>Todo: kafkaSub → router.Run → HandleUserDeleted
+    Note over Kafka,Todo: Si Todo crashe avant Ack,<br/>Kafka redélivre (at-least-once)
+```
+
+Le consommateur (Todo) n'écrit rien en base pour gérer la durabilité — c'est Kafka qui garantit la redélivrance via les offsets de consumer group. Un message non acquitté (`msg.Ack()` non appelé) est automatiquement redélivré.
+
+#### Ce qui change entre les deux déploiements
+
+| | Monolithe | Déploiement séparé |
+|---|---|---|
+| `systemBus` injecté dans Auth | `WatermillBus(rawBus)` | `WatermillBus(kafkaPub)` |
+| `infra.Subscriber` injecté dans Todo | `rawBus` (gochannel) | `kafkaSub` (Kafka) |
+| Outbox côté Auth | ✅ identique | ✅ identique |
+| Code Auth, code Todo | ✅ inchangé | ✅ inchangé |
+
+L'outbox résout le problème du **producteur** : "comment écrire la donnée ET l'événement de façon atomique avant de les confier au broker ?". Le broker résout le problème du **consommateur** : "comment garantir qu'un message est traité même si le consommateur tombe ?".
+
+### 5.6 Communication intra-processus (InProc)
+
+Pour les appels **synchrones** entre modules (ex : le module Todo valide un JWT auprès du module Auth), les modules communiquent via une **interface de contrat strict** — sans réseau, sans sérialisation.
+
+Le contrat expose uniquement ce dont le consommateur a besoin. Le module Todo déclare dépendre de `AuthPrivateService` (uniquement `ValidateToken`) — il ne peut pas appeler `Register` ou `Login` par construction.
 
 ```mermaid
 graph LR
     Todo["Module Todo<br>(AuthMiddleware)"]
-    Contract["defauth.AuthService<br>(interface contrat)"]
-    Auth["Module Auth<br>(implémentation)"]
+    Contract["defauth.AuthPrivateService<br>(interface contrat strict)"]
+    Auth["Module Auth<br>(ContractAdapter)"]
 
-    Todo -->|"ValidateToken(ctx, token)"| Contract
+    Todo -->|"ValidateToken(ctx, req)"| Contract
     Contract -->|"appel direct en mémoire"| Auth
 ```
 
 ```go
-// contracts/definitions/auth/contract.go
-type AuthService interface {
-    GetUser(ctx context.Context, id string) (*User, error)
-    ValidateToken(ctx context.Context, token string) (uuid.UUID, error)
+// contracts/definitions/auth/auth_private_service_contract_gen.go  (généré)
+type AuthPrivateService interface {
+    ValidateToken(ctx context.Context, req *authv1.ValidateTokenRequest) (*authv1.ValidateTokenResponse, error)
 }
 
-// InprocClient est un wrapper qui accepte n'importe quelle implémentation de `AuthService`.
-type InprocClient struct{ server AuthService }
-
-func (c *InprocClient) ValidateToken(ctx context.Context, token string) (uuid.UUID, error) {
-    return c.server.ValidateToken(ctx, token)
+// modules/todo/todo.go
+type Infrastructure struct {
+    AuthSvc defauth.AuthPrivateService  // seule ValidateToken est accessible
+    // ...
 }
+
+// cmd/mmw/main.go
+todoModule, err := todo.New(todo.Infrastructure{
+    AuthSvc: authModule.PrivateService(), // retourne *inproc.ContractAdapter directement
+    // ...
+})
 ```
 
-Si demain le module Auth devient un vrai microservice, seul l'adaptateur change en remplaçant `InprocClient` par `NetworkClient`. Le code métier du module Todo ne change pas d'une ligne.
+`authModule.PrivateService()` retourne directement le `ContractAdapter` — aucun wrapper intermédiaire. Si demain le module Auth devient un microservice, seul `main.go` change : `authModule.PrivateService()` est remplacé par `authdef.NewPrivateHTTPClient(...)`. Le code du module Todo ne change pas d'une ligne.
 
-## 6. Uniformisation : tout futur projet devient un module
-
-MMW n'est pas juste une architecture pour le *CostesPro* — c'est le **socle technique standard** de l'entreprise. Tout nouveau projet démarre comme un module, se branche sur la plateforme MMW, et bénéficie immédiatement de tout ce qu'elle fournit.
-
-### Pour le DG
-
-Une nouvelle fonctionnalité métier ne repart plus de zéro. L'équipe passe 100 % de son temps sur la valeur métier, pas sur la plomberie. Le temps de démarrage d'un nouveau projet est drastiquement réduit.
-
-### Pour les devs
-
-Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'intégration d'un nouveau développeur est accéléré, les revues de code sont plus efficaces — tout le monde parle le même langage.
-
-### Ce que la plateforme fournit "gratuitement" à chaque module
-
-- La librairie `pkg/platform`
-  - **Serveur HTTP** : healthchecks, routes debug pprof
-  - **Connect RPC** : intercepteurs d'erreurs (logging, recovery) pour les handlers HTTP/2
-  - **HTTP Middlewares** : CORS, logging structuré, authentification, recovery panique
-  - **Logs structurés** : `slog`, JSON en prod / couleur en dev, sans configuration
-  - **Configuration générique** : TOML + surcharge par variables d'environnement
-  - **DomainError** : type d'erreur métier typé + `ErrorCode` — mapping automatique vers les codes Connect RPC dans les adaptateurs
-  - **Unit of Work** : transactions PostgreSQL sans fuites de session (`pgx`)
-  - **StructArgs** : conversion struct → `pgx.NamedArgs` pour les requêtes nommées
-  - **Outbox Relay** : publication d'événements garantie (au-moins-une-fois) via table outbox
-  - **Bus d'événements** : Watermill in-memory — même API que pour un bus distribué
-  - **Système de migrations DB** : Goose patché, embarqué dans le binaire du module
-  - **SafeGo** : goroutines sans fuite — panic capturée, loguée, propagée proprement
-  - **Platform Runner** : coordination `errgroup` de tous les serveurs et workers du processus
-  - **Interface Module** (`pfcore.Module`) : contrat standard pour brancher un module sur le runner
-  - **Génération des contrats** : Protobuf → Go + TypeScript via `buf`
-
-- La librairie `pkg/archtest` — Validation architecturale automatisée
-  - **Contract Purity** : le package `contracts/` n'importe jamais un module
-  - **Lib Independence** : les `libs/` n'importent ni module ni `mmw`
-  - **Module Isolation** : les modules ne s'importent pas directement entre eux
-  - **Module Interface** : un module n'expose que son interface contractuelle définie
-  - **Domain Purity** : `internal/domain/` n'importe jamais `contracts/`
-  - **Application Purity** : `internal/application/` n'importe jamais `contracts/`
-
-- La librairie `pkg/scaffold` — Génération de module
-  - **`GenerateModule`** : squelette complet du module (21 fichiers) — domaine, application, infra, connect, cmd, tests, mise.toml, arch-go, go.mod, …
-  - **`GenerateContract`** : squelette `contracts/definitions/<name>/` + proto + buf.gen
-  - **`UpdateGoWork`** : enregistrement idempotent du nouveau module dans `go.work`
-  - **`UpdateMiseToml`** : ajout automatique des tâches `test`, `test:integration`, `test:contract` dans le mise.toml racine
-
-- Interface de Ligne de Commandes : *CLI* `mmw`
-  - **`mmw new module`** : assistant interactif — nom, exposition Connect RPC, contrat inproc, accès base de données
-  - **`mmw new contract`** : génère la définition de contrat associée
-  - **`mmw check arch`** : valide les frontières architecturales de tous les modules
-  - **Synthèse de couverture de test** : rapport de couverture agrégé multi-modules
-
-**Migrations centralisées :** chaque module déclare ses migrations en quelques lignes de code — le socle s'occupe de l'exécution, du versionnement et du rollback (Up/Down). Pas d'outil externe à configurer, pas de script à maintenir séparément.
-
-### Chemin d'évolution
-
-Si un module atteint une taille critique ou nécessite une scalabilité indépendante, il peut être extrait en microservice autonome. Le contrat Protobuf est déjà défini. L'adaptateur réseau remplace l'adaptateur inproc — le code métier du module ne change pas.
-
-```mermaid
-graph LR
-    subgraph "Aujourd'hui"
-        P1["Plateforme"] --> A1["Auth"]
-        P1 --> T1["Todo"]
-        P1 --> C1["CRM"]
-    end
-    subgraph "Si besoin de scalabilité"
-        P2["Plateforme"] --> A2["Auth"]
-        P2 --> T2["Todo"]
-        N["Network<br>Adapter"] --> C2["CRM<br>(microservice)"]
-        P2 --> N
-    end
-```
-
-## 7. Stratégie de migration CostesPro
-
-### Pas de réécriture d'un coup
-
-Le monolithe modulaire permet une migration **domaine par domaine**. Chaque domaine métier du CRM (clients, devis, facturation, planning…) devient un module indépendant, développé et livré l'un après l'autre. À aucun moment il n'est nécessaire de tout arrêter pour tout basculer.
-
-### Strangler Fig Pattern
-
-L'ancien système PHP et les nouveaux modules Go coexistent pendant toute la transition. Un routeur redirige progressivement le trafic vers les modules Go au fur et à mesure qu'ils sont prêts. L'ancien système "s'étrangle" naturellement jusqu'à sa mise hors service.
-
-```mermaid
-graph TD
-    subgraph "Phase de transition"
-        U["Utilisateurs"]
-        Router["Routeur / Proxy"]
-        PHP["CostesPro PHP<br>(ancien)"]
-        Go["Modules Go<br>(nouveaux)"]
-
-        U --> Router
-        Router -->|"domaines migrés"| Go
-        Router -->|"domaines restants"| PHP
-    end
-```
-
-### Stratégie base de données
-
-- Un schéma PostgreSQL dédié **`cpro`** est créé pour CostesPro. La structure existante est réécrite proprement : noms de tables normalisés, colonnes typées, contraintes d'intégrité.
-- Pendant toute la durée de la migration, une **synchronisation bi-directionnelle** entre le schéma PHP existant et le nouveau schéma `cpro` garantit que les deux systèmes voient les mêmes données en temps réel.
-- Les équipes peuvent basculer module par module sans couper le service ni forcer une migration simultanée de tous les utilisateurs.
-
-### Priorité de migration
-
-Deux approches possibles, non exclusives :
-- **Par la douleur :** commencer par les domaines les plus difficiles à maintenir ou qui bloquent le plus l'évolution — l'impact est immédiat.
-- **Par la simplicité :** commencer par un domaine moins complexe pour que l'équipe prenne en main l'architecture avant d'attaquer les modules les plus critiques.
-
-### Les services Go existants
-
-Les services Go actuels, qui ont chacun leur propre architecture, peuvent être progressivement adaptés en modules MMW : on remplace leur infrastructure ad hoc par le socle commun, sans réécrire la logique métier.
-
-## 8. Stratégie de tests
+## 6. Stratégie de tests
 
 L'architecture hexagonale n'est pas qu'une organisation du code — elle rend les tests naturels. Chaque couche a une frontière claire, ce qui détermine exactement comment et à quel coût la tester.
 
@@ -1115,11 +1443,125 @@ graph LR
     S -->|"~30s"| R3["✅ + Monolithe<br>complet"]
 ```
 
+## 7. Uniformisation : tout futur projet devient un module
+
+MMW n'est pas juste une architecture pour le *CostesPro* — c'est le **socle technique standard** de l'entreprise. Tout nouveau projet démarre comme un module, se branche sur la plateforme MMW, et bénéficie immédiatement de tout ce qu'elle fournit.
+
+### Pour la direction
+
+Une nouvelle fonctionnalité métier ne repart plus de zéro. L'équipe passe 100 % de son temps sur la valeur métier, pas sur la plomberie. Le temps de démarrage d'un nouveau projet est drastiquement réduit.
+
+### Pour les devs
+
+Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'intégration d'un nouveau développeur est accéléré, les revues de code sont plus efficaces — tout le monde parle le même langage.
+
+### Ce que la plateforme fournit "gratuitement" à chaque module
+
+[Le plateforme MMW est entièrement documentée](https://github.com/piprim/mmw) avec des exemples tirés des modules Todo, Auth et Notifications.
+
+- La librairie `pkg/platform`
+  - **Serveur HTTP** : healthchecks, routes debug pprof
+  - **Connect RPC** : intercepteurs d'erreurs (logging, recovery) pour les handlers HTTP/2
+  - **HTTP Middlewares** : CORS, logging structuré, panic recovery, et authentification Bearer via `BearerAuthMiddleware` — le module fournit uniquement un `TokenValidator` (closure sur son `AuthPrivateService`), la plateforme gère l’extraction du token, la propagation du `userID` dans le contexte (`pfauthctx`), et les réponses 401
+  - **Logs structurés** : `slog`, JSON en prod / couleur en dev, sans configuration
+  - **Configuration générique** : TOML + surcharge par variables d'environnement
+  - **DomainError** : type d'erreur métier typé + `ErrorCode` — mapping automatique vers les codes Connect RPC dans les adaptateurs
+  - **Unit of Work** : transactions PostgreSQL sans fuites de session (`pgx`)
+  - **StructArgs** : conversion struct → `pgx.NamedArgs` pour les requêtes nommées
+  - **Outbox Relay** : publication d'événements garantie (au-moins-une-fois) via table outbox
+  - **Bus d'événements** : Watermill in-memory — même API que pour un bus distribué
+  - **Système de migrations DB** : Goose patché, embarqué dans le binaire du module
+  - **SafeGo** : goroutines sans fuite — panic capturée, loguée, propagée proprement
+  - **Platform Runner** : coordination `errgroup` de tous les serveurs et workers du processus
+  - **Interface Module** (`pfcore.Module`) : contrat standard pour brancher un module sur le runner
+  - **Génération des contrats** : Protobuf → Go + TypeScript via `buf`
+
+- La librairie `pkg/archtest` — Validation architecturale automatisée
+  - **Contract Purity** : le package `contracts/` n'importe jamais un module
+  - **Lib Independence** : les `libs/` n'importent ni module ni `mmw`
+  - **Module Isolation** : les modules ne s'importent pas directement entre eux
+  - **Module Interface** : un module n'expose que son interface contractuelle définie
+  - **Domain Purity** : `internal/domain/` n'importe jamais `contracts/`
+  - **Application Purity** : `internal/application/` n'importe jamais `contracts/`
+
+- La librairie `pkg/scaffold` — Génération automatique de module
+  - **`GenerateModule`** : squelette complet du module (21 fichiers) — domaine, application, infra, connect, cmd, tests, mise.toml, arch-go, go.mod, …
+  - **`GenerateContract`** : squelette `contracts/definitions/<name>/` + proto + buf.gen
+  - **`UpdateGoWork`** : enregistrement idempotent du nouveau module dans `go.work`
+  - **`UpdateMiseToml`** : ajout automatique des tâches `mise` de base dans le `mise.toml` du nouveau module
+
+- Interface de Ligne de Commandes : *CLI* `mmw`
+  - **`mmw new module`** : assistant interactif qui demande le nom du module, exposition ou non à Connect RPC, génération ou non des contrats inproc, accès ou non à une base de données
+  - **`mmw new contract`** : génère la définition de contrat associée (dans le cas où on ne l'aurait pas générée au début)
+  - **`mmw check arch`** : valide les frontières architecturales de tous les modules
+  - **`mmw test coverage`** :  génère une synthèse de couverture de test agrégé et multi-modules
+
+**Migrations centralisées :** chaque module déclare ses migrations en quelques lignes de code — le socle s'occupe de l'exécution, du versionnement et du rollback (Up/Down). Pas d'outil externe à configurer, pas de script à maintenir séparément.
+
+### Chemin d'évolution
+
+Si un module atteint une taille critique ou nécessite une scalabilité indépendante, il peut être extrait en microservice autonome. Le contrat Protobuf est déjà défini. L'adaptateur réseau remplace l'adaptateur inproc — le code métier du module ne change pas.
+
+```mermaid
+graph LR
+    subgraph "Aujourd'hui"
+        P1["Plateforme"] --> A1["Auth"]
+        P1 --> T1["Todo"]
+        P1 --> C1["CRM"]
+    end
+    subgraph "Si besoin de scalabilité"
+        P2["Plateforme"] --> A2["Auth"]
+        P2 --> T2["Todo"]
+        N["Network<br>Adapter"] --> C2["CRM<br>(microservice)"]
+        P2 --> N
+    end
+```
+
+## 8. Stratégie de migration du CostesPro
+
+### Pas de réécriture d'un coup
+
+Le monolithe modulaire permet une migration **domaine par domaine**. Chaque domaine métier du CRM (clients, devis, facturation, planning…) devient un module indépendant, développé et livré l'un après l'autre. À aucun moment il n'est nécessaire de tout arrêter pour tout basculer.
+
+### Strangler Fig Pattern
+
+L'ancien système PHP et les nouveaux modules Go coexistent pendant toute la transition. Un routeur redirige progressivement le trafic vers les modules Go au fur et à mesure qu'ils sont prêts. L'ancien système "s'étrangle" naturellement jusqu'à sa mise hors service.
+
+```mermaid
+graph TD
+    subgraph "Phase de transition"
+        U["Utilisateurs"]
+        Router["Routeur / Proxy"]
+        PHP["CostesPro PHP<br>(ancien)"]
+        Go["Modules Go<br>(nouveaux)"]
+
+        U --> Router
+        Router -->|"domaines migrés"| Go
+        Router -->|"domaines restants"| PHP
+    end
+```
+
+### Stratégie base de données
+
+- Un schéma PostgreSQL dédié **`cpro`** est créé pour CostesPro. La structure existante est réécrite proprement : noms de tables normalisés, colonnes typées, contraintes d'intégrité.
+- Pendant toute la durée de la migration, une **synchronisation bi-directionnelle** entre le schéma PHP existant et le nouveau schéma `cpro` garantit que les deux systèmes voient les mêmes données en temps réel.
+- Les équipes peuvent basculer module par module sans couper le service ni forcer une migration simultanée de tous les utilisateurs.
+
+### Priorité de migration
+
+Deux approches possibles, non exclusives :
+- **Par la douleur :** commencer par les domaines les plus difficiles à maintenir ou qui bloquent le plus l'évolution — l'impact est immédiat.
+- **Par la simplicité :** commencer par un domaine moins complexe pour que l'équipe prenne en main l'architecture avant d'attaquer les modules les plus critiques.
+
+### Les services Go existants
+
+Les services Go actuels, qui ont chacun leur propre architecture, peuvent être progressivement adaptés en modules MMW : on remplace leur infrastructure ad hoc par le socle commun, sans réécrire la logique métier.
+
 ## 9. Évolutions planifiées
 
 La plateforme est conçue par couches livrables indépendantes.  
 La couche 1 (scaffolding & standardisation) est opérationnelle.  
-Les trois couches suivantes sont conçues et documentées, prêtes à être implémentées après discutions avec l'équipe.8
+Les trois couches suivantes sont conçues et documentées, prêtes à être implémentées après discutions avec l'équipe.
 
 ### Couche 2 — Gestion des secrets
 
@@ -1202,3 +1644,89 @@ Ticket créé automatiquement dans Plane
 `mmw-webhook` est un petit binaire HTTP dans le repo — pas de service externe. Il reçoit les notifications Grafana et crée des issues Plane via son API REST.
 
 **Résultat :** une erreur applicative génère automatiquement un ticket, avec le lien vers la trace Tempo et les logs Loki correspondants. Le développeur clique, il voit exactement ce qui s'est passé.
+
+## 10. Annexe
+
+### Débogage des endpoints RPC
+
+Chaque module expose la **réflexion gRPC** lorsque `debug-enabled = true` dans la config serveur. Cela permet d'utiliser `grpcui` (interface Web interactive pour gRPC) `grpcurl`.
+
+#### Activation
+
+Dans le fichier de config de développement du module (`internal/infra/config/configs/development.toml`) :
+
+```toml
+[server]
+debug-enabled = true
+```
+
+Ou via variable d'environnement :
+
+```bash
+export SERVER_DEBUG_ENABLED=true
+```
+
+#### Lancer grpcui
+
+```bash
+# Auth module (port 8091)
+grpcui -plaintext localhost:8091
+
+# Todo module (port 8090)
+grpcui -plaintext localhost:8090
+```
+
+Ouvrir l'URL affichée dans le terminal (ex: `http://127.0.0.1:PORT/`) pour accéder à l'interface web.
+
+#### Ce qui est exposé
+
+| Endpoint | Protocole |
+|----------|-----------|
+| `/grpc.reflection.v1.ServerReflection/ServerReflectionInfo` | gRPC reflection v1 |
+| `/grpc.reflection.v1alpha.ServerReflection/ServerReflectionInfo` | gRPC reflection v1alpha |
+
+Ces routes ne sont montées **que si `DebugEnabled` est vrai** dans la config serveur — elles sont absentes en production.
+
+### Serveur HTTP : healthchecks et routes de diagnostic
+
+La plateforme monte automatiquement plusieurs routes de monitoring sur chaque module, sans aucune configuration.
+
+#### Healthcheck
+
+```
+GET /debug/monit
+```
+
+Retourne un objet JSON dont la clé `health` vaut `42` si tout va bien, `0` en cas d'erreur. Chaque module enregistre ses propres sondes (ex : connectivité base de données) via `HealthFns` dans `HTTPServerInfra`.
+
+```json
+{ "database": "ok", "health": 42 }
+```
+
+Utilisable directement comme liveness/readiness probe Kubernetes ou cible de surveillance CrowdSec/Uptime.
+
+#### Informations de build
+
+Disponible uniquement si `debug-enabled = true` :
+
+```
+GET /debug/info
+```
+
+Retourne le `debug.BuildInfo` du binaire en cours (dépendances Go, version, flags de build).
+
+#### Profiling pprof
+
+Disponible uniquement si `debug-enabled = true` :
+
+```
+GET /debug/pprof/
+GET /debug/pprof/cmdline
+GET /debug/pprof/profile
+GET /debug/pprof/symbol
+GET /debug/pprof/trace
+```
+
+Routes standard `net/http/pprof` — accessibles avec `go tool pprof` ou `curl` pour diagnostiquer les fuites mémoire, les goroutines bloquées ou les hot paths CPU en développement.
+
+> **En production** (`debug-enabled = false`) seul `/debug/monit` est monté. Les routes pprof et `/debug/info` sont absentes.
