@@ -1,6 +1,6 @@
 ---
-title: "Architecture innovante avec Workspace et modules Bridge en Go"
-description: "Découvrez le Monolithe Modulaire avec Go Workspaces, un modèle qui offre des frontières contraintes par le compilateur avec la performance d'un monolithe et la flexibilité des microservices."
+title: "Architecture innovante avec Workspace et définitions de contrats en Go"
+description: "Découvrez le Monolithe Modulaire Workspace, un modèle qui offre des frontières contraintes par le compilateur avec la performance d'un monolithe et la flexibilité des microservices."
 date: 2026-02-07 23:13:18
 id: innovative-go-modular-monolith-architecture
 lang: fr
@@ -21,7 +21,7 @@ tags:
 
 Le choix entre monolithe et microservices est souvent présenté comme un dilemme où il faut « choisir son poison ». Les monolithes sont faciles à démarrer mais se transforment souvent en « gros sac de nœuds ». Les microservices offrent une isolation mais introduisent un coût opérationnel massif dès le début.
 
-Dans cet article, nous allons explorer une voie médiane détaillée dans notre dernier livre blanc sur l'architecture : **Le Monolithe Modulaire Go avec Workspaces et modules Bridge "Purs".**
+Dans cet article, nous allons explorer une voie médiane détaillée dans notre dernier livre blanc sur l'architecture : **Le Monolithe Modulaire Go avec Workspaces et définitions de contrats "Pures".**
 
 ## Le Problème : L'érosion des frontières & l'Enfer des Dépendances
 
@@ -33,157 +33,329 @@ Dans un monolithe standard (un seul `go.mod`), chaque service doit partager *exa
 *   Et que le **Service B** a besoin de `aws-sdk-go` v2...
 *   **Vous êtes bloqué.** Toute la plateforme est retenue par la dette technique d'un seul service.
 
-## La Solution : Go Workspaces + Modules Bridge Purs
+## La Solution : Go Workspaces + Définitions de Contrats Pures
 
 Ce modèle repose sur trois piliers fondamentaux pour fournir des **frontières solides**, des **graphes de dépendances indépendants**, et une **distribution flexible**.
 
 ### 1. Go Workspaces (`go.work`)
-Au lieu d'un seul fichier `go.mod` massif, on traite chaque service comme un **module Go indépendant** au sein d'un dépôt unique. Le workspace Go coordonne ces modules, leur permettant de coexister dans un monorepo tout en permettant au compilateur d'empêcher les imports non autorisés entre eux.
+Au lieu d'un seul fichier `go.mod` massif, on traite chaque module comme un **module Go indépendant** au sein d'un dépôt unique. Le workspace Go coordonne ces modules, leur permettant de coexister dans un monorepo tout en permettant au compilateur d'empêcher les imports non autorisés entre eux.
 
-**Cruciale, cela vous donne des Graphes de Dépendances Indépendants.** Le Service A et le Service B peuvent utiliser différentes versions de la même bibliothèque sans conflit.
+**Cruciale, cela vous donne des Graphes de Dépendances Indépendants.** Le module A et le module B peuvent utiliser différentes versions de la même bibliothèque sans conflit.
 
-### 2. Le pattern "Module Bridge Pur"
-C'est la « recette secrète ». Au lieu que les services s'appellent directement, ils communiquent via un **Module Bridge**.
+### 2. Le pattern "Définition de Contrat Pure"
+C'est la « recette secrète ». Au lieu que les modules s'appellent directement, ils communiquent via une **Définition de Contrat** — un module séparé, à dépendances nulles.
 
-Un module Bridge est **strictement un contrat**. Pour éviter le couplage, on impose (via CI) qu'un bridge contienne **ZÉRO logique** et **ZÉRO dépendances**.
+Une définition de contrat est **strictement un contrat**. Pour éviter tout couplage, on impose (via CI) qu'une définition de contrat contienne **ZÉRO logique** et soit **générée automatiquement depuis des fichiers `.proto`** à l'aide du plugin `protoc-gen-go-contracts`.
 
-*   **Définit l'API publique** en utilisant des interfaces Go et des DTOs.
-*   **Agit comme une couture (seam)** où l'on peut plus tard basculer sur un transport réseau (comme Connect/gRPC) sans changer une seule ligne de logique métier.
-*   **Contient le Client Wrapper** (`InprocClient`) que les consommateurs utilisent.
+Chaque domaine génère automatiquement :
+*   **L'interface de service** — le contrat Go que les consommateurs utilisent.
+*   **Les constantes d'événements** — `TopicXxx` constants + `Topics []string` pour l'abonnement.
+*   **Les codes d'erreur du domaine** — constantes typées alignées sur l'enum proto.
+*   **Le client HTTP** — `NewPrivateHTTPClient` / `NewPublicHTTPClient` pour le transport réseau.
+
+```go
+// contracts/go/application/auth/auth_private_service_contract_gen.go
+// Code généré par protoc-gen-go-contracts. NE PAS MODIFIER.
+type AuthPrivateService interface {
+    ValidateToken(ctx context.Context, req *authv1.ValidateTokenRequest) (*authv1.ValidateTokenResponse, error)
+}
+```
 
 ### 3. Architecture Hexagonale (Ports et Adaptateurs)
-Au sein de chaque service, on maintient une hiérarchie stricte. L'"Implémentation" du bridge vit **à l'intérieur** du service, pas dans le bridge lui-même.
+Au sein de chaque module, on maintient une hiérarchie stricte. L'implémentation concrète vit **à l'intérieur** du module, exposée via un `ContractAdapter` dans la couche des adaptateurs entrants.
 
-*   **Couche Domaine :** Logique métier pure.
-*   **Couche Application :** Cas d'utilisation et "Ports".
-*   **Couche Adaptateurs :** Implémentations. C'est là que vit l'`InprocServer` (par ex., `services/app2/internal/adapters/inbound/bridge/`).
+*   **Couche Domaine :** Logique métier pure, zéro dépendance externe.
+*   **Couche Application :** Cas d'utilisation et Ports (interfaces).
+*   **Couche Adaptateurs :** Implémentations. C'est là que vit le `ContractAdapter` (par ex., `modules/auth/internal/adapters/inbound/inproc/`).
 
-## Flux technique : requête → App1 → App2 (In-Proc) → réponse
+## Flux technique : requête → Todo → Auth (In-Proc) → réponse
 
-Le diagramme suivant illustre le **cycle de vie d'une requête au runtime**. Il démontre comment une requête traverse les frontières de service au sein d'un seul processus tout en respectant strictement les coutures architecturales.
+Le diagramme suivant illustre le **cycle de vie d'une requête au runtime**. Il démontre comment le module Todo valide un token JWT auprès du module Auth au sein d'un seul processus, en respectant strictement les coutures architecturales.
 
 ```mermaid
 sequenceDiagram
     autonumber
     actor User
-    participant H1 as App1 HTTP Handler
-    participant U1 as App1 Use Case
-    participant P  as App1 Port (App2Client)
-    participant I  as App1 Adapter (InprocClient)
-    participant B  as Bridge (Interface Only)
-    participant S2 as App2 Adapter (InprocServer)
-    participant U2 as App2 Use Case
+    participant H as Todo Connect Handler
+    participant M as Auth Middleware
+    participant P  as Todo Port (AuthPrivateService)
+    participant I  as ContractAdapter (inproc)
+    participant C  as Contract Interface
+    participant S  as Auth Application Service
 
-    User->>H1: Requête HTTP
-    H1->>U1: appel use case (command/query)
-    U1->>P: besoin de données de app2
-    P->>I: dispatch interface
+    User->>H: Requête HTTP/Connect
+    H->>M: validation du token
+    M->>P: besoin de valider le JWT
 
-    note right of I: "⚡ Appel Inter-Module (Appel de Fonction)"
+    note right of P: "⚡ Appel Inter-Module (Appel de Fonction)"
 
-    I->>S2: appelle l'implémentation via Interface
-    S2->>U2: appel use case app2
-    U2-->>S2: données domaine
-    S2-->>I: map vers DTOs Bridge
-    I-->>U1: map vers Domaine App1
-    U1-->>H1: succès/échec
-    H1-->>User: Réponse HTTP
+    P->>I: dispatch via interface defauth.AuthPrivateService
+    I->>C: implémente l'interface du contrat
+    C->>S: appel use case auth
+    S-->>C: résultat domaine
+    C-->>I: AuthPrivateService response
+    I-->>M: token validé / erreur
+    M-->>H: contexte enrichi (user ID)
+    H-->>User: Réponse HTTP
 ```
 
 ## Câblage des composants et flux d'exécution
 
-Dans ce modèle, la magie du "In-process" se produit car App1 reçoit par injection un client qui pointe vers l'implémentation d'App2, **mais App1 ne voit que l'interface**.
+Chaque module expose son `ContractAdapter` via un accesseur sur `*Module`. Le consommateur ne voit que l'interface — jamais le type concret.
 
-### App2 : Le Fournisseur
-App2 initialise sa logique interne et crée l'`InprocServer` (un adaptateur). Cet adaptateur implémente l'interface `bridge.AuthorService`.
+### Le Fournisseur : exposer un contrat
 
 ```go
-// services/app2/cmd/main.go
-func main() {
-    // 1. Construction des couches internes (Repository, UseCase)
-    useCase := application.NewUseCase(repo)
-
-    // 2. Construction de l'Adaptateur Bridge (InprocServer)
-    // Il vit dans les adaptateurs INTERNES, PAS dans le module bridge.
-    // Il implémente l'Interface Bridge publique.
-    app2Server := app2adapter.NewInprocServer(useCase)
+// modules/auth/auth.go
+func (m *Module) PrivateService() defauth.AuthPrivateService {
+    return inproc.NewContractAdapter(m.service)
 }
 ```
 
-### App1 : Le Consommateur
-App1 est construit en injectant le client. Notez qu'App1 ne connaît que le package bridge (interface), jamais le code `app2/internal`.
+L'adaptateur in-process implémente l'interface générée :
 
 ```go
-// cmd/monolith/main.go (Composition Root)
-func main() {
-    // ... setup app2Server ...
+// modules/auth/internal/adapters/inbound/inproc/contract_adapter.go
+type ContractAdapter struct{ svc application.AuthService }
 
-    // 1. Encapsuler le Server dans le Client
-    // Le client vit dans le Bridge et accepte l'Interface
-    app2Client := app2bridge.NewInprocClient(app2Server)
+var _ defauth.AuthPrivateService = (*ContractAdapter)(nil)
+```
 
-    // 2. Injection dans App1
-    // App1 dépend de son propre Port, que app2Client implémente
-    app1UseCase := app1.NewUseCase(app2Client)
+### Le Consommateur : la racine de composition
+
+La racine de composition (`cmd/mmw/main.go`) est le **seul endroit** où les modules sont instanciés et câblés ensemble. Les dépendances inter-modules sont injectées via des interfaces de contrat, jamais via des pointeurs vers les types concrets des modules.
+
+```go
+// cmd/mmw/main.go
+func initModules(logger *slog.Logger, dbPool *pgxpool.Pool, ...) ([]pfcore.Module, error) {
+    // 1. Auth — aucune dépendance inter-module
+    authModule, _ := auth.New(auth.Infrastructure{
+        DBPool:   dbPool,
+        EventBus: eventBus,
+        Logger:   logger.With("module", auth.ModuleName),
+    })
+
+    // 2. Todo — dépend du service privé d'Auth pour la validation JWT
+    todoModule, _ := todo.New(todo.Infrastructure{
+        DBPool:  dbPool,
+        EventBus: eventBus,
+        Logger:  logger.With("module", todo.ModuleName),
+        AuthSvc: authModule.PrivateService(), // retourne defauth.AuthPrivateService
+    })
+
+    // 3. Notifications — s'abonne aux événements de tous les modules
+    notifModule, _ := notifications.New(notifications.Infrastructure{
+        Subscriber: rawBus,
+        Topics:     append(tododef.Topics, authdef.Topics...),
+    })
+
+    return []pfcore.Module{authModule, todoModule, notifModule}, nil
 }
 ```
 
-## Pourquoi "Bridge" plutôt que "Shared" ?
+### Le Platform Runner
 
-Un piège courant en Go est le **Shared Kernel**, où la logique commune est déposée dans un dossier `pkg/` ou `util/`. Cela conduit à un couplage étroit : changez une règle de validation dans le kernel partagé, et vous cassez 5 services.
+Les modules ne sont pas lancés manuellement. La bibliothèque `mmw-platform` les orchestre avec un `errgroup` en **destin partagé** : si un module échoue (perte de DB, panique non récupérée), le contexte partagé est annulé et tous les autres modules s'arrêtent proprement.
 
-Le pattern **Bridge Pur** évite cela en imposant des règles strictes :
+```go
+// cmd/mmw/main.go
+modules, _ := initModules(logger, dbPool, rawBus, eventBus)
+platform.New(logger, modules).Run(ctx)
+```
 
-1.  **Pas de Logique :** Les bridges contiennent *seulement* des interfaces, des DTOs, et des Erreurs.
-2.  **Pas de Dépendances :** Les bridges ont des fichiers `go.mod` avec **zéro** déclarations `require`.
-3.  **Pas d'Imports Internes :** Les bridges ne peuvent pas importer de packages `internal/`.
+Chaque module implémente l'interface `core.Module` — une contrainte vérifiée à la compilation :
 
-Si vous vous retrouvez à mettre de la validation ou des calculs dans un bridge, vous recréez un monolithe de type shared-kernel. Notre outil `arch-test` interdit explicitement cela.
+```go
+var _ pfcore.Module = (*Module)(nil)
 
-## Plaidoyer architectural : Pourquoi pas simplement `services/api` ?
+func (m *Module) Start(ctx context.Context) error {
+    g, gCtx := errgroup.WithContext(ctx)
+    g.Go(func() error { return m.server.Start(gCtx) })    // serveur Connect RPC
+    g.Go(func() error { m.relay.Start(gCtx); return nil }) // relay outbox → Watermill
+    g.Go(func() error { return m.router.Run(gCtx) })       // routeur d'événements
+    return g.Wait()
+}
+```
 
-Vous pourriez vous demander : *"Pourquoi ne pas simplement mettre l'API dans le dépôt du service (par ex., `services/authorsvc/api`) ? Pourquoi un répertoire `bridge/` séparé ?"*
+## mmw : le framework qui colle tout ensemble
 
-**La Réponse : Pour échapper à l'Enfer des Dépendances.**
+Écrire un monolithe modulaire implique une quantité de plomberie technique récurrente : configurer un serveur HTTP compatible Connect/gRPC, chaîner les middlewares, gérer les signaux OS, implémenter l'outbox, abstraire les transactions PostgreSQL... Le framework [mmw](https://github.com/piprim/mmw) (`github.com/piprim/mmw`) résout ce problème une fois pour toutes.
 
-Si `api` est à l'intérieur de `authorsvc` :
-*   Tout consommateur important `authorsvc/api` nécessite implicitement le module `authorsvc` **entier**.
-*   Vous héritez de toutes les dépendances du fournisseur (Drivers de base de données, AWS SDKs).
-*   Vous créez un **Graphe de Dépendances Partagé**.
+Il se compose de deux parties distinctes aux cycles de vie différents.
 
-En déplaçant l'API vers `bridge/authorsvc` (un module séparé) :
-*   Le Bridge a **zéro** dépendances.
-*   Les consommateurs importent le bridge et n'héritent de **rien**.
-*   Vous obtenez des **Graphes de Dépendances Indépendants**, permettant aux services d'évoluer leurs bibliothèques à leur propre rythme.
+### La plateforme runtime (`pkg/platform`)
+
+C'est une dépendance dans le `go.mod` de chaque module. Elle fournit tout ce dont un module a besoin pour participer au monolithe sans réinventer la roue :
+
+| Composant | Ce qu'il fournit |
+|-----------|-----------------|
+| **Serveur HTTP** | Chaîne de middlewares préconfigurée (Logger → Recovery → CORS → BearerAuth → Mux), support h2c pour Connect RPC, endpoint `/debug/monit` pour les health checks |
+| **Middleware BearerAuth** | Validation de token via une closure `TokenValidator`, injection du `userID` dans le contexte de la requête |
+| **Outbox relay** | Polling PostgreSQL toutes les 2s, publication Watermill, `FOR UPDATE SKIP LOCKED` pour la sécurité multi-répliques |
+| **Unit of Work** | Abstraction `*pgxpool.Pool` / `pgx.Tx` derrière une interface `DBExecutor` uniforme |
+| **Config loader** | Chargement TOML en couches (`default.toml` → `<APP_ENV>.toml` → variables d'environnement) |
+| **Connect interceptors** | Logging des erreurs avec stack trace `eris` intact, sans exposer les détails au client |
+| **Auth context** | `authctx.WithUserID` / `authctx.UserID` pour propager l'identité à travers les handlers |
+
+### Le CLI (`mmw-cli`)
+
+Le CLI est lui purement un **accélérateur de développement** — il n'est jamais embarqué dans le binaire de production.
+
+```bash
+mmw new module        # scaffold interactif : génère modules/<name>/, contracts/, go.work, mise.toml
+mmw new contract      # génère uniquement les fichiers de définition de contrat
+mmw check arch        # valide les frontières architecturales (voir section suivante)
+mmw test coverage     # affiche un tableau de couverture de tests par package
+```
+
+La commande `mmw new module` est particulièrement notable : elle lance un formulaire interactif qui génère l'intégralité de la structure d'un nouveau module (domaine, application, adaptateurs, migrations, proto, contrats) et met à jour `go.work` et `mise.toml` automatiquement. Ajouter un nouveau module à l'architecture prend quelques secondes.
+
+## L'application des règles architecturales
+
+Les frontières de cette architecture sont garanties à **deux niveaux distincts**.
+
+### Niveau 1 : Le compilateur Go
+
+Les imports cross-module vers des packages `internal/` sont **structurellement impossibles**. Chaque module fonctionnel a son propre `go.mod` ; le compilateur Go refuse physiquement qu'un module liste un autre module fonctionnel comme dépendance indirecte via `internal/`. Ce n'est pas une convention — c'est une propriété du langage.
+
+```
+✗ IMPOSSIBLE — erreur de compilation garantie :
+modules/todo/go.mod ne référence pas modules/auth,
+donc modules/todo ne peut jamais importer modules/auth/internal/...
+```
+
+### Niveau 2 : `mmw check arch`
+
+Ce que le compilateur ne peut pas vérifier — les violations de couches *à l'intérieur* d'un même module — est validé par `mmw check arch` (ou `mise run arch:check`) à chaque CI :
+
+| Validator | Règle vérifiée |
+|-----------|----------------|
+| `DomainPurityValidator` | `internal/domain/` n'importe pas `adapters/`, `infra/`, ou `application/` |
+| `ApplicationPurityValidator` | `internal/application/` n'importe pas `adapters/` ou `infra/` |
+| `ContractPurityValidator` | `contracts/go/application/` n'importe pas de code applicatif ou infra |
+| `LibDependencyValidator` | `libs/` et `mmw/` n'importent pas de modules fonctionnels |
+
+En cas de violation, le message d'erreur CI pointe directement vers le fichier et l'import fautif :
+
+```
+✗ Architecture validation failed
+
+✗ todo    Validating service architecture boundaries
+  modules/todo/internal/domain/todo.go
+    imports modules/todo/internal/adapters/postgres (domain → adapter violation)
+
+Fix: Move this dependency behind a port interface in the application layer.
+```
+
+## La testabilité comme conséquence directe
+
+L'architecture hexagonale n'est pas qu'une question d'organisation du code : elle détermine directement la **vitesse et la fiabilité de votre suite de tests**.
+
+```
+         /\      Tests système — 1 suite au niveau monolithe
+        /  \     (binaire réel, Postgres via testcontainers, flux complets)
+       /____\
+      /      \   Tests d'intégration — par module, adaptateurs uniquement
+     /________\
+    /          \ Tests applicatifs — ports mockés, logique d'orchestration
+   /____________\
+  /              \ Tests unitaires — domaine pur, zéro infrastructure
+ /________________\
+```
+
+Les tests de domaine s'exécutent en **< 1ms** sans aucune dépendance externe :
+
+```go
+func TestTodo_Complete(t *testing.T) {
+    title, _ := domain.NewTitle("Buy milk")
+    todo, _ := domain.NewTodo(title, domain.EmptyDescription, nil, uuid.New())
+
+    err := todo.Complete()
+
+    require.NoError(t, err)
+    assert.Equal(t, domain.StatusCompleted, todo.Status())
+    assert.Len(t, todo.Events(), 2) // TodoCreated + TodoCompleted
+}
+```
+
+Les tests de la couche application mockent **uniquement les ports** — les frontières architecturales — jamais les implémentations concrètes :
+
+```go
+func TestCreateTodoCommand_Execute(t *testing.T) {
+    // On mocke les PORTS (interfaces de la couche application)
+    // jamais PostgresRepository ou WatermillDispatcher directement
+    todoRepo      := mocks.NewTodoRepository(t)
+    eventDispatcher := mocks.NewEventDispatcher(t)
+    uow           := mocks.NewUnitOfWork(t)
+
+    // ... expectations ...
+
+    // On teste le SERVICE RÉEL — la logique métier, pas le câblage
+    svc := application.NewTodoApplicationService(todoRepo, uow, eventDispatcher)
+    resp, err := svc.CreateTodo(ctx, &todov1.CreateTodoRequest{Title: "Buy milk", UserId: uuid.NewString()})
+
+    require.NoError(t, err)
+    assert.NotEmpty(t, resp.GetTodo().GetId())
+}
+```
+
+Cette pyramide est possible parce que les règles de dépendance sont respectées : si `domain/` n'importe rien d'externe, ses tests ne peuvent pas en avoir besoin non plus. C'est une propriété émergente de l'architecture, pas une discipline à maintenir manuellement.
+
+## Pourquoi "Définition de Contrat" plutôt que "Shared Kernel" ?
+
+Un piège courant en Go est le **Shared Kernel**, où la logique commune est déposée dans un dossier `pkg/` ou `util/`. Cela conduit à un couplage étroit : changez une règle de validation dans le kernel partagé, et vous cassez 5 modules.
+
+Le pattern **Définition de Contrat Pure** évite cela en imposant des règles strictes :
+
+1.  **Générée, jamais écrite à la main :** Les définitions de contrats sont produites par `protoc-gen-go-contracts` depuis les fichiers `.proto`. Elles contiennent *seulement* des interfaces, des DTOs proto, des codes d'erreur et des constantes d'événements.
+2.  **Zéro dépendances métier :** Le module `mmw-contracts` ne dépend que de `connectrpc/connect` et `google.golang.org/protobuf` — jamais d'un module fonctionnel.
+3.  **Impossibilité structurelle de cycle :** Un module de contrat ne peut pas importer un module fonctionnel. Les cycles sont physiquement impossibles.
+
+```
+✓ VALIDE :
+modules/todo → contracts/go/application/auth → (connect + protobuf uniquement)
+
+✗ IMPOSSIBLE (erreur de compilation) :
+contracts/go/application/auth → modules/auth
+```
+
+Si vous vous retrouvez à mettre de la validation ou des calculs dans une définition de contrat, vous recréez un monolithe de type shared-kernel.
 
 ## Le chemin d'évolution
 
 La beauté de cette architecture réside dans son chemin de migration : vous n'avez pas à décider de la stratégie de déploiement finale au premier jour.
 
-1.  **Démarrage In-Process :** Déployez un binaire unique. Les services communiquent via des appels de fonctions (< 1µs de latence).
-2.  **Ajout de Contrats :** Introduisez Protobuf/Connect lorsque vous avez besoin de schémas formels.
-3.  **Distribution :** Quand le **Service A** a besoin de scaler indépendamment, basculez simplement son adaptateur dans `main.go`.
+1.  **Démarrage In-Process :** Déployez un binaire unique. Les modules communiquent via des appels de fonctions (< 1µs de latence), orchestrés par le platform runner.
+2.  **Ajout de Contrats :** Introduisez Protobuf/Connect lorsque vous avez besoin de schémas formels — les définitions de contrats génèrent automatiquement les clients HTTP en plus des clients in-process.
+3.  **Distribution :** Quand le **Module Auth** a besoin de scaler indépendamment, basculez simplement l'adaptateur dans `main.go`.
 
 **Mécanisme de bascule (basé sur la configuration) :**
 
 ```go
-if config.UseNetwork {
-    // Option A : gRPC/Connect (Distribué)
-    client = connect.NewClient("http://author-service")
-} else {
-    // Option B : In-Process (Monolithe)
-    // Zéro sérialisation, accès mémoire direct
-    client = bridge.NewInprocClient(authorServer)
-}
+// Avant (monolithe — in-process)
+todoModule, _ := todo.New(todo.Infrastructure{
+    AuthSvc: authModule.PrivateService(), // appel de fonction direct
+})
+
+// Après (distribué — Connect over HTTP)
+todoModule, _ := todo.New(todo.Infrastructure{
+    AuthSvc: defauth.NewPrivateHTTPClient(
+        authv1connect.NewAuthPrivateServiceClient(&http.Client{}, "https://auth.internal"),
+    ),
+})
 ```
+
+L'interface `defauth.AuthPrivateService` est identique dans les deux cas. Le module Todo ne sait pas quel transport est utilisé — et **aucune ligne de logique métier ne change**.
 
 ## Conclusion
 
 Le **Monolithe Modulaire Go avec Workspaces** est conçu pour les équipes de 5 à 20 développeurs qui ont besoin d'aller vite mais veulent garder leurs options ouvertes.
 
-Il offre l'**"expérience monorepo"** avec la **"discipline microservices"**, protégeant à la fois contre l'érosion des frontières et les conflits de dépendances.
+Il offre l'**"expérience monorepo"** avec la **"discipline microservices"**, protégeant à la fois contre l'érosion des frontières et les conflits de dépendances. La génération automatique des contrats depuis Protobuf garantit que les interfaces inter-modules restent un artifact de première classe — versionné, typé, et jamais oublié dans un tiroir.
 
 ### Lectures complémentaires
 *   [Dépôt GitHub & Livre Blanc](https://github.com/pivaldi/go-modular-monolith-white-paper)
+*   Le framework [mmw](https://github.com/piprim/mmw)
 *   [Documentation Go Workspaces](https://go.dev/doc/tutorial/workspaces)
 *   [Connect RPC pour Go](https://connectrpc.com/)
+*   [Buf — Protobuf toolchain](https://buf.build/)

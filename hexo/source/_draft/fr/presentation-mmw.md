@@ -11,7 +11,11 @@ categories:
 - [FR, Tech, Go]
 ---
 
+![MMW : une plateforme de développement pour nos futurs projets SI](/media/mmw-software-architecture/mmw.png)
+
+
 ## 1. Contexte & enjeux
+![Contexte & enjeux](/media/mmw-software-architecture/context.png)
 
 ### Pourquoi maintenant ?
 
@@ -36,6 +40,7 @@ Cette refonte n'est pas juste « réécrire le CostesPro en Go ». C'est l'occ
 Le résultat attendu : une équipe qui passe 100 % de son temps sur ce qui compte — les fonctionnalités métier — et zéro temps à réinventer l'infrastructure à chaque nouveau projet.
 
 ## 2. Analogie avec  l'hôtel d'entreprises
+![Analogie avec  l'hôtel d'entreprises](/media/mmw-software-architecture/hotel.webp)
 
 Imaginons un **hôtel d'entreprises**. Il accueille plusieurs sociétés, chacune dans ses propres locaux. Toutes partagent la même infrastructure fournie par l'hôtel : l'électricité, l'eau, le réseau internet, la sécurité, le ménage, la réception.
 
@@ -123,6 +128,8 @@ Les appels réseaux sont portés par [Connect](https://connectrpc.com/) qui cré
 Le but annoncé de [Buf Technologies](https://buf.build/) : « déprécier REST/JSON en faveur du développement basé sur des schémas utilisant Protobuf ».
 
 ## 3. Tour des architectures
+
+![Tour des architectures](/media/mmw-software-architecture/archi.webp)
 
 MMW n'est ni un monolithe classique ni un ensemble de microservices — c'est le meilleur des deux,
 adapté à la taille et aux moyens d'une équipe de 5 à 20 développeurs.
@@ -368,6 +375,8 @@ Trois principes structurent toute l'architecture. Ensemble, ils font que le code
 
 ### 4.1 Domain-Driven Design (DDD)
 
+![Domain-Driven Design (DDD)](/media/mmw-software-architecture/ddd.webp)
+
 > **Le code parle le même langage que le métier.**
 
 Dans une application classique, la logique métier se noie dans des contrôleurs qui mélangent validation, SQL, règles de gestion et réponses HTTP. Au bout de quelques années, plus personne ne sait où vivent les règles.
@@ -389,6 +398,9 @@ graph LR
 ```
 
 ### 4.2 Clean Architecture (Architecture Hexagonale)
+
+![Clean Architecture (Architecture Hexagonale)](/media/mmw-software-architecture/clean-arch.webp)
+
 
 > **Le métier ne connaît pas la base de données, l'Unit of Work, les bus d'évènements etc.**
 
@@ -417,6 +429,8 @@ flowchart TD
 
 
 ### 4.3 Event-Driven & Transactional Outbox
+
+![Event-Driven & Transactional Outbox](/media/mmw-software-architecture/event.webp)
 
 > **Les modules ne s'appellent pas directement pour les actions secondaires.**
 
@@ -453,6 +467,8 @@ sequenceDiagram
 Chaque composant a une responsabilité unique et claire. Ensemble ils forment un système cohérent.
 
 ### 5.1 Structure d'un module
+
+![Structure d'un module](/media/mmw-software-architecture/module.webp)
 
 Chaque module suit le même squelette, sans exception. Le point d'entrée (`auth.go`) est la seule couche visible de l'extérieur — il câble les dépendances et démarre le module. Tout le reste est dans `internal/`.
 
@@ -725,13 +741,12 @@ On peut voir les graphes des dépendances
 
 ### 5.2 Contrats Protobuf
 
-**Les Contrats Protobuf sont la source unique de vérité de toute l'infrastructure informatique.**
+![Contrats Protobuf](/media/mmw-software-architecture/proto.webp)
 
-**Les modules ne partagent jamais leurs types ou fonctions internes.**
-
-Tout ce qui traverse une frontière de module passe par un **contrat** défini en Protobuf.
-
-Même les applications Angular s'appuie sur ces définitions :
+**Les Contrats Protobuf sont la source unique de vérité de toutes les applications/services Renée Costes.**  
+**Les modules ne partagent jamais leurs types ou fonctions internes.**  
+**Tout ce qui traverse une frontière de module passe par un contrat défini en Protobuf.**  
+**Même les applications Angular s'appuient sur ces définitions.**
 
 ```
 .proto (source unique)
@@ -1001,6 +1016,8 @@ graph LR
 
 **Il en va de même pour la gestion des erreurs du domaine au niveau du client TypeScript.**
 
+![Gestion des erreurs](/media/mmw-software-architecture/erreur.webp)
+
 Les erreurs traversent trois couches sans jamais dévier d'une couche à l'autre avant d'arriver au client TypeScript.
 
 ```
@@ -1029,7 +1046,7 @@ type DomainError struct {
 }
 ```
 
-Les codes numériques viennent de l'enum `TodoErrorCode` défini en protobuf et exposés comme constantes dans `contracts/definitions/todo`. **Le client TypeScript utilise le même enum généré depuis le même `.proto`**.
+Les codes numériques viennent de l'enum `TodoErrorCode` défini en protobuf et exposés comme constantes dans `contracts/go/application/todo`. **Le client TypeScript utilise le même enum généré depuis le même `.proto`**.
 
 **Couche 3 — `connectErrorFrom` dans l'adaptateur Connect**
 
@@ -1044,6 +1061,10 @@ const details = err.findDetails(DomainError);
 Les erreurs inconnues (infrastructure, inattendu) deviennent `CodeInternal` sans exposer d'information interne.
 
 ### 5.3 Unit of Work — transactions et propagation de contexte
+
+![Composant Unit of Work](/media/mmw-software-architecture/uow.webp)
+
+
 
 Le `UnitOfWork` garantit le **"tout ou rien"** pour un ensemble d'opérations base de données. Si la sauvegarde de l'agrégat réussit mais que l'écriture de l'événement échoue, tout est annulé.
 
@@ -1128,6 +1149,11 @@ func (d *OutboxDispatcher) Dispatch(ctx context.Context, events []user.DomainEve
 ```
 
 ### 5.5 Outbox + EventBus — Monolithe vs déploiement séparé
+
+P12
+
+![Outbox + EventBus — Monolithe vs déploiement séparé](/media/mmw-software-architecture/outbox-eventbus.png)
+
 
 L'outbox pattern est une préoccupation **côté producteur uniquement**. La même garantie d'at-least-once s'applique quel que soit le bus sous-jacent — seule l'implémentation injectée dans `main.go` change.
 
@@ -1252,6 +1278,9 @@ Le consommateur (Todo) n'écrit rien en base pour gérer la durabilité — c'es
 L'outbox résout le problème du **producteur** : "comment écrire la donnée ET l'événement de façon atomique avant de les confier au broker ?". Le broker résout le problème du **consommateur** : "comment garantir qu'un message est traité même si le consommateur tombe ?".
 
 ### 5.6 Communication intra-processus (InProc)
+P13
+
+![Communication intra-processus](/media/mmw-software-architecture/in-proc.png)
 
 Pour les appels **synchrones** entre modules (ex : le module Todo valide un JWT auprès du module Auth), les modules communiquent via une **interface de contrat strict** — sans réseau, sans sérialisation.
 
@@ -1268,7 +1297,7 @@ graph LR
 ```
 
 ```go
-// contracts/definitions/auth/auth_private_service_contract_gen.go  (généré)
+// contracts/go/application/auth/auth_private_service_contract_gen.go  (généré)
 type AuthPrivateService interface {
     ValidateToken(ctx context.Context, req *authv1.ValidateTokenRequest) (*authv1.ValidateTokenResponse, error)
 }
@@ -1289,6 +1318,11 @@ todoModule, err := todo.New(todo.Infrastructure{
 `authModule.PrivateService()` retourne directement le `ContractAdapter` — aucun wrapper intermédiaire. Si demain le module Auth devient un microservice, seul `main.go` change : `authModule.PrivateService()` est remplacé par `authdef.NewPrivateHTTPClient(...)`. Le code du module Todo ne change pas d'une ligne.
 
 ## 6. Stratégie de tests
+
+P14
+
+![Stratégie de tests](/media/mmw-software-architecture/tests.png)
+
 
 L'architecture hexagonale n'est pas qu'une organisation du code — elle rend les tests naturels. Chaque couche a une frontière claire, ce qui détermine exactement comment et à quel coût la tester.
 
@@ -1332,6 +1366,8 @@ Les handlers Connect sont aussi testés à ce niveau : `newTestHandler(t)` câbl
 **Exécution :** `go test ./...` — aucun Docker, aucun réseau. Quelques millisecondes par suite.
 
 ### Niveau 2 — Tests d'intégration
+
+**Note: c'est tests sont sciemment supprimés dans l'architecture `MMW` car il sont redondant avec les tests systèmes présents directement dans le monolithe.** 
 
 **Ce qu'ils testent :** les adaptateurs outbound — les repositories PostgreSQL, l'outbox dispatcher — contre une vraie base de données.
 
@@ -1408,7 +1444,7 @@ go test -tags system -v -timeout 180s ./test/system/...
 
 ### Pourquoi pas de tests E2E par module ?
 
-Dans un monolithe modulaire, tester un module seul avec un stub JWT créerait un doublon des tests système, avec une couche de mock à maintenir.  
+Dans un monolithe modulaire, **tester un module seul avec un pseudo JWT créerait un doublon des tests système**, avec une couche de mock à maintenir.  
 La frontière naturelle du système est le binaire complet — c'est là que les vrais tests de bout en bout ont leur place.  
 Chaque module gagne en confiance via ses contrats (niveau 3) et par les tests système partagés (niveau 4).
 
@@ -1445,6 +1481,9 @@ graph LR
 
 ## 7. Uniformisation : tout futur projet devient un module
 
+![Uniformisation : tout futur projet devient un module](/media/mmw-software-architecture/uniform.png)
+
+
 MMW n'est pas juste une architecture pour le *CostesPro* — c'est le **socle technique standard** de l'entreprise. Tout nouveau projet démarre comme un module, se branche sur la plateforme MMW, et bénéficie immédiatement de tout ce qu'elle fournit.
 
 ### Pour la direction
@@ -1453,9 +1492,12 @@ Une nouvelle fonctionnalité métier ne repart plus de zéro. L'équipe passe 10
 
 ### Pour les devs
 
-Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'intégration d'un nouveau développeur est accéléré, les revues de code sont plus efficaces — tout le monde parle le même langage.
+Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'intégration d'un nouveau développeur est accéléré, les revues de code sont plus efficaces ; **tout le monde parle le même langage**.
 
 ### Ce que la plateforme fournit "gratuitement" à chaque module
+P16
+
+![Uniformisation : tout futur projet devient un module](/media/mmw-software-architecture/uniform2.png)
 
 [Le plateforme MMW est entièrement documentée](https://github.com/piprim/mmw) avec des exemples tirés des modules Todo, Auth et Notifications.
 
@@ -1486,7 +1528,7 @@ Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes p
 
 - La librairie `pkg/scaffold` — Génération automatique de module
   - **`GenerateModule`** : squelette complet du module (21 fichiers) — domaine, application, infra, connect, cmd, tests, mise.toml, arch-go, go.mod, …
-  - **`GenerateContract`** : squelette `contracts/definitions/<name>/` + proto + buf.gen
+  - **`GenerateContract`** : squelette `contracts/go/application/<name>/` + proto + buf.gen
   - **`UpdateGoWork`** : enregistrement idempotent du nouveau module dans `go.work`
   - **`UpdateMiseToml`** : ajout automatique des tâches `mise` de base dans le `mise.toml` du nouveau module
 
@@ -1504,24 +1546,28 @@ Si un module atteint une taille critique ou nécessite une scalabilité indépen
 
 ```mermaid
 graph LR
+    direction TB
+    subgraph "Si besoin de scalabilité"
+        P2["Plateforme"] --> A2["Auth"]
+        P2 --> T2["Todo"]
+        N["Network<br>Adapter"]
+        P2 --> N
+    end
+    N --> C2["CRM<br>(microservice)"]
     subgraph "Aujourd'hui"
         P1["Plateforme"] --> A1["Auth"]
         P1 --> T1["Todo"]
         P1 --> C1["CRM"]
     end
-    subgraph "Si besoin de scalabilité"
-        P2["Plateforme"] --> A2["Auth"]
-        P2 --> T2["Todo"]
-        N["Network<br>Adapter"] --> C2["CRM<br>(microservice)"]
-        P2 --> N
-    end
 ```
 
 ## 8. Stratégie de migration du CostesPro
 
+![Stratégie de migration du CostesPro](/media/mmw-software-architecture/migration.png)
+
 ### Pas de réécriture d'un coup
 
-Le monolithe modulaire permet une migration **domaine par domaine**. Chaque domaine métier du CRM (clients, devis, facturation, planning…) devient un module indépendant, développé et livré l'un après l'autre. À aucun moment il n'est nécessaire de tout arrêter pour tout basculer.
+Le monolithe modulaire permet une migration **domaine par domaine**. Chaque domaine actuellement dans le CPro devient un module indépendant (CRM ≠ Gestion Documents ≠ Gestion des courriers ≠ Création/Suivi de dossiers, etc), développé et livré l'un après l'autre. À aucun moment il n'est nécessaire de tout arrêter pour tout basculer.
 
 ### Strangler Fig Pattern
 
@@ -1549,15 +1595,23 @@ graph TD
 
 ### Priorité de migration
 
+P18
+
+![Priorité de migration](/media/mmw-software-architecture/prio.png)
+
+
 Deux approches possibles, non exclusives :
 - **Par la douleur :** commencer par les domaines les plus difficiles à maintenir ou qui bloquent le plus l'évolution — l'impact est immédiat.
 - **Par la simplicité :** commencer par un domaine moins complexe pour que l'équipe prenne en main l'architecture avant d'attaquer les modules les plus critiques.
 
 ### Les services Go existants
 
-Les services Go actuels, qui ont chacun leur propre architecture, peuvent être progressivement adaptés en modules MMW : on remplace leur infrastructure ad hoc par le socle commun, sans réécrire la logique métier.
+Les services Go actuels, qui ont chacun leur propre architecture, peuvent être progressivement adaptés en modules MMW : on remplace leur infrastructure ad hoc par le socle commun, sans tout réécrire.
 
 ## 9. Évolutions planifiées
+
+![Évolutions planifiées](/media/mmw-software-architecture/evolution.png)
+
 
 La plateforme est conçue par couches livrables indépendantes.  
 La couche 1 (scaffolding & standardisation) est opérationnelle.  
@@ -1647,9 +1701,14 @@ Ticket créé automatiquement dans Plane
 
 ## 10. Annexe
 
+P20
+
+![Débogage et profilage](/media/mmw-software-architecture/debug.png)
+
+
 ### Débogage des endpoints RPC
 
-Chaque module expose la **réflexion gRPC** lorsque `debug-enabled = true` dans la config serveur. Cela permet d'utiliser `grpcui` (interface Web interactive pour gRPC) `grpcurl`.
+Chaque module expose la **réflexion gRPC** lorsque `debug-enabled = true` dans la config serveur. Cela permet d'utiliser [grpcui](https://github.com/fullstorydev/grpcui) (interface Web interactive pour gRPC) et `grpcurl` (en ligne de commande).
 
 #### Activation
 
@@ -1730,3 +1789,5 @@ GET /debug/pprof/trace
 Routes standard `net/http/pprof` — accessibles avec `go tool pprof` ou `curl` pour diagnostiquer les fuites mémoire, les goroutines bloquées ou les hot paths CPU en développement.
 
 > **En production** (`debug-enabled = false`) seul `/debug/monit` est monté. Les routes pprof et `/debug/info` sont absentes.
+
+![MMW : l'infra de demain disponible aujourd'hui](/media/mmw-software-architecture/fin.png)
