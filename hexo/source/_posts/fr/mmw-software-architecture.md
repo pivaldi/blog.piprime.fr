@@ -4,7 +4,7 @@ date: 2026-03-26 18:25:00
 id: mmw-software-architecture
 tree_view: true
 lang: fr
-description: "Plus qu'un design architecturale, MMW est un socle technique, une plateforme de développement pour nos futurs projets SI."
+description: "Plus qu'un design architecturale, MMW est un socle technique, une plateforme de développement pour des projets SI orientés business."
 categories:
 - [FR, Tech, Architecture]
 - [FR, Tech, Programmation]
@@ -1793,4 +1793,4 @@ Routes standard `net/http/pprof` — accessibles avec `go tool pprof` ou `curl` 
 
 > **En production** (`debug-enabled = false`) seul `/debug/monit` est monté. Les routes pprof et `/debug/info` sont absentes.
 
-![MMW : l'infra de demain disponible aujourd'hui](/media/mmw-software-architecture/fin.png)
+![MMW : l'infra de demain disponible aujourd'hui](/media/mmw-software-architecture/fin.webp)
