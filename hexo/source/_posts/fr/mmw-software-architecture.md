@@ -1,52 +1,66 @@
 ---
 title: "Modular Monolith Workspace - MMW"
 date: 2026-03-26 18:25:00
-id: mmw-software-architecture-2
+id: mmw-software-architecture
 tree_view: true
 lang: fr
-description: "Plus qu'un design architecturale, MMW est un socle technique pour OVYA, une plateforme de développement pour nos futurs projets SI."
+description: "Plus qu'un design architecturale, MMW est un socle technique, une plateforme de développement pour nos futurs projets SI."
 categories:
 - [FR, Tech, Architecture]
 - [FR, Tech, Programmation]
 - [FR, Tech, Go]
 ---
 
-![MMW : une plateforme de développement pour nos futurs projets SI](/media/mmw-software-architecture/mmw.png)
+Ce document a été écrit **dans le cadre** de la refonte complète de l'intranet d'une PME d'environ 200 personnes mais donne lieu à repenser l'intégralité de l'infrastructure logicelle que nous développons pour cette entreprise.  
+L'intranet dont il est question est constitué d'un CRM (le CPro) développé en interne depuis 15 ans en *PHP* pour le back-end et Javascript (framework [Dojo](https://dojotoolkit.org/)) pour le front-end:
+- 2131 fichiers *PHP* hors librairies externes, pour un total de 153 681 lignes de code (hors commentaires et lignes vides).
+- 424 fichiers *Javascript* hors librairies externes, pour un total de 130 163 lignes de code (hors commentaires et lignes vides).
+- 17 777 commits *git* toutes branches confondues.
 
+L'objectif est de présenter **un cadre d'architecture logicielle à la fois modulaire et rigoureux avec des outils d'automatisation et de vérification solides ainsi que des briques logicielles (plus spécialisées que des librairies) réutilisables pour tous les projets tout en garantissant un environnement de développement qui reste simple et automatisé.**
+
+![MMW : une plateforme de développement pour nos futurs projets SI](/media/mmw-software-architecture/mmw.webp)
 
 ## 1. Contexte & enjeux
-![Contexte & enjeux](/media/mmw-software-architecture/context.png)
+
+![Contexte & enjeux](/media/mmw-software-architecture/context.webp)
 
 ### Pourquoi maintenant ?
 
-Depuis 15 ans, le cœur de notre activité repose sur le **CostesPro**, une application *PHP* qui fonctionne bien, éprouvée, et indispensable au quotidien.  
-Mais la dette technique a pris de l'ampleur : la logique métier s'est dispersée dans des centaines de fichiers (plus de 2000 hors librairies) sans structure uniforme.  
+Depuis plusieurs années, le cœur de l'activité repose sur un CRM (`CPro`) métier qui fonctionne bien, éprouvée, et indispensable au quotidien.  
+Mais la dette technique a pris de l'ampleur : la logique métier a évolué et s'est dispersée dans des centaines de fichiers sans structure uniforme.  
 Modifier une fonctionnalité, c'est risquer d'en casser une autre ailleurs, ajouter un nouveau comportement devient un véritable casse tête.
 
-Voilà à quoi ressemble le CostesPro actuellement vu de l'extérieur :
+Voilà à quoi ressemble une application métier après des années de développement :
 
-![CostesPro vu de l'extérieur](/media/mmw-software-architecture/voiture.jpg)
+![Dette technique vu de l'extérieur](/media/mmw-software-architecture/voiture.webp)
 
 Et vu de l'intérieur :
-![CostesPro vu de l'intérieur](/media/mmw-software-architecture/graph-cpro.svg)
+![Dette technique vu de l'intérieur](/media/mmw-software-architecture/dette-technique.webp)
 
 En parallèle, l'équipe a livré plusieurs services en Go au fil des années.  
-Bien que chacun ait été mieux conçu que le précédent aucun n'est pleinement satisfaisant et à chaque fois, le même travail recommençait : configurer le serveur web, gérer les logs, brancher la base de données, inventer un système de configuration ; du temps et de l'énergie dépensé sur de la plomberie, pas sur de la valeur métier.
+Bien que chacun ait été mieux conçu que le précédent aucun n'est pleinement satisfaisant et à chaque fois, le même travail recommence :
+- configurer le serveur web ;
+- gérer les logs ;
+- brancher la base de données ;
+- inventer un système de configuration.
+
+Beaucoup de temps et d'énergie dépensé sur de la plomberie, pas sur de la valeur métier.
 
 ### L'enjeu
 
-Cette refonte n'est pas juste « réécrire le CostesPro en Go ». C'est l'occasion de se doter d'un **socle technique** commun — une **plateforme de développement** — dont tous nos projets futurs bénéficieront, pas seulement le CostesPro.
+Cette proposition de refonte n'est pas juste « réécrire le CRM interne en Go » ; c'est l'occasion de se doter d'un **socle technique** commun, une **plateforme de développement**, dont tous nos projets futurs bénéficieront, pas seulement le CRM.
 
-Le résultat attendu : une équipe qui passe 100 % de son temps sur ce qui compte — les fonctionnalités métier — et zéro temps à réinventer l'infrastructure à chaque nouveau projet.
+Le résultat attendu : une équipe qui passe 100 % de son temps sur ce qui compte, les fonctionnalités métier, et zéro temps à réinventer l'infrastructure à chaque nouveau projet.
 
 ## 2. Analogie avec  l'hôtel d'entreprises
 ![Analogie avec  l'hôtel d'entreprises](/media/mmw-software-architecture/hotel.webp)
 
-Imaginons un **hôtel d'entreprises**. Il accueille plusieurs sociétés, chacune dans ses propres locaux. Toutes partagent la même infrastructure fournie par l'hôtel : l'électricité, l'eau, le réseau internet, la sécurité, le ménage, la réception.
+Imaginons un **hôtel d'entreprises**. Il accueille plusieurs sociétés, chacune dans ses propres locaux, toutes partagent la même infrastructure fournie par l'hôtel : l'électricité, l'eau, le réseau internet, la sécurité, le ménage, la réception.
 
-Chaque société locataire n'a pas à s'occuper de l'acheminement de l'électricité ni de l'évacuation des eaux. Elle fait son business.
+Chaque société locataire n'a pas à s'occuper de l'acheminement de l'électricité ni de l'évacuation des eaux, elle s'occupe juste son business.
 
-**MMW** — Modular Monolith Workspace — fonctionne exactement comme cet hôtel :
+**MMW** fonctionne exactement comme cet hôtel :
 
 | Ce que fournit la plateforme MMW | Équivalent hôtel |
 |----------------------------------|-----------------|
@@ -74,7 +88,7 @@ graph TD
 ```
 
 Les modules ne se connaissent pas directement ; quand ils ont besoin de communiquer, ils passent par
-des **contrats** définis à l'avance (ou par des **événements** pour les processus asynchrones).  
+des **contrats** définis à l'avance (ou par des **événements** pour les processus asynchrones).
 
 Voici un exemple de contrat `auth`:
 1. je suis capable de dire si un token donné est valide
@@ -131,17 +145,17 @@ Le but annoncé de [Buf Technologies](https://buf.build/) : « déprécier REST
 
 ![Tour des architectures](/media/mmw-software-architecture/archi.webp)
 
-MMW n'est ni un monolithe classique ni un ensemble de microservices — c'est le meilleur des deux,
+`MMW` n'est ni un monolithe classique ni un ensemble de microservices, c'est un peu le meilleur des deux,
 adapté à la taille et aux moyens d'une équipe de 5 à 20 développeurs.
 
 ### 3.1 Monolithe classique
 
-Tout dans une seule application, une seule base de code, un seul serveur HTTP ; c'est [le CostesPro actuel](/media/mmw-software-architecture/graph-cpro.svg).
+Tout dans une seule application, une seule base de code, un seul serveur HTTP ; c'est le CRM actuel.
 
 ```mermaid
 graph TD
     Client["🌐 Client"]
-    App["Application monolithique<br>Tout mélangé: business, CMR, Document, Courriers, etc"]
+    App["Application monolithique<br>Tout mélangé: business, Auth, CMR, Document, Courriers, etc"]
     DB[("Base de données")]
 
     Client --> App
@@ -183,7 +197,7 @@ graph TD
 
 ### 3.3 Microservices
 
-Chaque domaine est un service indépendant déployé séparément ; cas de [CMailing](/media/mmw-software-architecture/graph-cmailing.svg), de [CSiteV3](/media/mmw-software-architecture/graph-csitev3.svg), [CSiteV4](/media/mmw-software-architecture/graph-csitev4.svg) de [MyRC](/media/mmw-software-architecture/graph-myrc.svg), de la `DataRoom` et de `Clog`.
+Chaque domaine est un service indépendant déployé séparément ; cas du [Mailing](/media/mmw-software-architecture/graph-cmailing.svg) et du [Site](/media/mmw-software-architecture/graph-csitev4.svg) entre autres.
 
 ```mermaid
 graph TD
@@ -244,7 +258,8 @@ graph TD
 
 ### 3.4 Monolithe Modulaire Workspace (MMW)
 
-Modules fortement isolés **dans un seul processus** grâce à la notion de **Go Workspace** ; le meilleur des deux mondes.
+Modules fortement isolés **dans un seul processus**.  
+Le développement de l'ensemble des services (modules) se fait dans un **Go Workspace** ; le meilleur des deux mondes.
 
 ```mermaid
 ---
@@ -367,7 +382,7 @@ En général le `go.work` n'est pas versionné mais dans une plateforme de déve
 La commande `go work sync` synchronise les versions des dépendances externes communes dans les `go.mod` de chaque module du Workspace, mais **elle ne met pas à jour les versions des modules locaux `APP1`, `APP2` et `APP3` entre eux** !  
 Pour ce faire, il faut descendre dans chaque application et faire le `go get -u github.com/xxx/appx` à la main, ce qui reste particulièrement pénible.
 
-Heureusement la plateforme `MMW` fournit un script (`mise run workspace:sync-modules`) qui permet de mettre à jour tous les `go.mod` de toutes les applications récursivement à la version Git en cours de chaque application.
+Heureusement la plateforme `MMW` fournit la commande `mmw workspace sync` qui permet de mettre à jour tous les `go.mod` de toutes les applications récursivement à la version Git en cours de chaque application.
 
 ## 4. Les principes fondateurs
 
@@ -743,10 +758,12 @@ On peut voir les graphes des dépendances
 
 ![Contrats Protobuf](/media/mmw-software-architecture/proto.webp)
 
-**Les Contrats Protobuf sont la source unique de vérité de toutes les applications/services Renée Costes.**  
-**Les modules ne partagent jamais leurs types ou fonctions internes.**  
-**Tout ce qui traverse une frontière de module passe par un contrat défini en Protobuf.**  
-**Même les applications Angular s'appuient sur ces définitions.**
+Les règles strictes des comtrats Proto sont les suivantes :
+
+- **Les Contrats Protobuf sont la source unique de vérité de toutes les applications/services de l'entreprise.**  
+- **Les modules ne partagent jamais leurs types ou leurs fonctions internes.**  
+- **Tout ce qui traverse une frontière de module passe par un contrat défini en Protobuf.**  
+- **Même les applications Angular s'appuient sur ces définitions.**
 
 ```
 .proto (source unique)
@@ -847,8 +864,6 @@ Une seule commande lit `buf.gen.yaml` et génère les deux cibles en parallèle 
           └── todo_connect.ts             ← TodoService descriptor (used by createClient)
 ```
 
-The key layering distinction: go/network/ is the raw wire layer (proto-generated structs + Connect interfaces), while go/application/ is the application contract layer (domain-oriented interfaces, error codes, event topics) generated by the custom protoc-gen-go-contracts plugin. Only go/application/ is imported by module code — go/network/ types flow through adapters only.
-
 La distinction clé entre les couches :
 - **go/network/** est la couche réseau brute (structures proto-générées + interfaces Connect) qui concerne la sérialisation/désérialisation des données sur le réseau.
 - **go/application/** est la couche de contrat d'application (interfaces orientées domaine, codes d'erreur, sujets d'événements) générée par un plugin personnalisé protoc-gen-go-contracts dans `MMW`.
@@ -857,7 +872,7 @@ Seul **go/application/** est importé par le code des modules, les types **go/ne
 
 **Étape 3 — Côté serveur Go : implémenter l'interface générée**
 
-Le module Todo n'écrit pas son handler HTTP à la main. Il implémente l'interface `TodoServiceHandler` générée :
+Le module Todo n'écrit pas son handler *HTTP* à la main. Il implémente l'interface `TodoServiceHandler` générée :
 
 ```go
 // go/network/todo/v1/todov1connect/todo.connect.go (généré — ne pas modifier)
@@ -886,7 +901,7 @@ func (h *TodoHandler) CreateTodo(
 }
 ```
 
-Le module s'enregistre sur le mux HTTP via le path généré — aucune URL n'est à écrire :
+Le module s'enregistre sur le mux *HTTP* via le path généré — aucune *URL* n'est à écrire :
 
 ```go
 // modules/todo/todo.go
@@ -1026,7 +1041,7 @@ Sentinel domain → DomainErrorFor (application) → connectErrorFrom (adapter) 
 
 **Couche 1 — Sentinelles dans le domaine**
 
-Le domaine ne connaît ni ConnectRPC ni les contrats protobuf. Il déclare de simples variables d'erreur :
+Le domaine ne connaît ni `ConnectRPC` ni les contrats *protobuf*. Il déclare de simples variables d'erreur :
 
 ```go
 // modules/todo/internal/domain/errors.go
@@ -1150,10 +1165,7 @@ func (d *OutboxDispatcher) Dispatch(ctx context.Context, events []user.DomainEve
 
 ### 5.5 Outbox + EventBus — Monolithe vs déploiement séparé
 
-P12
-
-![Outbox + EventBus — Monolithe vs déploiement séparé](/media/mmw-software-architecture/outbox-eventbus.png)
-
+![Outbox + EventBus — Monolithe vs déploiement séparé](/media/mmw-software-architecture/outbox-eventbus.webp)
 
 L'outbox pattern est une préoccupation **côté producteur uniquement**. La même garantie d'at-least-once s'applique quel que soit le bus sous-jacent — seule l'implémentation injectée dans `main.go` change.
 
@@ -1278,9 +1290,8 @@ Le consommateur (Todo) n'écrit rien en base pour gérer la durabilité — c'es
 L'outbox résout le problème du **producteur** : "comment écrire la donnée ET l'événement de façon atomique avant de les confier au broker ?". Le broker résout le problème du **consommateur** : "comment garantir qu'un message est traité même si le consommateur tombe ?".
 
 ### 5.6 Communication intra-processus (InProc)
-P13
 
-![Communication intra-processus](/media/mmw-software-architecture/in-proc.png)
+![Communication intra-processus](/media/mmw-software-architecture/in-proc.webp)
 
 Pour les appels **synchrones** entre modules (ex : le module Todo valide un JWT auprès du module Auth), les modules communiquent via une **interface de contrat strict** — sans réseau, sans sérialisation.
 
@@ -1319,9 +1330,7 @@ todoModule, err := todo.New(todo.Infrastructure{
 
 ## 6. Stratégie de tests
 
-P14
-
-![Stratégie de tests](/media/mmw-software-architecture/tests.png)
+![Stratégie de tests](/media/mmw-software-architecture/tests.webp)
 
 
 L'architecture hexagonale n'est pas qu'une organisation du code — elle rend les tests naturels. Chaque couche a une frontière claire, ce qui détermine exactement comment et à quel coût la tester.
@@ -1481,7 +1490,7 @@ graph LR
 
 ## 7. Uniformisation : tout futur projet devient un module
 
-![Uniformisation : tout futur projet devient un module](/media/mmw-software-architecture/uniform.png)
+![Uniformisation : tout futur projet devient un module](/media/mmw-software-architecture/uniform.webp)
 
 
 MMW n'est pas juste une architecture pour le *CostesPro* — c'est le **socle technique standard** de l'entreprise. Tout nouveau projet démarre comme un module, se branche sur la plateforme MMW, et bénéficie immédiatement de tout ce qu'elle fournit.
@@ -1495,9 +1504,8 @@ Une nouvelle fonctionnalité métier ne repart plus de zéro. L'équipe passe 10
 Un nouveau module suit toujours le même squelette. Mêmes conventions, mêmes patterns, même vocabulaire d'un projet à l'autre. L'intégration d'un nouveau développeur est accéléré, les revues de code sont plus efficaces ; **tout le monde parle le même langage**.
 
 ### Ce que la plateforme fournit "gratuitement" à chaque module
-P16
 
-![Uniformisation : tout futur projet devient un module](/media/mmw-software-architecture/uniform2.png)
+![Uniformisation : tout futur projet devient un module](/media/mmw-software-architecture/uniform2.webp)
 
 [Le plateforme MMW est entièrement documentée](https://github.com/piprim/mmw) avec des exemples tirés des modules Todo, Auth et Notifications.
 
@@ -1561,9 +1569,9 @@ graph LR
     end
 ```
 
-## 8. Stratégie de migration du CostesPro
+## 8. Stratégie de migration du CRM
 
-![Stratégie de migration du CostesPro](/media/mmw-software-architecture/migration.png)
+![Stratégie de migration du CostesPro](/media/mmw-software-architecture/migration.webp)
 
 ### Pas de réécriture d'un coup
 
@@ -1595,10 +1603,7 @@ graph TD
 
 ### Priorité de migration
 
-P18
-
-![Priorité de migration](/media/mmw-software-architecture/prio.png)
-
+![Priorité de migration](/media/mmw-software-architecture/prio.webp)
 
 Deux approches possibles, non exclusives :
 - **Par la douleur :** commencer par les domaines les plus difficiles à maintenir ou qui bloquent le plus l'évolution — l'impact est immédiat.
@@ -1610,7 +1615,7 @@ Les services Go actuels, qui ont chacun leur propre architecture, peuvent être 
 
 ## 9. Évolutions planifiées
 
-![Évolutions planifiées](/media/mmw-software-architecture/evolution.png)
+![Évolutions planifiées](/media/mmw-software-architecture/evolution.webp)
 
 
 La plateforme est conçue par couches livrables indépendantes.  
@@ -1701,9 +1706,7 @@ Ticket créé automatiquement dans Plane
 
 ## 10. Annexe
 
-P20
-
-![Débogage et profilage](/media/mmw-software-architecture/debug.png)
+![Débogage et profilage](/media/mmw-software-architecture/debug.webp)
 
 
 ### Débogage des endpoints RPC
