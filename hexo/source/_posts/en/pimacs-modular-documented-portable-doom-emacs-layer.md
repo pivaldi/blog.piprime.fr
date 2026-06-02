@@ -16,37 +16,18 @@ categories:
 
 This article is available in [French](/fr/pimacs-modular-documented-reproducible-doom-emacs-layer).
 
+[PIMacs](https://github.com/pivaldi/pimacs) is a collection of **documented and reproducible [Doom Emacs](https://github.com/doomemacs/doomemacs) modules**, designed to provide an *out-of-the-box development ecosystem* comparable to modern IDEs while preserving the flexibility of Emacs.
 
-[PIMacs](https://github.com/pivaldi/pimacs) is not “yet another Emacs config”.  
-It is a **modular, documented, and reproducible layer on top of [Doom Emacs](https://github.com/doomemacs/doomemacs)**, designed to deliver a *ready-to-use development ecosystem* comparable to modern IDEs—while preserving Emacs’ flexibility.
+PIMacs is built on four core pillars:
 
-PIMacs is built around four core ideas:
-
-- **Composable modules instead of a monolithic config**
-- **Self-documented workflows via auto-generated refcards**
-- **On-demand installation of development tooling using [Mise](https://mise.jdx.dev/)**
-- **Portable and reproducible environments, including Docker + X support**
-
-Everything else is optional.
-
-## Philosophy: Emacs as a System, Not a Dotfile
-
-Most Emacs setups slowly grow into unstructured personal dotfiles.  
-PIMacs treats Emacs as a **system**:
-
-- Modules are explicit
-- Tooling is declarative
-- Documentation is generated
-- Environments are reproducible
-
-The result is an editor that behaves more like **Zed or JetBrains IDEs**:
-open a project → tooling is available → you start working.
-
-But without giving up control.
+* **Composable [Doom](https://github.com/doomemacs/doomemacs) modules instead of a monolithic configuration**
+* **Self-documented workflows via automatically generated refcards**
+* **On-demand installation of development tools via [Mise**](https://mise.jdx.dev/)
+* **Portable and reproducible environments, including Docker with X11 support**
 
 ## Modular by Design
 
-PIMacs is organized as a collection of **independent Doom-compatible modules**:
+PIMacs is organized as a set of **independent Doom-based modules**:
 
 ```text
 modules/pimacs/
@@ -61,139 +42,92 @@ modules/pimacs/
 ├── docker/
 ├── refcards/
 └── …
+
 ```
 
-Each module has a clear scope, can be enabled or disabled independently, declares both **editor behavior** and **tooling requirements** thanks to [Mise](https://mise.jdx.dev/).
+Each module has a clear scope, can be activated or deactivated independently, and declares both the **editor behavior** and **tool requirements** using [Mise](https://mise.jdx.dev/).
 
-You can enable everything:
+You can enable everything at once:
 
 ```elisp
 (load! "modules/pimacs/init")
+
 ```
 
-Or compose intentionally:
+Or deliberately compose your own setup:
 
 ```elisp
 (load! "modules/pimacs/default")
 (load! "modules/pimacs/lang-go")
 (load! "modules/pimacs/refcards")
+
 ```
 
-Nothing is implicit. If it’s active, it’s because you chose it.
+## On-Demand Tools with Mise
 
-## On-Demand Tooling with Mise: IDE-Level Readiness
+One of the most powerful features of PIMacs is its **tight integration with Mise** for managing development tools.
 
-One of the most powerful features of PIMacs is its **tight integration with Mise** for development tooling management.  
-Instead of assuming tools are already installed on your system, PIMacs can **auto-install and manage language toolchains on demand** per module.
+Instead of assuming that tools are already globally installed on your system, PIMacs can **automatically install and manage software dependencies on demand**, module by module.
 
 ### Declarative Toolchains per Language
 
-Each language module may ship its own `mise.toml` file declaring required tools.  
-For example, the [Go module](https://github.com/pivaldi/pimacs/tree/master/lang-go) defines its toolchain [here](https://github.com/pivaldi/pimacs/blob/master/lang-go/mise.toml).  
-This can include:
+Each module can provide its own `mise.toml` file declaring its required tools.
+
+For instance, the [Go module](https://github.com/pivaldi/pimacs/tree/master/lang-go) defines its toolchain [here](https://github.com/pivaldi/pimacs/blob/master/lang-go/mise.toml). This setup can automatically fetch:
 
 * Go itself
-* Language servers
-* Formatters
+* Language Servers (LSPs)
+* Code formatters
 * Linters
-* Auxiliary CLI tools
+* Auxiliary CLI utilities
 
-When you load the module `lang-go` with the option `+tool`, the required tooling is:
+When you load the `lang-go` module with the `+tool` flag, the required tooling is detected, automatically installed if missing, and seamlessly activated for the current user environment.
 
-* detected
-* installed automatically if missing
-* activated automatically for the current user
+Because *Mise* installs tools **per user, versioned, and isolated**—rather than globally across the system—PIMacs is immediately operational without tedious manual environment configurations. Unlike standard Emacs configurations, PIMacs treats external tooling as part of the editor's contract, not as a prerequisite.
 
-As Mise installs **per-user, versioned, managed tooling**, not system-global so that Emacs is immediately usable, with all required tooling available without manual setup.  
-Unlike most Emacs configurations, PIMacs treats external tooling as part of the editor contract, not a prerequisite.
+### CLI Integration Within Emacs
 
-### CLI Integration Inside Emacs
+The [PIMacs CLI](https://github.com/pivaldi/pimacs/blob/master/default/cli.el) directly hooks Mise into your Emacs workflows:
 
-The [PIMacs cli](https://github.com/pivaldi/pimacs/blob/master/default/cli.el)  integrates Mise directly into Emacs workflows:
+* Ensures the correct tool versions are always available
+* Aligns Emacs tooling with project-specific runtime expectations
+* Keeps the CLI environment and the editor in perfect sync
 
-* Ensures the correct tool versions are available
-* Aligns Emacs tooling with project expectations
-* Keeps CLI and editor in sync
+From a user experience standpoint, it mirrors modern editors like [Zed](https://zed.dev/): **clone → open → code**.
 
-From the user’s perspective, the experience is similar to modern IDEs like [Zed](https://zed.dev/):
-**clone → open → code**.
+## Auto-Generated Refcards
 
-The difference is that tooling remains:
+PIMacs includes an automated **[refcard system](https://github.com/pivaldi/pimacs/blob/master/doc/README.org)** that generates up-to-date documentation straight from the active configuration.
 
-* explicit
-* reproducible
-* transparent
+It handles **per-module refcards** extracted directly from the underlying code, such as:
 
-## Auto-Generated Refcards: Documentation That Does Not Lie
+* [Default keybindings for PIMacs/keys with the "azerty" keyboard layout](https://github.com/pivaldi/pimacs/blob/master/keys/keys-key-bindings-refcard.org)
+* [Keybindings for PIMacs/lang-go with the "azerty" keyboard option](https://github.com/pivaldi/pimacs/blob/master/lang-go/lang-go-key-bindings-refcard.org)
+* [Keybindings for PIMacs/lang-php with the "azerty" keyboard option](https://github.com/pivaldi/pimacs/blob/master/lang-php/lang-php-key-bindings-refcard.org)
+* ...and more.
 
-PIMacs includes a **[refcards system](https://github.com/pivaldi/pimacs/blob/master/doc/README.org)** that automatically generates documentation from the active configuration.  
-It also provides **per-module refcards**, extracted directly from the code itself. For example:
+> **In practice:** Every single module that defines keybindings automatically generates its own detailed, readable refcards.
 
-- [Default PIMacs/keys Key Bindings with Keyboard Option “azerty”](https://github.com/pivaldi/pimacs/blob/master/keys/keys-key-bindings-refcard.org)
-- [PIMacs/lang-go Key Bindings with Keyboard Option “azerty”](https://github.com/pivaldi/pimacs/blob/master/lang-go/lang-go-key-bindings-refcard.org).
-- [PIMacs/lang-php Key Bindings with Keyboard Option “azerty”](https://github.com/pivaldi/pimacs/blob/master/lang-php/lang-php-key-bindings-refcard.org).
-- etc.
+Instead of relying on handwritten documentation that drifts out of date over time, PIMacs parses keymaps and commands directly from active modules, rendering structured reference files. This layout ensures your configuration is completely self-explanatory, auditable, and easy to share.
 
-**In practice, every module that defines keybindings also ships its own detailed refcards.**
+## Keymaps That Respect Your Layout
 
-Instead of hand-written docs that drift over time, PIMacs, extracts keybindings and commands from modules, generates structured refcards and keeps documentation aligned with reality.  
-This makes the configuration self-explaining, auditable and shareable.
+Navigation and physical comfort are top priorities.
 
-**Documentation becomes a build artifact, not an afterthought.**
+The `pimacs/keys` and `pimacs/avy` modules establish a unified, ergonomic navigation layer tailored specifically for AZERTY keyboard users via the explicit `+azerty` flag, making sure your muscle memory doesn't fight default configurations.
 
-## Keymaps That Respect Your Keyboard
+## Emacs in Docker, with X11 Support
 
-Navigation and ergonomics are first-class concerns.
+PIMacs is fully operational **inside Docker containers with complete graphical support**.
 
-The `pimacs/keys` and `pimacs/avy` modules define a consistent navigation layer.
-For AZERTY users, an explicit toggle exists:
-
-```elisp
-(keys +azerty)
-```
-
-Keyboard layout is part of the environment — PIMacs treats it as such.
-
-## Emacs Inside Docker, With X Support
-
-PIMacs can be to run fully featured **inside Docker containers with full graphical support**.
-
-This enables:
-
-* identical setups across machines
-* isolated experiments
-* reproducible demos
-* controlled CI environments
-
-With X forwarding, you get a real GUI Emacs with themes, fonts, Tree-sitter, everything — fully encapsulated.
-
-## Language Support Without Overreach
-
-Language modules (`lang-*`) follow one rule:
-
-> Enable modern tooling on demand and stay predictable.
-
-* Tree-sitter where it makes sense
-* LSP without magic
-* Minimal defaults, easy overrides
-
-PIMacs avoids heavy abstraction layers and respects user control.
+Leveraging X11 forwarding, you can launch a native, graphical Emacs container packed with themes, custom fonts, and Tree-sitter capabilities—completely sandboxed and reproducible.
 
 ## Conclusion
 
-PIMacs answers a practical question:
+PIMacs answers a highly practical question:
 
-> *Can Emacs provide an IDE-level experience without becoming opaque?*
+> *Can Emacs offer an out-of-the-box, IDE-grade experience without turning into an opaque black box?*
 
-The answer is **yes**, if:
-
-* configuration is modular
-* tooling is declarative
-* documentation is generated
-* environments are reproducible
-
-PIMacs delivers a ready-to-use development ecosystem comparable to Zed or [JetBrains](https://www.jetbrains.com/) — while remaining unmistakably Emacs.
+The answer is **yes**. PIMacs provides a modern development ecosystem comparable to Zed or [JetBrains](https://www.jetbrains.com/) while remaining undeniably, cleanly Emacs.
 
 **Repository:** [https://github.com/pivaldi/pimacs](https://github.com/pivaldi/pimacs)
-
-*Emacs is a platform. PIMacs treats it like one.*
