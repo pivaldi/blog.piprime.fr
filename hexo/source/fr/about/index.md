@@ -16,7 +16,7 @@ faire de ma passion mon métier et suis actuellement directeur technique du syst
 d'une PME.
 
 Paradoxalement, je vis loin de tout, en pleine nature, dans une ancienne ferme que j'ai restauré
-avec l'idée de tendre vers l'autosuffisance alimentaire voir énergétique.
+avec l'idée de tendre vers l'autosuffisance alimentaire voire énergétique.
 
 Particulièrement attaché à l'esprit de partage insufflé par
 [Richard Stallman](http://fr.wikipedia.org/wiki/Richard_Stallman), instigateur de la notion de

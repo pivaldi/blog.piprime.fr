@@ -1,5 +1,5 @@
 ---
-title: "DAO, reseaux sociaux décentralisés et identité numérique décentralisées."
+title: "DAO, reseaux sociaux décentralisés et identité numérique décentralisée."
 date: 2025-11-18 18:35:40
 id: dao_reseaux-sociaux-decentralises_identite-numerique-decentralisee
 tree_view: true

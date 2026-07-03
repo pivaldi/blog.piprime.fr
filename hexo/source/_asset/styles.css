@@ -7,6 +7,21 @@
   --tree-line-width: 2px;
 }
 
+/* .fancybox__backdrop { */
+/*   background: #dddddd !important; */
+/* } */
+
+/* .fancybox__caption { */
+/*   color: #333333 !important; */
+/* } */
+
+/* Light panel directly behind the figure; backdrop/surround stays dark */
+.fancybox__slide.has-image > .fancybox__content {
+  background: #efefef !important;
+  box-shadow: 0 0 0 0.5rem #efefef; /* the visible #efefef mat around the image */
+  border-radius: 6px;
+}
+
 /* Base Spacing */
 .tree-root,
 .tree-node,

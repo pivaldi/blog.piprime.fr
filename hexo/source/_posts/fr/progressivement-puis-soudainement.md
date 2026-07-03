@@ -4,7 +4,7 @@ date: 2025-07-01 23:00:00
 id: progressivement-puis-soudainement
 tree_view: true
 lang: fr
-description: "Progressivement, puis soudainement : un cadre pour comprendre le bitcoin comme argent."
+description: "Progressivement, puis soudainement : un cadre pour comprendre le bitcoin comme monnaie."
 categories:
 - [FR, Non Tech, Politique]
 - [FR, Non Tech, Économie]

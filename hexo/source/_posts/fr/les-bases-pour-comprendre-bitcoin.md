@@ -4,7 +4,7 @@ date: 2025-07-09 00:23:25
 id: les-bases-pour-comprendre-bitcoin
 tree_view: true
 lang: fr
-description: "Progressivement, puis soudainement : un cadre pour comprendre le bitcoin comme argent."
+description: "Progressivement, puis soudainement : un cadre pour comprendre le bitcoin comme monnaie."
 categories:
 - [FR, Non Tech, Bitcoin]
 tags:
@@ -35,7 +35,7 @@ Quand on parle de Bitcoin cela peut signifier trois choses :
 À l'instar de `http/https` pour le web, **le protocole `bitcoin` (sans majuscule)
 est l'ensemble des règles qui régissent le fonctionnement du réseau Bitcoin**.  
 Il permet la création, la validation et la sécurisation des transactions sur **une** blockchain, qui est
-sorte de une base de données distribuée et décentralisée.
+une sorte de base de données distribuée et décentralisée.
 
 Ce protocole a été initialement conçu par Satoshi Nakamoto, qui a publié un livre blanc intitulé
 « [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf) » en 2008.  

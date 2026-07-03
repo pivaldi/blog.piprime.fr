@@ -1,5 +1,5 @@
 ---
-title: Autres recettes de cuicines végétaliennes
+title: Autres recettes de cuisines végétaliennes
 date: 2025-08-01 14:01:09
 id: autres-recettes-de-cuisine-vegetalienne
 tree_view: true

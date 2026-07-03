@@ -171,9 +171,6 @@ menu:
     Lsystem:
       default: lsystem.html
 
-    Trembling:
-      default: trembling.html
-
     Tiling:
       default: tiling.html
 
@@ -181,7 +178,7 @@ menu:
       default: ccw.html
 
     Randomwalk:
-      default: randomwa.html
+      default: randomwalk.html
 
     Various:
       default: various.html
