@@ -2,6 +2,8 @@ services:
   hexo:
     image: blog-piprime-fr_hexo
     container_name: blog-piprime-fr_hexo
+    environment:
+      NODE_OPTIONS: "--max-old-space-size=1024"
     build:
       context: ./hexo
       target: builder
