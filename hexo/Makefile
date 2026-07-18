@@ -19,7 +19,9 @@ clean:
 	$(HEXO) clean
 
 .PHONY: install
-install:
+install: node_modules/.package-lock.json
+
+node_modules/.package-lock.json: package-lock.json
 	npm ci
 
 .PHONY: update
