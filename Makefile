@@ -59,7 +59,7 @@ update: docker
 	$(DOCKER_COMPOSE) run update
 
 asy-local-sync:
-	bin/asy-sync.sh $(CURRENT_DIR)../asymptote/asymptote-exemples-builder/build/md/hexo/ $(CURRENT_DIR)hexo/source/
+	@bin/asy-sync.sh $(CURRENT_DIR)../asymptote/asymptote-exemples-builder/build/md/hexo/ $(CURRENT_DIR)hexo/source/
 
 asy-remote-sync:
-	bin/asy-sync.sh $(CURRENT_DIR)../asymptote/asymptote-exemples-builder/build/md/hexo/ piprime:src/blog.piprime.fr/hexo/source/
+	@bin/asy-sync.sh $(CURRENT_DIR)../asymptote/asymptote-exemples-builder/build/md/hexo/ piprime:src/blog.piprime.fr/hexo/source/

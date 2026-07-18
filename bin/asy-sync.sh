@@ -6,7 +6,7 @@ function usage() {
   echo 'The parameters are passed to the rsync command, so you can use all syntaxes supported by rsync.'
   echo 'Nevertheless ASY_BUILD_MD_DIR is supposed to be a local directory for now.'
   echo 'IMPORTANT NOTE:'
-  echo -e "\t rsync is called with the options '-auv --delete'"
+  echo -e "\t rsync is called with the options '-aui --delete'"
 }
 
 if [ "$#" -ne 2 ]; then
@@ -31,11 +31,11 @@ HEXO_POST_DIR="${HEXO_SOURCE_DIR}_posts/en/asymptote/"
 for dir in "$ASY_MD_DIR" "$ASY_MEDIA_DIR" "$ASY_PAGE_DIR" "$ASY_POST_DIR"; do
   [ -e "$dir" ] || {
     echo "Directory does not exist : $dir"
-    echo 'Process oborted !'
+    echo 'Process aborted!'
     exit 1
   }
 done
 
-rsync -auv --delete "$ASY_MEDIA_DIR" "$HEXO_MEDIA_DIR" || exit 1
-rsync -auv --delete "$ASY_PAGE_DIR" "$HEXO_PAGE_DIR" || exit 1
-rsync -auv --delete "$ASY_POST_DIR" "$HEXO_POST_DIR" || exit 1
+rsync -aui --delete "$ASY_MEDIA_DIR" "$HEXO_MEDIA_DIR" || exit 1
+rsync -aui --delete "$ASY_PAGE_DIR" "$HEXO_PAGE_DIR" || exit 1
+rsync -aui --delete "$ASY_POST_DIR" "$HEXO_POST_DIR" || exit 1
