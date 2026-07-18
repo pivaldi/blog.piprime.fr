@@ -2,6 +2,7 @@
 title: Implementing the Unit of Work Pattern in Golang using Context Propagation
 date: 2026-03-07 12:00:00
 id: unit-of-work-pattern-in-golang
+tree_view: true
 description: "Implementing  the UnitOfWork pattern allows to fully decouple service layer from data layer."
 categories:
 - [EN, Tech, Engineering]

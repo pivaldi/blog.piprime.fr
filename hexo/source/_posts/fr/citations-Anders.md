@@ -20,7 +20,7 @@ tags:
 > Les images, notamment lorsqu'elles submergent le monde, portent constamment en elles le danger de
 > devenir un moyen d'abrutissement, parce que en tant qu'images, à la différence des textes, elles
 > ne révèlent jamais les rapports qui constituent le monde mais se contentent de prélever des
-> lambeaux de celui-ci : ainsi, en montrant le monde,  elles le dissimulent.  
+> lambeaux de celui-ci : ainsi, en montrant le monde, elles le dissimulent.  
 > -- Günther Anders - L'Obsolescence de l'homme.
 
 > En général, on fera en sorte de bannir le sérieux de l’existence, de tourner en dérision tout ce
