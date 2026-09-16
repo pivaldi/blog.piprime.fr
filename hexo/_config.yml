@@ -197,6 +197,28 @@ sitemap:
 # Vendors configuration moved to _config.next.yml
 # NexT theme manages vendor assets through its own vendors section
 
+## See https://github.com/next-theme/hexo-optimize
+## Post-generation optimizer maintained by the NexT organization.
+## Only CSS delivery is enabled: the listed stylesheets are rewritten to
+## `<link rel="preload" as="style" onload=...>` so they no longer block
+## rendering (FontAwesome, Fancybox and KaTeX are not needed above the fold).
+## Patterns are matched with `String.includes` against the absolute URL of the
+## `<link rel="stylesheet">` href, e.g. https://blog.piprime.fr/lib/katex/dist/katex.min.css
+filter_optimize:
+  enable: true
+  versioning: false
+  css:
+    minify: false
+    delivery:
+      - "@fortawesome/fontawesome-free"
+      - "@fancyapps/ui"
+      - "/lib/katex/"
+    inlines: []
+  js:
+    minify: false
+  html:
+    minify: false
+
 ## See https://github.com/hexojs/hexo-renderer-marked
 marked:
   gfm: true

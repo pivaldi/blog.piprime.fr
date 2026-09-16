@@ -10,8 +10,10 @@ deploy: install
 	$(HEXO) generate --deploy
 
 .PHONY: dev
+# NODE_ENV=development disables hexo-optimize: its after_generate filter renders
+# every HTML page on each reload, which makes live reload take ~30 s per edit.
 dev: clean
-	$(HEXO) serve --draft --debug -p $(SERVER_PORT)
+	NODE_ENV=development $(HEXO) serve --draft --debug -p $(SERVER_PORT)
 
 .PHONY: clean
 clean:
