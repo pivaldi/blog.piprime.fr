@@ -1,6 +1,6 @@
 ---
 title: "Faire Cohabiter l'Architecture Hexagonale et le Domain-Driven Design (DDD)"
-description: ""
+description: "Alors que la conception pilotée par domaine offre un modélisation rigoureuse pour structurer une logique métier complexe au sein d'un système, l'architecture hexagonale fournit la limite structurelle explicite nécessaire pour isoler cette logique des technologies externes. Ensemble, ils établissent un plan architectural solide qui protège l'activité numérique de l'entreprise, assure l'évolutivité et garantit la maintenabilité à long terme des systèmes d'entreprise complexes."
 date: 2026-09-29 13:10:00
 id: implementation-of-ddd-in-hexagonal-architecture
 lang: fr
